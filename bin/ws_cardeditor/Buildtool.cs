@@ -19,6 +19,8 @@ namespace ws_cardeditor
 
 		static public void Run()
 		{
+			Encoding.RegisterProvider(CodePagesEncodingProvider.Instance); 
+
 			// for debug, this commentout removed
 			// AllocConsole();
 			Console.WriteLine("--- cards.js build -------");
