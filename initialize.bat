@@ -1,1 +1,1 @@
-cp hooks/pre-commit .git/hooks/pre-commit
+copy hooks\pre-commit .git\hooks\pre-commit
