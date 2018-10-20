@@ -16,4 +16,4 @@
 2. 各精霊データを```build/cards.js```に結合する機能(要はbuild)
 
 普通に起動すると1.の機能のほうが立ち上がります。  
-buildを手動でやる場合は```bin/ws_cardeditor.exe --build```と実行してください。   
+buildを手動でやる場合は```bin/ws_cardeditor.exe --build```と実行してください。 
