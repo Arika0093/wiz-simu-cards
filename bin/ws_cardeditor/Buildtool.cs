@@ -19,7 +19,8 @@ namespace ws_cardeditor
 
 		static public void Run()
 		{
-			AllocConsole();
+			// for debug, this commentout removed
+			// AllocConsole();
 			Console.WriteLine("--- cards.js build -------");
 			var concatFiles = "var Cards = [";
 			Console.WriteLine("--- load *.js files ------");
