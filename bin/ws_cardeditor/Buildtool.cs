@@ -15,6 +15,7 @@ namespace ws_cardeditor
 
 		public const string OUTPUT_DIR = "../build/";
 		public const string OUTPUT_NAME = "cards.js";
+		public const string OUTPUT_MIN_NAME = "cards.min.js";
 		public const string CARD_SEGMENT_DIR = "../cards/";
 
 		static public void Run()
@@ -34,19 +35,27 @@ namespace ws_cardeditor
 				var readString = sr.ReadToEnd();
 				// comment remove
 				readString = Regex.Replace(readString, @"//.*\n", "");
-				// trim
-				//readString = Regex.Replace(readString, @"[\n\r\t]", "");
-				readString = Regex.Replace(readString, @"([:,])\s*", "$1");
 				concatFiles += (count > 0 ? "," : "") + readString;
 				sr.Close();
 				count++;
 			}
 			concatFiles += "];";
-			Console.WriteLine("--- save cards.js files --");
-			var saveDirPath = new Uri(assPath, OUTPUT_DIR + OUTPUT_NAME).LocalPath;
-			var sw = new StreamWriter(saveDirPath);
-			sw.Write(concatFiles);
-			sw.Close();
+			Console.WriteLine("--- trim cards.js file ---");
+			// trim
+			var concatTrimFiles = concatFiles;
+			concatTrimFiles = Regex.Replace(concatTrimFiles, @"[\n\r\t]", "");
+			concatTrimFiles = Regex.Replace(concatTrimFiles, @"([:,])\s*", "$1");
+			// save
+			Console.WriteLine("--- save cards.js file ---");
+			var savePath = new Uri(assPath, OUTPUT_DIR + OUTPUT_NAME).LocalPath;
+			var saveMinPath = new Uri(assPath, OUTPUT_DIR + OUTPUT_MIN_NAME).LocalPath;
+			var sw1 = new StreamWriter(savePath);
+			sw1.Write(concatFiles);
+			sw1.Close();
+			Console.WriteLine("--- save cards.min.js file");
+			var sw2 = new StreamWriter(saveMinPath);
+			sw2.Write(concatTrimFiles);
+			sw2.Close();
 			Console.WriteLine("--- finished. ------------");
 		}
 	}

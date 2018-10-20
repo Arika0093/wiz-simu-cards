@@ -86,7 +86,7 @@ namespace ws_cardeditor
 				}
 				rst += "],\r\n";
 			}
-			rst += "},";
+			rst += "}";
 			return rst;
 		}
 	}

@@ -1,2 +1,2 @@
 #!/bin/sh
-bin/ws_cardeditor.exe --build && git add build/cards.js
+bin/ws_cardeditor.exe --build && git add build/*.js

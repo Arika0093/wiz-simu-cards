@@ -31,7 +31,6 @@ namespace ws_cardeditor
 		{
 			var js = generateJs();
 			var jstxt = js.toString();
-			jsexport.Text = jstxt;
 
 			// File Save
 			var name = js.name.Replace(" ", "_");
@@ -45,6 +44,31 @@ namespace ws_cardeditor
 
 			Clipboard.SetDataObject(jstxt, true);
 			MessageBox.Show("Save Successed.");
+		}
+
+		private void 名前をつけてデータ保存SToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var js = generateJs();
+			var jstxt = js.toString();
+			var sdlg = new SaveFileDialog();
+			sdlg.FileName = js.cardno.ToString() + ".js";
+			sdlg.Filter = "定義ファイル(*.js)|*.js|すべてのファイル(*.*)|*.*";
+			if(sdlg.ShowDialog() == DialogResult.OK) {
+				// Write
+				var wt = new StreamWriter(sdlg.FileName);
+				wt.Write(jstxt);
+				wt.Close();
+				MessageBox.Show("Save Successed.");
+			}
+
+		}
+
+		private void 直接編集モードDToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var js = generateJs();
+			var jstxt = js.toString();
+			var de = new DirectEditor(jstxt, this.TopMost);
+			de.Show();
 		}
 
 		private void awake_edit_Click(object sender, EventArgs e)
@@ -133,6 +157,18 @@ namespace ws_cardeditor
 			}
 
 			return ws;
+		}
+
+		private void 最前面に表示するTToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var tp = this.TopMost = !this.TopMost;
+			最前面に表示するTToolStripMenuItem.Checked = tp;
+		}
+
+		private void 簡易検索ツールSToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var sv = new searchView();
+			sv.Show();
 		}
 	}
 }

@@ -27,7 +27,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.label14 = new System.Windows.Forms.Label();
 			this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
@@ -58,7 +57,6 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.t_name = new System.Windows.Forms.TextBox();
-			this.generatejs = new System.Windows.Forms.Button();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.cardno = new System.Windows.Forms.NumericUpDown();
 			this.imageno = new System.Windows.Forms.NumericUpDown();
@@ -79,11 +77,21 @@
 			this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.checkBox1 = new System.Windows.Forms.CheckBox();
-			this.jsexport = new System.Windows.Forms.TextBox();
-			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-			this.splitContainer1.Panel1.SuspendLayout();
-			this.splitContainer1.Panel2.SuspendLayout();
-			this.splitContainer1.SuspendLayout();
+			this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
+			this.button1 = new System.Windows.Forms.Button();
+			this.isAutoAddedDisable = new System.Windows.Forms.CheckBox();
+			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.ファイルFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.定義データ生成GToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.名前をつけてデータ保存SToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.終了XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.直接編集モードDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.検索FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.簡易検索ツールSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.表示VToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.最前面に表示するTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.flowLayoutPanel5.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.hp)).BeginInit();
@@ -101,24 +109,9 @@
 			((System.ComponentModel.ISupportInitialize)(this.ss1_charge)).BeginInit();
 			this.flowLayoutPanel6.SuspendLayout();
 			this.flowLayoutPanel7.SuspendLayout();
+			this.flowLayoutPanel8.SuspendLayout();
+			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// splitContainer1
-			// 
-			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-			this.splitContainer1.Name = "splitContainer1";
-			// 
-			// splitContainer1.Panel1
-			// 
-			this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel1);
-			// 
-			// splitContainer1.Panel2
-			// 
-			this.splitContainer1.Panel2.Controls.Add(this.jsexport);
-			this.splitContainer1.Size = new System.Drawing.Size(912, 489);
-			this.splitContainer1.SplitterDistance = 625;
-			this.splitContainer1.TabIndex = 0;
 			// 
 			// tableLayoutPanel1
 			// 
@@ -148,15 +141,15 @@
 			this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.t_name, 1, 0);
-			this.tableLayoutPanel1.Controls.Add(this.generatejs, 1, 14);
 			this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 1);
 			this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 1, 3);
 			this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel3, 1, 10);
 			this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel6, 1, 4);
 			this.tableLayoutPanel1.Controls.Add(this.reset, 0, 14);
 			this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel7, 1, 5);
+			this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel8, 1, 14);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 26);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 15;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -172,11 +165,11 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(625, 489);
-			this.tableLayoutPanel1.TabIndex = 0;
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(628, 484);
+			this.tableLayoutPanel1.TabIndex = 1;
 			// 
 			// label14
 			// 
@@ -186,7 +179,7 @@
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(134, 32);
 			this.label14.TabIndex = 28;
-			this.label14.Text = "登場イベ/is配布:";
+			this.label14.Text = "登場イベ/配布フラグ:";
 			this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// flowLayoutPanel5
@@ -198,7 +191,7 @@
 			this.flowLayoutPanel5.Location = new System.Drawing.Point(140, 61);
 			this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
 			this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-			this.flowLayoutPanel5.Size = new System.Drawing.Size(485, 30);
+			this.flowLayoutPanel5.Size = new System.Drawing.Size(488, 30);
 			this.flowLayoutPanel5.TabIndex = 15;
 			// 
 			// hp
@@ -280,7 +273,7 @@
 			this.flowLayoutPanel4.Location = new System.Drawing.Point(140, 384);
 			this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
 			this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-			this.flowLayoutPanel4.Size = new System.Drawing.Size(485, 32);
+			this.flowLayoutPanel4.Size = new System.Drawing.Size(488, 32);
 			this.flowLayoutPanel4.TabIndex = 24;
 			// 
 			// ss2_desc
@@ -333,7 +326,7 @@
 			this.ss2_proc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.ss2_proc.Location = new System.Drawing.Point(143, 419);
 			this.ss2_proc.Name = "ss2_proc";
-			this.ss2_proc.Size = new System.Drawing.Size(479, 25);
+			this.ss2_proc.Size = new System.Drawing.Size(482, 25);
 			this.ss2_proc.TabIndex = 25;
 			// 
 			// ss1_proc
@@ -341,7 +334,7 @@
 			this.ss1_proc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.ss1_proc.Location = new System.Drawing.Point(143, 355);
 			this.ss1_proc.Name = "ss1_proc";
-			this.ss1_proc.Size = new System.Drawing.Size(479, 25);
+			this.ss1_proc.Size = new System.Drawing.Size(482, 25);
 			this.ss1_proc.TabIndex = 23;
 			// 
 			// as2_proc
@@ -349,7 +342,7 @@
 			this.as2_proc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.as2_proc.Location = new System.Drawing.Point(143, 291);
 			this.as2_proc.Name = "as2_proc";
-			this.as2_proc.Size = new System.Drawing.Size(479, 25);
+			this.as2_proc.Size = new System.Drawing.Size(482, 25);
 			this.as2_proc.TabIndex = 21;
 			// 
 			// as2_desc
@@ -357,7 +350,7 @@
 			this.as2_desc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.as2_desc.Location = new System.Drawing.Point(143, 259);
 			this.as2_desc.Name = "as2_desc";
-			this.as2_desc.Size = new System.Drawing.Size(479, 25);
+			this.as2_desc.Size = new System.Drawing.Size(482, 25);
 			this.as2_desc.TabIndex = 20;
 			// 
 			// as1_proc
@@ -365,7 +358,7 @@
 			this.as1_proc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.as1_proc.Location = new System.Drawing.Point(143, 227);
 			this.as1_proc.Name = "as1_proc";
-			this.as1_proc.Size = new System.Drawing.Size(479, 25);
+			this.as1_proc.Size = new System.Drawing.Size(482, 25);
 			this.as1_proc.TabIndex = 19;
 			// 
 			// as1_desc
@@ -373,7 +366,7 @@
 			this.as1_desc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.as1_desc.Location = new System.Drawing.Point(143, 195);
 			this.as1_desc.Name = "as1_desc";
-			this.as1_desc.Size = new System.Drawing.Size(479, 25);
+			this.as1_desc.Size = new System.Drawing.Size(482, 25);
 			this.as1_desc.TabIndex = 18;
 			// 
 			// label12
@@ -382,7 +375,7 @@
 			this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.label12.Location = new System.Drawing.Point(3, 416);
 			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(134, 32);
+			this.label12.Size = new System.Drawing.Size(134, 31);
 			this.label12.TabIndex = 12;
 			this.label12.Text = "SS2実装:";
 			this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -502,19 +495,8 @@
 			this.t_name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.t_name.Location = new System.Drawing.Point(143, 3);
 			this.t_name.Name = "t_name";
-			this.t_name.Size = new System.Drawing.Size(479, 25);
+			this.t_name.Size = new System.Drawing.Size(482, 25);
 			this.t_name.TabIndex = 13;
-			// 
-			// generatejs
-			// 
-			this.generatejs.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.generatejs.Location = new System.Drawing.Point(143, 451);
-			this.generatejs.Name = "generatejs";
-			this.generatejs.Size = new System.Drawing.Size(479, 35);
-			this.generatejs.TabIndex = 26;
-			this.generatejs.Text = "&Generate File";
-			this.generatejs.UseVisualStyleBackColor = true;
-			this.generatejs.Click += new System.EventHandler(this.generatejs_Click);
 			// 
 			// flowLayoutPanel1
 			// 
@@ -526,14 +508,14 @@
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(140, 30);
 			this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(485, 31);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(488, 31);
 			this.flowLayoutPanel1.TabIndex = 14;
 			// 
 			// cardno
 			// 
 			this.cardno.Location = new System.Drawing.Point(3, 3);
 			this.cardno.Maximum = new decimal(new int[] {
-            99999,
+            999999,
             0,
             0,
             0});
@@ -602,7 +584,7 @@
 			this.flowLayoutPanel2.Location = new System.Drawing.Point(140, 91);
 			this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
 			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-			this.flowLayoutPanel2.Size = new System.Drawing.Size(485, 33);
+			this.flowLayoutPanel2.Size = new System.Drawing.Size(488, 33);
 			this.flowLayoutPanel2.TabIndex = 16;
 			// 
 			// attr_1
@@ -668,7 +650,7 @@
 			this.flowLayoutPanel3.Location = new System.Drawing.Point(140, 320);
 			this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
 			this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-			this.flowLayoutPanel3.Size = new System.Drawing.Size(485, 32);
+			this.flowLayoutPanel3.Size = new System.Drawing.Size(488, 32);
 			this.flowLayoutPanel3.TabIndex = 22;
 			// 
 			// ss1_desc
@@ -713,7 +695,7 @@
 			this.flowLayoutPanel6.Location = new System.Drawing.Point(140, 124);
 			this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
 			this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-			this.flowLayoutPanel6.Size = new System.Drawing.Size(485, 36);
+			this.flowLayoutPanel6.Size = new System.Drawing.Size(488, 36);
 			this.flowLayoutPanel6.TabIndex = 17;
 			// 
 			// awake_edit
@@ -741,9 +723,9 @@
 			// reset
 			// 
 			this.reset.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.reset.Location = new System.Drawing.Point(3, 451);
+			this.reset.Location = new System.Drawing.Point(3, 450);
 			this.reset.Name = "reset";
-			this.reset.Size = new System.Drawing.Size(134, 35);
+			this.reset.Size = new System.Drawing.Size(134, 31);
 			this.reset.TabIndex = 27;
 			this.reset.Text = "Reset";
 			this.reset.UseVisualStyleBackColor = true;
@@ -757,7 +739,7 @@
 			this.flowLayoutPanel7.Location = new System.Drawing.Point(140, 160);
 			this.flowLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
 			this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-			this.flowLayoutPanel7.Size = new System.Drawing.Size(485, 32);
+			this.flowLayoutPanel7.Size = new System.Drawing.Size(488, 32);
 			this.flowLayoutPanel7.TabIndex = 29;
 			// 
 			// textBox1
@@ -778,38 +760,150 @@
 			this.checkBox1.Text = "配布精霊";
 			this.checkBox1.UseVisualStyleBackColor = true;
 			// 
-			// jsexport
+			// flowLayoutPanel8
 			// 
-			this.jsexport.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.jsexport.Location = new System.Drawing.Point(0, 0);
-			this.jsexport.Multiline = true;
-			this.jsexport.Name = "jsexport";
-			this.jsexport.ReadOnly = true;
-			this.jsexport.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.jsexport.Size = new System.Drawing.Size(283, 489);
-			this.jsexport.TabIndex = 0;
-			this.jsexport.WordWrap = false;
+			this.flowLayoutPanel8.Controls.Add(this.button1);
+			this.flowLayoutPanel8.Controls.Add(this.isAutoAddedDisable);
+			this.flowLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.flowLayoutPanel8.Location = new System.Drawing.Point(140, 447);
+			this.flowLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
+			this.flowLayoutPanel8.Name = "flowLayoutPanel8";
+			this.flowLayoutPanel8.Size = new System.Drawing.Size(488, 37);
+			this.flowLayoutPanel8.TabIndex = 30;
+			// 
+			// button1
+			// 
+			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.button1.Location = new System.Drawing.Point(3, 3);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(358, 31);
+			this.button1.TabIndex = 1;
+			this.button1.Text = "ファイル生成";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.generatejs_Click);
+			// 
+			// isAutoAddedDisable
+			// 
+			this.isAutoAddedDisable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			this.isAutoAddedDisable.AutoSize = true;
+			this.isAutoAddedDisable.Checked = true;
+			this.isAutoAddedDisable.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.isAutoAddedDisable.Location = new System.Drawing.Point(367, 3);
+			this.isAutoAddedDisable.Name = "isAutoAddedDisable";
+			this.isAutoAddedDisable.Size = new System.Drawing.Size(115, 31);
+			this.isAutoAddedDisable.TabIndex = 2;
+			this.isAutoAddedDisable.Text = "disable自動付与";
+			this.isAutoAddedDisable.UseVisualStyleBackColor = true;
+			// 
+			// menuStrip1
+			// 
+			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ファイルFToolStripMenuItem,
+            this.検索FToolStripMenuItem,
+            this.表示VToolStripMenuItem});
+			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+			this.menuStrip1.Name = "menuStrip1";
+			this.menuStrip1.Size = new System.Drawing.Size(628, 26);
+			this.menuStrip1.TabIndex = 2;
+			this.menuStrip1.Text = "menuStrip1";
+			// 
+			// ファイルFToolStripMenuItem
+			// 
+			this.ファイルFToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.定義データ生成GToolStripMenuItem,
+            this.名前をつけてデータ保存SToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.直接編集モードDToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.終了XToolStripMenuItem});
+			this.ファイルFToolStripMenuItem.Name = "ファイルFToolStripMenuItem";
+			this.ファイルFToolStripMenuItem.Size = new System.Drawing.Size(85, 22);
+			this.ファイルFToolStripMenuItem.Text = "ファイル(&F)";
+			// 
+			// 定義データ生成GToolStripMenuItem
+			// 
+			this.定義データ生成GToolStripMenuItem.Name = "定義データ生成GToolStripMenuItem";
+			this.定義データ生成GToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+			this.定義データ生成GToolStripMenuItem.Text = "定義データ生成(&G)";
+			this.定義データ生成GToolStripMenuItem.Click += new System.EventHandler(this.generatejs_Click);
+			// 
+			// 名前をつけてデータ保存SToolStripMenuItem
+			// 
+			this.名前をつけてデータ保存SToolStripMenuItem.Name = "名前をつけてデータ保存SToolStripMenuItem";
+			this.名前をつけてデータ保存SToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+			this.名前をつけてデータ保存SToolStripMenuItem.Text = "名前をつけてデータ保存(&S)...";
+			this.名前をつけてデータ保存SToolStripMenuItem.Click += new System.EventHandler(this.名前をつけてデータ保存SToolStripMenuItem_Click);
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(235, 6);
+			// 
+			// 終了XToolStripMenuItem
+			// 
+			this.終了XToolStripMenuItem.Name = "終了XToolStripMenuItem";
+			this.終了XToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+			this.終了XToolStripMenuItem.Text = "終了(&X)";
+			// 
+			// 直接編集モードDToolStripMenuItem
+			// 
+			this.直接編集モードDToolStripMenuItem.Name = "直接編集モードDToolStripMenuItem";
+			this.直接編集モードDToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+			this.直接編集モードDToolStripMenuItem.Text = "直接編集モード(&D)...";
+			this.直接編集モードDToolStripMenuItem.Click += new System.EventHandler(this.直接編集モードDToolStripMenuItem_Click);
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(235, 6);
+			// 
+			// 検索FToolStripMenuItem
+			// 
+			this.検索FToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.簡易検索ツールSToolStripMenuItem});
+			this.検索FToolStripMenuItem.Name = "検索FToolStripMenuItem";
+			this.検索FToolStripMenuItem.Size = new System.Drawing.Size(62, 22);
+			this.検索FToolStripMenuItem.Text = "検索(&S)";
+			// 
+			// 簡易検索ツールSToolStripMenuItem
+			// 
+			this.簡易検索ツールSToolStripMenuItem.Name = "簡易検索ツールSToolStripMenuItem";
+			this.簡易検索ツールSToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.簡易検索ツールSToolStripMenuItem.Text = "簡易検索ツール(&S)...";
+			this.簡易検索ツールSToolStripMenuItem.Click += new System.EventHandler(this.簡易検索ツールSToolStripMenuItem_Click);
+			// 
+			// 表示VToolStripMenuItem
+			// 
+			this.表示VToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.最前面に表示するTToolStripMenuItem});
+			this.表示VToolStripMenuItem.Name = "表示VToolStripMenuItem";
+			this.表示VToolStripMenuItem.Size = new System.Drawing.Size(62, 22);
+			this.表示VToolStripMenuItem.Text = "表示(&V)";
+			// 
+			// 最前面に表示するTToolStripMenuItem
+			// 
+			this.最前面に表示するTToolStripMenuItem.Name = "最前面に表示するTToolStripMenuItem";
+			this.最前面に表示するTToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.最前面に表示するTToolStripMenuItem.Text = "最前面に表示する(&T)";
+			this.最前面に表示するTToolStripMenuItem.Click += new System.EventHandler(this.最前面に表示するTToolStripMenuItem_Click);
 			// 
 			// Editor
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(912, 489);
-			this.Controls.Add(this.splitContainer1);
+			this.ClientSize = new System.Drawing.Size(628, 510);
+			this.Controls.Add(this.tableLayoutPanel1);
+			this.Controls.Add(this.menuStrip1);
 			this.Font = new System.Drawing.Font("メイリオ", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			this.MainMenuStrip = this.menuStrip1;
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.MaximizeBox = false;
 			this.Name = "Editor";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "wiz_simu: card editor";
-			this.TopMost = true;
 			this.Load += new System.EventHandler(this.Editor_Load);
-			this.splitContainer1.Panel1.ResumeLayout(false);
-			this.splitContainer1.Panel2.ResumeLayout(false);
-			this.splitContainer1.Panel2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-			this.splitContainer1.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			this.flowLayoutPanel5.ResumeLayout(false);
@@ -832,14 +926,29 @@
 			this.flowLayoutPanel6.ResumeLayout(false);
 			this.flowLayoutPanel7.ResumeLayout(false);
 			this.flowLayoutPanel7.PerformLayout();
+			this.flowLayoutPanel8.ResumeLayout(false);
+			this.flowLayoutPanel8.PerformLayout();
+			this.menuStrip1.ResumeLayout(false);
+			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
+		private System.Windows.Forms.NumericUpDown hp;
+		private System.Windows.Forms.NumericUpDown atk;
+		private System.Windows.Forms.NumericUpDown cost;
+		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+		private System.Windows.Forms.TextBox ss2_desc;
+		private System.Windows.Forms.NumericUpDown ss2_turn;
+		private System.Windows.Forms.NumericUpDown ss2_charge;
+		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox ss2_proc;
 		private System.Windows.Forms.TextBox ss1_proc;
 		private System.Windows.Forms.TextBox as2_proc;
@@ -858,39 +967,42 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox t_name;
-		private System.Windows.Forms.Button generatejs;
-		private System.Windows.Forms.TextBox jsexport;
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
 		private System.Windows.Forms.NumericUpDown cardno;
 		private System.Windows.Forms.NumericUpDown imageno;
+		private System.Windows.Forms.TextBox imageno_prefix;
+		private System.Windows.Forms.Button detailshow;
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
 		private System.Windows.Forms.ComboBox attr_1;
 		private System.Windows.Forms.ComboBox attr_2;
 		private System.Windows.Forms.ComboBox species;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-		private System.Windows.Forms.TextBox ss2_desc;
-		private System.Windows.Forms.NumericUpDown ss2_turn;
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
 		private System.Windows.Forms.TextBox ss1_desc;
 		private System.Windows.Forms.NumericUpDown ss1_turn;
-		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
-		private System.Windows.Forms.NumericUpDown hp;
-		private System.Windows.Forms.NumericUpDown atk;
-		private System.Windows.Forms.NumericUpDown cost;
-		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.NumericUpDown ss1_charge;
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
 		private System.Windows.Forms.Button awake_edit;
 		private System.Windows.Forms.Button Lawake_edit;
 		private System.Windows.Forms.Button reset;
-		private System.Windows.Forms.Label label14;
-		private System.Windows.Forms.Button detailshow;
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.CheckBox checkBox1;
-		private System.Windows.Forms.NumericUpDown ss2_charge;
-		private System.Windows.Forms.TextBox imageno_prefix;
-		private System.Windows.Forms.NumericUpDown ss1_charge;
+		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.CheckBox isAutoAddedDisable;
+		private System.Windows.Forms.MenuStrip menuStrip1;
+		private System.Windows.Forms.ToolStripMenuItem ファイルFToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 定義データ生成GToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 名前をつけてデータ保存SToolStripMenuItem;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+		private System.Windows.Forms.ToolStripMenuItem 直接編集モードDToolStripMenuItem;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+		private System.Windows.Forms.ToolStripMenuItem 終了XToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 検索FToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 簡易検索ツールSToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 表示VToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem 最前面に表示するTToolStripMenuItem;
+
 	}
 }
 
