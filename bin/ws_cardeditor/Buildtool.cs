@@ -19,8 +19,6 @@ namespace ws_cardeditor
 
 		static public void Run()
 		{
-			Encoding.RegisterProvider(CodePagesEncodingProvider.Instance); 
-
 			// for debug, this commentout removed
 			// AllocConsole();
 			Console.WriteLine("--- cards.js build -------");
@@ -32,7 +30,6 @@ namespace ws_cardeditor
 			var files = Directory.GetFiles(segmentDirPath, "*.js", SearchOption.TopDirectoryOnly);
 			var count = 0;
 			foreach(var f in files) {
-				Console.WriteLine("  * " + Path.GetFileName(f) );
 				var sr = new StreamReader(f);
 				var readString = sr.ReadToEnd();
 				// comment remove
