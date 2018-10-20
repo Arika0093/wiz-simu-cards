@@ -1,0 +1,47 @@
+{
+	name: "聖夜に香りを届ける ロサ&ロレシャ",
+	cardno: 9920,
+	imageno: 9696,
+	hp: 3451,
+	atk: 3286,
+	cost: 53,
+	attr: [1,4],
+	species: [9],
+	islegend: true,
+	is_dist: true,
+	ape: "大魔道杯 in 聖夜2016",
+	as1: {
+		desc: "<複属性攻撃強化>4チェインで水属性の攻撃力をアップ(10%)、複属性が闇属性だとさらにアップ(110%)",
+		proc: ChainEnhance_SubAttr(0.1, 1.2, [0,1,0,0,0], [0,0,0,0,1], 4),
+	},
+	as2: {
+		desc: "<複属性攻撃強化>4チェインで水属性の攻撃力をアップ(40%)、複属性が闇属性だとさらにアップ(110%)",
+		proc: ChainEnhance_SubAttr(0.4, 1.5, [0,1,0,0,0], [0,0,0,0,1], 4),
+	},
+	ss1: {
+		desc: "<特殊パネル変換>ジャンルパネルにスキルチャージプラス1の効果を付与(効果は、SPスキルを使うまで重複しません)",
+		turn: 3,
+		proc: [panel_skillboost(1)],
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルに攻撃力アップ(100%)とスキルチャージプラス1の効果を付与(効果は、SPスキルを使うまで重複しません)",
+		turn: 6,
+		proc: [panel_skillboost(1), panel_attackup(1.0)],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Abstate_invalid("discharge"),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup(200,0,[0,1,0,0,0,]),
+		Attr_statusup(0,200,[0,1,0,0,0,]),
+		Fastskill(3),
+		Attr_statusup_sattr(0,200,[0,1,0,0,0,],0,200,[0,0,0,0,1,]),
+		Attr_statusup_sattr(200,0,[0,1,0,0,0,],200,0,[0,0,0,0,1,]),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit"]),
+	],
+	Lawake: [
+		Attr_statusup(200,0,[0,1,0,0,0,]),
+		Attr_statusup(0,100,[0,1,0,0,0,]),
+	],
+}

@@ -1,0 +1,46 @@
+{
+	name: "コナンを見つめる夜の月 毛利蘭",
+	cardno: 10196,
+	imageno: 6938,
+	hp: 4627,
+	atk: 2805,
+	cost: 55,
+	attr: [1,2],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(コナン)",
+	as1: {
+		desc: "<攻撃強化・ガード>5チェインで水・雷属性の味方の攻撃力をアップ(60%)、さらに全属性のダメージを10%軽減",
+		proc: [ChainEnhance(0.6, [0,1,1,0,0], 5), as_guard(0.10, [1,1,1,1,1], 5)],
+	},
+	ss1: {
+		desc: "<状態異常回復>味方全体のHPを回復し(50%)、状態異常を回復する",
+		turn: 7,
+		proc: [ss_heal(0.5), ss_abstate_cure()],
+	},
+	awakes: [
+		Fastskill(2),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(200,0, [0,1,1,0,0,]),
+		Attr_statusup(0,200, [0,1,1,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup_subattr(0, 500),
+		Statusup(200,0),
+		Heal_afterbattle(10),
+		Fastskill(2),
+		Attr_statusup_subattr(500, 0),
+	],
+	as2: {
+		desc: "<攻撃強化・ガード>5チェインで水・雷属性の味方の攻撃力をアップ(90%)、さらに全属性のダメージを10%軽減",
+		proc: [ChainEnhance(0.9, [0,1,1,0,0], 5), as_guard(0.10, [1,1,1,1,1], 5)],
+	},
+	ss2: {
+		desc: "<状態異常回復&蘇生>味方全体のHPを回復し(50%)、状態異常を回復、さらに水・雷属性の味方を50%で蘇生",
+		turn: 10,
+		proc: [ss_heal(0.5), ss_abstate_cure(), ss_resurrection([0,1,1,0,0], 0.50)],
+	},
+	Lawake: [
+		Statusup(1000,0),
+		Attr_statusup(0,200, [0,1,1,0,0,]),
+	],
+}

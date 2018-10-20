@@ -1,0 +1,46 @@
+{
+	name: "覇道の勝負師 ヴァランタン・ピアス",
+	cardno: 10580,
+	imageno: 13005,
+	hp: 2229,
+	atk: 7631,
+	cost: 51,
+	attr: [0,-1],
+	species: [8],
+	islegend: true,
+	ape: "黒ウィズPRIDE",
+	as1: {
+		desc: "<攻撃強化・ガード>全属性のダメージを10%軽減し、デッキに単色の精霊が多いほど、攻撃力をアップ(15%)(上限:5段階)",
+		proc: [as_guard(0.10, [1,1,1,1,1], 0), add_cond(ChainEnhance(0, [1,0,0,0,0], 0), as_singleattr_num(0, 0.15))],
+	},
+	ss1: {
+		desc: "<大魔術>スキル反射を無視し、敵全体へ火属性のダメージ(120%)",
+		turn: 4,
+		proc: [ss_damage_all(1.2, [0]), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Fastskill(3),
+		Attr_relief([0,0,1,0,0,],10),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Abstate_invalid("ss_sealed"),
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Attr_relief([1,1,1,1,1,],10),
+	],
+	as2: {
+		desc: "<攻撃強化・ガード>全属性のダメージを10%軽減し、デッキに単色の精霊が多いほど、攻撃力をアップ(20%)(上限:5段階)",
+		proc: [as_guard(0.10, [1,1,1,1,1], 0), add_cond(ChainEnhance(0, [1,0,0,0,0], 0), as_singleattr_num(0, 0.20))],
+	},
+	ss2: {
+		desc: "<大魔術>スキル反射を無視し、敵全体へ火属性のダメージ(150%)。HP20%以下の時、さらにダメージアップ(2850%)し、味方全体のHPを完全回復",
+		turn: 6,
+		proc: [ss_damage_all(ss_hp_less(0.2, 30, 1.5), [0]), ss_hp_less_skill(0.2, ss_heal(1)), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1500),
+		NEFTJOD(30),
+	],
+}

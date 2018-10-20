@@ -1,0 +1,46 @@
+{
+	name: "破邪必滅の刃 ルヴァル・アウルム",
+	cardno: 10260,
+	imageno: 6481,
+	hp: 3251,
+	atk: 6712,
+	cost: 52,
+	attr: [1,-1],
+	species: [1],
+	islegend: true,
+	ape: "ドルキマスⅠ",
+	as1: {
+		desc: "<属性特効>5チェインで火属性の敵単体へ特効ダメージ(500%)、デッキに単色の精霊が多いほど、さらにダメージアップ(130%)(上限:5段階)",
+		proc: add_cond(ChainAttrAttack(5.0, 5, [1,0,0,0,0]), as_singleattr_num(0, 1.3)),
+	},
+	ss1: {
+		desc: "<継続回復>チェインプラス3の効果、さらに5ターン味方全体を徐々に回復する(20%)",
+		turn: 8,
+		proc: [ss_addchain(3), ss_regenerate(0.2, 5)],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup_oattr(0,400, [0,1,0,0,0,]),
+		Attr_statusup_oattr(400,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(4),
+		Attr_relief([0,1,1,0,0,],20),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<属性特効>5チェインで火属性の敵単体へ特効ダメージ(600%)、デッキに単色の精霊が多いほど、さらにダメージアップ(130%)(上限:5段階)",
+		proc: add_cond(ChainAttrAttack(6.0, 5, [1,0,0,0,0]), as_singleattr_num(0, 1.3)),
+	},
+	ss2: {
+		desc: "<精霊強化>8ターンの間、味方全体を徐々に回復し、さらに攻撃力をアップ(20%、250%)(発動中行動不可)",
+		turn: 10,
+		proc: [ss_reinforcement_all(4, [ss_regenerate(0.2, 1, "RF"), ss_enhance_all(2.5, 1, [1, 1, 1, 1, 1], "RF")])],
+	},
+	Lawake: [
+		Statusup(1000,0),
+		Statusup(0,1000),
+	],
+}

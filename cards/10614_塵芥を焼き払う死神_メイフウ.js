@@ -1,0 +1,47 @@
+{
+	name: "塵芥を焼き払う死神 メイフウ",
+	cardno: 10614,
+	imageno: 9829,
+	hp: 4556,
+	atk: 5821,
+	cost: 54,
+	attr: [0,-1],
+	species: [1],
+	islegend: true,
+	ape: "魔轟三鉄傑 対 地獄三十六歌仙",
+	as1: {
+		desc: "<回復>火属性の味方を回復(9%)、10チェインで更に回復(10%)",
+		proc: [Heal(0.09, [1,0,0,0,0], 0), Heal(0.19, [1,0,0,0,0], 10)],
+	},
+	ss1: {
+		desc: "<スキルコピー>直前に発動したスペシャルスキルを発動する",
+		turn: 12,
+		proc: [ss_latest_copy()],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Awake_secondfast(5),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Abstate_invalid("ss_sealed"),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(500,0, [1,0,0,0,0,]),
+		Attr_statusup(0,500, [1,0,0,0,0,]),
+		Heal_afterbattle(10),
+		Awake_secondfast(5),
+	],
+	as2: {
+		desc: "<回復>火属性の味方を回復(12%)、10チェインで更に回復(10%)",
+		proc: [Heal(0.12, [1,0,0,0,0], 0), Heal(0.22, [1,0,0,0,0], 10)],
+	},
+	ss2: {
+		desc: "<スキルコピー>直前に発動したスペシャルスキルを発動する",
+		turn: 12,
+		proc: [ss_latest_copy()],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(500,0),
+		NEFTJOD(30),
+	],
+}

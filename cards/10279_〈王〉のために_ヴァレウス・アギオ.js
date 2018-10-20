@@ -1,0 +1,46 @@
+{
+	name: "〈王〉のために ヴァレウス・アギオ",
+	cardno: 10279,
+	imageno: 12656,
+	hp: 6325,
+	atk: 2011,
+	cost: 58,
+	attr: [0,2],
+	species: [8],
+	islegend: true,
+	ape: "幻魔特区RELOADEDⅡ",
+	as1: {
+		desc: "<回復・攻撃強化>火・雷属性の味方を回復(10%)、さらに火・雷属性の味方の攻撃力をアップ(30%)",
+		proc: [Heal(0.10, [1,0,1,0,0], 0), ChainEnhance(0.3, [1,0,1,0,0], 0)],
+	},
+	ss1: {
+		desc: "<チェインガード>4ターン溜めた後、50ターンの間、チェインを保護し、味方全体を完全回復",
+		turn: 3,
+		proc: [ss_chain_protect(50), ss_heal(1)],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(0,200, [1,0,1,0,0,]),
+		Attr_statusup(200,0, [1,0,1,0,0,]),
+		NEFTJOD(30),
+		Fastskill(3),
+		Attr_statusup_subattr(500, 0),
+		Attr_statusup_subattr(0, 500),
+		Awake_chainguard(),
+		Abstate_invalid("as_sealed"),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit", "all_sealed"]),
+	],
+	as2: {
+		desc: "<回復・攻撃強化>火・雷属性の味方を回復(10%)、さらに火・雷属性の味方の攻撃力をアップ(60%)",
+		proc: [Heal(0.10, [1,0,1,0,0], 0), ChainEnhance(0.6, [1,0,1,0,0], 0)],
+	},
+	ss2: {
+		desc: "<継続回復>チェインプラス2の効果、さらに3ターン味方全体を徐々に回復する(15%)",
+		turn: 5,
+		proc: [ss_addchain(2), ss_regenerate(0.15, 3)],
+	},
+	Lawake: [
+		Attr_statusup_subattr(0, 300),
+		Statusup(500,0),
+	],
+}

@@ -1,0 +1,45 @@
+{
+	name: "幾多の思念 ラティオ・アストルム",
+	cardno: 10511,
+	imageno: 12932,
+	hp: 1999,
+	atk: 9011,
+	cost: 58,
+	attr: [2,-1],
+	species: [9],
+	islegend: true,
+	ape: "MARELESS2 夢現の狭間",
+	as1: {
+		desc: "<攻撃>敵単体へのダメージアップ(150%)、デッキに単色の精霊が多いほど、さらにダメージアップ(50%)（上限:5段階)",
+		proc: add_cond(ChainAttack(1.5, 0), as_singleattr_num(0, 0.5)),
+	},
+	ss1: {
+		desc: "<捕食大魔術>スキル反射を無視し、敵全体へ雷属性のダメージ(100%)、デッキ内の味方の正解数(スペシャルスキルの必要正解数上限まで蓄積が可能)をすべて消費し、消費した正解数に応じてダメージアップ(上限値:正解数40で9000%)",
+		turn: 10,
+		proc: [ss_QuizcorrectDamage_all(90, 40, [2]), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_oattr(0,400, [0,0,1,0,0,]),
+		Attr_statusup_oattr(400,0, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Fastskill(4),
+		Abstate_invalid("discharge"),
+		Attr_statusup(0,400, [0,0,1,0,0,]),
+		Attr_statusup(400,0, [0,0,1,0,0,]),
+		Awake_damage_multiple(1.1, 500),
+		Awake_KillChPlusSkill(5, 1),
+	],
+	as2: {
+		desc: "<攻撃>敵単体へのダメージアップ(250%)、デッキに単色の精霊が多いほど、さらにダメージアップ(50%)（上限:5段階)",
+		proc: add_cond(ChainAttack(2.5, 0), as_singleattr_num(0, 0.5)),
+	},
+	ss2: {
+		desc: "<捕食大魔術>スキル反射を無視し、敵全体へ雷属性のダメージ(100%)、デッキ内の味方の正解数(スペシャルスキルの必要正解数上限まで蓄積が可能)をすべて消費し、消費した正解数に応じてダメージアップ(上限値:正解数40で9000%)",
+		turn: 10,
+		proc: [ss_QuizcorrectDamage_all(90, 40, [2]), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,2000),
+	],
+}

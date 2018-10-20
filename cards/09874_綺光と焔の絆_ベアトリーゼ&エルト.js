@@ -1,0 +1,46 @@
+{
+	name: "綺光と焔の絆 ベアトリーゼ&エルト",
+	cardno: 9874,
+	imageno: 7088,
+	hp: 5523,
+	atk: 2486,
+	cost: 58,
+	attr: [1,0],
+	species: [8],
+	islegend: true,
+	ape: "Christmas2015",
+	as1: {
+		desc: "<回復>味方全体のHPを回復(12%)、HP50%以下でさらに回復(10%)",
+		proc: [Heal(0.12, [1,1,1,1,1], 0), add_cond(Heal(0.22, [1,1,1,1,1], 0), when_hp_less(0.5))],
+	},
+	ss1: {
+		desc: "<特殊パネル変換>ジャンルパネルにチェインがプラス1の効果を付与",
+		turn: 3,
+		proc: [panel_chainplus(1)],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(3),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,200, [1,1,0,0,0,]),
+		Attr_statusup(200,0, [1,1,0,0,0,]),
+		Heal_afterbattle(10),
+		Attr_statusup_sattr(100,0, [0,1,0,0,0,], 300,0, [1,0,0,0,0,]),
+		Attr_statusup_sattr(0,100, [0,1,0,0,0,], 0,300, [1,0,0,0,0,]),
+		Abstate_invalid("as_sealed"),
+	],
+	as2: {
+		desc: "<回復>味方全体のHPを回復(14%)、HP50%以下でさらに回復(10%)",
+		proc: [Heal(0.14, [1,1,1,1,1], 0), add_cond(Heal(0.24, [1,1,1,1,1], 0), when_hp_less(0.5))],
+	},
+	ss2: {
+		desc: "<ダメージ強化>5ターンの間、味方全体の攻撃力をアップ(150%)、5チェインを消費しさらにアップ(100%)",
+		turn: 10,
+		proc: [ss_enhance_all(ss_chain_cost(5, 2.5, 1.5), 5, [1,1,1,1,1])],
+	},
+	Lawake: [
+		Attr_statusup_sattr(0,100, [0,1,0,0,0,], 0,200, [1,0,0,0,0,]),
+		Statusup(500,0),
+	],
+}

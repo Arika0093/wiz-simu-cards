@@ -1,0 +1,47 @@
+{
+	name: "永遠に続く愛 ラム&あたる",
+	cardno: 10137,
+	imageno: 5858,
+	hp: 4430,
+	atk: 4535,
+	cost: 46,
+	attr: [2,-1],
+	species: [5],
+	islegend: true,
+	ape: "コラボ(高橋留美子)",
+	as1: {
+		desc: "<回復・攻撃強化>雷属性の味方のHPを回復(13%)、さらに雷属性の味方の攻撃力をアップ(30%)",
+		proc: [Heal(0.13, [0,0,1,0,0], 0), ChainEnhance(0.3, [0,0,1,0,0], 0)],
+	},
+	ss1: {
+		desc: "<特殊パネル変換>1クエストに1回のみ、ジャンルパネルにチェインとスキルチャージの効果を付与(2、2)",
+		turn: 5,
+		proc: [panel_chainplus(2), panel_skillboost(2)],
+	},
+	awakes: [
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],3),
+		Awake_noeffect("精霊交替",1),
+		Attr_statusup_oattr(0,300, [0,0,1,0,0,]),
+		Attr_statusup_oattr(300,0, [0,0,1,0,0,]),
+		Heal_afterbattle(10),
+		Awake_noeffect("ゴールド取得量アップ",1),
+		Fastskill(3),
+		Spec_statusup(400,0, [5,]),
+		Spec_statusup(0,400, [5,]),
+	],
+	as2: {
+		desc: "<回復・攻撃強化>雷属性の味方のHPを回復(16%)、さらに雷属性の味方の攻撃力をアップ(30%)",
+		proc: [Heal(0.16, [0,0,1,0,0], 0), ChainEnhance(0.3, [0,0,1,0,0], 0)],
+	},
+	ss2: {
+		desc: "<特殊パネル変換>1クエストに1回のみ、ジャンルパネルにチェインとスキルチャージの効果を付与(4、4)",
+		turn: 8,
+		proc: [panel_chainplus(4), panel_skillboost(4)],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(500,0),
+		NEFTJOD(30),
+	],
+}

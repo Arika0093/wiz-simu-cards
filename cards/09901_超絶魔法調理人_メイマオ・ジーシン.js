@@ -1,0 +1,47 @@
+{
+	name: "超絶魔法調理人 メイマオ・ジーシン",
+	cardno: 9901,
+	imageno: 9622,
+	hp: 5719,
+	atk: 2827,
+	cost: 43,
+	attr: [2,-1],
+	species: [9],
+	islegend: true,
+	is_dist: true,
+	ape: "魔道杯(その他)",
+	as1: {
+		desc: "<回復・攻撃強化>3チェインで雷属性の味方のHPを回復(10%)し、デッキに単色の精霊が多いほど、攻撃力をアップ(20%)(上限:5段階)",
+		proc: [Heal(0.10, [1,0,0,0,0],3), add_cond(ChainEnhance(0, [0,0,1,0,0], 3), as_singleattr_num(0, 0.2))],
+	},
+	as2: {
+		desc: "<回復・攻撃強化>3チェインで雷属性の味方のHPを回復(10%)し、デッキに単色の精霊が多いほど、攻撃力をアップ(25%)(上限:5段階)",
+		proc: [Heal(0.10, [1,0,0,0,0],3), add_cond(ChainEnhance(0, [0,0,1,0,0], 3), as_singleattr_num(0, 0.25))],
+	},
+	ss1: {
+		desc: "<回復>チェインプラス1の効果、さらに味方全体のHPを回復する(50%)",
+		turn: 4,
+		proc: [ss_addchain(1), ss_heal(0.5)],
+	},
+	ss2: {
+		desc: "<蘇生>味方全体のHPを回復し(50%)、さらに味方を蘇生(50%)",
+		turn: 10,
+		proc: [ss_heal(0.5), ss_resurrection([1,1,1,1,1], 0.5)],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],4),
+		Attr_statusup(300,0,[0,0,1,0,0,]),
+		Attr_statusup(0,300,[0,0,1,0,0,]),
+		Attr_statusup_oattr(300,0,[0,0,1,0,0,]),
+		Attr_statusup_oattr(0,300,[0,0,1,0,0,]),
+		NEFTJOD(30),
+		Spec_statusup(200,0,[9,]),
+		Spec_statusup(0,200,[9,]),
+		Fastskill(3),
+		Heal_afterbattle(10),
+	],
+	Lawake: [
+		Attr_statusup(200,0,[0,0,1,0,0,]),
+		Attr_statusup(0,200,[0,0,1,0,0,]),
+	],
+}

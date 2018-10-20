@@ -1,0 +1,47 @@
+{
+	name: "薫り立つ夢の芳風 ロサ&ロレシャ",
+	cardno: 9910,
+	imageno: 7342,
+	hp: 5524,
+	atk: 2021,
+	cost: 53,
+	attr: [2,4],
+	species: [9],
+	islegend: true,
+	is_dist: true,
+	ape: "大魔道杯 in 天上岬",
+	as1: {
+		desc: "<回復・攻撃強化>雷属性の味方のHPを回復(13%)、さらに雷属性の味方の攻撃力をアップ(30%)",
+		proc: [Heal(0.13, [0,0,1,0,0], 0), ChainEnhance(0.30, [0,0,1,0,0], 0)],
+	},
+	as2: {
+		desc: "<回復・攻撃強化>雷属性の味方のHPを回復(16%)、さらに雷属性の味方の攻撃力をアップ(30%)",
+		proc: [Heal(0.16, [0,0,1,0,0], 0), ChainEnhance(0.30, [0,0,1,0,0], 0)],
+	},
+	ss1: {
+		desc: "<無に還す瞳>3ターン後に敵単体を無に還す(一部敵には無効)",
+		turn: 7,
+		proc: [ss_death_limit(3)],
+	},
+	ss2: {
+		desc: "<無に還す瞳>2ターン後に敵単体を無に還す(一部敵には無効)",
+		turn: 9,
+		proc: [ss_death_limit(2)],
+	},
+	awakes: [
+		Attr_statusup_sattr(100,0,[0,0,1,0,0,],300,0,[0,0,0,0,1,]),
+		Fastskill(2),
+		Attr_statusup(200,0,[0,0,1,0,0,]),
+		Attr_statusup_sattr(0,100,[0,0,1,0,0,],0,300,[0,0,0,0,1,]),
+		Attr_statusup(0,200,[0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_relief([0,1,0,0,0,],10),
+		Heal_afterbattle(10),
+		Fastskill(2),
+		Panel_boost([0,0,1,0,0,],2),
+	],
+	Lawake: [
+		Attr_statusup(0,200,[0,0,1,0,0,]),
+		Statusup(1000,0),
+	],
+}

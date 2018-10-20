@@ -1,0 +1,46 @@
+{
+	name: "神の血、人の心 エレニ・ビセット",
+	cardno: 10409,
+	imageno: 9628,
+	hp: 5322,
+	atk: 3419,
+	cost: 66,
+	attr: [0,2],
+	species: [1],
+	islegend: true,
+	ape: "イタズラ女神とうさぎのおはなし",
+	as1: {
+		desc: "<回復・複属性攻撃強化>火属性の味方のHPを回復(13%)し、攻撃力もアップ(30%)、複属性が雷属性だとさらに攻撃力アップ(30%)",
+		proc: [Heal(0.13, [1,0,0,0,0], 0), ChainEnhance_SubAttr(0.3, 0.6, [1,0,0,0,0], [0,0,1,0,0], 0)],
+	},
+	ss1: {
+		desc: "<ガード>4ターン火・水・雷属性のダメージを50%軽減する",
+		turn: 6,
+		proc: [ss_attr_guard([1,1,1,0,0], 0.5, 4)],
+	},
+	awakes: [
+		Attr_relief([1,1,1,1,1,],10),
+		Fastskill(1),
+		Panel_boost([1,0,0,0,0,],2),
+		NEFTJOD(30),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Fastskill(2),
+		Attr_statusup(200,0, [1,0,0,0,0,]),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+	],
+	as2: {
+		desc: "<回復・複属性攻撃強化>火属性の味方のHPを回復(16%)し、攻撃力もアップ(30%)、複属性が雷属性だとさらに攻撃力アップ(30%)",
+		proc: [Heal(0.16, [1,0,0,0,0], 0), ChainEnhance_SubAttr(0.3, 0.6, [1,0,0,0,0], [0,0,1,0,0], 0)],
+	},
+	ss2: {
+		desc: "<ガード>5ターン火・水・雷属性のダメージを50%軽減する、5チェインを消費しさらに2ターン軽減",
+		turn: 9,
+		proc: [ss_attr_guard([1,1,1,0,0], 0.5, ss_chain_cost(5, 7, 5))],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

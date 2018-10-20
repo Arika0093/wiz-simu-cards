@@ -1,0 +1,47 @@
+{
+	name: "DRESSMARE〈ドレスメア〉",
+	cardno: 10105,
+	imageno: 12464,
+	hp: 3041,
+	atk: 2724,
+	cost: 45,
+	attr: [0,1],
+	species: [2],
+	islegend: true,
+	ape: "大魔道杯 in 黄昏メアレス",
+	is_dist: true,
+	as1: {
+		desc: "<回復・複属性攻撃強化>5チェインで火属性の味方を回復(10%)し、攻撃力もアップ(40%)、複属性が水属性だとさらに攻撃力アップ(50%)",
+		proc: [Heal(0.10, [1,0,0,0,0], 5), ChainEnhance_SubAttr(0.4, 0.9, [1,0,0,0,0], [0,1,0,0,0], 5)],
+	},
+	ss1: {
+		desc: "<スキルコピー>直前に発動したスペシャルスキルを発動する",
+		turn: 9,
+		proc: [ss_latest_copy()],
+	},
+	awakes: [
+		Costdown(10),
+		Panel_boost([1,0,0,0,0,],1),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Attr_statusup(200,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(3),
+		Attr_statusup_sattr(0,100, [1,0,0,0,0,], 0,200, [0,1,0,0,0,]),
+		Attr_statusup_sattr(100,0, [1,0,0,0,0,], 200,0, [0,1,0,0,0,]),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<回復・複属性攻撃強化>5チェインで火属性の味方を回復(10%)し、攻撃力もアップ(70%)、複属性が水属性だとさらに攻撃力アップ(50%)",
+		proc: [Heal(0.10, [1,0,0,0,0], 5), ChainEnhance_SubAttr(0.7, 1.2, [1,0,0,0,0], [0,1,0,0,0], 5)],
+	},
+	ss2: {
+		desc: "<スキルコピー>直前に発動したスペシャルスキルを発動する",
+		turn: 9,
+		proc: [ss_latest_copy()],
+	},
+	Lawake: [
+		Statusup(0,500),
+		Statusup(500,0),
+	],
+}

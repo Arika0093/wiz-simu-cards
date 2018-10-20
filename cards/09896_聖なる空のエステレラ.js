@@ -1,0 +1,47 @@
+{
+	name: "聖なる空のエステレラ",
+	cardno: 9896,
+	imageno: 12239,
+	hp: 3865,
+	atk: 3054,
+	cost: 53,
+	attr: [2,1],
+	species: [9],
+	islegend: true,
+	ape: "英雄凱旋大魔道杯",
+	is_dist: true,
+	as1: {
+		desc: "<複属性攻撃強化>雷属性の攻撃力をアップ(30%)、複属性が水属性だとさらにアップ(40%)",
+		proc: ChainEnhance_SubAttr(0.3, 0.7, [0,0,1,0,0], [0,1,0,0,0], 0),
+	},
+	ss1: {
+		desc: "<複属性回復>雷属性の味方のHPを回復(30%)、複属性が水属性だとさらに回復(40%)",
+		turn: 3,
+		proc: [ss_heal_subattr([0,0,1,0,0], 0.3, [0,1,0,0,0], 0.7)],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_sattr(100,0, [0,0,1,0,0,], 200,0, [0,1,0,0,0,]),
+		Attr_statusup_sattr(0,100, [0,0,1,0,0,], 0,100, [0,1,0,0,0,]),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Fastskill(1),
+		Attr_statusup(200,0, [0,1,1,0,0,]),
+		Attr_relief([0,0,0,1,1,],10),
+		Fastskill(2),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<複属性攻撃強化>雷属性の攻撃力をアップ(60%)、複属性が水属性だとさらにアップ(40%)",
+		proc: ChainEnhance_SubAttr(0.6, 1.0, [0,0,1,0,0], [0,1,0,0,0], 0),
+	},
+	ss2: {
+		desc: "<複属性回復>雷属性の味方のHPを回復(30%)、複属性が水属性だとさらに回復(40%)",
+		turn: 3,
+		proc: [ss_heal_subattr([0,0,1,0,0], 0.3, [0,1,0,0,0], 0.7)],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [0,1,1,0,0,]),
+		Statusup(500,0),
+	],
+}

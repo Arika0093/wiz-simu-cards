@@ -1,0 +1,47 @@
+{
+	name: "時空を超えた絆 Wセーラームーン",
+	cardno: 10029,
+	imageno: 12382,
+	imageno_prefix: "iruohw_",
+	hp: 4056,
+	atk: 3219,
+	cost: 56,
+	attr: [2,1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(セーラームーン)",
+	as1: {
+		desc: "<回復・複属性攻撃強化>雷属性の味方を回復(10%)し、攻撃力もアップ(30%)。複属性が水属性だとさらに攻撃力アップ(30%)",
+		proc: [Heal(0.1, [0,0,1,0,0], 0), ChainEnhance_SubAttr(0.3, 0.6, [0,0,1,0,0], [0,1,0,0,0], 0)],
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルを水・雷属性化",
+		turn: 3,
+		proc: [ss_panel_change([0,1,1,0,0])],
+	},
+	awakes: [
+		Fastskill(1),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup(200,0, [0,1,1,0,0,]),
+		NEFTJOD(30),
+		Panel_boost([0,0,1,0,0,],1),
+		Attr_statusup(0,200, [0,1,1,0,0,]),
+		Heal_afterbattle(10),
+		Fastskill(2),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+	],
+	as2: {
+		desc: "<回復・複属性攻撃強化>雷属性の味方を回復(13%)し、攻撃力もアップ(30%)。複属性が水属性だとさらに攻撃力アップ(30%)",
+		proc: [Heal(0.13, [0,0,1,0,0], 0), ChainEnhance_SubAttr(0.3, 0.6, [0,0,1,0,0], [0,1,0,0,0], 0)],
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルを水・雷属性化し、回復と攻撃力アップの効果を付与(10%、50%)",
+		turn: 6,
+		proc: [ss_panel_change([0,1,1,0,0]), panel_multieffect([panel_attackup(0.5), panel_healally(0.10)])],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Statusup(1000,0),
+	],
+}

@@ -1,0 +1,47 @@
+{
+	name: "黒猫楽団 バロン&アレク&ロレッタ",
+	cardno: 10268,
+	imageno: 12634,
+	hp: 2055,
+	atk: 4621,
+	cost: 57,
+	attr: [2,3],
+	species: [9],
+	islegend: true,
+	is_dist: true,
+	ape: "黒ウィズコンサート大魔道杯",
+	as1: {
+		desc: "<連撃>10チェインで敵単体を5回連続攻撃(600%)、デッキ内の精霊が持つ属性数が多いほどさらにアップ(60%)(上限5段階)",
+		proc: add_cond(ChainDualAttack(6.0, 10, 5), as_deckinattr_num(0, 0.6)),
+	},
+	as2: {
+		desc: "<連撃>10チェインで敵単体を5回連続攻撃(700%)、デッキ内の精霊が持つ属性数が多いほどさらにアップ(60%)(上限5段階)",
+		proc: add_cond(ChainDualAttack(7.0, 10, 5), as_deckinattr_num(0, 0.6)),
+	},
+	ss1: {
+		desc: "<特殊パネル変換>ジャンルパネルにスキルチャージプラス1の効果を付与（スキルチャージの効果は、SPスキルを使うまで重複しません）",
+		turn: 4,
+		proc: [panel_skillboost(1)],
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルにスキルチャージプラス1の効果を付与（スキルチャージの効果は、SPスキルを使うまで重複しません）",
+		turn: 4,
+		proc: [panel_skillboost(1)],
+	},
+	awakes: [
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		NEFTJOD(30),
+		Abstate_invalid("ss_sealed"),
+		Attr_statusup_subattr(500, 0),
+		Panel_boost([0,0,1,0,0,],2),
+		Abstate_invalid("discharge"),
+		Awake_noeffect("行動見破り",1),
+		Attr_statusup_subattr(0, 500),
+	],
+	Lawake: [
+		Statusup(0,1000),
+		Attr_statusup_subattr(0, 200),
+	],
+}

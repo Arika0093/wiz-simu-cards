@@ -1,0 +1,47 @@
+{
+	name: "轟雷の機弓 ニコラ・モーガン",
+	cardno: 10565,
+	imageno: 6140,
+	hp: 5630,
+	atk: 4287,
+	cost: 51,
+	attr: [2,-1],
+	species: [9],
+	islegend: true,
+	ape: "クロム・マグナⅠ",
+	as1: {
+		desc: "<回復>雷属性の味方を回復(11%)、5チェインでさらに回復(5%)",
+		proc: [Heal(0.11, [0,0,1,0,0], 0), Heal(0.16, [0,0,1,0,0], 5)],
+	},
+	ss1: {
+		desc: "<遅延>敵全体の攻撃ターンを3遅らせる、さらに味方全体のHPを回復する(50%)",
+		turn: 10,
+		proc: [ss_delay_all(3), ss_heal(0.5)],
+	},
+	awakes: [
+		Attr_statusup_oattr(0,400, [0,0,1,0,0,]),
+		Attr_statusup_oattr(400,0, [0,0,1,0,0,]),
+		Attr_statusup(400,0, [0,0,1,0,0,]),
+		Attr_statusup(0,400, [0,0,1,0,0,]),
+		Fastskill(2),
+		Panel_boost([0,0,1,0,0,],4),
+		Fastskill(2),
+		Spec_statusup(0,200, [9,]),
+		Spec_statusup(200,0, [9,]),
+		Awake_noeffect("スキル反射見破り",1),
+	],
+	as2: {
+		desc: "<回復>雷属性の味方を回復(14%)、5チェインでさらに回復(5%)",
+		proc: [Heal(0.14, [0,0,1,0,0], 0), Heal(0.19, [0,0,1,0,0], 5)],
+	},
+	ss2: {
+		desc: "<遅延大魔術>敵全体の攻撃ターンを3遅らせ、雷属性のダメージ(500%)、さらに敵にトドメを刺した数だけチェインプラス1",
+		turn: 12,
+		chadd_killing: true,
+		proc: [ss_delay_all(3), ss_damage_all(5.0, [2])],
+	},
+	Lawake: [
+		Attr_statusup(0,300, [0,0,1,0,0,]),
+		Statusup(500,0),
+	],
+}

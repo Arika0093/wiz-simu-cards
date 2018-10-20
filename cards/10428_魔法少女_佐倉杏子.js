@@ -1,0 +1,48 @@
+{
+	name: "魔法少女 佐倉杏子",
+	cardno: 10428,
+	imageno: 12767,
+	imageno_prefix: "E4pSBg_",
+	hp: 4218,
+	atk: 1254,
+	cost: 24,
+	attr: [0,-1],
+	species: [9],
+	islegend: true,
+	ape: "コラボ(魔法少女まどか☆マギカ)",
+	is_dist: true,
+	as1: {
+		desc: "<攻撃>敵単体へのダメージアップ(900%)",
+		proc: ChainAttack(9.0, 0),
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルを火属性化",
+		turn: 2,
+		proc: [ss_panel_change([1,0,0,0,0])],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_oattr(0,300, [1,0,0,0,0,]),
+		Attr_statusup_oattr(300,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(2),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup(0,300, [1,0,0,0,0,]),
+		Attr_statusup(300,0, [1,0,0,0,0,]),
+		Fastskill(1),
+	],
+	as2: {
+		desc: "<攻撃>敵単体へのダメージアップ(900%)、ジャンルパネルが3色だとさらにアップ(1000%)",
+		proc: ChainPanelsAttack(9.0, 9.0, 19.0, 0),
+	},
+	ss2: {
+		desc: "<パネル変換>ジャンルパネルをALL属性化",
+		turn: 4,
+		proc: [ss_panel_change([1,1,1,0,0])],
+	},
+	Lawake: [
+		Attr_statusup_oattr(0,200, [1,0,0,0,0,]),
+		Statusup(500,0),
+	],
+}

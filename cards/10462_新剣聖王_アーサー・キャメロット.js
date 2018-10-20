@@ -1,0 +1,46 @@
+{
+	name: "新剣聖王 アーサー・キャメロット",
+	cardno: 10462,
+	imageno: 12878,
+	hp: 4185,
+	atk: 6027,
+	cost: 53,
+	attr: [2,-1],
+	species: [8],
+	islegend: true,
+	ape: "覇眼戦線Ⅳ",
+	as1: {
+		desc: "<属性特効>4チェインで水属性の敵単体へ特効ダメージ(450%)、デッキに単色の精霊が多いほど、さらにダメージアップ(120%)(上限:5段階)",
+		proc: add_cond(ChainAttrAttack(4.5, 4, [0,1,0,0,0]), as_singleattr_num(0, 1.2)),
+	},
+	ss1: {
+		desc: "<弱体化大魔術>スキル反射を無視し、敵単体へ雷属性のダメージ(100%)、さらに1ターンの間、敵の雷属性に対する防御力を弱体化(100%)",
+		turn: 6,
+		proc: [ss_damage_s(1.0, [2], 1), ss_attr_weaken_s([0,0,1,0,0], 1.0, 1), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],3),
+		Fastskill(2),
+		Abstate_invalid("heal_reverse"),
+		Panel_boost([0,0,1,0,0,],2),
+		Fastskill(2),
+		Awake_noeffect("心眼",1),
+		Abstate_invalid(["as_sealed", "ss_sealed"]),
+		Awake_noeffect("難易度ダウン",1),
+		Attr_statusup_oattr(0,1000, [0,0,1,0,0,]),
+		Attr_statusup_oattr(1000,0, [0,0,1,0,0,]),
+	],
+	as2: {
+		desc: "<属性特効>4チェインで水属性の敵単体へ特効ダメージ(550%)、デッキに単色の精霊が多いほど、さらにダメージアップ(120%)(上限:5段階)",
+		proc: add_cond(ChainAttrAttack(5.5, 4, [0,1,0,0,0]), as_singleattr_num(0, 1.2)),
+	},
+	ss2: {
+		desc: "<弱体化大魔術>スキル反射を無視し、敵単体へ雷属性のダメージ(100%)、さらに1ターンの間、敵の雷属性に対する防御力を弱体化(150%)",
+		turn: 10,
+		proc: [ss_damage_s(1.0, [2], 1), ss_attr_weaken_s([0,0,1,0,0], 1.5, 1), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Attr_statusup_oattr(0,300, [0,0,1,0,0,]),
+		Awake_noeffect("エクスカリバー",1),
+	],
+}

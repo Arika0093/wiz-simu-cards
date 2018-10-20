@@ -1,0 +1,46 @@
+{
+	name: "黎明魔道 ディルクルム",
+	cardno: 9931,
+	imageno: 10772,
+	hp: 3133,
+	atk: 5687,
+	cost: 39,
+	attr: [1,-1],
+	species: [9],
+	islegend: true,
+	ape: "黄昏メアレスⅢ",
+	is_dist: true,
+	as1: {
+		desc: "<属性特効連撃>味方のMAXHP10%を使い、火属性の敵単体へ特効5連撃(600%)",
+		proc: add_cond(ChainDualAttrAttack(6.0, 0, 5, [1,0,0,0,0]), as_consume_all(0.1)),
+	},
+	ss1: {
+		desc: "<反動大魔術>スキル反射を無視し、敵全体へ水属性のダメージ(850%)(スキル使用後、1ターン封印状態に)",
+		turn: 7,
+		proc: [ss_damage_all(8.5, [1]), ss_allsealed_own(1), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Costdown(10),
+		Panel_boost([0,1,0,0,0,],3),
+		Attr_statusup(0,300, [0,1,0,0,0,]),
+		Attr_statusup(300,0, [0,1,0,0,0,]),
+		Attr_relief([1,0,0,0,0,],20),
+		Abstate_invalid("poison"),
+		Fastskill(3),
+		Attr_statusup_oattr(0,300, [0,1,0,0,0,]),
+		Attr_statusup_oattr(300,0, [0,1,0,0,0,]),
+		Awake_damage_multiple(1.1, 500),
+	],
+	as2: {
+		desc: "<属性特効連撃>味方のMAXHP10%を使い、火属性の敵単体へ特効5連撃(700%)",
+		proc: add_cond(ChainDualAttrAttack(7.0, 0, 5, [1,0,0,0,0]), as_consume_all(0.1)),
+	},
+	ss2: {
+		desc: "<反動大魔術>スキル反射を無視し、敵全体へ水属性のダメージ(1050%)(スキル使用後、1ターン封印状態に)",
+		turn: 9,
+		proc: [ss_damage_all(10.5, [1]), ss_allsealed_own(1), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1000),
+	],
+}

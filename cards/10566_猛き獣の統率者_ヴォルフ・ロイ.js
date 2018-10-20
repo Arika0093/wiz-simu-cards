@@ -1,0 +1,46 @@
+{
+	name: "猛き獣の統率者 ヴォルフ・ロイ",
+	cardno: 10566,
+	imageno: 6141,
+	hp: 5700,
+	atk: 4309,
+	cost: 52,
+	attr: [0,-1],
+	species: [8],
+	islegend: true,
+	ape: "クロム・マグナⅠ",
+	as1: {
+		desc: "<チェイン攻撃>5チェインでダメージアップ(350%)、10チェインでさらにダメージアップ(300%)、20チェインでさらにダメージアップ(850%)",
+		proc: [ChainAttack(3.5, 5), ChainAttack(6.5, 10), ChainAttack(15.0, 20)],
+	},
+	ss1: {
+		desc: "<継続回復>チェインプラス2の効果、さらに3ターン味方全体を徐々に回復する(15%)",
+		turn: 5,
+		proc: [ss_addchain(2), ss_regenerate(0.15, 3)],
+	},
+	awakes: [
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],4),
+		NEFTJOD(30),
+		Fastskill(3),
+		Abstate_invalid("as_sealed"),
+		Spec_statusup(0,200, [8,]),
+		Spec_statusup(200,0, [8,]),
+	],
+	as2: {
+		desc: "<チェイン攻撃>5チェインでダメージアップ(450%)、10チェインでさらにダメージアップ(300%)、20チェインでさらにダメージアップ(850%)",
+		proc: [ChainAttack(4.5, 5), ChainAttack(7.5, 10), ChainAttack(16.0, 20)],
+	},
+	ss2: {
+		desc: "<ダメージ強化>3ターン自分の攻撃力をアップ(800%)し、味方全体のHPを完全回復",
+		turn: 9,
+		proc: [ss_enhance_own(8.0, 3), ss_heal(1)],
+	},
+	Lawake: [
+		Attr_statusup(0,300, [1,0,0,0,0,]),
+		Statusup(500,0),
+	],
+}

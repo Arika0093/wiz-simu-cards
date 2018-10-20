@@ -1,0 +1,47 @@
+{
+	name: "焔昏竜 ラグナバース",
+	cardno: 10307,
+	imageno: 12694,
+	hp: 2575,
+	atk: 3622,
+	cost: 50,
+	attr: [0,2],
+	species: [0],
+	islegend: true,
+	ape: "レイド ドラゴンプロジェクト",
+	is_dist: true,
+	as1: {
+		desc: "<全体攻撃>敵全体へダメージ(150%)、5チェインで更にダメージアップ(50%)",
+		proc: [ChainAllAttack(1.5, 0), ChainAllAttack(2.0, 5)],
+	},
+	ss1: {
+		desc: "<詠唱多弾大魔術>スキル反射を無視し、クイズに正解した数だけ敵単体へ火・雷属性で交互に連続ダメージ(140%)(上限:15段階)",
+		turn: 9,
+		proc: [ss_undefined("詠唱多弾大魔術")],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_sattr(0,100, [1,0,0,0,0,], 0,200, [0,0,1,0,0,]),
+		Attr_statusup_sattr(100,0, [1,0,0,0,0,], 200,0, [0,0,1,0,0,]),
+		Fastskill(2),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Attr_statusup(200,0, [1,0,0,0,0,]),
+		Abstate_invalid("ss_sealed"),
+		Fastskill(2),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit"]),
+	],
+	as2: {
+		desc: "<全体攻撃>敵全体へダメージ(180%)、5チェインで更にダメージアップ(50%)",
+		proc: [ChainAllAttack(1.8, 0), ChainAllAttack(2.3, 5)],
+	},
+	ss2: {
+		desc: "<詠唱多弾大魔術>スキル反射を無視し、クイズに正解した数だけ敵単体へ火・雷属性で交互に連続ダメージ(180%)(上限:15段階)",
+		turn: 12,
+		proc: [ss_undefined("詠唱多弾大魔術")],
+	},
+	Lawake: [
+		Statusup(500,0),
+		Statusup(0,1000),
+	],
+}

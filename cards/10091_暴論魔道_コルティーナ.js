@@ -1,0 +1,48 @@
+{
+	name: "暴論魔道 コルティーナ",
+	cardno: 10091,
+	imageno: 12449,
+	imageno_prefix: "Ut5EsG_",
+	hp: 2821,
+	atk: 4256,
+	cost: 34,
+	attr: [1,-1],
+	species: [9],
+	islegend: true,
+	ape: "黄昏メアレスⅣ",
+	is_dist: true,
+	as1: {
+		desc: "<属性特効>火属性の敵単体へ特効ダメージ(200%)、デッキに単色の精霊が多いほど、さらにダメージアップ(50%)(上限:5段階)",
+		proc: add_cond(ChainAttrAttack(2.0, 0, [1,0,0,0,0]), as_singleattr_num(0, 0.5)),
+	},
+	ss1: {
+		desc: "<時限大魔術>スキル反射を無視し、5ターン後に敵単体へ水属性のダメージ(1500%)(上限設置数:5)",
+		turn: 3,
+		proc: [ss_damage_timebomb(15, [0], 1, 5), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Fastskill(1),
+		Costdown(10),
+		Panel_boost([0,1,0,0,0,],1),
+		Attr_relief([1,0,0,0,0,],10),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup_oattr(0,300, [0,1,0,0,0,]),
+		Attr_statusup_oattr(300,0, [0,1,0,0,0,]),
+		Abstate_invalid("as_sealed"),
+	],
+	as2: {
+		desc: "<属性特効>火属性の敵単体へ特効ダメージ(300%)、デッキに単色の精霊が多いほど、さらにダメージアップ(50%)(上限:5段階)",
+		proc: add_cond(ChainAttrAttack(3.0, 0, [1,0,0,0,0]), as_singleattr_num(0, 0.5)),
+	},
+	ss2: {
+		desc: "<時限大魔術>スキル反射を無視し、5ターン後に敵単体へ水属性のダメージ(2500%)(上限設置数:5)",
+		turn: 4,
+		proc: [ss_damage_timebomb(25, [0], 1, 5), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,500),
+		Attr_statusup(0,100, [0,1,0,0,0,]),
+	],
+}

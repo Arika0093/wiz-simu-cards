@@ -1,0 +1,47 @@
+{
+	name: "竜迅百騎将軍 ライサ・ナトゥル(L4)",
+	cardno: 10262,
+	imageno: 6475,
+	hp: 5164,
+	atk: 3701,
+	cost: 67,
+	attr: [0,1],
+	species: [0],
+	alias: ["デバフ", "巨乳"],
+	islegend: true,
+	ape: "ドルキマスⅠ",
+	as1: {
+		desc: "<連撃>敵単体を6回連続攻撃(250%)、5チェインで更にダメージアップ(200%)",
+		proc: [ChainDualAttack(2.5, 0, 6), ChainDualAttack(4.5, 5, 6)],
+	},
+	ss1: {
+		desc: "<毒>スキル反射を無視し、6ターン敵全体に毒のダメージを与える(40000)",
+		turn: 5,
+		proc: [poison(40000, 6), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Costdown(20),
+		Attr_statusup(0,200, [1,1,0,0,0,]),
+		Attr_statusup(200,0, [1,1,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],4),
+		NEFTJOD(30),
+		Fastskill(3),
+		NEFTJOD(30),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit", "all_sealed"]),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+	],
+	as2: {
+		desc: "<連撃>敵単体を6回連続攻撃(350%)、5チェインで更にダメージアップ(200%)",
+		proc: [ChainDualAttack(3.5, 0, 6), ChainDualAttack(5.5, 5, 6)],
+	},
+	ss2: {
+		desc: "<毒>スキル反射を無視し、9ターン敵全体に毒のダメージを与える(55000)",
+		turn: 9,
+		proc: [poison(55000, 9), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [1,1,0,0,0,]),
+		Statusup(1000,0),
+	],
+}

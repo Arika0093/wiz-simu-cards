@@ -1,0 +1,47 @@
+{
+	name: "PEACEMARE〈ピースメア〉",
+	cardno: 10103,
+	imageno: 12462,
+	hp: 4915,
+	atk: 1378,
+	cost: 29,
+	attr: [1,-1],
+	species: [2],
+	islegend: true,
+	ape: "大魔道杯 in 黄昏メアレス",
+	is_dist: true,
+	as1: {
+		desc: "<回復>パネルの色が2色以上で水属性の味方を回復(17%)",
+		proc: ChainPanelsHeal(0, 0.17, 0.17, [0, 1, 0, 0, 0], 0),
+	},
+	ss1: {
+		desc: "<特殊パネル変換>ジャンルパネルにチェインとスキルチャージの効果を付与(1、1)、パネルの色が増す度さらにアップ（上限値:3、2）",
+		turn: 5,
+		proc: [panel_multieffect([panel_chainplus(1), panel_skillboost(1)]), panel_multieffect([panel_chainplus(2), panel_skillboost(2)]), panel_multieffect([panel_chainplus(3), panel_skillboost(2)])],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_relief([1,1,1,1,1,],10),
+		NEFTJOD(30),
+		Abstate_invalid("ss_sealed"),
+		Attr_statusup_oattr(0,300, [0,1,0,0,0,]),
+		Attr_statusup_oattr(300,0, [0,1,0,0,0,]),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<回復>パネルの色が2色以上で水属性の味方を回復(20%)",
+		proc: ChainPanelsHeal(0, 0.20, 0.20, [0, 1, 0, 0, 0], 0),
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルにチェインとスキルチャージの効果を付与(1、1)、パネルの色が増す度さらにアップ（上限値:3、2）",
+		turn: 5,
+		proc: [panel_multieffect([panel_chainplus(1), panel_skillboost(1)]), panel_multieffect([panel_chainplus(2), panel_skillboost(2)]), panel_multieffect([panel_chainplus(3), panel_skillboost(2)])],
+	},
+	Lawake: [
+		Attr_statusup_oattr(200,0, [0,1,0,0,0,]),
+		Statusup(500,0),
+	],
+}

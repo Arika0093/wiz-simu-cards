@@ -1,0 +1,47 @@
+{
+	name: "神刀の守り手 シマリ・マキオ",
+	cardno: 10707,
+	imageno: 13156,
+	imageno_prefix: "Hx5Tim_",
+	hp: 6135,
+	atk: 1987,
+	cost: 40,
+	attr: [0,-1],
+	species: [8],
+	islegend: true,
+	ape: "Duel Rush",
+	is_dist: true,
+	as1: {
+		desc: "<回復>火属性の味方のHPを回復(12%)",
+		proc: Heal(0.12, [1,0,0,0,0,]),
+	},
+	ss1: {
+		desc: "<蘇生>味方全体のHPを回復(5%)し、さらに火属性の味方を蘇生(5%)",
+		turn: 6,
+		proc: [ss_heal(0.05), ss_resurrection([1,0,0,0,0], 0.05)],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],1),
+		Attr_statusup_oattr(0,300, [1,0,0,0,0,]),
+		Attr_statusup_oattr(300,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		NEFTJOD(30),
+		Awake_noeffect("経験値取得量アップ",1),
+		Attr_relief([0,1,0,0,0,],10),
+		Attr_statusup(0,300, [1,0,0,0,0,]),
+		Attr_statusup(300,0, [1,0,0,0,0,]),
+		Fastskill(3),
+	],
+	as2: {
+		desc: "<回復>火属性の味方のHPを回復(15%)",
+		proc: Heal(0.15, [1,0,0,0,0,]),
+	},
+	ss2: {
+		desc: "<蘇生>味方全体のHPを回復(50%)し、さらに火属性の味方を蘇生(50%)",
+		turn: 9,
+		proc: [ss_heal(0.5), ss_resurrection([1,0,0,0,0], 0.5)],
+	},
+	Lawake: [
+		Attr_statusup_oattr(0,300, [1,0,0,0,0,]),
+	],
+}

@@ -1,0 +1,45 @@
+{
+	name: "礫滅の処断鎌 ハクア・デスサイス",
+	cardno: 10459,
+	imageno: 12875,
+	hp: 2595,
+	atk: 4946,
+	cost: 63,
+	attr: [1,4],
+	species: [8],
+	islegend: true,
+	ape: "覇眼戦線Ⅳ",
+	as1: {
+		desc: "<分散攻撃>味方のMAXHP15%を使い、敵全体へ分散攻撃(700%)",
+		proc: add_cond(ChainVarianceAttack(7.0, 0), as_consume_all(0.15)),
+	},
+	ss1: {
+		desc: "<蓄積解放大魔術・邪>スキル反射を無視し、敵単体へ闇属性のダメージ(100%)、さらにクエスト中の累計被ダメージ量に応じてダメージアップ(上限値:18万ダメージで14000%)",
+		turn: 10,
+		proc: [ss_accumulateDamageOfBurn_s(140.0, 180000, [4], 1), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Fastskill(5),
+		Abstate_invalid("ss_sealed"),
+		Fastskill(5),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Awake_damage_multiple(1.1, 500),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<分散攻撃>味方のMAXHP15%を使い、敵全体へ分散攻撃(800%)",
+		proc: add_cond(ChainVarianceAttack(8.0, 0), as_consume_all(0.15)),
+	},
+	ss2: {
+		desc: "<蓄積解放大魔術・邪>スキル反射を無視し、敵単体へ闇属性のダメージ(100%)、さらにクエスト中の累計被ダメージ量に応じてダメージアップ(上限値:18万ダメージで14000%)",
+		turn: 10,
+		proc: [ss_accumulateDamageOfBurn_s(140.0, 180000, [4], 1), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,2000),
+	],
+}

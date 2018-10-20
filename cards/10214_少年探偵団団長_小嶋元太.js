@@ -1,0 +1,46 @@
+{
+	name: "少年探偵団団長 小嶋元太",
+	cardno: 10214,
+	imageno: 6992,
+	hp: 5092,
+	atk: 2955,
+	cost: 40,
+	attr: [0,-1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(コナン)",
+	as1: {
+		desc: "<回復>火属性の味方のHPを回復(12%)",
+		proc: Heal(0.12, [1,0,0,0,0], 0),
+	},
+	ss1: {
+		desc: "<精霊強化>4ターンの間、味方全体を徐々に回復し、味方の攻撃力をアップ(15%、150%)(発動中行動不可)",
+		turn: 4,
+		proc: [ss_reinforcement_all(4, [ss_enhance_all(1.5, 1, [1, 1, 1, 1, 1], "RF"), ss_regenerate(0.15, 1, "RF")])],
+	},
+	awakes: [
+		Awake_noeffect("経験値取得量アップ",1),
+		Fastskill(1),
+		Heal_afterbattle(10),
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(2),
+		Panel_boost([1,0,0,0,0,],2),
+	],
+	as2: {
+		desc: "<回復>火属性の味方のHPを回復(15%)",
+		proc: Heal(0.15, [1,0,0,0,0], 0),
+	},
+	ss2: {
+		desc: "<精霊強化>4ターンの間、味方全体を徐々に回復し、味方の攻撃力をアップ(15%、150%)(発動中行動不可)",
+		turn: 4,
+		proc: [ss_reinforcement_all(4, [ss_enhance_all(1.5, 1, [1, 1, 1, 1, 1], "RF"), ss_regenerate(0.15, 1, "RF")])],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

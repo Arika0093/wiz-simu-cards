@@ -1,0 +1,48 @@
+{
+	name: "さくらを守る想いは同じ 桃矢&月",
+	cardno: 10343,
+	imageno: 12735,
+	imageno_prefix: "S5zpwx_",
+	hp: 2875,
+	atk: 4021,
+	cost: 38,
+	attr: [2,1],
+	species: [9],
+	islegend: true,
+	ape: "コラボ(カードキャプターさくら)",
+	as1: {
+		desc: "<連撃・複属性攻撃強化>敵単体を3回連続攻撃(250%)、さらに雷属性の攻撃力をアップ(10%)、複属性が水属性だとさらにアップ(30%)",
+		proc: [ChainDualAttack(2.5, 0, 3), ChainEnhance_SubAttr(0.1, 0.4, [0,0,1,0,0], [0,1,0,0,0], 0)],
+	},
+	ss1: {
+		desc: "<ブースト>5ターンの間、味方のMAXHPを毎ターン20%消費し、味方の攻撃力をアップ(175%)。さらに極稀にクリティカル",
+		turn: 4,
+		proc: [ss_boost_enhance_all(1.75, 5, 0.2, [1,1,1,1,1])],
+	},
+	awakes: [
+		Costdown(20),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_sattr(0,200, [0,0,1,0,0,], 0,100, [0,1,0,0,0,]),
+		Attr_statusup_sattr(200,0, [0,0,1,0,0,], 100,0, [0,1,0,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Fastskill(3),
+		Attr_statusup_sattr(0,100, [0,0,1,0,0,], 0,300, [0,1,0,0,0,]),
+		Attr_statusup_sattr(100,0, [0,0,1,0,0,], 300,0, [0,1,0,0,0,]),
+		Awake_noeffect("経験値取得量アップ",2),
+		Abstate_invalid("as_sealed"),
+	],
+	as2: {
+		desc: "<連撃・複属性攻撃強化>敵単体を3回連続攻撃(350%)、さらに雷属性の攻撃力をアップ(10%)、複属性が水属性だとさらにアップ(30%)",
+		proc: [ChainDualAttack(3.5, 0, 3), ChainEnhance_SubAttr(0.1, 0.4, [0,0,1,0,0], [0,1,0,0,0], 0)],
+	},
+	ss2: {
+		desc: "<ブースト>5ターンの間、味方のMAXHPを毎ターン15%消費し、味方の攻撃力をアップ(175%)。さらに極稀にクリティカル",
+		turn: 6,
+		proc: [ss_boost_enhance_all(1.75, 5, 0.15, [1,1,1,1,1])],
+	},
+	Lawake: [
+		Attr_statusup_sattr(0,100, [0,0,1,0,0,], 0,100, [0,1,0,0,0,]),
+		Attr_relief([0,0,1,0,0,],10),
+		NEFTJOD(30),
+	],
+}

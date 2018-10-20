@@ -1,0 +1,47 @@
+{
+	name: "刀火武双 ガンダウナー=ルリアゲハ",
+	cardno: 10525,
+	imageno: 9349,
+	hp: 4246,
+	atk: 6008,
+	cost: 54,
+	attr: [2,-1],
+	species: [8],
+	islegend: true,
+	ape: "黄昏メアレスⅡ",
+	as1: {
+		desc: "<連撃>4チェインで敵を6回連続攻撃(300%)、HP50%以上でさらにダメージアップ(200%)",
+		proc: [ChainDualAttack(3.0, 4, 6), add_cond(ChainDualAttack(5.0, 4, 6), when_hp_more(0.5))],
+	},
+	ss1: {
+		desc: "<弱体化大魔術>スキル反射を無視し、敵全体へ雷属性のダメージ(600%)、さらに5ターンの間、敵の防御力を弱体化(30%)",
+		turn: 10,
+		proc: [ss_damage_all(6.0, [2]), ss_attr_weaken_all(null, 0.3, 5), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_oattr(0,400, [0,0,1,0,0,]),
+		Attr_statusup_oattr(400,0, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_relief([1,1,1,1,1,],10),
+		NEFTJOD(30),
+		Awake_secondfast(3),
+		Attr_statusup(0,400, [0,0,1,0,0,]),
+		Attr_statusup(400,0, [0,0,1,0,0,]),
+		Abstate_invalid("SPAS"),
+	],
+	as2: {
+		desc: "<連撃>4チェインで敵を6回連続攻撃(400%)、HP50%以上でさらにダメージアップ(200%)",
+		proc: [ChainDualAttack(4.0, 4, 6), add_cond(ChainDualAttack(6.0, 4, 6), when_hp_more(0.5))],
+	},
+	ss2: {
+		desc: "<弱体化大魔術>スキル反射を無視し、敵全体へ雷属性のダメージ(900%)、さらに5ターンの間、敵の防御力を弱体化(30%)",
+		turn: 13,
+		proc: [ss_damage_all(9.0, [2]), ss_attr_weaken_all(null, 0.3, 5), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Statusup(0,500),
+		NEFTJOD(30),
+	],
+}

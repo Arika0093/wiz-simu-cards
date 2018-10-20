@@ -1,0 +1,48 @@
+{
+	name: "満漢三十八手拳 ルオシー・ファラン(L2)",
+	cardno: 9891,
+	imageno: 8426,
+	hp: 6522,
+	atk: 2512,
+	cost: 46,
+	attr: [2,-1],
+	species: [8],
+	islegend: true,
+	ape: "DL限定精霊",
+	as1: {
+		desc: "<攻撃強化・ガード>8チェインで全属性のダメージを15%軽減し、デッキに単色の精霊が多いほど、攻撃力をアップ(30%)(上限値:5段階)",
+		proc: [as_guard(0.15, [1,1,1,1,1], 8), add_cond(ChainEnhance(0, [0,0,1,0,0], 8), as_singleattr_num(0, 0.3))],
+	},
+	ss1: {
+		desc: "<精霊強化>3ターンの間、味方全体を徐々に回復し、さらに攻撃力をアップ(20%、150%)(発動中行動不可)",
+		turn: 3,
+		proc: [ss_reinforcement_all(4, [ss_regenerate(0.20, 1, "RF"),  ss_enhance_all(1.5, 1, [1,1,1,1,1],"RF")])],
+	},
+	awakes: [
+		Attr_statusup_oattr(0,400, [0,0,1,0,0,]),
+		Attr_statusup_oattr(400,0, [0,0,1,0,0,]),
+		NEFTJOD(30),
+		Panel_boost([0,0,1,0,0,],2),
+		Abstate_invalid("ss_sealed"),
+		Attr_statusup(400,0, [0,0,1,0,0,]),
+		Attr_statusup(0,400, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Fastskill(3),
+		Awake_noeffect("心眼",1),
+	],
+	as2: {
+		desc: "<攻撃強化・ガード>8チェインで全属性のダメージを15%軽減し、デッキに単色の精霊が多いほど、攻撃力をアップ(35%)(上限値:5段階)",
+		proc: [as_guard(0.15, [1,1,1,1,1], 8), add_cond(ChainEnhance(0, [0,0,1,0,0], 8), as_singleattr_num(0, 0.35))],
+	},
+	ss2: {
+		desc: "<精霊強化>1ターン溜めた後、3ターンの間、味方全体を徐々に回復(30%)、さらに攻撃力とHPを500アップ(上限値:3000)(発動中行動不可)",
+		turn: 5,
+		charged: 1,
+		proc: [ss_reinforcement_all(5, [ss_regenerate(0.3, 1, "RF"), ss_statusup_all([500, 500], [3000, 3000], -1)]),],
+	},
+	Lawake: [
+		Statusup(500,0),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		NEFTJOD(30),
+	],
+}

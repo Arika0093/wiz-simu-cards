@@ -1,0 +1,46 @@
+{
+	name: "真実を暴く鋭い推理 江戸川コナン",
+	cardno: 10194,
+	imageno: 6932,
+	hp: 5120,
+	atk: 2551,
+	cost: 56,
+	attr: [2,3],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(コナン)",
+	as1: {
+		desc: "<回復・攻撃強化>雷属性の味方のHPを回復(13%)、さらに雷属性の味方の攻撃力をアップ(30%)",
+		proc: [Heal(0.13, [0,0,1,0,0], 0), ChainEnhance(0.3, [0,0,1,0,0], 0)],
+	},
+	ss1: {
+		desc: "<特殊パネル変換>ジャンルパネルにチェインがプラス1の効果を付与",
+		turn: 3,
+		proc: [panel_chainplus(1)],
+	},
+	awakes: [
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Fastskill(3),
+		Abstate_invalid("ss_sealed"),
+		Attr_statusup_subattr(500, 0),
+		Panel_boost([0,0,1,0,0,],2),
+		Heal_afterbattle(10),
+		Awake_noeffect("心眼",1),
+		Attr_statusup_subattr(0, 500),
+	],
+	as2: {
+		desc: "<回復・攻撃強化>雷属性の味方のHPを回復(16%)、さらに雷属性の味方の攻撃力をアップ(30%)",
+		proc: [Heal(0.16, [0,0,1,0,0], 0), ChainEnhance(0.3, [0,0,1,0,0], 0)],
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルを雷・光属性化し、チェインがプラス2の効果と攻撃力アップの効果を付与(50%)",
+		turn: 6,
+		proc: [ss_panel_change([0,0,1,1,0]), panel_multieffect([panel_attackup(0.5), panel_chainplus(2)])],
+	},
+	Lawake: [
+		Statusup(1000,0),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+	],
+}

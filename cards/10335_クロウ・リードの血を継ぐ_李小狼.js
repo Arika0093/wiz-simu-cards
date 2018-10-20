@@ -1,0 +1,47 @@
+{
+	name: "クロウ・リードの血を継ぐ 李小狼",
+	cardno: 10335,
+	imageno: 12727,
+	imageno_prefix: "S5zpwx_",
+	hp: 3515,
+	atk: 3888,
+	cost: 38,
+	attr: [1,2],
+	species: [9],
+	islegend: true,
+	ape: "コラボ(カードキャプターさくら)",
+	as1: {
+		desc: "<回復>味方全体のHPを回復(14%)",
+		proc: Heal(0.14, [1,1,1,1,1], 0),
+	},
+	ss1: {
+		desc: "<激化大魔術>敵単体へ水・雷属性の2回連続ダメージ(225%)、発動する度に効果値が2倍アップ(上限:5段階)",
+		turn: 3,
+		proc: [ss_damage_s(ss_intenselyval(0, 2.25, 72), [1,2], 2)],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,200, [0,1,1,0,0,]),
+		Attr_statusup(200,0, [0,1,1,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		NEFTJOD(30),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Abstate_invalid("ss_sealed"),
+		Awake_noeffect("スキル反射見破り",1),
+	],
+	as2: {
+		desc: "<回復>味方全体のHPを回復(17%)",
+		proc: Heal(0.17, [1,1,1,1,1], 0),
+	},
+	ss2: {
+		desc: "<激化大魔術>敵単体へ水・雷属性の2回連続ダメージ(225%)、発動する度に効果値が2倍アップ(上限:5段階)",
+		turn: 3,
+		proc: [ss_damage_s(ss_intenselyval(0, 2.25, 72), [1,2], 2)],
+	},
+	Lawake: [
+		Statusup(0,1500),
+		Attr_statusup(0,100, [0,1,0,0,0,]),
+	],
+}

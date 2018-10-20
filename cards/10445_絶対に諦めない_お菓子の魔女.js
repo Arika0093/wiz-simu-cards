@@ -1,0 +1,48 @@
+{
+	name: "絶対に諦めない お菓子の魔女",
+	cardno: 10445,
+	imageno: 12775,
+	imageno_prefix: "K6w3Dq_",
+	hp: 1987,
+	atk: 3790,
+	cost: 48,
+	attr: [0,4],
+	species: [7],
+	islegend: true,
+	ape: "コラボ(魔法少女まどか☆マギカ)",
+	is_dist: true,
+	as1: {
+		desc: "<瀕死攻撃>HP15%以下でダメージアップ(1600%)",
+		proc: add_cond(ChainAttack(16.0, 0), when_hp_less(0.15)),
+	},
+	ss1: {
+		desc: "<多弾魔術>スキル反射を無視し、自分自身のMAXHPの95%を使い敵単体へ火・闇属性の5回連続ダメージ(450%)",
+		turn: 5,
+		proc: [ss_damage_s(4.5, [0,4], 5), ss_consume_own(0.95), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Attr_statusup_subattr(0, 300),
+		Attr_statusup_subattr(300, 0),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(0,300, [1,0,0,0,0,]),
+		Attr_statusup(300,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(3),
+		NEFTJOD(60),
+		Awake_noeffect("経験値取得量アップ",1),
+		Awake_damage_multiple(1.1, 500),
+	],
+	as2: {
+		desc: "<瀕死攻撃>HP15%以下でダメージアップ(1700%)",
+		proc: add_cond(ChainAttack(17.0, 0), when_hp_less(0.15)),
+	},
+	ss2: {
+		desc: "<多弾魔術>スキル反射を無視し、自分自身のMAXHPの95%を使い敵単体へ火・闇属性の5回連続ダメージ(650%)",
+		turn: 7,
+		proc: [ss_damage_s(6.5, [0,4], 5), ss_consume_own(0.95), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Abstate_invalid("as_sealed"),
+	],
+}

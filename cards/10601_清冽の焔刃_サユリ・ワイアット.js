@@ -1,0 +1,47 @@
+{
+	name: "清冽の焔刃 サユリ・ワイアット",
+	cardno: 10601,
+	imageno: 8884,
+	hp: 3443,
+	atk: 7032,
+	cost: 55,
+	attr: [0,-1],
+	species: [8],
+	islegend: true,
+	ape: "クロム・マグナ ゼロ",
+	as1: {
+		desc: "<連撃>4チェインで敵単体を6回連続攻撃(400%)、15チェインで10回連続攻撃になりさらにダメージアップ(700%)",
+		proc: [ChainDualAttack(4.0, 4, 6), ChainDualAttack(11.0, 15, 10)],
+	},
+	ss1: {
+		desc: "<斬撃大魔術>スキル反射を無視し、火属性の10連撃(950%)、さらに連撃数分チェインプラス",
+		turn: 10,
+		proc: [ss_damage_slash(9.5, [0], 10), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],3),
+		Attr_relief([1,1,0,0,0,],20),
+		Panel_boost([1,0,0,0,0,],3),
+		Fastskill(3),
+		NEFTJOD(30),
+		Attr_statusup_oattr(0,500, [1,0,0,0,0,]),
+		Attr_statusup_oattr(500,0, [1,0,0,0,0,]),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Awake_damage_multiple(1.1, 500),
+	],
+	as2: {
+		desc: "<連撃>4チェインで敵単体を6回連続攻撃(500%)、15チェインで10回連続攻撃になりさらにダメージアップ(700%)",
+		proc: [ChainDualAttack(5.0, 4, 6), ChainDualAttack(12.0, 15, 10)],
+	},
+	ss2: {
+		desc: "<斬撃大魔術>スキル反射を無視し、火属性の10連撃(1200%)、さらに連撃数分チェインプラス",
+		turn: 12,
+		proc: [ss_damage_slash(12.0, [0], 10), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		OnlyAttr_statusup(1000, 1000, 0),
+		Attr_statusup(100,0, [1,0,0,0,0,]),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+	],
+}

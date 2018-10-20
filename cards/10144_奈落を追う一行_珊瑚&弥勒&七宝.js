@@ -1,0 +1,47 @@
+{
+	name: "奈落を追う一行 珊瑚&弥勒&七宝",
+	cardno: 10144,
+	imageno: 12503,
+	imageno_prefix: "q3Md5V_",
+	hp: 2580,
+	atk: 5929,
+	cost: 43,
+	attr: [0,-1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(高橋留美子)",
+	as1: {
+		desc: "<分散攻撃>3チェインで敵全体へ分散攻撃(400%)",
+		proc: ChainVarianceAttack(4.0, 3),
+	},
+	ss1: {
+		desc: "<割合削り>敵単体のHPを15%減少させる",
+		turn: 8,
+		proc: [ss_ratiodamage_s(0.15)],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],3),
+		Fastskill(1),
+		Attr_statusup(0,300, [1,0,0,0,0,]),
+		Attr_statusup_oattr(300,0, [1,0,0,0,0,]),
+		Attr_statusup_oattr(0,300, [1,0,0,0,0,]),
+		Attr_statusup(300,0, [1,0,0,0,0,]),
+		NEFTJOD(30),
+		Fastskill(2),
+		Spec_statusup(0,200, [8,]),
+		Spec_statusup(200,0, [8,]),
+	],
+	as2: {
+		desc: "<分散攻撃>3チェインで敵全体へ分散攻撃(500%)",
+		proc: ChainVarianceAttack(5.0, 3),
+	},
+	ss2: {
+		desc: "<割合削り>敵単体のHPを25%減少させる",
+		turn: 10,
+		proc: [ss_ratiodamage_s(0.25)],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

@@ -1,0 +1,45 @@
+{
+	name: "魔道学園創立者 ダンケル・アダムス",
+	cardno: 10598,
+	imageno: 8875,
+	hp: 2889,
+	atk: 7220,
+	cost: 53,
+	attr: [1,-1],
+	species: [8],
+	islegend: true,
+	ape: "クロム・マグナ ゼロ",
+	as1: {
+		desc: "<チェイン攻撃・属性特効>4チェインでダメージアップ(400%)、光属性の敵だとさらにダメージアップ(400%)",
+		proc: [ChainAttack(4.0, 4), ChainAttrAttack(8.0, 4, [0,0,0,1,0])],
+	},
+	ss1: {
+		desc: "<自己犠牲魔術>スキル反射を無視し、MAXHPの50%を使い敵全体へダメージ(1200%)",
+		turn: 9,
+		proc: [ss_damage_all(12.0, [1]), ss_ignore_skillcounter(), ss_consume_own(0.5)],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		Fastskill(2),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Fastskill(2),
+		Panel_boost([0,1,0,0,0,],2),
+		Heal_afterbattle(10),
+		Attr_statusup_oattr(0,400, [0,1,0,0,0,]),
+		Attr_statusup_oattr(400,0, [0,1,0,0,0,]),
+		Abstate_invalid(["as_sealed", "ss_sealed"]),
+	],
+	as2: {
+		desc: "<チェイン攻撃・属性特効>4チェインでダメージアップ(500%)、光属性の敵だとさらにダメージアップ(400%)",
+		proc: [ChainAttack(5.0, 4), ChainAttrAttack(9.0, 4, [0,0,0,1,0])],
+	},
+	ss2: {
+		desc: "<自己犠牲魔術>スキル反射を無視し、MAXHPの50%を使い敵全体へダメージ(1500%)",
+		turn: 12,
+		proc: [ss_damage_all(15.0, [1]), ss_ignore_skillcounter(), ss_consume_own(0.5)],
+	},
+	Lawake: [
+		Statusup(0,2000),
+	],
+}

@@ -1,0 +1,47 @@
+{
+	name: "歴史への託宣 シャイア・フラクタル	",
+	cardno: 10019,
+	imageno: 12372,
+	hp: 2005,
+	atk: 4318,
+	cost: 54,
+	attr: [1,3],
+	species: [9],
+	islegend: true,
+	ape: "大魔道杯(5周年)",
+	is_dist: true,
+	as1: {
+		desc: "<チェイン攻撃・属性特効>5チェインでダメージアップ(400%)、闇属性の敵だとさらにダメージアップ(200%)",
+		proc: [ChainAttack(4.0, 5), ChainAttrAttack(6.0, 5, [0,0,0,0,1])],
+	},
+	ss1: {
+		desc: "<統一大魔術>スキル反射を無視し、敵全体へ水・光属性のダメージ、デッキ内の精霊が持つ水・光属性が多いほどそれぞれがダメージアップ(上限値:750%、750%)",
+		turn: 7,
+		proc: [ss_UnificationDamage_all(7.5, [1,3]), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup_sattr(0,100, [0,1,0,0,0,], 0,300, [0,0,0,1,0,]),
+		Attr_statusup_sattr(100,0, [0,1,0,0,0,], 300,0, [0,0,0,1,0,]),
+		Fastskill(1),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup_subattr(0, 300),
+		Attr_statusup_subattr(300, 0),
+		Abstate_invalid("ss_sealed"),
+		Fastskill(2),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<チェイン攻撃・属性特効>5チェインでダメージアップ(500%)、闇属性の敵だとさらにダメージアップ(200%)",
+		proc: [ChainAttack(5.0, 5), ChainAttrAttack(7.0, 5, [0,0,0,0,1])],
+	},
+	ss2: {
+		desc: "<統一大魔術>スキル反射を無視し、敵全体へ水・光属性のダメージ、デッキ内の精霊が持つ水・光属性が多いほどそれぞれがダメージアップ(上限値:900%、900%)",
+		turn: 10,
+		proc: [ss_UnificationDamage_all(9.0, [1,3]), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1500),
+		Statusup(500,0),
+	],
+}

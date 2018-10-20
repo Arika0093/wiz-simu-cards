@@ -1,0 +1,46 @@
+{
+	name: "イチョウ色の初恋 阿笠博士",
+	cardno: 10215,
+	imageno: 6995,
+	hp: 3998,
+	atk: 4065,
+	cost: 40,
+	attr: [2,-1],
+	species: [9],
+	islegend: true,
+	ape: "コラボ(コナン)",
+	as1: {
+		desc: "<回復・攻撃強化>雷属性の味方のHPを回復(10%)、さらに雷属性の味方の攻撃力をアップ(30%)",
+		proc: [Heal(0.10, [0,0,1,0,0], 0), ChainEnhance(0.3, [0,0,1,0,0], 0)],
+	},
+	ss1: {
+		desc: "<炸裂大魔術>スキル反射を無視し、敵単体へ雷属性のダメージ(600%)、さらに隣接する敵に雷属性のダメージ(150%)",
+		turn: 4,
+		proc: [ss_undefined("炸裂大魔術(隣接威力変動)")],
+	},
+	awakes: [
+		Awake_noeffect("経験値取得量アップ",1),
+		Fastskill(1),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_oattr(0,400, [0,0,1,0,0,]),
+		Attr_statusup(0,400, [0,0,1,0,0,]),
+		Attr_statusup(400,0, [0,0,1,0,0,]),
+		NEFTJOD(30),
+		Fastskill(2),
+		Attr_statusup_oattr(400,0, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+	],
+	as2: {
+		desc: "<回復・攻撃強化>雷属性の味方のHPを回復(13%)、さらに雷属性の味方の攻撃力をアップ(30%)",
+		proc: [Heal(0.13, [0,0,1,0,0], 0), ChainEnhance(0.3, [0,0,1,0,0], 0)],
+	},
+	ss2: {
+		desc: "<炸裂大魔術>スキル反射を無視し、敵単体へ雷属性のダメージ(900%)、さらに隣接する敵に雷属性のダメージ(150%)",
+		turn: 7,
+		proc: [ss_undefined("炸裂大魔術(隣接威力変動)")],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

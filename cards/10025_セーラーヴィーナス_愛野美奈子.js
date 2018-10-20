@@ -1,0 +1,47 @@
+{
+	name: "セーラーヴィーナス 愛野美奈子",
+	cardno: 10025,
+	imageno: 12378,
+	imageno_prefix: "iruohw_",
+	hp: 2523,
+	atk: 6029,
+	cost: 43,
+	attr: [2,-1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(セーラームーン)",
+	as1: {
+		desc: "<連撃>3チェインで敵単体を3回連続攻撃(350%)",
+		proc: ChainDualAttack(3.5, 3, 3),
+	},
+	ss1: {
+		desc: "<ダメージ強化>3ターンの間、味方の攻撃力をアップ(70%)、5チェインを消費しさらにアップ(50%)",
+		turn: 6,
+		proc: [ss_enhance_all(ss_chain_cost(5, 1.2, 0.7), 3, [1, 1, 1, 1, 1])],
+	},
+	awakes: [
+		Fastskill(1),
+		Attr_statusup(0,400, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],1),
+		Attr_relief([1,0,0,0,0,],10),
+		Attr_statusup(400,0, [0,0,1,0,0,]),
+		Fastskill(2),
+		Attr_statusup_oattr(0,400, [0,0,1,0,0,]),
+		Attr_statusup_oattr(400,0, [0,0,1,0,0,]),
+		NEFTJOD(30),
+		Awake_noeffect("ゴールド取得量アップ",5),
+	],
+	as2: {
+		desc: "<連撃>3チェインで敵単体を3回連続攻撃(450%)",
+		proc: ChainDualAttack(4.5, 3, 3),
+	},
+	ss2: {
+		desc: "<ダメージ強化>4ターンの間、味方の攻撃力をアップ(100%)、5チェインを消費しさらにアップ(50%)",
+		turn: 8,
+		proc: [ss_enhance_all(ss_chain_cost(5, 1.5, 1.0), 4, [1, 1, 1, 1, 1])],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

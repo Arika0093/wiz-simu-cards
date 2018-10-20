@@ -1,0 +1,46 @@
+{
+	name: "深淵の女王 ミュール&レベリオー",
+	cardno: 10318,
+	imageno: 5958,
+	hp: 2960,
+	atk: 5018,
+	cost: 66,
+	attr: [0,4],
+	species: [2],
+	islegend: true,
+	ape: "幻魔特区スザクⅡ",
+	as1: {
+		desc: "<複属性攻撃強化>火属性の攻撃力をアップ(20%)、HP80%以上でさらにアップ(30%)、複属性が闇属性だとさらにアップ(50%)",
+		proc: [ChainEnhance_SubAttr(0.2, 0.7, [1,0,0,0,0], [0,0,0,0,1], 0), add_cond(ChainEnhance_SubAttr(0.5, 1.0, [1,0,0,0,0], [0,0,0,0,1], 0), when_hp_more(0.8))],
+	},
+	ss1: {
+		desc: "<スキルコピー>直前に発動したスペシャルスキルを発動する",
+		turn: 6,
+		proc: [ss_latest_copy()],
+	},
+	awakes: [
+		Fastskill(4),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Attr_statusup(200,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],4),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit"]),
+		NEFTJOD(60),
+		Awake_noeffect("経験値取得量アップ",2),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Abstate_invalid(["as_sealed", "ss_sealed"]),
+	],
+	as2: {
+		desc: "<複属性攻撃強化>火属性の攻撃力をアップ(50%)、HP80%以上でさらにアップ(30%)、複属性が闇属性だとさらにアップ(50%)",
+		proc: [ChainEnhance_SubAttr(0.5, 1.0, [1,0,0,0,0], [0,0,0,0,1], 0), add_cond(ChainEnhance_SubAttr(0.8, 1.3, [1,0,0,0,0], [0,0,0,0,1], 0), when_hp_more(0.8))],
+	},
+	ss2: {
+		desc: "<スキルコピー>直前に発動したスペシャルスキルを発動する",
+		turn: 6,
+		proc: [ss_latest_copy()],
+	},
+	Lawake: [
+		Statusup(0,1500),
+		Statusup(500,0),
+	],
+}

@@ -1,0 +1,47 @@
+{
+	name: "誅戮の告別者 ハクア・デスサイズ",
+	cardno: 10322,
+	imageno: 5678,
+	hp: 4998,
+	atk: 3643,
+	cost: 66,
+	attr: [1,2],
+	species: [8],
+	islegend: true,
+	ape: "GW2015",
+	as1: {
+		desc: "<複属性攻撃強化・種族攻撃強化>3チェインで水・雷属性の味方の攻撃力をアップ(30%)、複属性が雷属性だとさらにアップ(50%)し、戦士はさらにアップ(30%)",
+		proc: [ChainEnhance_SubAttr(0.3, 0.8, [0,1,0,0,0], [0,0,1,0,0], 3), add_cond(ChainEnhance_SubAttr(0.3, 1.1, [0,1,0,0,0], [0,0,1,0,0], 3), when_spec_match([8]))],
+	},
+	ss1: {
+		desc: "<複属性ダメージ強化>4ターンの間、水属性の攻撃力をアップ(50%)、複属性が雷属性だとさらにアップ(50%)",
+		turn: 6,
+		proc: [ss_enhance_all_subattr(0.5, 1.0, 4, [0,1,0,0,0], [0,0,1,0,0])],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],4),
+		Attr_statusup_sattr(0,200, [0,1,0,0,0,], 0,100, [0,0,1,0,0,]),
+		Attr_statusup_sattr(200,0, [0,1,0,0,0,], 100,0, [0,0,1,0,0,]),
+		Fastskill(3),
+		NEFTJOD(30),
+		Attr_relief([0,0,1,0,0,],20),
+		Fastskill(3),
+		Attr_statusup_sattr(0,100, [0,1,0,0,0,], 0,300, [0,0,1,0,0,]),
+		Attr_statusup_sattr(100,0, [0,1,0,0,0,], 300,0, [0,0,1,0,0,]),
+		Abstate_invalid(["as_sealed", "ss_sealed"]),
+	],
+	as2: {
+		desc: "<複属性攻撃強化・種族攻撃強化>3チェインで水・雷属性の味方の攻撃力をアップ(60%)、複属性が雷属性だとさらにアップ(50%)し、戦士はさらにアップ(30%)",
+		proc: [ChainEnhance_SubAttr(0.6, 1.1, [0,1,0,0,0], [0,0,1,0,0], 3), add_cond(ChainEnhance_SubAttr(0.6, 1.4, [0,1,0,0,0], [0,0,1,0,0], 3), when_spec_match([8]))],
+	},
+	ss2: {
+		desc: "<ブースト>8ターンの間、味方のMAXHPを毎ターン10%消費し、味方の攻撃力をアップ(200%)。さらに極稀にクリティカル",
+		turn: 11,
+		proc: [ss_boost_enhance_all(2.0, 8, 0.1)],
+	},
+	Lawake: [
+		Statusup(500,0),
+		Attr_statusup(0,200, [0,1,1,0,0,]),
+		Attr_relief([1,1,1,1,1,],10),
+	],
+}

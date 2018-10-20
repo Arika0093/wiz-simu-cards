@@ -1,0 +1,47 @@
+{
+	name: "罰の神炎 ペトラ・リッケ",
+	cardno: 10407,
+	imageno: 9626,
+	hp: 6465,
+	atk: 2381,
+	cost: 63,
+	attr: [0,3],
+	species: [1],
+	islegend: true,
+	ape: "イタズラ女神とうさぎのおはなし",
+	as1: {
+		desc: "<回復・複属性攻撃強化>火属性の味方を回復(13%)し、攻撃力もアップ(30%)、複属性が光属性だとさらに攻撃力アップ(30%)",
+		proc: [Heal(0.13, [1,0,0,0,0], 0), ChainEnhance_SubAttr(0.3, 0.6, [1,0,0,0,0], [0,0,0,1,0], 0)],
+	},
+	ss1: {
+		desc: "<特殊パネル変換>ジャンルパネルにスキルチャージプラス1の効果を付与（スキルチャージの効果は、SPスキルを使うまで重複しません）",
+		turn: 4,
+		proc: [panel_skillboost(1)],
+	},
+	awakes: [
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],4),
+		Awake_noeffect("経験値取得量アップ",1),
+		Fastskill(3),
+		Attr_statusup(200,0, [1,0,0,0,0,]),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Abstate_invalid("ss_sealed"),
+		Awake_noeffect("心眼",1),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<回復・複属性攻撃強化>火属性の味方を回復(16%)し、攻撃力もアップ(30%)、複属性が光属性だとさらに攻撃力アップ(30%)",
+		proc: [Heal(0.16, [1,0,0,0,0], 0), ChainEnhance_SubAttr(0.3, 0.6, [1,0,0,0,0], [0,0,0,1,0], 0)],
+	},
+	ss2: {
+		desc: "<遅延>敵全体の攻撃ターンを3遅らせる ",
+		turn: 9,
+		proc: [ss_delay_all(3)],
+	},
+	Lawake: [
+		Abstate_invalid("as_sealed"),
+		Statusup(500,0),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+	],
+}

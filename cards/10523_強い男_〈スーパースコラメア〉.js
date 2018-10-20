@@ -1,0 +1,46 @@
+{
+	name: "強い男 〈スーパースコラメア〉",
+	cardno: 10523,
+	imageno: 12945,
+	hp: 7163,
+	atk: 1515,
+	cost: 44,
+	attr: [1,-1],
+	species: [2],
+	islegend: true,
+	ape: "MARELESS2 夢現の狭間",
+	is_dist: true,
+	as1: {
+		desc: "<回復・攻撃強化>水属性の味方を回復(12%)し、デッキに単色の精霊が多いほど、攻撃力をアップ(10%)(上限:5段階)",
+		proc: [Heal(0.12, [0,1,0,0,0]), add_cond(ChainEnhance(0, [0,1,0,0,0], 0), as_singleattr_num(0, 0.1))],
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルをALL属性化",
+		turn: 4,
+		proc: [ss_panel_change([1,1,1,0,0])],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup_oattr(0,400, [0,1,0,0,0,]),
+		Attr_statusup_oattr(400,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		NEFTJOD(30),
+		Awake_noeffect("経験値取得量アップ",1),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Fastskill(3),
+	],
+	as2: {
+		desc: "<回復・攻撃強化>水属性の味方を回復(15%)し、デッキに単色の精霊が多いほど、攻撃力をアップ(10%)(上限:5段階)",
+		proc: [Heal(0.15, [0,1,0,0,0]), add_cond(ChainEnhance(0, [0,1,0,0,0], 0), as_singleattr_num(0, 0.1))],
+	},
+	ss2: {
+		desc: "<純属性パネル変換>ジャンルパネルをALL属性化し、回復の効果を付与、水単色の精霊が多いほどさらに効果値アップ(上限値:40%)",
+		turn: 12,
+		proc: [ss_panel_change([1,1,1,0,0]), panel_healally(0.4)],
+	},
+	Lawake: [
+		Attr_statusup_oattr(0,300, [0,1,0,0,0,]),
+	],
+}

@@ -1,0 +1,47 @@
+{
+	name: "幻魔特区RELOADED",
+	cardno: 9895,
+	imageno: 12240,
+	hp: 2585,
+	atk: 4187,
+	cost: 32,
+	attr: [1,-1],
+	species: [8],
+	islegend: true,
+	ape: "英雄凱旋大魔道杯",
+	is_dist: true,
+	as1: {
+		desc: "<チェイン攻撃>3チェインでダメージアップ(300%)",
+		proc: ChainAttack(3.0, 3),
+	},
+	ss1: {
+		desc: "<大魔術>スキル反射を無視し、敵全体へ無属性のダメージ(100%)",
+		turn: 4,
+		proc: [ss_damage_all(1.0, [-1]), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Costdown(10),
+		Statusup(200,0),
+		Fastskill(1),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,300, [0,1,0,0,0,]),
+		Attr_statusup(300,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Statusup(0,200),
+		Fastskill(2),
+		Abstate_invalid("poison"),
+	],
+	as2: {
+		desc: "<チェイン攻撃>3チェインでダメージアップ(400%)",
+		proc: ChainAttack(4.0, 3),
+	},
+	ss2: {
+		desc: "<大魔術>スキル反射を無視し、敵全体へ無属性のダメージ(100%)",
+		turn: 4,
+		proc: [ss_damage_all(1.0, [-1]), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,500),
+		Statusup(500,0),
+	],
+}

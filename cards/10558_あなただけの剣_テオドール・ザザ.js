@@ -1,0 +1,48 @@
+{
+	name: "あなただけの剣 テオドール・ザザ",
+	cardno: 10558,
+	imageno: 12983,
+	imageno_prefix: "Sn7Mvk_",
+	hp: 3425,
+	atk: 3201,
+	cost: 52,
+	attr: [1,3],
+	species: [3],
+	islegend: true,
+	ape: "黒ウィズダンジョン2",
+	is_dist: true,
+	as1: {
+		desc: "<属性特効>火・闇属性の敵単体へ特効ダメージ(350%)",
+		proc: ChainAttrAttack(3.5, 0, [1, 0, 0, 0, 1]),
+	},
+	ss1: {
+		desc: "<解答削り>解答選択肢を1つ削り、4チェインを消費し解答を見破る",
+		turn: 1,
+		proc: [ss_chain_cost_skill(4, ss_answer_foresight(), ss_answer_narrow(1))],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(3),
+		NEFTJOD(30),
+		Awake_noeffect("経験値取得量アップ",2),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<属性特効>火・闇属性の敵単体へ特効ダメージ(450%)",
+		proc: ChainAttrAttack(4.5, 0, [1, 0, 0, 0, 1]),
+	},
+	ss2: {
+		desc: "<解答削り>解答選択肢を1つ削り、3チェインを消費し解答を見破る",
+		turn: 2,
+		proc: [ss_chain_cost_skill(3, ss_answer_foresight(), ss_answer_narrow(1))],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

@@ -1,0 +1,47 @@
+{
+	name: "剣光無尽 ゼラード&コピシュ",
+	cardno: 10080,
+	imageno: 12438,
+	imageno_prefix: "Ut5EsG_",
+	hp: 2725,
+	atk: 4021,
+	cost: 55,
+	attr: [2,4],
+	species: [8],
+	islegend: true,
+	ape: "黄昏メアレスⅣ",
+	as1: {
+		desc: "<チェイン攻撃>20チェインでダメージアップ(1600%)、40チェインで更にダメージアップ(1500%)",
+		proc: [ChainAttack(16.0, 20), ChainAttack(31.0, 40)],
+	},
+	ss1: {
+		desc: "<斬撃大魔術>スキル反射を無視し、雷・闇属性の5連撃(400%)、さらに連撃数分チェインプラス",
+		turn: 6,
+		proc: [ss_damage_slash(4.0, [2,4], 5), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Awake_secondfast(2),
+		Attr_statusup_sattr(0,100, [0,0,1,0,0,], 0,100, [0,0,0,0,1,]),
+		Attr_statusup_sattr(100,0, [0,0,1,0,0,], 100,0, [0,0,0,0,1,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Awake_secondfast(2),
+		Panel_boost([0,0,1,0,0,],2),
+		NEFTJOD(60),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<チェイン攻撃>20チェインでダメージアップ(1700%)、40チェインで更にダメージアップ(1500%)",
+		proc: [ChainAttack(17.0, 20), ChainAttack(32.0, 40)],
+	},
+	ss2: {
+		desc: "<斬撃大魔術>スキル反射を無視し、雷・闇属性の5連撃(400%)、さらに連撃数分チェインプラス",
+		turn: 6,
+		proc: [ss_damage_slash(4.0, [2,4], 5), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1500),
+		Statusup(500,0),
+	],
+}

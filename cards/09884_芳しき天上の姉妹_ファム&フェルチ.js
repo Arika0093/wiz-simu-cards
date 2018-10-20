@@ -1,0 +1,47 @@
+{
+	name: "芳しき天上の姉妹 ファム&フェルチ",
+	cardno: 9884,
+	imageno: 6582,
+	hp: 5229,
+	atk: 4571,
+	cost: 51,
+	attr: [2,-1],
+	species: [9],
+	alias: ["ちっぱい"],
+	islegend: true,
+	ape: "DL限定精霊",
+	as1: {
+		desc: "<攻撃強化・ガード>3チェインで全属性のダメージを10%軽減し、デッキに単色の精霊が多いほど、攻撃力をアップ(20%)(上限:5段階)",
+		proc: [as_guard(0.10, [1,1,1,1,1], 3), add_cond(ChainEnhance(0, [0,0,1,0,0], 3), as_singleattr_num(0, 0.20))],
+	},
+	ss1: {
+		desc: "<遅延>敵全体の攻撃ターンを3遅らせる",
+		turn: 8,
+		proc: [ss_delay_all(3)],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],4),
+		Attr_statusup_oattr(0,400, [0,0,1,0,0,]),
+		Attr_statusup_oattr(400,0, [0,0,1,0,0,]),
+		Awake_noeffect("ゴールド取得量アップ",2),
+		NEFTJOD(30),
+		Attr_statusup(0,400, [0,0,1,0,0,]),
+		Attr_statusup(400,0, [0,0,1,0,0,]),
+		Abstate_invalid(["as_sealed", "ss_sealed"]),
+		Abstate_invalid("discharge"),
+		Fastskill(4),
+	],
+	as2: {
+		desc: "<攻撃強化・ガード>3チェインで全属性のダメージを10%軽減し、デッキに単色の精霊が多いほど、攻撃力をアップ(25%)(上限:5段階)",
+		proc: [as_guard(0.10, [1,1,1,1,1], 3), add_cond(ChainEnhance(0, [0,0,1,0,0], 3), as_singleattr_num(0, 0.25))],
+	},
+	ss2: {
+		desc: "<遅延>敵全体の攻撃ターンを3遅らせ、20チェインで更に1遅らせる",
+		turn: 10,
+		proc: [ss_delay_all(ss_chain_cond(20, 4, 3))],
+	},
+	Lawake: [
+		Statusup(1000,0),
+		Statusup(0,1000),
+	],
+}

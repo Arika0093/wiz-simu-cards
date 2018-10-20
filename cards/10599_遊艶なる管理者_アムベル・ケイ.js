@@ -1,0 +1,46 @@
+{
+	name: "遊艶なる管理者 アムベル・ケイ",
+	cardno: 10599,
+	imageno: 8878,
+	hp: 6040,
+	atk: 2503,
+	cost: 61,
+	attr: [0,2],
+	species: [9],
+	islegend: true,
+	ape: "クロム・マグナ ゼロ",
+	as1: {
+		desc: "<複属性攻撃強化>7チェインで火属性の攻撃力をアップ(80%)、複属性を持つ精霊はさらにアップ(50%)",
+		proc: ChainEnhance_SubAttr(0.8, 1.3, [1,0,0,0,0], [0,1,1,1,1], 7),
+	},
+	ss1: {
+		desc: "<ステータスアップ>味方全体の攻撃力を500ダウンし、味方全体のHPを3000アップ(上限値:3000)、さらにHPを回復(50%)",
+		turn: 5,
+		proc: [ss_statusup_all([3000, -500], [3000, 3000], -1), ss_heal(0.5)],
+	},
+	awakes: [
+		Attr_statusup(200,0, [1,0,1,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(2),
+		Attr_statusup(0,200, [1,0,1,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(3),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Abstate_invalid("ss_sealed"),
+		Awake_noeffect("スキル反射見破り",1),
+	],
+	as2: {
+		desc: "<複属性攻撃強化>7チェインで火属性の攻撃力をアップ(110%)、複属性を持つ精霊はさらにアップ(50%)",
+		proc: ChainEnhance_SubAttr(1.1, 1.6, [1,0,0,0,0], [0,1,1,1,1], 7),
+	},
+	ss2: {
+		desc: "<ガード>8ターン全属性のダメージを35%軽減し、さらにHPを回復(50%)",
+		turn: 10,
+		proc: [ss_attr_guard([1,1,1,1,1], 0.35, 8), ss_heal(0.5)],
+	},
+	Lawake: [
+		Attr_statusup_subattr(0, 300),
+		Statusup(500,0),
+	],
+}

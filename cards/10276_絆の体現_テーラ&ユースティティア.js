@@ -1,0 +1,45 @@
+{
+	name: "絆の体現 テーラ&ユースティティア",
+	cardno: 10276,
+	imageno: 12653,
+	hp: 2215,
+	atk: 4833,
+	cost: 60,
+	attr: [1,3],
+	species: [8],
+	islegend: true,
+	ape: "幻魔特区RELOADEDⅡ",
+	as1: {
+		desc: "<連撃>4チェインで敵単体を4回連続攻撃(250%)、デッキ内の精霊が持つ属性数が多いほどさらにアップ(60%)(上限:5段階)",
+		proc: add_cond(ChainDualAttack(2.5, 4, 4), as_deckinattr_num(0, 0.6)),
+	},
+	ss1: {
+		desc: "<融合大魔術>スキル反射を無視し、敵単体へ水属性のダメージ、デッキ内の精霊が持つ属性数が多いほどダメージアップ(上限値:5属性で6000%)",
+		turn: 7,
+		proc: [ss_damage_s(ss_multiattr_cond(60), [1], 1), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		NEFTJOD(30),
+		Abstate_invalid("ss_sealed"),
+		Attr_statusup_subattr(500, 0),
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(3),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup_subattr(0, 500),
+	],
+	as2: {
+		desc: "<連撃>4チェインで敵単体を4回連続攻撃(350%)、デッキ内の精霊が持つ属性数が多いほどさらにアップ(60%)(上限:5段階)",
+		proc: add_cond(ChainDualAttack(3.5, 4, 4), as_deckinattr_num(0, 0.6)),
+	},
+	ss2: {
+		desc: "<融合大魔術>スキル反射を無視し、敵単体へ水属性のダメージ、デッキ内の精霊が持つ属性数が多いほどダメージアップ(上限値:5属性で7200%)",
+		turn: 10,
+		proc: [ss_damage_s(ss_multiattr_cond(72), [1], 1), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,2000),
+	],
+}

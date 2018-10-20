@@ -1,0 +1,46 @@
+{
+	name: "咎の鎖 ダイトメア=ラギト",
+	cardno: 7327,
+	imageno: 9352,
+	hp: 3989,
+	atk: 4721,
+	cost: 54,
+	attr: [1,-1],
+	species: [8],
+	disable: true,
+	islegend: true,
+	ape: "黄昏メアレスⅡ",
+	as1: {
+		desc: "<属性特効>火属性の敵単体へ特効ダメージ(350%)、解答が早いほどさらにアップ(50%)",
+		proc: add_cond(ChainAttrAttack(3.5, 0, [1,0,0,0,0]), as_timedep(0.5)),
+	},
+	ss1: {
+		desc: "<時限大魔術>スキル反射を無視し、3ターン後に敵単体へ水属性ダメージ(1000%)",
+		turn: 2,
+		proc: [ss_damage_timebomb(10, [1], 1, 3), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],1),
+		NEFTJOD(30),
+		Statusup(0,200),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,100, [0,1,0,0,0,]),
+		Fastskill(1),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_relief([0,1,0,0,0,],10),
+		Abstate_invalid("ss_sealed"),
+		Awake_noeffect("スキル反射見破り",1),
+	],
+	as2: {
+		desc: "<属性特効>火属性の敵単体へ特効ダメージ(450%)、解答が早いほどさらにアップ(50%)",
+		proc: add_cond(ChainAttrAttack(4.5, 0, [1,0,0,0,0]), as_timedep(0.5)),
+	},
+	ss2: {
+		desc: "<時限大魔術>スキル反射を無視し、3ターン後に敵単体へ水属性ダメージ(2000%)",
+		turn: 3,
+		proc: [ss_damage_timebomb(20, [1], 1, 3), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+	],
+}

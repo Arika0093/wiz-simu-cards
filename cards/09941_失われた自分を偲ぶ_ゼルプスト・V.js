@@ -1,0 +1,51 @@
+{
+	name:"失われた自分を偲ぶ ゼルプスト・V",
+	cardno:9941,
+	imageno:12290,
+	imageno_prefix: "N3zReM_",
+	hp:3155,
+	atk:3155,
+	cost:15,
+    attr: [2, 4],
+    species: [9],
+    islegend: true,
+    is_dist: true,
+    ape: "周年記念精霊(5周年)",
+    as1:{
+		desc: "<チェイン攻撃>5チェインでダメージアップ/400％",
+		proc: ChainAttack(4.0, 5),
+    },
+    ss1:{
+		desc: "<ダメージ強化>1ターン溜めた後、1ターン雷属性の味方の攻撃力をアップ(150%)",
+		turn: 5,
+		charged: 1,
+		proc: [ss_enhance_all(1.5, 1, [0,0,1,0,0])],
+	},
+    awakes:[
+		Awake_noeffect("経験値取得量アップ",1),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Abstate_invalid("ss_sealed"),
+		Fastskill(3),
+		Attr_statusup(0,200, [1,1,1,1,1,]),
+		Attr_statusup(200,0, [1,1,1,1,1,]),
+		NEFTJOD(30),
+		Abstate_invalid("as_sealed"),
+    ],
+    as2:{
+		desc: "<チェイン攻撃>5チェインでダメージアップ/500％",
+		proc: ChainAttack(5.0, 5),
+    },
+    ss2:{
+		desc: "<ダメージ強化>1ターン溜めた後、1ターン雷属性の味方の攻撃力をアップ(200%)",
+		turn: 8,
+		charged: 1,
+		proc: [ss_enhance_all(2.0, 1, [0,0,1,0,0])],
+	},
+    Lawake:[
+		Statusup(0,500),
+		Statusup(500,0),
+		Attr_statusup(0,100, [1,1,1,1,1,]),
+    ]
+}

@@ -1,0 +1,47 @@
+{
+	name: "セーラージュピター 木野まこと",
+	cardno: 10024,
+	imageno: 12377,
+	imageno_prefix: "iruohw_",
+	hp: 2568,
+	atk: 3811,
+	cost: 52,
+	attr: [2,3],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(セーラームーン)",
+	as1: {
+		desc: "<属性特効>水・闇属性の敵単体へ特効ダメージ(400%)",
+		proc: ChainAttrAttack(4.0, 0, [0, 1, 0, 0, 1]),
+	},
+	ss1: {
+		desc: "<炸裂大魔術>スキル反射を無視し、敵単体へ雷・光属性のダメージ(700%)、さらに隣接する敵に雷・光属性のダメージ(700%)",
+		turn: 8,
+		proc: [ss_damage_explosion(7.0, [2,3]), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],1),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Fastskill(1),
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],1),
+		Fastskill(2),
+		Attr_statusup_sattr(0,100, [0,0,1,0,0,], 0,300, [0,0,0,1,0,]),
+		Attr_statusup_sattr(100,0, [0,0,1,0,0,], 300,0, [0,0,0,1,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit"]),
+	],
+	as2: {
+		desc: "<属性特効>水・闇属性の敵単体へ特効ダメージ(500%)",
+		proc: ChainAttrAttack(5.0, 0, [0, 1, 0, 0, 1]),
+	},
+	ss2: {
+		desc: "<炸裂大魔術>スキル反射を無視し、敵単体へ雷・光属性のダメージ(1000%)、さらに隣接する敵に雷・光属性のダメージ(1000%)",
+		turn: 11,
+		proc: [ss_damage_explosion(10.0, [2,3]), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

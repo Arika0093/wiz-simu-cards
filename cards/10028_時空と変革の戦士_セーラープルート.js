@@ -1,0 +1,47 @@
+{
+	name: "時空と変革の戦士 セーラープルート",
+	cardno: 10028,
+	imageno: 12381,
+	imageno_prefix: "iruohw_",
+	hp: 3445,
+	atk: 5023,
+	cost: 42,
+	attr: [1,-1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(セーラームーン)",
+	as1: {
+		desc: "<全体攻撃>敵全体へダメージ(150%)",
+		proc: ChainAllAttack(1.5, 0),
+	},
+	ss1: {
+		desc: "<スキルチャージ>味方全体のスペシャルスキルの発動ターンを2早める",
+		turn: 8,
+		proc: [ss_skillboost(2)],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup_oattr(0,400, [0,1,0,0,0,]),
+		Attr_statusup_oattr(400,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(1),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Fastskill(2),
+		NEFTJOD(30),
+		Abstate_invalid("discharge"),
+	],
+	as2: {
+		desc: "<全体攻撃>敵全体へダメージ(180%)",
+		proc: ChainAllAttack(1.8, 0),
+	},
+	ss2: {
+		desc: "<スキルチャージ>味方全体のスペシャルスキルの発動ターンを3早める",
+		turn: 11,
+		proc: [ss_skillboost(3)],
+	},
+	Lawake: [
+		Statusup(0, 1000),
+		Statusup(1000, 0),
+	],
+}

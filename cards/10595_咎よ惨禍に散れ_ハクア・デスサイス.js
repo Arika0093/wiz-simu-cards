@@ -1,0 +1,47 @@
+{
+	name: "咎よ惨禍に散れ ハクア・デスサイス",
+	cardno: 10595,
+	imageno: 10378,
+	hp: 4075,
+	atk: 4217,
+	cost: 66,
+	attr: [1,4],
+	species: [8],
+	islegend: true,
+	ape: "覇眼戦線Ⅱ",
+	as1: {
+		desc: "<分散攻撃>4チェインで敵全体へ分散攻撃(500%)、HP50%以上でさらにアップ(200%)",
+		proc: [ChainVarianceAttack(5.0, 4), add_cond(ChainVarianceAttack(7.0, 4), when_hp_more(0.5))],
+	},
+	ss1: {
+		desc: "<割合削り>スキル反射を無視し、敵単体のHPを20%減少させる",
+		turn: 6,
+		proc: [ss_ratiodamage_s(0.20), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],5),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Costdown(20),
+		NEFTJOD(30),
+		Abstate_invalid("ss_sealed"),
+		Awake_noeffect("行動見破り",1),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Fastskill(4),
+	],
+	as2: {
+		desc: "<分散攻撃>4チェインで敵全体へ分散攻撃(600%)、HP50%以上でさらにアップ(200%)",
+		proc: [ChainVarianceAttack(6.0, 4), add_cond(ChainVarianceAttack(8.0, 4), when_hp_more(0.5))],
+	},
+	ss2: {
+		desc: "<割合削り>スキル反射を無視し、敵単体のHPを30%減少させる",
+		turn: 8,
+		proc: [ss_ratiodamage_s(0.30), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,500),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Abstate_invalid("death_limit"),
+	],
+}

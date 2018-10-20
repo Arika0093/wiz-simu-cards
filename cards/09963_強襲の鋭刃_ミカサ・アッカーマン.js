@@ -1,0 +1,46 @@
+{
+	name: "強襲の鋭刃 ミカサ・アッカーマン",
+	cardno: 9963,
+	imageno: 12312,
+	hp: 2633,
+	atk: 6190,
+	cost: 45,
+	attr: [2,-1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(進撃の巨人)",
+	as1: {
+		desc: "<属性特効連撃>水属性の敵単体へ特効5連撃(400%)",
+		proc: ChainDualAttrAttack(4.0, 0, 5, [0,1,0,0,0]),
+	},
+	ss1: {
+		desc: "<継続回復>チェインプラス2の効果、さらに3ターン味方全体を徐々に回復する(15%)",
+		turn: 5,
+		proc: [ss_addchain(2), ss_regenerate(0.15, 3)],
+	},
+	as2: {
+		desc: "<属性特効連撃>水属性の敵単体へ特効5連撃(500%)",
+		proc: ChainDualAttrAttack(5.0, 0, 5, [0,1,0,0,0]),
+	},
+	ss2: {
+		desc: "<継続回復>チェインプラス3の効果、さらに5ターン味方全体を徐々に回復する(20%)",
+		turn: 8,
+		proc: [ss_addchain(3), ss_regenerate(0.2, 5)],
+	},
+	awakes: [
+		Costdown(20),
+		Attr_statusup_oattr(0,400,[0,0,1,0,0,]),
+		Attr_statusup_oattr(400,0,[0,0,1,0,0,]),
+		Fastskill(2),
+		Attr_statusup(400,0,[0,0,1,0,0,]),
+		Attr_statusup(0,400,[0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Spec_statusup(0,200,[8]),
+		Fastskill(2),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit"]),
+	],
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

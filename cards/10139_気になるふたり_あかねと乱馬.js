@@ -1,0 +1,47 @@
+{
+	name: "気になるふたり あかねと乱馬",
+	cardno: 10139,
+	imageno: 12498,
+	imageno_prefix: "q3Md5V_",
+	hp: 2324,
+	atk: 6177,
+	cost: 43,
+	attr: [1,-1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(高橋留美子)",
+	as1: {
+		desc: "<チェイン攻撃>5チェインでダメージアップ(450%)",
+		proc: ChainAttack(4.5, 5),
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルを水属性化",
+		turn: 2,
+		proc: [ss_panel_change([0,1,0,0,0])],
+	},
+	awakes: [
+		Fastskill(1),
+		Panel_boost([0,1,0,0,0,],1),
+		Attr_statusup(300,0, [0,1,0,0,0,]),
+		Attr_statusup_oattr(300,0, [0,1,0,0,0,]),
+		Attr_statusup_oattr(0,300, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Spec_statusup(0,200, [8,]),
+		Attr_statusup(0,300, [0,1,0,0,0,]),
+		Spec_statusup(200,0, [8,]),
+		Fastskill(2),
+	],
+	as2: {
+		desc: "<チェイン攻撃>5チェインでダメージアップ(550%)",
+		proc: ChainAttack(5.5, 5),
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルを水属性化し、攻撃力アップの効果を付与(100%)",
+		turn: 7,
+		proc: [ss_panel_change([0,1,0,0,0]), panel_attackup(1.0)],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

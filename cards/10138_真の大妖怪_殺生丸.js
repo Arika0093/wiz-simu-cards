@@ -1,0 +1,47 @@
+{
+	name: "真の大妖怪 殺生丸",
+	cardno: 10138,
+	imageno: 5864,
+	hp: 2240,
+	atk: 6810,
+	cost: 46,
+	attr: [1,-1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(高橋留美子)",
+	as1: {
+		desc: "<属性特効>味方のMAXHP10%を使い、火属性の敵単体へダメージ(850%)",
+		proc: add_cond(ChainAttack(8.5, 0), as_consume_all(0.10)),
+	},
+	ss1: {
+		desc: "<犠牲魔術>味方全体のMAXHPの50%を使い敵全体へダメージ(精霊数×340%)",
+		turn: 10,
+		proc: [ss_damage_all(ss_consume_all_cond(3.4, 0.5), [1])],
+	},
+	awakes: [
+		Attr_statusup_oattr(0,400, [0,1,0,0,0,]),
+		Attr_statusup(0,300, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],3),
+		Attr_statusup(300,0, [0,1,0,0,0,]),
+		Attr_statusup_oattr(400,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],1),
+		Fastskill(3),
+		Spec_statusup(0,200, [8,]),
+		NEFTJOD(60),
+		Spec_statusup(200,0, [8,]),
+	],
+	as2: {
+		desc: "<属性特効>味方のMAXHP10%を使い、火属性の敵単体へダメージ(950%)",
+		proc: add_cond(ChainAttack(9.5, 0), as_consume_all(0.10)),
+	},
+	ss2: {
+		desc: "<犠牲魔術>味方全体のMAXHPの50%を使い敵全体へダメージ(精霊数×380%)",
+		turn: 12,
+		proc: [ss_damage_all(ss_consume_all_cond(3.8, 0.5), [1])],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Attr_statusup(0,100, [0,1,0,0,0,]),
+		NEFTJOD(30),
+	],
+}

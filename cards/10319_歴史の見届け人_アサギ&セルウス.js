@@ -1,0 +1,46 @@
+{
+	name: "歴史の見届け人 アサギ&セルウス",
+	cardno: 10319,
+	imageno: 8243,
+	hp: 3817,
+	atk: 5102,
+	cost: 72,
+	attr: [2,3],
+	species: [1],
+	islegend: true,
+	ape: "幻魔特区スザクⅡ",
+	as1: {
+		desc: "<チェイン攻撃>3チェインでダメージアップ(200%)、20チェインでさらにダメージアップ(1300%)",
+		proc: [ChainAttack(3.0, 3), ChainAttack(15, 20)],
+	},
+	ss1: {
+		desc: "<状態異常回復>味方全体のHPを回復し(50%)、状態異常を回復する",
+		turn: 6,
+		proc: [ss_heal(0.5), ss_abstate_cure()],
+	},
+	awakes: [
+		Costdown(20),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],4),
+		Heal_afterbattle(10),
+		Fastskill(4),
+		NEFTJOD(30),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+	],
+	as2: {
+		desc: "<チェイン攻撃>3チェインでダメージアップ(300%)、20チェインでさらにダメージアップ(1300%)",
+		proc: [ChainAttack(4.0, 3), ChainAttack(16, 20)],
+	},
+	ss2: {
+		desc: "<状態異常回復>味方全体のHPを完全回復し、状態異常を回復する",
+		turn: 8,
+		proc: [ss_heal(1), ss_abstate_cure()],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+	],
+}

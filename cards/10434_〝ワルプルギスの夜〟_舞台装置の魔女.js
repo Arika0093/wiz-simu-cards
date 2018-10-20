@@ -1,0 +1,48 @@
+{
+	name: "〝ワルプルギスの夜〟 舞台装置の魔女",
+	cardno: 10434,
+	imageno: 12774,
+	imageno_prefix: "E4pSBg_",
+	hp: 7025,
+	atk: 444,
+	cost: 48,
+	attr: [2,4],
+	species: [7],
+	islegend: true,
+	ape: "コラボ(魔法少女まどか☆マギカ)",
+	is_dist: true,
+	as1: {
+		desc: "<回復>雷属性の味方のHPを回復(7%)、デッキ内の精霊が持つ属性数が多いほど、さらに回復(1%)(上限:5段階)",
+		proc: [add_cond(Heal(0.07, [0,1,0,0,0], 0), as_deckinattr_num(0, 0.01))],
+	},
+	ss1: {
+		desc: "<無に還す瞳>10ターン後に敵単体を無に還す(一部敵には無効)",
+		turn: 3,
+		proc: [ss_death_limit(10)],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],1),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Fastskill(1),
+		Awake_noeffect("ゴールド取得量アップ",3),
+		Attr_statusup_subattr(0, 300),
+		Attr_statusup_subattr(300, 0),
+		NEFTJOD(30),
+		Panel_boost([0,0,1,0,0,],1),
+		Fastskill(2),
+	],
+	as2: {
+		desc: "<回復>雷属性の味方のHPを回復(10%)、デッキ内の精霊が持つ属性数が多いほど、さらに回復(1%)(上限:5段階)",
+		proc: [add_cond(Heal(0.10, [0,1,0,0,0], 0), as_deckinattr_num(0, 0.01))],
+	},
+	ss2: {
+		desc: "<無に還す瞳>2ターン後に敵単体を無に還す(一部敵には無効)",
+		turn: 9,
+		proc: [ss_death_limit(2)],
+	},
+	Lawake: [
+		Attr_statusup_subattr(0, 200),
+		Statusup(500,0),
+	],
+}

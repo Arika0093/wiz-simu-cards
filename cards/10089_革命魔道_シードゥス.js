@@ -1,0 +1,48 @@
+{
+	name: "革命魔道 シードゥス",
+	cardno: 10089,
+	imageno: 12447,
+	imageno_prefix: "Ut5EsG_",
+	hp: 2310,
+	atk: 2801,
+	cost: 41,
+	attr: [2,0],
+	species: [9],
+	islegend: true,
+	ape: "黄昏メアレスⅣ",
+	is_dist: true,
+	as1: {
+		desc: "<複属性攻撃強化>雷属性の攻撃力をアップ(30%)、複属性が火属性だとさらにアップ(40%)",
+		proc: ChainEnhance_SubAttr(0.3, 0.7, [0,0,1,0,0], [1,0,0,0,0], 0),
+	},
+	ss1: {
+		desc: "<斬撃大魔術>スキル反射を無視し、火・雷属性の3連撃(360%)、さらに連撃数分チェインプラス",
+		turn: 9,
+		proc: [ss_damage_slash(3.6, [2,0], 3), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Costdown(10),
+		Attr_statusup(0,200, [1,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],1),
+		Attr_statusup(200,0, [1,0,1,0,0,]),
+		Awake_secondfast(3),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_sattr(0,100, [0,0,1,0,0,], 0,100, [1,0,0,0,0,]),
+		Attr_statusup_sattr(100,0, [0,0,1,0,0,], 100,0, [1,0,0,0,0,]),
+		Awake_secondfast(4),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit"]),
+	],
+	as2: {
+		desc: "<複属性攻撃強化>雷属性の攻撃力をアップ(60%)、複属性が火属性だとさらにアップ(40%)",
+		proc: ChainEnhance_SubAttr(0.6, 1.0, [0,0,1,0,0], [1,0,0,0,0], 0),
+	},
+	ss2: {
+		desc: "<斬撃大魔術>スキル反射を無視し、火・雷属性の3連撃(360%)、さらに連撃数分チェインプラス",
+		turn: 9,
+		proc: [ss_damage_slash(3.6, [2,0], 3), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,500),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+	],
+}

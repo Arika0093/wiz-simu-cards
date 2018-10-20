@@ -1,0 +1,45 @@
+{
+	name: "人類最強の代名詞 リヴァイ",
+	cardno: 9960,
+	imageno: 12309,
+	hp: 2333,
+	atk: 6724,
+	cost: 46,
+	attr: [1,-1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(進撃の巨人)",
+	as1: {
+		desc: "<属性特効>火属性の敵単体へ特効ダメージ(350%)、リーダー時さらにダメージアップ(150%)",
+		proc: [ChainAttrAttack(3.5, 0, [1,0,0,0,0]), add_cond(ChainAttrAttack(5.0, 0, [1,0,0,0,0]), when_leader())],
+	},
+	ss1: {
+		desc: "<自己犠牲魔術>スキル反射を無視し、MAXHPの50%を使い敵全体へダメージ(1000%)",
+		turn: 7,
+		proc: [ss_damage_all(10.0, [1]), ss_ignore_skillcounter(), ss_consume_own(0.5)],
+	},
+	awakes: [
+		Attr_statusup_oattr(0,400, [0,1,0,0,0,]),
+		NEFTJOD(30),
+		Attr_statusup_oattr(400,0, [0,1,0,0,0,]),
+		Attr_relief([1,1,1,1,1,],10),
+		Panel_boost([0,1,0,0,0,],4),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		Costdown(20),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Fastskill(4),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<属性特効>火属性の敵単体へ特効ダメージ(450%)、リーダー時さらにダメージアップ(150%)",
+		proc: [ChainAttrAttack(4.5, 0, [1,0,0,0,0]), add_cond(ChainAttrAttack(6.0, 0, [1,0,0,0,0]), when_leader())],
+	},
+	ss2: {
+		desc: "<自己犠牲魔術>スキル反射を無視し、MAXHPの50%を使い敵全体へダメージ(1200%)",
+		turn: 9,
+		proc: [ss_damage_all(12.0, [1]), ss_ignore_skillcounter(), ss_consume_own(0.5)],
+	},
+	Lawake: [
+		Statusup(0,2000),
+	],
+}

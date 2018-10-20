@@ -1,0 +1,46 @@
+{
+	name: "笑顔と情熱 エニグマサンフラワー",
+	cardno: 10354,
+	imageno: 12791,
+	hp: 1715,
+	atk: 6722,
+	cost: 42,
+	attr: [2,-1],
+	species: [8],
+	islegend: true,
+	ape: "大魔道杯 in エニグマフラワーズ",
+	is_dist: true,
+	as1: {
+		desc: "<属性特効連撃>水属性の敵単体へ特効5連撃(400%)",
+		proc: ChainDualAttrAttack(4.0, 0, 5, [0,1,0,0,0]),
+	},
+	ss1: {
+		desc: "<純属性大魔術>スキル反射を無視し、敵単体へ雷属性のダメージ、雷単色の精霊が多いほどダメージアップ(上限値:2600%)",
+		turn: 8,
+		proc: [ss_damage_s(ss_pureattr_cond(26), [2], 1), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],1),
+		Attr_statusup_oattr(0,300, [0,0,1,0,0,]),
+		Attr_statusup_oattr(300,0, [0,0,1,0,0,]),
+		Awake_noeffect("経験値取得量アップ",2),
+		Panel_boost([0,0,1,0,0,],2),
+		Fastskill(1),
+		Attr_statusup(0,300, [0,0,1,0,0,]),
+		Attr_statusup(300,0, [0,0,1,0,0,]),
+		Fastskill(2),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<属性特効連撃>水属性の敵単体へ特効5連撃(500%)",
+		proc: ChainDualAttrAttack(5.0, 0, 5, [0,1,0,0,0]),
+	},
+	ss2: {
+		desc: "<純属性大魔術>スキル反射を無視し、敵単体へ雷属性のダメージ、雷単色の精霊が多いほどダメージアップ(上限値:3200%)",
+		turn: 11,
+		proc: [ss_damage_s(ss_pureattr_cond(32), [2], 1), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1500),
+	],
+}

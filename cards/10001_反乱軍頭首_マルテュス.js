@@ -1,0 +1,45 @@
+{
+	name: "反乱軍頭首 マルテュス",
+	cardno: 10001,
+	imageno: 12349,
+	hp: 4565,
+	atk: 2410,
+	cost: 51,
+	attr: [2,3],
+	species: [8],
+	islegend: true,
+	ape: "Birth of New Order",
+	as1: {
+		desc: "<攻撃強化>味方のMAXHP10%を使い、雷属性の味方の攻撃力をアップ(100%)",
+		proc: add_cond(ChainEnhance(1.0, [0,0,1,0,0], 0), as_consume_all(0.1)),
+	},
+	ss1: {
+		desc: "<ブースト>4ターンの間、隣接する精霊のMAXHPを毎ターン15％消費し、隣接する精霊の攻撃力をアップ(350%)。さらに極稀にクリティカル",
+		turn: 7,
+		proc: [ss_toselect_ownside(ss_boost_enhance_all(3.5, 4, 0.15))],
+	},
+	awakes: [
+		Costdown(10),
+		Panel_boost([0,0,1,0,0,],1),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(3),
+		Attr_statusup_sattr(0,100, [0,0,1,0,0,], 0,200, [0,0,0,1,0,]),
+		Attr_statusup_sattr(100,0, [0,0,1,0,0,], 200,0, [0,0,0,1,0,]),
+		Abstate_invalid("as_sealed"),
+	],
+	as2: {
+		desc: "<攻撃強化>味方のMAXHP10%を使い、雷属性の味方の攻撃力をアップ(130%)",
+		proc: add_cond(ChainEnhance(1.3, [0,0,1,0,0], 0), as_consume_all(0.1)),
+	},
+	ss2: {
+		desc: "<ブースト>4ターンの間、隣接する精霊のMAXHPを毎ターン15％消費し、隣接する精霊の攻撃力をアップ(500%)。さらに極稀にクリティカル",
+		turn: 10,
+		proc: [ss_toselect_ownside(ss_boost_enhance_all(5.0, 4, 0.15))],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+	],
+}

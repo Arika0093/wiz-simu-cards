@@ -1,0 +1,46 @@
+{
+	name: "流離孤独花一輪 アヤナ・ミナミカタ",
+	cardno: 9706,
+	imageno: 11996,
+	hp: 3015,
+	atk: 6365,
+	cost: 48,
+	attr: [0,-1],
+	species: [9],
+	islegend: true,
+	is_dist: true,
+	as1: {
+		desc: "<分散攻撃>敵全体へ分散攻撃(300%)、リーダー時、更にダメージアップ(150%)",
+		proc: [ChainVarianceAttack(3.0, 0), add_cond(ChainVarianceAttack(4.5, 0), when_leader())],
+	},
+	ss1: {
+		desc: "<行動感知>5ターンの間、自身のみ行動カウンター待機(カウンター時、ダメージアップ(550%)(発動中行動不可))",
+		turn: 10,
+		proc: [ss_undefined("行動感知")],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(3),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Awake_noeffect("ギルドマスターの誇り",1000),
+		Awake_noeffect("ギルドマスターの誓い",1000),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit"]),
+	],
+	as2: {
+		desc: "<分散攻撃>敵全体へ分散攻撃(400%)、リーダー時、更にダメージアップ(150%)",
+		proc: [ChainVarianceAttack(4.0, 0), add_cond(ChainVarianceAttack(5.5, 0), when_leader())],
+	},
+	ss2: {
+		desc: "<行動感知>5ターンの間、自身のみ行動カウンター待機(カウンター時、ダメージアップ(850%)(発動中行動不可))",
+		turn: 13,
+		proc: [ss_undefined("行動感知")],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Statusup(1000,0),
+	],
+}

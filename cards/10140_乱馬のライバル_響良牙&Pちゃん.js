@@ -1,0 +1,47 @@
+{
+	name: "乱馬のライバル 響良牙&Pちゃん",
+	cardno: 10140,
+	imageno: 12499,
+	imageno_prefix: "q3Md5V_",
+	hp: 2455,
+	atk: 6034,
+	cost: 43,
+	attr: [2,-1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(高橋留美子)",
+	as1: {
+		desc: "<ギャンブル攻撃>ダメージがイチかバチかアップ(150〜350%)、デッキに単色の精霊が多いほど、さらにダメージアップ(40%)(上限:5段階)",
+		proc: add_cond(ChainStakesAttack(1.5, 3.5, 0), as_singleattr_num(0, 0.4)),
+	},
+	ss1: {
+		desc: "<炸裂大魔術>スキル反射を無視し、敵単体へ雷属性のダメージ(850%)、さらに隣接する敵に雷属性のダメージ(150%)",
+		turn: 6,
+		proc: [ss_undefined("炸裂大魔術(隣接威力変動)")],
+	},
+	awakes: [
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Costdown(20),
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],1),
+		NEFTJOD(60),
+		Spec_statusup(200,0, [8,]),
+		Spec_statusup(0,400, [8,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_oattr(0,200, [0,0,1,0,0,]),
+		Attr_statusup_oattr(200,0, [0,0,1,0,0,]),
+	],
+	as2: {
+		desc: "<ギャンブル攻撃>ダメージがイチかバチかアップ(150〜350%)、デッキに単色の精霊が多いほど、さらにダメージアップ(60%)(上限:5段階)",
+		proc: add_cond(ChainStakesAttack(1.5, 3.5, 0), as_singleattr_num(0, 0.6)),
+	},
+	ss2: {
+		desc: "<炸裂大魔術>スキル反射を無視し、敵単体へ雷属性のダメージ(1150%)、さらに隣接する敵に雷属性のダメージ(150%)",
+		turn: 9,
+		proc: [ss_undefined("炸裂大魔術(隣接威力変動)")],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

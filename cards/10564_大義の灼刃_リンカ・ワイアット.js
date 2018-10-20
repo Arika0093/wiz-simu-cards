@@ -1,0 +1,46 @@
+{
+	name: "大義の灼刃 リンカ・ワイアット",
+	cardno: 10564,
+	imageno: 6138,
+	hp: 3016,
+	atk: 6994,
+	cost: 52,
+	attr: [0,-1],
+	species: [8],
+	islegend: true,
+	ape: "クロム・マグナⅠ",
+	as1: {
+		desc: "<チェイン攻撃>3チェインでダメージアップ(350%)、7チェインでさらにダメージアップ(250%)、15チェインでさらにダメージアップ(500%)",
+		proc: [ChainAttack(3.5, 3), ChainAttack(6.0, 7), ChainAttack(11.0, 15)],
+	},
+	ss1: {
+		desc: "<特効大魔術>敵単体へ火属性のダメージ(400%)、さらに雷属性の敵には特効ダメージ(1600%)",
+		turn: 4,
+		proc: [ss_damage_s(special_attr([0,0,1,0,0], 20, 4), [0], 1)],
+	},
+	awakes: [
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Spec_statusup(0,200, [8,]),
+		Spec_statusup(200,0, [8,]),
+		Awake_noeffect("スキル反射見破り",1),
+		Panel_boost([1,0,0,0,0,],4),
+		Abstate_invalid("ss_sealed"),
+		Fastskill(3),
+	],
+	as2: {
+		desc: "<チェイン攻撃>3チェインでダメージアップ(350%)、7チェインでさらにダメージアップ(450%)、15チェインでさらにダメージアップ(500%)",
+		proc: [ChainAttack(4.5, 3), ChainAttack(7.0, 7), ChainAttack(12.0, 15)],
+	},
+	ss2: {
+		desc: "<特効大魔術>敵単体へ火属性のダメージ(400%)、さらに雷属性の敵には特効ダメージ(2600%)",
+		turn: 6,
+		proc: [ss_damage_s(special_attr([0,0,1,0,0], 30, 4), [0], 1)],
+	},
+	Lawake: [
+		Attr_statusup(0,100, [1,0,0,0,0,]),
+		Statusup(0,1500),
+	],
+}

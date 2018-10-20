@@ -1,0 +1,47 @@
+{
+	name: "セーラーマーズ 火野レイ",
+	cardno: 10023,
+	imageno: 12376,
+	imageno_prefix: "iruohw_",
+	hp: 2042,
+	atk: 4199,
+	cost: 53,
+	attr: [0,4],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(セーラームーン)",
+	as1: {
+		desc: "<快調攻撃>残りHPが80%以上でダメージアップ(400%)",
+		proc: add_cond(ChainAttack(4.0, 0), when_hp_more(0.8)),
+	},
+	ss1: {
+		desc: "<多弾魔術>スキル反射を無視し、敵単体へ火・闇属性の5回連続ダメージ(250%)",
+		turn: 5,
+		proc: [ss_damage_s(2.5, [0,4], 5), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Fastskill(1),
+		Panel_boost([1,0,0,0,0,],1),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Fastskill(1),
+		Attr_statusup(200,0, [1,0,0,0,0,]),
+		Fastskill(2),
+		Panel_boost([1,0,0,0,0,],1),
+		Attr_statusup_sattr(0,100, [1,0,0,0,0,], 0,300, [0,0,0,0,1,]),
+		Attr_statusup_sattr(100,0, [1,0,0,0,0,], 300,0, [0,0,0,0,1,]),
+		Attr_relief([1,1,1,1,1,],10),
+	],
+	as2: {
+		desc: "<快調攻撃>残りHPが80%以上でダメージアップ(500%)",
+		proc: add_cond(ChainAttack(5.0, 0), when_hp_more(0.8)),
+	},
+	ss2: {
+		desc: "<多弾魔術>スキル反射を無視し、敵単体へ火・闇属性の5回連続ダメージ(450%)",
+		turn: 7,
+		proc: [ss_damage_s(4.5, [0,4], 5), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

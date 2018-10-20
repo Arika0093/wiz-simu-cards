@@ -1,0 +1,46 @@
+{
+	name: "墓場から来る料理人 モストロ・シン",
+	cardno: 10015,
+	imageno: 12368,
+	hp: 2059,
+	atk: 4528,
+	cost: 31,
+	attr: [0,-1],
+	species: [2],
+	islegend: true,
+	ape: "大魔道杯(5周年)",
+	is_dist: true,
+	as1: {
+		desc: "<チェイン攻撃>3チェインでダメージアップ(300%)",
+		proc: ChainAttack(3.0, 3),
+	},
+	ss1: {
+		desc: "<大魔術>スキル反射を無視し、敵全体へ無属性のダメージ(100%)",
+		turn: 4,
+		proc: [ss_damage_all(1.0, [-1]), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Fastskill(3),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Attr_statusup(200,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_relief([1,1,1,1,1,],10),
+		Costdown(10),
+		Abstate_invalid("poison"),
+		Attr_statusup_oattr(0,300, [1,0,0,0,0,]),
+		Attr_statusup_oattr(300,0, [1,0,0,0,0,]),
+		NEFTJOD(30),
+	],
+	as2: {
+		desc: "<チェイン攻撃>3チェインでダメージアップ(400%)",
+		proc: ChainAttack(4.0, 3),
+	},
+	ss2: {
+		desc: "<大魔術>スキル反射を無視し、敵全体へ無属性のダメージ(100%)",
+		turn: 4,
+		proc: [ss_damage_all(1.0, [-1]), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(1000,0),
+	],
+}

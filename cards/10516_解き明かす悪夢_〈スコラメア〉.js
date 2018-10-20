@@ -1,0 +1,46 @@
+{
+	name: "解き明かす悪夢 〈スコラメア〉",
+	cardno: 10516,
+	imageno: 12937,
+	hp: 5874,
+	atk: 2021,
+	cost: 39,
+	attr: [2,-1],
+	species: [2],
+	islegend: true,
+	ape: "MARELESS2 夢現の狭間",
+	is_dist: true,
+	as1: {
+		desc: "<回復・攻撃強化>雷属性の味方を回復(10%)し、デッキに単色の精霊が多いほど、攻撃力をアップ(10%)(上限:5段階)",
+		proc: [Heal(0.10, [0,0,1,0,0]), add_cond(ChainEnhance(0, [0,0,1,0,0], 0), as_singleattr_num(0, 0.1))],
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルをALL属性化",
+		turn: 9,
+		proc: [ss_panel_change([1,1,1,0,0])],
+	},
+	awakes: [
+		Awake_secondfast(1),
+		Panel_boost([0,0,1,0,0,],1),
+		Attr_statusup(300,0, [0,0,1,0,0,]),
+		Awake_secondfast(1),
+		Attr_statusup(0,300, [0,0,1,0,0,]),
+		Attr_statusup_oattr(300,0, [0,0,1,0,0,]),
+		Awake_secondfast(2),
+		Panel_boost([0,0,1,0,0,],2),
+		Awake_secondfast(2),
+		Attr_statusup_oattr(0,300, [0,0,1,0,0,]),
+	],
+	as2: {
+		desc: "<回復・攻撃強化>雷属性の味方を回復(13%)し、デッキに単色の精霊が多いほど、攻撃力をアップ(10%)(上限:5段階)",
+		proc: [Heal(0.13, [0,0,1,0,0]), add_cond(ChainEnhance(0, [0,0,1,0,0], 0), as_singleattr_num(0, 0.1))],
+	},
+	ss2: {
+		desc: "<解答削り>解答を見破る",
+		turn: 12,
+		proc: [ss_answer_foresight()],
+	},
+	Lawake: [
+		Attr_statusup(0,300, [0,0,1,0,0,]),
+	],
+}

@@ -1,0 +1,47 @@
+{
+	name: "マジカル鉄琴 リピュア・アラト",
+	cardno: 10265,
+	imageno: 12631,
+	hp: 5025,
+	atk: 1892,
+	cost: 49,
+	attr: [2,0],
+	species: [4],
+	islegend: true,
+	is_dist: true,
+	ape: "黒ウィズコンサート大魔道杯",
+	as1: {
+		desc: "<回復>火・雷属性の味方のHPを回復(13%)",
+		proc: Heal(0.13, [1,0,1,0,0], 0),
+	},
+	as2: {
+		desc: "<回復>火・雷属性の味方のHPを回復(16%)",
+		proc: Heal(0.16, [1,0,1,0,0], 0),
+	},
+	ss1: {
+		desc: "<精霊強化>5ターンの間、味方全体の攻撃力とHPを250アップ(上限値:2000)(発動中行動不可)",
+		turn: 5,
+		proc: [ss_reinforcement_all(5, [ss_statusup_all([250, 250], [2000, 2000], -1)])],
+	},
+	ss2: {
+		desc: "<精霊強化>5ターンの間、味方全体の攻撃力とHPを500アップ(上限値:2000)(発動中行動不可)",
+		turn: 8,
+		proc: [ss_reinforcement_all(5, [ss_statusup_all([500, 500], [2000, 2000], -1)])],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup(0,200,[1,0,1,0,0,]),
+		Attr_statusup(200,0,[1,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Heal_afterbattle(10),
+		Fastskill(3),
+		NEFTJOD(30),
+		Attr_statusup_sattr(0,100,[0,0,1,0,0,],0,200,[1,0,0,0,0,]),
+		Attr_statusup_sattr(100,0,[0,0,1,0,0,],200,0,[1,0,0,0,0,]),
+		Abstate_invalid("ss_sealed"),
+	],
+	Lawake: [
+		Statusup(500,0),
+		Attr_statusup(0,200,[0,0,1,0,0,]),
+	],
+}

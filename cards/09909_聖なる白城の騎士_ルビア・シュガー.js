@@ -1,0 +1,47 @@
+{
+	name: "聖なる白城の騎士 ルビア・シュガー",
+	cardno: 9909,
+	imageno: 7123,
+	hp: 4855,
+	atk: 2421,
+	cost: 53,
+	attr: [0,2],
+	species: [8],
+	islegend: true,
+	is_dist: true,
+	ape: "大魔道杯 ケーキ",
+	as1: {
+		desc: "<回復>火・雷属性の味方のHPを回復(14%)",
+		proc: Heal(0.14, [1,0,1,0,0], 0),
+	},
+	as2: {
+		desc: "<回復>火・雷属性の味方のHPを回復(16%)",
+		proc: Heal(0.16, [1,0,1,0,0], 0),
+	},
+	ss1: {
+		desc: "<特殊パネル変換>ジャンルパネルにスキルチャージプラス1の効果を付与(スキルチャージの効果は、SPスキルを使うまで重複しません)",
+		turn: 3,
+		proc: [panel_skillboost(1)],
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルを火・雷属性化し、スキルチャージプラス1の効果を付与(スキルチャージの効果は、SPスキルを使うまで重複しません)",
+		turn: 8,
+		proc: [ss_panel_change([1,0,1,0,0]), panel_skillboost(1)],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_sattr(0,100,[1,0,0,0,0,],0,200,[0,0,1,0,0,]),
+		Attr_statusup(200,0,[1,0,1,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(0,200,[1,0,1,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Abstate_invalid("as_sealed"),
+		Fastskill(3),
+		Attr_statusup_sattr(100,0,[1,0,0,0,0,],300,0,[0,0,1,0,0,]),
+		Spec_statusup(0,200,[8,]),
+	],
+	Lawake: [
+		Attr_statusup(0,200,[1,0,1,0,0,]),
+		Statusup(1000,0),
+	],
+}

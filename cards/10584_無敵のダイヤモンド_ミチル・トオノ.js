@@ -1,0 +1,46 @@
+{
+	name: "無敵のダイヤモンド ミチル・トオノ",
+	cardno: 10584,
+	imageno: 13009,
+	hp: 5211,
+	atk: 4532,
+	cost: 50,
+	attr: [1,-1],
+	species: [8],
+	islegend: true,
+	ape: "蒼穹のストライカー",
+	as1: {
+		desc: "<回復・攻撃強化>水属性の味方のHPを回復(13%)し、攻撃力もアップ(30%)",
+		proc: [Heal(0.13, [0,1,0,0,0], 0), ChainEnhance(0.3, [0,1,0,0,0], 0)],
+	},
+	ss1: {
+		desc: "<ガード>4ターン火・水・雷属性のダメージを50%軽減する",
+		turn: 6,
+		proc: [ss_attr_guard([1,1,1,0,0], 0.5, 4)],
+	},
+	awakes: [
+		Attr_statusup_oattr(400,0, [0,1,0,0,0,]),
+		Costdown(20),
+		Attr_statusup_oattr(0,400, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(3),
+		NEFTJOD(30),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		Abstate_invalid("as_sealed"),
+	],
+	as2: {
+		desc: "<回復・攻撃強化>水属性の味方のHPを回復(13%)し、攻撃力もアップ(60%)",
+		proc: [Heal(0.13, [0,1,0,0,0], 0), ChainEnhance(0.6, [0,1,0,0,0], 0)],
+	},
+	ss2: {
+		desc: "<ガード>5ターン火・水・雷属性のダメージを50%軽減する、5チェインを消費しさらに2ターン軽減",
+		turn: 9,
+		proc: [ss_attr_guard([1,1,1,0,0], 0.5, ss_chain_cost(5, 7, 5))],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

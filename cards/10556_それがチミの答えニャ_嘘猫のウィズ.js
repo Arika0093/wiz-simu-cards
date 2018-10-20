@@ -1,0 +1,47 @@
+{
+	name: "それがチミの答えニャ 嘘猫のウィズ",
+	cardno: 10556,
+	imageno: 12981,
+	imageno_prefix: "Ac7W69_",
+	hp: 6666,
+	atk: 2222,
+	cost: 63,
+	attr: [1,0],
+	species: [9],
+	islegend: true,
+	ape: "ゴールデンアワード2018",
+	as1: {
+		desc: "<攻撃強化>水属性の味方の攻撃力をアップ(60%)、解答が早いほどさらにアップ(20%)(上限:4段階)",
+		proc: add_cond(ChainEnhance(0.6, [0,1,0,0,0], 0), as_timedep(0.2)),
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルを水属性化",
+		turn: 2,
+		proc: [ss_panel_change([0,1,0,0,0])],
+	},
+	awakes: [
+		Attr_statusup(0,200, [1,1,0,0,0,]),
+		Attr_statusup(200,0, [1,1,0,0,0,]),
+		Fastskill(3),
+		Abstate_invalid("ss_sealed"),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Awake_noeffect("アンサーリセット",1),
+		Panel_boost([0,1,0,0,0,],4),
+		Fastskill(3),
+		Awake_noeffect("選ばれし者の栄誉",1),
+	],
+	as2: {
+		desc: "<攻撃強化>水属性の味方の攻撃力をアップ(90%)、解答が早いほどさらにアップ(20%)(上限:4段階)",
+		proc: add_cond(ChainEnhance(0.9, [0,1,0,0,0], 0), as_timedep(0.2)),
+	},
+	ss2: {
+		desc: "<融合パネル変換>ジャンルパネルを水属性化し、スキルチャージの効果を付与、デッキ内の精霊がもつ属性数が多いほどさらに効果値アップ(上限値:3)(効果は、SPスキルを使うまで重複しません)",
+		turn: 8,
+		proc: [ss_panel_change([0,1,0,0,0]), panel_skillboost(1), panel_skillboost(3)],
+	},
+	Lawake: [
+		Attr_statusup_subattr(0, 200),
+		Statusup(1000,0),
+	],
+}

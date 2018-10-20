@@ -1,0 +1,46 @@
+{
+	name: "苛烈な愛情 ファルサ&リススレニス",
+	cardno: 10288,
+	imageno: 12665,
+	hp: 4275,
+	atk: 5191,
+	cost: 49,
+	attr: [0,-1],
+	species: [8],
+	islegend: true,
+	ape: "幻魔特区RELOADEDⅡ",
+	as1: {
+		desc: "<連撃>4チェインで敵単体を3回連続攻撃(300%)、HP50%以上でさらにダメージアップ(200%)",
+		proc: [ChainDualAttack(3.0, 4, 3), add_cond(ChainDualAttack(5.0, 4, 3), when_hp_more(0.5))],
+	},
+	ss1: {
+		desc: "<純属性強化>火単色精霊が多いほど、火単色精霊の攻撃力、HPのステータスをアップ(上限値:3500、3500)",
+		turn: 4,
+		proc: [ss_statusup_all([ss_pureattr_cond(3500), ss_pureattr_cond(3500)], [3500,3500], -1, [1,0,0,0,0])],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		NEFTJOD(60),
+		Abstate_invalid("heal_reverse"),
+		Abstate_invalid("as_sealed"),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Fastskill(4),
+	],
+	as2: {
+		desc: "<連撃>4チェインで敵単体を3回連続攻撃(400%)、HP50%以上でさらにダメージアップ(200%)",
+		proc: [ChainDualAttack(4.0, 4, 3), add_cond(ChainDualAttack(6.0, 4, 3), when_hp_more(0.5))],
+	},
+	ss2: {
+		desc: "<純属性強化>火単色精霊が多いほど、火単色精霊の攻撃力、HPのステータスをアップ(上限値:5000、5000)",
+		turn: 8,
+		proc: [ss_statusup_all([ss_pureattr_cond(5000), ss_pureattr_cond(5000)], [5000,5000], -1, [1,0,0,0,0])],
+	},
+	Lawake: [
+		Attr_statusup_oattr(0,300, [1,0,0,0,0,]),
+		Statusup(0,500),
+	],
+}

@@ -1,0 +1,47 @@
+{
+	name: "大魔道名誉教授 ニヴァナ・エライト",
+	cardno: 9906,
+	imageno: 6264,
+	hp: 5513,
+	atk: 1947,
+	cost: 53,
+	attr: [1,2],
+	species: [9],
+	islegend: true,
+	is_dist: true,
+	ape: "大魔道杯 in クロム・マグナ",
+	as1: {
+		desc: "<回復>パネルが2色、3色で水・雷属性の味方のHPを回復(30%,34%)",
+		proc: ChainPanelsHeal(0, 0.30, 0.34, [0,1,1,0,0], 0),
+	},
+	as2: {
+		desc: "<回復>パネルが2色、3色で水・雷属性の味方のHPを回復(34%,40%)",
+		proc: ChainPanelsHeal(0, 0.34, 0.40, [0,1,1,0,0], 0),
+	},
+	ss1: {
+		desc: "<ガード>3ターン全属性のダメージを25%軽減する、さらに味方全体のHPを回復する(25%)",
+		turn: 6,
+		proc: [ss_attr_guard([1,1,1,1,1], 0.25, 3), ss_heal(0.25)],
+	},
+	ss2: {
+		desc: "<ガード>3ターン全属性のダメージを50%軽減する、さらに味方全体のHPを回復する(25%)",
+		turn: 9,
+		proc: [ss_attr_guard([1,1,1,1,1], 0.5, 3), ss_heal(0.25)],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],4),
+		Attr_statusup_sattr(0,100,[0,1,0,0,0,],0,100,[0,0,1,0,0,]),
+		Attr_statusup(200,0,[0,1,1,0,0,]),
+		NEFTJOD(30),
+		Attr_statusup(0,200,[0,1,1,0,0,]),
+		Heal_afterbattle(10),
+		Attr_statusup_sattr(100,0,[0,1,0,0,0,],100,0,[0,0,1,0,0,]),
+		Fastskill(3),
+		Spec_statusup(0,200,[9,]),
+		Spec_statusup(200,0,[9,]),
+	],
+	Lawake: [
+		Attr_statusup(0,200,[0,1,1,0,0,]),
+		Statusup(1000,0),
+	],
+}

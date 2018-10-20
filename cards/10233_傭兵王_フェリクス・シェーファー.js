@@ -1,0 +1,45 @@
+{
+	name: "傭兵王 フェリクス・シェーファー",
+	cardno: 10233,
+	imageno: 12601,
+	hp: 6215,
+	atk: 3026,
+	cost: 47,
+	attr: [0, -1],
+	species: [8],
+	islegend: true,
+	as1: {
+		desc: "<回復>火属性の味方のHPを回復(10%)し、全属性のダメージを5%軽減。リーダー時さらに5%軽減",
+		proc: [Heal(0.10, [1,0,0,0,0], 0), as_guard(0.05, [1,1,1,1,1], 0), add_cond(as_guard(0.10, [1,1,1,1,1], 0), when_leader())],
+	},
+	ss1: {
+		desc: "<特殊パネル変換>ジャンルパネルにスキルチャージプラス2の効果を付与(効果は、SPスキルを使うまで重複しません)",
+		turn: 8,
+		proc: [panel_skillboost(2)],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(4),
+		Abstate_invalid("heal_reverse"),
+		Abstate_invalid("as_sealed"),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Awake_noeffect("難易度ダウン", 1),
+	],
+	as2: {
+		desc: "<回復>火属性の味方のHPを回復(12%)し、全属性のダメージを10%軽減。リーダー時さらに10%軽減",
+		proc: [Heal(0.12, [1,0,0,0,0], 0), as_guard(0.10, [1,1,1,1,1], 0), add_cond(as_guard(0.20, [1,1,1,1,1], 0), when_leader())],
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルにスキルチャージプラス3の効果を付与(効果は、SPスキルを使うまで重複しません)",
+		turn: 11,
+		proc: [panel_skillboost(3)],
+	},
+	Lawake: [
+		Attr_statusup_oattr(0,300, [1,0,0,0,0,]),
+		Statusup(500, 0),
+	],
+}

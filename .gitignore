@@ -1,0 +1,5 @@
+util/
+bin/ws_cardeditor/bin/
+bin/ws_cardeditor/obj/
+node_modules/
+package-lock.json

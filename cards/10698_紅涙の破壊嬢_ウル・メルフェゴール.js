@@ -1,0 +1,47 @@
+{
+	name: "紅涙の破壊嬢 ウル・メルフェゴール",
+	cardno: 10698,
+	imageno: 13147,
+	imageno_prefix: "tR7uq3_",
+	hp: 8010,
+	atk: 2018,
+	cost: 52,
+	attr: [0,-1],
+	species: [2],
+	islegend: true,
+	ape: "DL限定",
+	as1: {
+		desc: "<回復・攻撃強化>火属性の味方を回復(13%)し、デッキに単色の精霊が多いほど、火属性の味方の攻撃力をアップ(15%)(上限:5段階)",
+		proc: [Heal(0.13, [1,0,0,0,0], 0), add_cond(ChainEnhance(0, [1,0,0,0,0], 0), as_singleattr_num(0, 0.15))],
+	},
+	ss1: {
+		desc: "<状態異常回復>味方全体の状態異常を回復する",
+		turn: 4,
+		proc: [ss_abstate_cure()],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],4),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Awake_secondfast(2),
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		NEFTJOD(60),
+		Abstate_invalid("fear"),
+		Abstate_invalid("discharge"),
+		Abstate_invalid("panic_shout"),
+	],
+	as2: {
+		desc: "<回復・攻撃強化>火属性の味方を回復(16%)し、デッキに単色の精霊が多いほど、火属性の味方の攻撃力をアップ(15%)(上限:5段階)",
+		proc: [Heal(0.16, [1,0,0,0,0], 0), add_cond(ChainEnhance(0, [1,0,0,0,0], 0), as_singleattr_num(0, 0.15))],
+	},
+	ss2: {
+		desc: "<精霊強化>1ターンの間、味方全体を徐々に回復し、さらに攻撃力をアップ(10%、550%)、さらに敵の状態異常攻撃を無効化(発動中行動不可)",
+		turn: 6,
+		proc: [ss_reinforcement_all(1, [ss_regenerate(0.1, 1, "RF"), ss_enhance_all(5.5, 1, [1, 1, 1, 1, 1], "RF"), ss_absattack_disable(1, "RF")])],
+	},
+	Lawake: [
+		Attr_statusup_oattr(0,200, [1,0,0,0,0,]),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+	],
+}

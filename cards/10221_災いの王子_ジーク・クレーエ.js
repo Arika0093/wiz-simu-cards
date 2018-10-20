@@ -1,0 +1,45 @@
+{
+	name: "災いの王子 ジーク・クレーエ",
+	cardno: 10221,
+	imageno: 12589,
+	hp: 1875,
+	atk: 4710,
+	cost: 57,
+	attr: [0,4],
+	species: [9],
+	islegend: true,
+	ape: "空戦のシュヴァルツ",
+	as1: {
+		desc: "<分散攻撃>敵全体へ分散攻撃(350%)、4チェインで更にダメージアップ(100%)",
+		proc: [ChainVarianceAttack(3.5, 0), ChainVarianceAttack(4.5, 4)],
+	},
+	ss1: {
+		desc: "<大魔術>スキル反射を無視し、敵全体へ火・闇属性ダメージ(120%)",
+		turn: 4,
+		proc: [ss_damage_all(1.2, [0,4]), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],4),
+		Attr_statusup_sattr(0,200, [1,0,0,0,0,], 0,100, [0,0,0,0,1,]),
+		Attr_statusup_sattr(200,0, [1,0,0,0,0,], 100,0, [0,0,0,0,1,]),
+		NEFTJOD(60),
+		Abstate_invalid("as_sealed"),
+		Fastskill(3),
+		Attr_statusup_sattr(0,100, [1,0,0,0,0,], 0,300, [0,0,0,0,1,]),
+		Attr_statusup_sattr(100,0, [1,0,0,0,0,], 300,0, [0,0,0,0,1,]),
+		Abstate_invalid("ss_sealed"),
+		Awake_damage_multiple(1.1, 500),
+	],
+	as2: {
+		desc: "<分散攻撃>敵全体へ分散攻撃(450%)、4チェインで更にダメージアップ(100%)",
+		proc: [ChainVarianceAttack(4.5, 0), ChainVarianceAttack(4.5, 4)],
+	},
+	ss2: {
+		desc: "<大魔術>スキル反射を無視し、敵全体へ火・闇属性ダメージ(150%)。HP20%以下の時、さらにダメージアップ(1500%)し、味方全体のHPを完全回復",
+		turn: 6,
+		proc: [ss_damage_all(ss_hp_less(0.2, 16.5, 1.5), [0,4]), ss_hp_less_skill(0.2, ss_heal(1)), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,2000),
+	],
+}

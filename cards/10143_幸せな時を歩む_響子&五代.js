@@ -1,0 +1,47 @@
+{
+	name: "幸せな時を歩む 響子&五代",
+	cardno: 10143,
+	imageno: 12502,
+	imageno_prefix: "q3Md5V_",
+	hp: 5976,
+	atk: 2532,
+	cost: 43,
+	attr: [1,-1],
+	species: [9],
+	islegend: true,
+	ape: "コラボ(高橋留美子)",
+	as1: {
+		desc: "<回復>水属性の味方を回復(13%)、HP20%以下でさらに回復(25%)",
+		proc: [Heal(0.13, [0, 1, 0, 0, 0], 0), add_cond(Heal(0.38, [0, 1, 0, 0, 0], 0), when_hp_less(0.20))],
+	},
+	ss1: {
+		desc: "<起死回生>2ターン、致死ダメージを受けたら一度だけHP15%で起死回生",
+		turn: 7,
+		proc: [ss_revival(0.15, 2)],
+	},
+	awakes: [
+		Attr_statusup_oattr(0,300, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],1),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Heal_afterbattle(10),
+		Attr_statusup_oattr(300,0, [0,1,0,0,0,]),
+		Fastskill(3),
+		Panel_boost([0,1,0,0,0,],2),
+		Spec_statusup(0,300, [9,]),
+		Spec_statusup(300,0, [9,]),
+	],
+	as2: {
+		desc: "<回復>水属性の味方を回復(16%)、HP20%以下でさらに回復(25%)",
+		proc: [Heal(0.16, [0, 1, 0, 0, 0], 0), add_cond(Heal(0.41, [0, 1, 0, 0, 0], 0), when_hp_less(0.20))],
+	},
+	ss2: {
+		desc: "<起死回生>2ターン、致死ダメージを受けたら一度だけHP25%で起死回生",
+		turn: 8,
+		proc: [ss_revival(0.25, 2)],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

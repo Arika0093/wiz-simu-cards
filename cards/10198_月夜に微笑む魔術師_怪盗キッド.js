@@ -1,0 +1,46 @@
+{
+	name: "月夜に微笑む魔術師 怪盗キッド",
+	cardno: 10198,
+	imageno: 6944,
+	hp: 2235,
+	atk: 8002,
+	cost: 53,
+	attr: [0,-1],
+	species: [9],
+	islegend: true,
+	ape: "コラボ(コナン)",
+	as1: {
+		desc: "<属性特効>3チェインで雷属性の敵単体へ特効ダメージ(350%)、デッキに単色の精霊が多いほど、さらにダメージアップ(110%)(上限:5段階)",
+		proc: add_cond(ChainAttrAttack(3.5, 3, [0,0,1,0,0]), as_singleattr_num(0, 1.1)),
+	},
+	ss1: {
+		desc: "<スキルコピー>直前に発動したスペシャルスキルを発動する",
+		turn: 9,
+		proc: [ss_latest_copy()],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(1),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Fastskill(2),
+	],
+	as2: {
+		desc: "<属性特効>3チェインで雷属性の敵単体へ特効ダメージ(450%)、デッキに単色の精霊が多いほど、さらにダメージアップ(110%)(上限:5段階)",
+		proc: add_cond(ChainAttrAttack(4.5, 3, [0,0,1,0,0]), as_singleattr_num(0, 1.1)),
+	},
+	ss2: {
+		desc: "<スキルコピー>直前に発動したスペシャルスキルを発動する",
+		turn: 9,
+		proc: [ss_latest_copy()],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+	],
+}

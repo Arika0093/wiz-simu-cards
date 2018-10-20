@@ -1,0 +1,46 @@
+{
+	name: "現代のホームズ コナン&新一",
+	cardno: 10197,
+	imageno: 6941,
+	hp: 3080,
+	atk: 4025,
+	cost: 57,
+	attr: [1,0],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(コナン)",
+	as1: {
+		desc: "<連撃>HP80%以上で敵単体を3回連続攻撃(400%)",
+		proc: add_cond(ChainDualAttack(4.0, 0, 3), when_hp_more(0.8)),
+	},
+	ss1: {
+		desc: "<割合削り>スキル反射を無視し、敵単体のHPを20%減少させる、5チェインを消費しさらに15%減少させる",
+		turn: 9,
+		proc: [ss_ratiodamage_s(ss_chain_cost(5, 0.35, 0.20))],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		NEFTJOD(30),
+		Panel_boost([0,1,0,0,0,],1),
+		Fastskill(3),
+		Attr_statusup(0,200, [1,1,0,0,0,]),
+		Attr_statusup(200,0, [1,1,0,0,0,]),
+		Attr_statusup_subattr(500, 0),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup_subattr(0, 500),
+		Awake_noeffect("心眼",1),
+	],
+	as2: {
+		desc: "<連撃>HP80%以上で敵単体を3回連続攻撃(500%)",
+		proc: add_cond(ChainDualAttack(5.0, 0, 3), when_hp_more(0.8)),
+	},
+	ss2: {
+		desc: "<割合削り>スキル反射を無視し、敵単体のHPを25%減少させる、5チェインを消費しさらに15%減少させる",
+		turn: 11,
+		proc: [ss_ratiodamage_s(ss_chain_cost(5, 0.40, 0.25))],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Attr_statusup(0,200, [1,1,0,0,0,]),
+	],
+}

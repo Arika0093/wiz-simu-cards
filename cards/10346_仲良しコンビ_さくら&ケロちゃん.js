@@ -1,0 +1,48 @@
+{
+	name: "仲良しコンビ さくら&ケロちゃん",
+	cardno: 10346,
+	imageno: 12738,
+	imageno_prefix: "S5zpwx_",
+	hp: 5715,
+	atk: 2316,
+	cost: 40,
+	attr: [1,-1],
+	species: [9],
+	islegend: true,
+	ape: "コラボ(カードキャプターさくら)",
+	is_dist: true,
+	as1: {
+		desc: "<回復・攻撃強化>水属性の味方を回復(12%)し、デッキに単色の精霊が多いほど、攻撃力をアップ(10%)(上限:5段階)",
+		proc: [Heal(0.12, [0,1,0,0,0]), add_cond(ChainEnhance(0, [0,1,0,0,0], 0), as_singleattr_num(0, 0.1))],
+	},
+	ss1: {
+		desc: "<純属性強化>4ターンの間、水単色精霊が多いほど、水単色精霊のダメージを強化し(上限値:50%)、さらに永続ターン、攻撃力、HPのステータスをアップ(上限値:1000,2000)",
+		turn: 4,
+		proc: [ss_statusup_all([ss_pureattr_cond(2000), ss_pureattr_cond(1000)], [2000,2000], -1, [0,1,0,0,0]), ss_enhance_all(ss_pureattr_cond(0.5), 4, [0,1,0,0,0])],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup_oattr(0,400, [0,1,0,0,0,]),
+		Attr_statusup_oattr(400,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(2),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Fastskill(2),
+	],
+	as2: {
+		desc: "<回復・攻撃強化>水属性の味方を回復(15%)し、デッキに単色の精霊が多いほど、攻撃力をアップ(10%)(上限:5段階)",
+		proc: [Heal(0.15, [0,1,0,0,0]), add_cond(ChainEnhance(0, [0,1,0,0,0], 0), as_singleattr_num(0, 0.1))],
+	},
+	ss2: {
+		desc: "<純属性強化>4ターンの間、水単色精霊が多いほど、水単色精霊のダメージを強化し(100%)、さらに永続ターン、攻撃力、HPのステータスをアップ(上限値:2000,3000)",
+		turn: 8,
+		proc: [ss_statusup_all([ss_pureattr_cond(3000), ss_pureattr_cond(2000)], [3000,3000], -1, [0,1,0,0,0]), ss_enhance_all(ss_pureattr_cond(1.0), 4, [0,1,0,0,0])],
+	},
+	Lawake: [
+		Attr_statusup_oattr(0,300, [0,1,0,0,0,]),
+		Statusup(500,0),
+	],
+}

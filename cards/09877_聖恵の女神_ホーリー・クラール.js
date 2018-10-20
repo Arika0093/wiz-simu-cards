@@ -1,0 +1,45 @@
+{
+	name: "聖恵の女神 ホーリー・クラール",
+	cardno: 9877,
+	imageno: 12132,
+	hp: 4415,
+	atk: 2316,
+	cost: 49,
+	attr: [2,3],
+	species: [1],
+	islegend: true,
+	as1: {
+		desc: "<回復>水・雷属性の味方のHPを回復(7%)、デッキ内の精霊が持つ属性数が多いほど、さらに回復(2%)(上限値:5段階)",
+		proc: [add_cond(Heal(0.07, [0,1,0,0,0], 0), as_deckinattr_num(0, 0.02))],
+	},
+	ss1: {
+		desc: "<回復>味方全体のHPを回復する(75%)",
+		turn: 5,
+		proc: [ss_heal(0.75)],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(3),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit"]),
+		Attr_statusup(0,200, [1,1,1,1,1,]),
+		Attr_statusup(200,0, [1,1,1,1,1,]),
+		Attr_relief([1,1,1,1,1,],10),
+	],
+	as2: {
+		desc: "<回復>水・雷属性の味方のHPを回復(10%)、デッキ内の精霊が持つ属性数が多いほど、さらに回復(2%)(上限値:5段階)",
+		proc: [add_cond(Heal(0.10, [0,1,0,0,0], 0), as_deckinattr_num(0, 0.02))],
+	},
+	ss2: {
+		desc: "<状態異常回復>味方全体のHPを回復し(75%)、状態異常を回復する",
+		turn: 9,
+		proc: [ss_heal(0.75), ss_abstate_cure()],
+	},
+	Lawake: [
+		Statusup(1000,0),
+		NEFTJOD(30),
+	],
+}

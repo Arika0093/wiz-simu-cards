@@ -1,0 +1,46 @@
+{
+	name: "野心滾る黒剣 アルドベリク・ゴドー",
+	cardno: 10547,
+	imageno: 12972,
+	imageno_prefix: "Ac7W69_",
+	hp: 4185,
+	atk: 6227,
+	cost: 55,
+	attr: [0,-1],
+	species: [2],
+	islegend: true,
+	ape: "ゴールデンアワード2018",
+	as1: {
+		desc: "<属性特効>4チェインで雷属性の敵単体へ特効ダメージ(450%)、デッキに単色の精霊が多いほど、さらにダメージアップ(120%)(上限:5段階)",
+		proc: add_cond(ChainAttrAttack(4.5, 4, [0,0,1,0,0]), as_singleattr_num(0, 1.2)),
+	},
+	ss1: {
+		desc: "<弱体化大魔術>スキル反射を無視し、敵単体へ火属性のダメージ(100%)、さらに1ターンの間、敵の火属性に対する防御力を弱体化(100%)",
+		turn: 6,
+		proc: [ss_damage_s(1.0, [0], 1), ss_attr_weaken_s([1,0,0,0,0], 1.0, 1), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],5),
+		Fastskill(2),
+		Awake_noeffect("心眼",1),
+		Abstate_invalid("heal_reverse"),
+		Fastskill(2),
+		Abstate_invalid(["as_sealed", "ss_sealed"]),
+		Awake_noeffect("難易度ダウン",1),
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		Awake_noeffect("選ばれし者の栄誉",1),
+	],
+	as2: {
+		desc: "<属性特効>4チェインで雷属性の敵単体へ特効ダメージ(550%)、デッキに単色の精霊が多いほど、さらにダメージアップ(120%)(上限:5段階)",
+		proc: add_cond(ChainAttrAttack(5.5, 4, [0,0,1,0,0]), as_singleattr_num(0, 1.2)),
+	},
+	ss2: {
+		desc: "<弱体化大魔術>スキル反射を無視し、敵単体へ火属性のダメージ(100%)、さらに1ターンの間、敵の火属性に対する防御力を弱体化(150%)",
+		turn: 10,
+		proc: [ss_damage_s(1.0, [0], 1), ss_attr_weaken_s([1,0,0,0,0], 1.5, 1), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+	],
+}

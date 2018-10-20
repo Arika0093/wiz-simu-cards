@@ -1,0 +1,47 @@
+{
+	name: "暴走する秩序の女神 ダリア・ブラウ",
+	cardno: 10391,
+	imageno: 12819,
+	hp: 3245,
+	atk: 3824,
+	cost: 57,
+	attr: [2,1],
+	species: [1],
+	islegend: true,
+	ape: "聖なる空のエステレラ3",
+	is_dist: true,
+	as1: {
+		desc: "<連撃>5チェインで敵単体を5回連続攻撃(450%)",
+		proc: ChainDualAttack(4.5, 5, 3),
+	},
+	ss1: {
+		desc: "<毒>2ターン敵全体に毒のダメージを与える(5000)",
+		turn: 6,
+		proc: [poison(5000, 2)],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_sattr(0,200, [0,0,1,0,0,], 0,100, [0,1,0,0,0,]),
+		Attr_statusup_sattr(200,0, [0,0,1,0,0,], 100,0, [0,1,0,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(1),
+		Attr_statusup_sattr(0,100, [0,0,1,0,0,], 0,200, [0,1,0,0,0,]),
+		Attr_statusup_sattr(100,0, [0,0,1,0,0,], 200,0, [0,1,0,0,0,]),
+		Fastskill(2),
+		Abstate_invalid("poison"),
+	],
+	as2: {
+		desc: "<連撃>5チェインで敵単体を5回連続攻撃(550%)",
+		proc: ChainDualAttack(5.5, 5, 3),
+	},
+	ss2: {
+		desc: "<毒>3ターン敵全体に毒のダメージを与える(15000)",
+		turn: 9,
+		proc: [poison(15000, 3)],
+	},
+	Lawake: [
+		Attr_statusup_sattr(0,100, [0,0,1,0,0,], 0,100, [0,1,0,0,0,]),
+		Statusup(500,0),
+	],
+}

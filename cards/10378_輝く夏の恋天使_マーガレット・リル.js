@@ -1,0 +1,46 @@
+{
+	name: "輝く夏の恋天使 マーガレット・リル",
+	cardno: 10378,
+	imageno: 12806,
+	hp: 5455,
+	atk: 2548,
+	cost: 58,
+	attr: [0,1],
+	species: [3],
+	islegend: true,
+	ape: "聖なる空のエステレラ3",
+	as1: {
+		desc: "<攻撃強化>火属性の味方の攻撃力をアップ(60%)、解答が早いほどさらにアップ(20%)(上限:4段階)",
+		proc: add_cond(ChainEnhance(0.6, [0,0,1,0,0], 0), as_timedep(0.2)),
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルを火属性化",
+		turn: 2,
+		proc: [ss_panel_change([1,0,0,0,0])],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(0,200, [1,1,0,0,0,]),
+		Attr_statusup(200,0, [1,1,0,0,0,]),
+		Fastskill(3),
+		Abstate_invalid("ss_sealed"),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		NEFTJOD(30),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(3),
+	],
+	as2: {
+		desc: "<攻撃強化>火属性の味方の攻撃力をアップ(90%)、解答が早いほどさらにアップ(20%)(上限:4段階)",
+		proc: add_cond(ChainEnhance(0.9, [0,0,1,0,0], 0), as_timedep(0.2)),
+	},
+	ss2: {
+		desc: "<融合パネル変換>ジャンルパネルを火属性化し、スキルチャージの効果を付与、デッキ内の精霊がもつ属性数が多いほどさらに効果値アップ(上限値:3)(効果は、SPスキルを使うまで重複しません)",
+		turn: 8,
+		proc: [ss_panel_change([1,0,0,0,0]), panel_skillboost(1), panel_skillboost(3)],
+	},
+	Lawake: [
+		Attr_statusup_subattr(0, 200),
+		Statusup(0,1000),
+	],
+}

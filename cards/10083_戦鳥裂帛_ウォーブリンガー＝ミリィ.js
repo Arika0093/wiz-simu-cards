@@ -1,0 +1,47 @@
+{
+	name: "戦鳥裂帛 ウォーブリンガー＝ミリィ",
+	cardno: 10083,
+	imageno: 12441,
+	imageno_prefix: "Ut5EsG_",
+	hp: 3025,
+	atk: 3987,
+	cost: 57,
+	attr: [0,2],
+	species: [8],
+	islegend: true,
+	ape: "黄昏メアレスⅣ",
+	as1: {
+		desc: "<連撃・複属性攻撃強化>3チェインで敵単体を3回連続攻撃(350%)、さらに火属性の攻撃力をアップ(10%)、複属性が雷属性だとさらにアップ(30%)",
+		proc: [ChainDualAttack(3.5, 3, 3), ChainEnhance_SubAttr(0.1, 0.4, [0,0,1,0,0], [1,0,0,0,0], 3)],
+	},
+	ss1: {
+		desc: "<多弾魔術>スキル反射を無視し、敵単体へ火・雷属性の5回連続ダメージ(450%)",
+		turn: 6,
+		proc: [ss_damage_s(4.5, [0, 2], 5), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],4),
+		Attr_statusup(0,200, [1,0,1,0,0,]),
+		Attr_statusup(200,0, [1,0,1,0,0,]),
+		NEFTJOD(30),
+		Attr_relief([1,1,1,1,1,],10),
+		Awake_noeffect("スキル反射見破り",1),
+		Fastskill(4),
+		Attr_statusup_sattr(0,100, [1,0,0,0,0,], 0,300, [0,0,1,0,0,]),
+		Attr_statusup_sattr(100,0, [1,0,0,0,0,], 300,0, [0,0,1,0,0,]),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<連撃・複属性攻撃強化>3チェインで敵単体を3回連続攻撃(450%)、さらに火属性の攻撃力をアップ(10%)、複属性が雷属性だとさらにアップ(30%)",
+		proc: [ChainDualAttack(4.5, 3, 3), ChainEnhance_SubAttr(0.1, 0.4, [0,0,1,0,0], [1,0,0,0,0], 3)],
+	},
+	ss2: {
+		desc: "<激化大魔術>敵単体へ火・雷属性の2回連続ダメージ(2500%)、発動する度に効果値が3倍アップ(上限:1段階)",
+		turn: 16,
+		proc: [ss_damage_s(ss_intenselyval(0, 25, 75, 3), [0,2], 2)],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Attr_statusup(0,200, [1,0,1,0,0,]),
+	],
+}

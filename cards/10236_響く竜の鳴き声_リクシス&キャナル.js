@@ -1,0 +1,47 @@
+{
+	name: "響く竜の鳴き声 リクシス&キャナル",
+	cardno: 10236,
+	imageno: 12604,
+	hp: 2315,
+	atk: 4372,
+	cost: 56,
+	attr: [1,4],
+	species: [0],
+	islegend: true,
+	ape: "空戦のシュヴァルツ",
+	as1: {
+		desc: "<連撃>15チェインで敵単体を5回連続攻撃、30チェインで更にダメージアップ(1150%/2200%)",
+		proc: [ChainDualAttack(11.5, 15, 5), ChainDualAttack(22, 30, 5)],
+	},
+	ss1: {
+		desc: "<一閃斬撃大魔術>スキル反射を無視し、敵全体へ水属性のダメージ(250%)、さらに攻撃した敵の数が多いほどチェインプラス(上限:5体、最大31チェイン) ",
+		turn: 8,
+		proc: [ss_damage_slash_all(2.5, [1]), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Costdown(20),
+		Attr_statusup_sattr(0,200, [0,1,0,0,0,], 0,100, [0,0,0,0,1,]),
+		Attr_statusup_sattr(200,0, [0,1,0,0,0,], 100,0, [0,0,0,0,1,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(1),
+		Attr_statusup_sattr(0,100, [0,1,0,0,0,], 0,300, [0,0,0,0,1,]),
+		Attr_statusup_sattr(100,0, [0,1,0,0,0,], 300,0, [0,0,0,0,1,]),
+		Fastskill(2),
+		Panel_boost([0,1,0,0,0,],2),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<連撃>15チェインで敵単体を5回連続攻撃、30チェインで更にダメージアップ(1250%/2300%)",
+		proc: [ChainDualAttack(12.5, 15, 5), ChainDualAttack(23, 30, 5)],
+		},
+	ss2: {
+		desc: "<一閃斬撃大魔術>スキル反射を無視し、敵全体へ水属性のダメージ(550%)、さらに攻撃した敵の数が多いほどチェインプラス(上限:5体、最大31チェイン) ",
+		turn: 11,
+		proc: [ss_damage_slash_all(5.5, [1]), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(500,0),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Abstate_invalid("as_sealed"),
+	],
+}

@@ -1,0 +1,47 @@
+{
+	name: "届け！一途なこの想い ラム",
+	cardno: 10142,
+	imageno: 12501,
+	imageno_prefix: "q3Md5V_",
+	hp: 4503,
+	atk: 4025,
+	cost: 43,
+	attr: [2,-1],
+	species: [5],
+	islegend: true,
+	ape: "コラボ(高橋留美子)",
+	as1: {
+		desc: "<種族攻撃強化>雷属性の味方の攻撃力をアップ(20%)、亜人と戦士はさらにアップ(50%)",
+		proc: [ChainEnhance(0.2, [0,0,1,0,0], 0), ChainSpecEnhance(0.7, [0,0,1,0,0], [5,8], 0)],
+	},
+	ss1: {
+		desc: "<特殊パネル変換>ジャンルパネルを雷属性化し、チェインがプラス2の効果を付与",
+		turn: 5,
+		proc: [ss_panel_change([0,0,1,0,0]), panel_chainplus(2)],
+	},
+	awakes: [
+		Fastskill(1),
+		Panel_boost([0,0,1,0,0,],3),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		NEFTJOD(30),
+		Attr_statusup_oattr(0,400, [0,0,1,0,0,]),
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Spec_statusup(200,0, [5,8,]),
+		Attr_statusup_oattr(400,0, [0,0,1,0,0,]),
+		Fastskill(2),
+		Spec_statusup(0,200, [5,8,]),
+	],
+	as2: {
+		desc: "<種族攻撃強化>雷属性の味方の攻撃力をアップ(50%)、亜人と戦士はさらにアップ(50%)",
+		proc: [ChainEnhance(0.5, [0,0,1,0,0], 0), ChainSpecEnhance(1.0, [0,0,1,0,0], [5,8], 0)],
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルを雷属性化し、チェインがプラス2の効果と攻撃力アップの効果を付与(50%)",
+		turn: 7,
+		proc: [ss_panel_change([0,0,1,0,0]),panel_multieffect([panel_chainplus(2), panel_attackup(0.5)])],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

@@ -1,0 +1,46 @@
+{
+	name: "碧空無敗 ケーニギン・ブルンヒルト",
+	cardno: 10227,
+	imageno: 12595,
+	hp: 2325,
+	atk: 4420,
+	cost: 57,
+	attr: [2,3],
+	species: [8],
+	islegend: true,
+	ape: "空戦のシュヴァルツ",
+	as1: {
+		desc: "<チェイン攻撃・属性特効>4チェインでダメージアップ(400%)、闇属性の敵だとさらにダメージアップ(200%)",
+		proc: [ChainAttack(4.0, 4), ChainAttrAttack(6.0, 4, [0,0,0,0,1])],
+	},
+	ss1: {
+		desc: "<統一大魔術>スキル反射を無視し、敵全体へ雷・光属性のダメージ、デッキ内の精霊が持つ水・光属性が多いほどそれぞれがダメージアップ(上限値:750%、750%)",
+		turn: 7,
+		proc: [ss_UnificationDamage_all(7.5, [2,3]), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_sattr(0,100, [0,0,1,0,0,], 0,300, [0,0,0,1,0,]),
+		Attr_statusup_sattr(100,0, [0,0,1,0,0,], 300,0, [0,0,0,1,0,]),
+		Fastskill(1),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Abstate_invalid("ss_sealed"),
+		Fastskill(2),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<チェイン攻撃・属性特効>4チェインでダメージアップ(500%)、闇属性の敵だとさらにダメージアップ(200%)",
+		proc: [ChainAttack(5.0, 4), ChainAttrAttack(7.0, 4, [0,0,0,0,1])],
+	},
+	ss2: {
+		desc: "<統一大魔術>スキル反射を無視し、敵全体へ雷・光属性のダメージ、デッキ内の精霊が持つ水・光属性が多いほどそれぞれがダメージアップ(上限値:900%、900%)",
+		turn: 10,
+		proc: [ss_UnificationDamage_all(9.0, [2,3]), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1500),
+		Statusup(500,0),
+	],
+}

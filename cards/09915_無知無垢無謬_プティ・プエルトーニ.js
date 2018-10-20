@@ -1,0 +1,47 @@
+{
+	name: "無知無垢無謬 プティ・プエルトーニ",
+	cardno: 9915,
+	imageno: 8388,
+	hp: 4827,
+	atk: 2446,
+	cost: 53,
+	attr: [2,1],
+	species: [9],
+	islegend: true,
+	is_dist: true,
+	ape: "大魔道杯　爆",
+	as1: {
+		desc: "<回復>水・雷属性の味方を回復(10%)、20チェインで更に回復(20%)",
+		proc: [Heal(0.10, [0,1,1,0,0], 10), Heal(0.30, [0,1,1,0,0], 20)],
+	},
+	as2: {
+		desc: "<回復>水・雷属性の味方を回復(13%)、20チェインで更に回復(20%)",
+		proc: [Heal(0.13, [0,1,1,0,0], 10), Heal(0.33, [0,1,1,0,0], 20)],
+	},
+	ss1: {
+		desc: "<ダメージ強化>3ターン水・雷属性の味方の攻撃力をアップ(100%)、20チェインでさらに3ターンアップ(150%)",
+		turn: 7,
+		proc: [ss_chain_cond_skill(20, ss_enhance_all(2.5, 6, [0,1,1,0,0]), ss_enhance_all(1.0, 3, [0,1,1,0,0]))],
+	},
+	ss2: {
+		desc: "	<ダメージ強化>3ターン水・雷属性の味方の攻撃力をアップ(150%)、20チェインでさらに3ターンアップ(150%)",
+		turn: 10,
+		proc: [ss_chain_cond_skill(20, ss_enhance_all(3.0, 6, [0,1,1,0,0]), ss_enhance_all(1.5, 3, [0,1,1,0,0]))],
+	},
+	awakes: [
+		Attr_statusup_sattr(0,100,[0,0,1,0,0,],0,300,[0,1,0,0,0,]),
+		Attr_statusup_sattr(100,0,[0,0,1,0,0,],300,0,[0,1,0,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_relief([1,0,1,0,0,],10),
+		Panel_boost([0,0,1,0,0,],2),
+		NEFTJOD(30),
+		Attr_statusup(200,0,[0,1,1,0,0,]),
+		Fastskill(3),
+		Attr_statusup(0,200,[0,1,1,0,0,]),
+		Abstate_invalid("as_sealed"),
+	],
+	Lawake: [
+		Attr_statusup(0,200,[0,1,1,0,0,]),
+		Statusup(1000,0),
+	],
+}

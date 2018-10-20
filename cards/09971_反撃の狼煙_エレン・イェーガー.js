@@ -1,0 +1,47 @@
+{
+	name: "反撃の狼煙 エレン・イェーガー",
+	cardno: 9971,
+	imageno: 12320,
+	hp: 2877,
+	atk: 5022,
+	cost: 39,
+	attr: [2,-1],
+	species: [5],
+	islegend: true,
+	is_dist: true,
+	ape: "コラボ(進撃の巨人)",
+	as1: {
+		desc: "<攻撃>敵単体へのダメージアップ(150%)、デッキに単色の精霊が多いほど、さらにダメージアップ(40%)(上限:5段階)",
+		proc: add_cond(ChainAttack(1.5, 0), as_singleattr_num(0, 0.4)),
+	},
+	ss1: {
+		desc: "<ダメージ強化>4ターンの間、味方の攻撃力をアップ(100%)、5チェインを消費しさらにアップ(50%)",
+		turn: 8,
+		proc: [ss_enhance_all(ss_chain_cost(5, 1.5, 1), 4, [1,1,1,1,1])],
+	},
+	as2: {
+		desc: "<攻撃>敵単体へのダメージアップ(250%)、デッキに単色の精霊が多いほど、さらにダメージアップ(40%)(上限:5段階)",
+		proc: add_cond(ChainAttack(2.5, 0), as_singleattr_num(0, 0.4)),
+	},
+	ss2: {
+		desc: "<ダメージ強化>4ターンの間、味方の攻撃力をアップ(100%)、5チェインを消費しさらにアップ(50%)",
+		turn: 8,
+		proc: [ss_enhance_all(ss_chain_cost(5, 1.5, 1), 4, [1,1,1,1,1])],
+	},
+	awakes: [
+		Attr_statusup(0,300,[0,0,1,0,0,]),
+		Fastskill(1),
+		Attr_statusup(300,0,[0,0,1,0,0,]),
+		Costdown(10),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_oattr(300,0,[0,0,1,0,0,]),
+		Fastskill(2),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_oattr(0,300,[0,0,1,0,0,]),
+		Abstate_invalid("as_sealed"),
+	],
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(500,0),
+	],
+}

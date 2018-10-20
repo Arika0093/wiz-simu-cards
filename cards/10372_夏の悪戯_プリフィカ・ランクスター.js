@@ -1,0 +1,47 @@
+{
+	name: "夏の悪戯 プリフィカ・ランクスター",
+	cardno: 10372,
+	imageno: 12800,
+	hp: 4445,
+	atk: 1502,
+	cost: 42,
+	attr: [2,4],
+	species: [1],
+	islegend: true,
+	ape: "聖なる空のエステレラ3",
+	as1: {
+		desc: "<攻撃>敵単体へのダメージアップ(900%)、ジャンルパネルが3色だとさらにアップ(1000%)",
+		proc: ChainPanelsAttack(9.0, 9.0, 19.0, 0),
+	},
+	ss1: {
+		desc: "<特殊パネル変換>ジャンルパネルに攻撃力アップの効果を付与(30%)、パネルの色が3色だとさらにアップ(270%)",
+		turn: 5,
+		proc: [panel_attackup(0.3), panel_attackup(3.0)],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Fastskill(4),
+		Abstate_invalid("ss_sealed"),
+		Awake_damage_multiple(1.1, 500),
+	],
+	as2: {
+		desc: "<攻撃>敵単体へのダメージアップ(1000%)、ジャンルパネルが3色だとさらにアップ(1000%)",
+		proc: ChainPanelsAttack(10.0, 10.0, 20.0, 0),
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルに攻撃力アップの効果を付与(50%)、パネルの色が3色だとさらにアップ(450%)",
+		turn: 8,
+		proc: [panel_attackup(0.5), panel_attackup(5.0)],
+	},
+	Lawake: [
+		Attr_statusup(0,100, [0,0,1,0,0,]),
+		Statusup(0,1000),
+		Abstate_invalid("as_sealed"),
+	],
+}

@@ -1,0 +1,46 @@
+{
+	name: "砂塵獣 偽りの守護神",
+	cardno: 9843,
+	imageno: 12186,
+	hp: 2015,
+	atk: 2627,
+	cost: 37,
+	attr: [1,4],
+	species: [1],
+	islegend: true,
+	ape: "眠れる遺跡のアウトランダー",
+	is_dist: true,
+	as1: {
+		desc: "<攻撃>敵単体へのダメージアップ(250%)、HP50%以下でさらにダメージアップ(350%)",
+		proc: [ChainAttack(2.5, 0), add_cond(ChainAttack(6.0, 0), when_hp_less(0.5))],
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルを水・闇属性化",
+		turn: 4,
+		proc: [ss_panel_change([0,1,0,0,1])],
+	},
+	awakes: [
+		Costdown(10),
+		Panel_boost([0,1,0,0,0,],1),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(3),
+		Attr_statusup_sattr(0,100, [0,1,0,0,0,], 0,200, [0,0,0,0,1,]),
+		Attr_statusup_sattr(100,0, [0,1,0,0,0,], 200,0, [0,0,0,0,1,]),
+		Abstate_invalid("poison"),
+	],
+	as2: {
+		desc: "<攻撃>敵単体へのダメージアップ(350%)、HP50%以下でさらにダメージアップ(350%)",
+		proc: [ChainAttack(3.5, 0), add_cond(ChainAttack(7.0, 0), when_hp_less(0.5))],
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルを水・闇属性化し、ダメージ25%軽減の効果を付与",
+		turn: 8,
+		proc: [ss_panel_change([0,1,0,0,1]), panel_attr_guard([1,1,1,1,1], 0.25)],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+	],
+}

@@ -1,0 +1,47 @@
+{
+	name: "冷めぬ正義の湯 サクト・オオガミ",
+	cardno: 10728,
+	imageno: 13177,
+	imageno_prefix: "W4ripe_",
+	hp: 6785,
+	atk: 1992,
+	cost: 61,
+	attr: [1,0],
+	species: [1],
+	islegend: true,
+	ape: "八百八町",
+	as1: {
+		desc: "<回復>水属性の味方のHPを回復(7%)、デッキ内の〈主属性:水、複属性:火〉の精霊が多いほど、さらに回復(2%)(上限:5段階)",
+		proc: add_cond(Heal(0.07, [0,1,0,0,0], 0), as_deckinAttrMainSub_num(0, 0.02, [0,1,0,0,0], [1,0,0,0,0])),
+	},
+	ss1: {
+		desc: "<起死回生>1ターン、致死ダメージを受けたら一度だけHP80%で起死回生",
+		turn: 7,
+		proc: [ss_revival(0.80, 1)],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup_sattr(0,200, [0,1,0,0,0,], 0,100, [1,0,0,0,0,]),
+		Attr_statusup_sattr(200,0, [0,1,0,0,0,], 100,0, [1,0,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(2),
+		Attr_statusup_sattr(0,100, [0,1,0,0,0,], 0,300, [1,0,0,0,0,]),
+		Attr_statusup_sattr(100,0, [0,1,0,0,0,], 300,0, [1,0,0,0,0,]),
+		Fastskill(3),
+		Abstate_invalid("ss_sealed"),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<回復>水属性の味方のHPを回復(10%)、デッキ内の〈主属性:水、複属性:火〉の精霊が多いほど、さらに回復(2%)(上限:5段階)",
+		proc: add_cond(Heal(0.10, [0,1,0,0,0], 0), as_deckinAttrMainSub_num(0, 0.02, [0,1,0,0,0], [1,0,0,0,0])),
+	},
+	ss2: {
+		desc: "<起死回生>1ターン、致死ダメージを受けたら一度だけHP80%で起死回生",
+		turn: 9,
+		proc: [ss_revival(0.80, 2)],
+	},
+	Lawake: [
+		Attr_statusup(0,300, [1,1,0,0,0,]),
+		Statusup(500,0),
+	],
+}

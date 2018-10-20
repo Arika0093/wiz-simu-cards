@@ -1,0 +1,46 @@
+{
+	name: "傷だらけの弾爪 スミオ&トキオ",
+	cardno: 10316,
+	imageno: 11455,
+	hp: 3495,
+	atk: 7001,
+	cost: 55,
+	attr: [2,-1],
+	species: [8],
+	islegend: true,
+	ape: "幻魔特区スザクⅡ",
+	as1: {
+		desc: "<属性特効>5チェインで水属性の敵単体へ特効ダメージ(500%)、デッキに単色の精霊が多いほど、さらにダメージアップ(130%)(上限:5段階)",
+		proc: add_cond(ChainAttrAttack(5.0, 5, [0,1,0,0,0]), as_singleattr_num(0, 1.3)),
+	},
+	ss1: {
+		desc: "<スキルチャージ>味方全体のスペシャルスキルの発動ターンを2早める",
+		turn: 7,
+		proc: [ss_skillboost(2)],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],4),
+		Attr_statusup_oattr(0,400, [0,0,1,0,0,]),
+		Attr_statusup_oattr(400,0, [0,0,1,0,0,]),
+		Abstate_invalid("ss_sealed"),
+		Fastskill(4),
+		Attr_relief([1,1,1,1,1,],20),
+		NEFTJOD(30),
+		Attr_statusup(0,400, [0,0,1,0,0,]),
+		Attr_statusup(400,0, [0,0,1,0,0,]),
+		Abstate_invalid("discharge"),
+	],
+	as2: {
+		desc: "<属性特効>5チェインで水属性の敵単体へ特効ダメージ(600%)、デッキに単色の精霊が多いほど、さらにダメージアップ(130%)(上限:5段階)",
+		proc: add_cond(ChainAttrAttack(6.0, 5, [0,1,0,0,0]), as_singleattr_num(0, 1.3)),
+	},
+	ss2: {
+		desc: "<スキルチャージ>味方全体のスペシャルスキルの発動ターンを3早める",
+		turn: 10,
+		proc: [ss_skillboost(3)],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+	],
+}

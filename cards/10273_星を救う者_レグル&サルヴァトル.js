@@ -1,0 +1,46 @@
+{
+	name: "星を救う者 レグル&サルヴァトル",
+	cardno: 10273,
+	imageno: 12650,
+	hp: 4595,
+	atk: 5484,
+	cost: 52,
+	attr: [1,-1],
+	species: [8],
+	islegend: true,
+	ape: "幻魔特区RELOADEDⅡ",
+	as1: {
+		desc: "<攻撃・回復>敵単体へのダメージアップ(250%)、さらに水属性の味方のHPを回復(7%)",
+		proc: [ChainAttack(2.5, 0), Heal(0.07, [0,1,0,0,0], 0)],
+	},
+	ss1: {
+		desc: "<ブースト>4ターンの間、味方のMAXHPを毎ターン20%消費し、水単色精霊が多いほど、水単色精霊の攻撃力をアップ(上限値:300%)。さらに極稀にクリティカル",
+		turn: 8,
+		proc: [ss_boost_enhance_all(ss_pureattr_cond(3.0), 4, 0.2)],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup_oattr(0,400, [0,1,0,0,0,]),
+		Attr_statusup_oattr(400,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		NEFTJOD(30),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Attr_relief([1,1,1,1,1,],10),
+		Fastskill(4),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<攻撃・回復>敵単体へのダメージアップ(350%)、さらに水属性の味方のHPを回復(7%)",
+		proc: [ChainAttack(3.5, 0), Heal(0.07, [0,1,0,0,0], 0)],
+	},
+	ss2: {
+		desc: "<ブースト>4ターンの間、味方のMAXHPを毎ターン20%消費し、水単色精霊が多いほど、水単色精霊の攻撃力をアップ(上限値:400%)。さらに極稀にクリティカル",
+		turn: 11,
+		proc: [ss_boost_enhance_all(ss_pureattr_cond(4.0), 4, 0.2)],
+	},
+	Lawake: [
+		Attr_statusup_oattr(0,300, [0,1,0,0,0,]),
+		Statusup(500,0),
+	],
+}

@@ -1,0 +1,48 @@
+{
+	name: "それぞれの契約 キュゥべえ&ウィズ",
+	cardno: 10444,
+	imageno: 12768,
+	imageno_prefix: "K6w3Dq_",
+	hp: 5515,
+	atk: 1953,
+	cost: 53,
+	attr: [1,3],
+	species: [7],
+	islegend: true,
+	ape: "コラボ(魔法少女まどか☆マギカ)",
+	is_dist: true,
+	as1: {
+		desc: "<回復>水属性の味方を回復(8%)、複属性が光属性だとさらに回復(8%)",
+		proc: [Heal(0.08, [0,1,0,0,0], 0), add_cond(Heal(0.16, [0,1,0,0,0], 0), when_subattr_match([0,1,0,0,0], [0,0,0,1,0]))],
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルを水・光属性化",
+		turn: 3,
+		proc: [ss_panel_change([0,1,0,1,0])],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Fastskill(1),
+		Awake_noeffect("経験値取得量アップ",2),
+		NEFTJOD(30),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Fastskill(2),
+		Attr_statusup_sattr(0,100, [0,1,0,0,0,], 0,200, [0,0,0,1,0,]),
+		Attr_statusup_sattr(100,0, [0,1,0,0,0,], 200,0, [0,0,0,1,0,]),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<回復>水属性の味方を回復(11%)、複属性が光属性だとさらに回復(8%)",
+		proc: [Heal(0.11, [0,1,0,0,0], 0), add_cond(Heal(0.19, [0,1,0,0,0], 0), when_subattr_match([0,1,0,0,0], [0,0,0,1,0]))],
+	},
+	ss2: {
+		desc: "<統一パネル変換>ジャンルパネルを水・光属性化し、回復の効果を付与、〈主属性:水、複属性:光〉の精霊が多いほどさらに効果値アップ(上限値:40%)",
+		turn: 6,
+		proc: [ss_panel_change([0,1,0,1,0]), panel_healally(ss_matchattr_cond(0.4, [0,1,0,0,0], [0,0,0,1,0]))],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Statusup(500,0),
+	],
+}

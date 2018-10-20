@@ -1,0 +1,46 @@
+{
+	name: "信頼と絆に結ばれる りんね&桜",
+	cardno: 10134,
+	imageno: 5846,
+	hp: 4515,
+	atk: 2897,
+	cost: 56,
+	attr: [0,2],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(高橋留美子)",
+	as1: {
+		desc: "<攻撃強化・ガード>7チェインで火・雷属性の味方の攻撃力をアップ(80%)、さらに全属性のダメージを10%軽減",
+		proc: [ChainEnhance(0.8, [1, 0, 1, 0, 0], 7), as_guard(0.10, [1,1,1,1,1], 7)],
+	},
+	ss1: {
+		desc: "<ダメージ強化>2ターン火・雷属性の味方の攻撃力をアップ(50%)",
+		turn: 5,
+		proc: [ss_enhance_all(0.5, 2, [1, 0, 1, 0, 0])],
+	},
+	awakes: [
+		Fastskill(3),
+		Panel_boost([1,0,0,0,0,],2),
+		Awake_noeffect("ゴールド取得量アップ",2),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup(200,0, [1,0,1,0,0,]),
+		Heal_afterbattle(10),
+		Attr_statusup(0,200, [1,0,1,0,0,]),
+		Spec_statusup(0,200, [8,]),
+		Spec_statusup(200,0, [8,]),
+		Attr_statusup_subattr(500, 0),
+	],
+	as2: {
+		desc: "<攻撃強化・ガード>火・雷属性の味方の攻撃力をアップ(80%)、さらに全属性のダメージを10%軽減",
+		proc: [ChainEnhance(0.8, [1, 0, 1, 0, 0], 0), as_guard(0.10, [1,1,1,1,1], 0)],
+	},
+	ss2: {
+		desc: "<ダメージ強化>4ターン火・雷属性の味方の攻撃力をアップ(80%)",
+		turn: 8,
+		proc: [ss_enhance_all(0.8, 4, [1, 0, 1, 0, 0])],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [1,0,1,0,0,]),
+		Statusup(1000,0),
+	],
+}

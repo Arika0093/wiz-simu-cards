@@ -1,0 +1,48 @@
+{
+	name: "憧れは全てガラスの中に ハコの魔女",
+	cardno: 10432,
+	imageno: 12772,
+	imageno_prefix: "E4pSBg_",
+	hp: 3995,
+	atk: 2014,
+	cost: 44,
+	attr: [1,4],
+	species: [7],
+	islegend: true,
+	ape: "コラボ(魔法少女まどか☆マギカ)",
+	is_dist: true,
+	as1: {
+		desc: "<連撃>敵単体を2回連続攻撃(150%)、デッキ内の精霊が持つ属性数が多いほどさらにアップ(40%)(上限:5段階)",
+		proc: add_cond(ChainDualAttack(1.5, 0, 2), as_deckinattr_num(0, 0.4)),
+	},
+	ss1: {
+		desc: "<融合パネル変換>ジャンルパネルを水属性化し、ダメージ軽減の効果を付与、デッキ内の精霊がもつ属性数が多いほどさらに効果値アップ(25%)",
+		turn: 4,
+		proc: [ss_panel_change([0,1,0,0,0]), panel_attr_guard([1,1,1,1,1], 0.25)],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],1),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Fastskill(1),
+		Awake_noeffect("ゴールド取得量アップ",3),
+		Attr_statusup_subattr(0, 300),
+		Attr_statusup_subattr(300, 0),
+		NEFTJOD(30),
+		Panel_boost([0,1,0,0,0,],1),
+		Fastskill(2),
+	],
+	as2: {
+		desc: "<連撃>敵単体を2回連続攻撃(250%)、デッキ内の精霊が持つ属性数が多いほどさらにアップ(40%)(上限:5段階)",
+		proc: add_cond(ChainDualAttack(2.5, 0, 2), as_deckinattr_num(0, 0.4)),
+	},
+	ss2: {
+		desc: "<融合パネル変換>ジャンルパネルを水属性化し、ダメージ軽減の効果を付与、デッキ内の精霊がもつ属性数が多いほどさらに効果値アップ(50%)",
+		turn: 6,
+		proc: [ss_panel_change([0,1,0,0,0]), panel_attr_guard([1,1,1,1,1], 0.5)],
+	},
+	Lawake: [
+		Attr_statusup_subattr(0, 200),
+		Statusup(500,0),
+	],
+}

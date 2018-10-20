@@ -1,0 +1,47 @@
+{
+	name: "撃砕の鉄腕 アトヤ&リベルタス",
+	cardno: 10317,
+	imageno: 11456,
+	hp: 4800,
+	atk: 3521,
+	cost: 63,
+	attr: [1,2],
+	species: [8],
+	islegend: true,
+	ape: "幻魔特区スザクⅡ",
+	as1: {
+		desc: "<チェイン攻撃>5チェインでダメージアップ(450%)、10チェインで更にダメージアップ(150%)",
+		proc: [ChainAttack(4.5, 5), ChainAttack(6.0, 5)],
+	},
+	ss1: {
+		desc: "<融合パネル変換>ジャンルパネルを水・雷属性化し、ダメージ軽減の効果を付与、デッキ内の精霊がもつ属性数が多いほどさらに効果値アップ(上限値:50%)",
+		turn: 6,
+		proc: [ss_panel_change([0,1,1,0,0]), panel_attr_guard([1,1,1,1,1], 0.5)],
+	},
+	awakes: [
+		Costdown(20),
+		Attr_statusup(0,200, [0,1,1,0,0,]),
+		Attr_statusup(200,0, [0,1,1,0,0,]),
+		Panel_boost([0,1,0,0,0,],4),
+		Fastskill(3),
+		Attr_relief([1,1,1,1,1,],10),
+		Awake_noeffect("難易度ダウン",1),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<チェイン攻撃>5チェインでダメージアップ(550%)、10チェインで更にダメージアップ(150%)",
+		proc: [ChainAttack(5.5, 5), ChainAttack(7.0, 5)],
+	},
+	ss2: {
+		desc: "<融合パネル変換>ジャンルパネルを水・雷属性化し、ダメージ軽減の効果を付与、デッキ内の精霊がもつ属性数が多いほどさらに効果値アップ(上限値:75%)",
+		turn: 9,
+		proc: [ss_panel_change([0,1,1,0,0]), panel_attr_guard([1,1,1,1,1], 0.75)],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(500,0),
+		NEFTJOD(30),
+	],
+}

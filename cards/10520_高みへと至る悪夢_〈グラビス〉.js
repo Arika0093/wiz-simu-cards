@@ -1,0 +1,48 @@
+{
+	name: "高みへと至る悪夢 〈グラビス〉",
+	cardno: 10520,
+	imageno: 12941,
+	hp: 2895,
+	atk: 3322,
+	cost: 50,
+	attr: [2,0],
+	species: [2],
+	islegend: true,
+	ape: "MARELESS2 夢現の狭間",
+	is_dist: true,
+	as1: {
+		desc: "<複属性攻撃強化>雷属性の攻撃力をアップ(30%)、複属性が火属性だとさらにアップ(40%)",
+		proc: ChainEnhance_SubAttr(0.3, 0.7, [0,0,1,0,0], [1,0,0,0,0], 0),
+	},
+	ss1: {
+		desc: "<一閃斬撃大魔術>5ターン溜めた後、スキル反射を無視し、敵全体へ雷属性のダメージ(850%)、さらに攻撃した敵の数が多いほどチェインプラス(上限:5体、最大31チェイン)",
+		turn: 5,
+		charged: 5,
+		proc: [ss_damage_slash_all(8.5, [2]), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup(0,200, [1,0,1,0,0,]),
+		Attr_statusup(200,0, [1,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(3),
+		Attr_statusup_subattr(0, 300),
+		Attr_statusup_subattr(300, 0),
+		Fastskill(2),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<複属性攻撃強化>雷属性の攻撃力をアップ(60%)、複属性が火属性だとさらにアップ(40%)",
+		proc: ChainEnhance_SubAttr(0.6, 1.0, [0,0,1,0,0], [1,0,0,0,0], 0),
+	},
+	ss2: {
+		desc: "<一閃斬撃大魔術>5ターン溜めた後、スキル反射を無視し、敵全体へ雷属性のダメージ(850%)、さらに攻撃した敵の数が多いほどチェインプラス(上限:5体、最大31チェイン)",
+		turn: 5,
+		charged: 5,
+		proc: [ss_damage_slash_all(8.5, [2]), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Attr_statusup(0,300, [1,0,1,0,0,]),
+	],
+}

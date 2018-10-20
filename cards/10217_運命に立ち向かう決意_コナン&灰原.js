@@ -1,0 +1,47 @@
+{
+	name: "運命に立ち向かう決意 コナン&灰原",
+	cardno: 10217,
+	imageno: 7031,
+	hp: 3065,
+	atk: 3021,
+	cost: 48,
+	attr: [1,0],
+	species: [8],
+	islegend: true,
+	is_dist: true,
+	ape: "コラボ(コナン)",
+	as1: {
+		desc: "<攻撃強化・回復>火・水属性の味方のHPを回復(11%)、さらに火・水属性の味方の攻撃力をアップ(30%)",
+		proc: Heal(0.11, [1,1,0,0,0], 0),
+	},
+	ss1: {
+		desc: "<スキルコピー>直前に発動したスペシャルスキルを発動する",
+		turn: 9,
+		proc: [ss_latest_copy()],
+	},
+	awakes: [
+		Spec_statusup(0,200, [8,]),
+		Attr_statusup(200,0, [1,1,0,0,0,]),
+		Attr_statusup_subattr(200, 0),
+		Attr_statusup(0,200, [1,1,0,0,0,]),
+		Heal_afterbattle(10),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup(200,0, [1,1,0,0,0,]),
+		Fastskill(1),
+		Panel_boost([0,1,0,0,0,],3),
+		Spec_statusup(200,0, [8,]),
+	],
+	as2: {
+		desc: "<攻撃強化・回復>火・水属性の味方のHPを回復(11%)、さらに火・水属性の味方の攻撃力をアップ(60%)",
+		proc: [Heal(0.11, [1,1,0,0,0], 0), ChainEnhance(0.3, [1,1,0,0,0], 0)],
+	},
+	ss2: {
+		desc: "<スキルコピー>直前に発動したスペシャルスキルを発動する",
+		turn: 9,
+		proc: [ss_latest_copy()],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [1,1,0,0,0,]),
+		Statusup(500,0),
+	],
+}

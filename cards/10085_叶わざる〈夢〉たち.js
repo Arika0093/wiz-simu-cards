@@ -1,0 +1,48 @@
+{
+	name: "叶わざる〈夢〉たち",
+	cardno: 10085,
+	imageno: 12443,
+	imageno_prefix: "Ut5EsG_",
+	hp: 2887,
+	atk: 2681,
+	cost: 43,
+	attr: [0,3],
+	species: [2],
+	islegend: true,
+	ape: "黄昏メアレスⅣ",
+	alias: ["レベルメア", "ロードメア", "オルタメア"],
+	is_dist: true,
+	as1: {
+		desc: "<回復>火属性の味方を回復(9%)、10チェインで更に回復(10%)",
+		proc: [Heal(0.09, [1,0,0,0,0], 0), Heal(0.19, [1,0,0,0,0], 10)],
+	},
+	ss1: {
+		desc: "<スキルコピー>直前に発動したスペシャルスキルを発動する",
+		turn: 13,
+		proc: [ss_latest_copy()],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Attr_statusup(200,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Awake_secondfast(3),
+		Heal_afterbattle(10),
+		Awake_secondfast(3),
+		Attr_statusup_sattr(100,0, [1,0,0,0,0,], 200,0, [0,0,0,1,0,]),
+		Attr_statusup_sattr(0,100, [1,0,0,0,0,], 0,200, [0,0,0,1,0,]),
+		Awake_secondfast(5),
+	],
+	as2: {
+		desc: "<回復>火属性の味方を回復(12%)、10チェインで更に回復(10%)",
+		proc: [Heal(0.12, [1,0,0,0,0], 0), Heal(0.22, [1,0,0,0,0], 10)],
+	},
+	ss2: {
+		desc: "<スキルコピー>直前に発動したスペシャルスキルを発動する",
+		turn: 13,
+		proc: [ss_latest_copy()],
+	},
+	Lawake: [
+		Statusup(0,1500),
+	],
+}

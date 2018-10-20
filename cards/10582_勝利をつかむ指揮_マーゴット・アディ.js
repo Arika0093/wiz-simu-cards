@@ -1,0 +1,46 @@
+{
+	name: "勝利をつかむ指揮 マーゴット・アディ",
+	cardno: 10582,
+	imageno: 13007,
+	hp: 6211,
+	atk: 3232,
+	cost: 49,
+	attr: [0,-1],
+	species: [8],
+	islegend: true,
+	ape: "黒ウィズPRIDE",
+	as1: {
+		desc: "<回復・攻撃強化>火属性の味方のHPを回復(13%)し、さらに火属性の味方の攻撃力をアップ(30%)",
+		proc: [Heal(0.13, [1,0,0,0,0], 0), ChainEnhance(0.3, [1,0,0,0,0], 0)],
+	},
+	ss1: {
+		desc: "<純属性強化>4ターンの間、火単色精霊が多いほど、火単色精霊のダメージを強化し(上限値:300%)、さらに永続ターン、攻撃力、HPのステータスをアップ(上限値:500,500)",
+		turn: 4,
+		proc: [ss_statusup_all([ss_pureattr_cond(500), ss_pureattr_cond(500)], [500,500], -1, [1,0,0,0,0]), ss_enhance_all(ss_pureattr_cond(3.0), 4, [1,0,0,0,0])],
+	},
+	awakes: [
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(2),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Fastskill(2),
+		Abstate_invalid("as_sealed"),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		Attr_relief([1,1,1,1,1,],10),
+	],
+	as2: {
+		desc: "<回復・攻撃強化>火属性の味方のHPを回復(16%)し、さらに火属性の味方の攻撃力をアップ(30%)",
+		proc: [Heal(0.16, [1,0,0,0,0], 0), ChainEnhance(0.3, [1,0,0,0,0], 0)],
+	},
+	ss2: {
+		desc: "<純属性強化>4ターンの間、火単色精霊が多いほど、火単色精霊のダメージを強化し(上限値:400%)、さらに永続ターン、攻撃力、HPのステータスをアップ(上限値:750,750)",
+		turn: 8,
+		proc: [ss_statusup_all([ss_pureattr_cond(750), ss_pureattr_cond(750)], [750,750], -1, [1,0,0,0,0]), ss_enhance_all(ss_pureattr_cond(4.0), 4, [1,0,0,0,0])],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

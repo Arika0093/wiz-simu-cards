@@ -1,0 +1,47 @@
+{
+	name: "音巡るフルート メリィ・ミツボシ",
+	cardno: 10267,
+	imageno: 12633,
+	hp: 2095,
+	atk: 4187,
+	cost: 53,
+	attr: [0,3],
+	species: [9],
+	islegend: true,
+	is_dist: true,
+	ape: "黒ウィズコンサート大魔道杯",
+	as1: {
+		desc: "<属性特効連撃・複属性攻撃強化>4チェインで雷・闇属性の敵単体へ特効3連撃(450%)、さらに火属性の攻撃力をアップ(10%)、複属性が光属性だとさらにアップ(30%)",
+		proc: [ChainDualAttrAttack(4.5, 4, 3, [0,0,1,0,1]), ChainEnhance_SubAttr(0.10, 0.40, [1,0,0,0,0], [0,0,0,1,0], 4)],
+	},
+	as2: {
+		desc: "<属性特効連撃・複属性攻撃強化>4チェインで雷・闇属性の敵単体へ特効3連撃(550%)、さらに火属性の攻撃力をアップ(10%)、複属性が光属性だとさらにアップ(30%)",
+		proc: [ChainDualAttrAttack(5.5, 4, 3, [0,0,1,0,1]), ChainEnhance_SubAttr(0.10, 0.40, [1,0,0,0,0], [0,0,0,1,0], 4)],
+	},
+	ss1: {
+		desc: "<大魔術>スキル反射を無視し、敵全体へ火・光属性のダメージ(120%)",
+		turn: 5,
+		proc: [ss_damage_all(1.2, [0, 3]), ss_ignore_skillcounter()],
+	},
+	ss2: {
+		desc: "<大魔術>スキル反射を無視し、敵全体へ火・光属性のダメージ(120%)。毒状態の時、さらにダメージアップ(1000%)",
+		turn: 7,
+		proc: [ss_damage_all(ss_is_poison_own(11.2, 1.2), [0, 3]), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Attr_statusup(200,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(1),
+		NEFTJOD(30),
+		Fastskill(2),
+		Attr_statusup_sattr(0,100, [1,0,0,0,0,], 0,200, [0,0,0,1,0,]),
+		Attr_statusup_sattr(100,0, [1,0,0,0,0,], 200,0, [0,0,0,1,0,]),
+		Abstate_invalid("ss_sealed"),
+	],
+	Lawake: [
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Statusup(500,0),
+	],
+}

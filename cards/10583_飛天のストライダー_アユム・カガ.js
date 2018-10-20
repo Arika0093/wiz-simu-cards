@@ -1,0 +1,45 @@
+{
+	name: "飛天のストライダー アユム・カガ",
+	cardno: 10583,
+	imageno: 13008,
+	hp: 2625,
+	atk: 8031,
+	cost: 56,
+	attr: [0,-1],
+	species: [8],
+	islegend: true,
+	ape: "蒼穹のストライカー",
+	as1: {
+		desc: "<属性特効>雷属性以外の敵単体へ特効ダメージ(1100%)",
+		proc: ChainAttrAttack(11.0, 0, [1,1,0,1,1]),
+	},
+	ss1: {
+		desc: "<特効大魔術>敵全体へ火属性のダメージ(400%)、さらに雷属性の敵には特効ダメージ(1050%)",
+		turn: 5,
+		proc: [ss_damage_all(special_attr([0,0,1,0,0], 14.5, 4.0), [0])],
+	},
+	awakes: [
+		Costdown(20),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		Abstate_invalid("ss_sealed"),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Fastskill(3),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Awake_noeffect("スキル反射見破り",1),
+		Awake_damage_multiple(1.1, 500),
+	],
+	as2: {
+		desc: "<属性特効>雷属性以外の敵単体へ特効ダメージ(1200%)",
+		proc: ChainAttrAttack(12.0, 0, [1,1,0,1,1]),
+	},
+	ss2: {
+		desc: "<特効大魔術>敵全体へ火属性のダメージ(400%)、さらに雷属性の敵には特効ダメージ(1800%)",
+		turn: 8,
+		proc: [ss_damage_all(special_attr([0,0,1,0,0], 22.0, 4.0), [0])],
+	},
+	Lawake: [
+		Statusup(0,2000),
+	],
+}

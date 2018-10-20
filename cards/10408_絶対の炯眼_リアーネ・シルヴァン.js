@@ -1,0 +1,46 @@
+{
+	name: "絶対の炯眼 リアーネ・シルヴァン",
+	cardno: 10408,
+	imageno: 9627,
+	hp: 4861,
+	atk: 3081,
+	cost: 60,
+	attr: [1,0],
+	species: [1],
+	islegend: true,
+	ape: "イタズラ女神とうさぎのおはなし",
+	as1: {
+		desc: "<回復・複属性攻撃強化>水属性の味方の回復(5%)し、攻撃力もアップ(30%)、複属性が火属性だとさらに攻撃力アップ(50%)",
+		proc: [Heal(0.05, [0,1,0,0,0], 0), ChainEnhance_SubAttr(0.3, 0.8, [0,1,0,0,0], [1,0,0,0,0], 0)],
+	},
+	ss1: {
+		desc: "<回復>チェインプラス1の効果、さらに味方全体のHPを回復する(50%)",
+		turn: 4,
+		proc: [ss_addchain(1), ss_heal(0.5)],
+	},
+	awakes: [
+		Fastskill(1),
+		Panel_boost([0,1,0,0,0,],2),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_relief([1,1,1,1,1,],10),
+		Fastskill(2),
+		Attr_statusup_sattr(0,100, [0,1,0,0,0,], 0,100, [1,0,0,0,0,]),
+		Abstate_invalid("as_sealed"),
+		Attr_statusup_sattr(100,0, [0,1,0,0,0,], 100,0, [1,0,0,0,0,]),
+		Attr_statusup_sattr(0,100, [0,1,0,0,0,], 0,400, [1,0,0,0,0,]),
+		Attr_statusup_sattr(100,0, [0,1,0,0,0,], 400,0, [1,0,0,0,0,]),
+	],
+	as2: {
+		desc: "<回復・複属性攻撃強化>水属性の味方の回復(5%)し、攻撃力もアップ(60%)、複属性が火属性だとさらに攻撃力アップ(50%)",
+		proc: [Heal(0.05, [0,1,0,0,0], 0), ChainEnhance_SubAttr(0.6, 1.1, [0,1,0,0,0], [1,0,0,0,0], 0)],
+	},
+	ss2: {
+		desc: "<状態異常回復>味方全体のHPを回復(50%)し、状態異常を回復する、のろい状態または状態異常時、さらに回復(50%)",
+		turn: 7,
+		proc: [ss_heal(ss_is_abstate_own(1.0, 0.5)), ss_abstate_cure()],
+	},
+	Lawake: [
+		Attr_statusup_sattr(0,100, [0,1,0,0,0,], 0,200, [1,0,0,0,0,]),
+		Statusup(500,0),
+	],
+}

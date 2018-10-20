@@ -1,0 +1,48 @@
+{
+	name: "神樹刀の守り手 マユリ・アト",
+	cardno: 10703,
+	imageno: 13152,
+	imageno_prefix: "Hx5Tim_",
+	hp: 6535,
+	atk: 2430,
+	cost: 46,
+	attr: [1,-1],
+	species: [8],
+	islegend: true,
+	ape: "Duel Rush",
+	is_dist: true,
+	as1: {
+		desc: "<回復>水属性の味方のHPを回復(12%)",
+		proc: Heal(0.12, [0,1,0,0,0], 0),
+	},
+	ss1: {
+		desc: "<AS特殊変化>3ターンの間、解答時間に特殊な効果を付与(2秒未満で軽減(25%))。エクセレント解答でない場合、味方のMAXHPを10％消費",
+		turn: 0,
+		proc: null,
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(1),
+		Attr_statusup_oattr(0,400, [0,1,0,0,0,]),
+		Attr_statusup_oattr(400,0, [0,1,0,0,0,]),
+		NEFTJOD(30),
+		Abstate_invalid("ss_sealed"),
+		Fastskill(2),
+	],
+	as2: {
+		desc: "<回復>水属性の味方のHPを回復(15%)",
+		proc: Heal(0.15, [0,1,0,0,0], 0),
+	},
+	ss2: {
+		desc: "3ターンの間、解答時間に特殊な効果を付与(2秒未満で軽減(25%)、さらに1秒未満で回復(15%))。エクセレント解答でない場合、味方のMAXHPを10％消費",
+		turn: 0,
+		proc: null,
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

@@ -1,0 +1,46 @@
+{
+	name: "組織の男 コードネーム:ジン",
+	cardno: 10201,
+	imageno: 6953,
+	hp: 1609,
+	atk: 6002,
+	cost: 67,
+	attr: [2,4],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(コナン)",
+	as1: {
+		desc: "<チェイン攻撃>7チェインでダメージアップ(550%)、15チェインでさらにダメージアップ(450%)",
+		proc: [ChainAttack(5.5, 7), ChainAttack(10.0, 15)],
+	},
+	ss1: {
+		desc: "<犠牲魔術>味方全体のMAXHPの80%を使い敵全体へ雷属性のダメージ(精霊数×320%)",
+		turn: 7,
+		proc: [ss_damage_all(ss_consume_all_cond(3.2, 0.8), [2])],
+	},
+	awakes: [
+		NEFTJOD(30),
+		Panel_boost([0,0,1,0,0,],2),
+		Fastskill(1),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(2),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+	],
+	as2: {
+		desc: "<チェイン攻撃>7チェインでダメージアップ(650%)、15チェインでさらにダメージアップ(450%)",
+		proc: [ChainAttack(6.5, 7), ChainAttack(11.0, 15)],
+	},
+	ss2: {
+		desc: "<犠牲魔術>味方全体のMAXHPの80%を使い敵全体へ雷属性のダメージ(精霊数×360%)",
+		turn: 9,
+		proc: [ss_damage_all(ss_consume_all_cond(3.6, 0.8), [2])],
+	},
+	Lawake: [
+		Statusup(0,1500),
+		Statusup(500,0),
+	],
+}

@@ -1,0 +1,46 @@
+{
+	name: "鏡花水月 クリスタ・レンズ",
+	cardno: 9970,
+	imageno: 12319,
+	hp: 5064,
+	atk: 2976,
+	cost: 40,
+	attr: [2,-1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(進撃の巨人)",
+	as1: {
+		desc: "<攻撃強化>雷属性の味方の攻撃力をアップ(30%)、リーダー時さらにアップ(10%)",
+		proc: [ChainEnhance(0.3, [0,0,1,0,0], 0), add_cond( ChainEnhance(0.4, [0,0,1,0,0], 0),when_leader())],
+	},
+	ss1: {
+		desc: "<蘇生>味方全体のHPを回復し(25%)、さらに雷属性の味方を蘇生(10%)",
+		turn: 5,
+		proc: [ss_heal(0.25), ss_resurrection([0, 0, 1, 0, 0], 0.1)],
+	},
+	as2: {
+		desc: "<攻撃強化>雷属性の味方の攻撃力をアップ(50%)、リーダー時さらにアップ(10%)",
+		proc: [ChainEnhance(0.5, [0,0,1,0,0], 0), add_cond( ChainEnhance(0.6, [0,0,1,0,0], 0),when_leader())],
+	},
+	ss2: {
+		desc: "<蘇生>味方全体のHPを完全回復し、さらに雷属性の味方を100%で蘇生",
+		turn: 10,
+		proc: [ss_heal(1.0), ss_resurrection([0, 0, 1, 0, 0], 1.0)],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],2),
+		Fastskill(1),
+		Attr_statusup(0,400,[0,0,1,0,0,]),
+		Costdown(10),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup(400,0,[0,0,1,0,0,]),
+		NEFTJOD(30),
+		Fastskill(2),
+		Attr_statusup_oattr(0,400,[0,0,1,0,0,]),
+		Attr_statusup_oattr(400,0,[0,0,1,0,0,]),
+	],
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

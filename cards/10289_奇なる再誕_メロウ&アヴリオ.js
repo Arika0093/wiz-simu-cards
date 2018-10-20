@@ -1,0 +1,47 @@
+{
+	name: "奇なる再誕 メロウ&アヴリオ",
+	cardno: 10289,
+	imageno: 12666,
+	hp: 5315,
+	atk: 1553,
+	cost: 48,
+	attr: [2,1],
+	species: [7],
+	islegend: true,
+	ape: "幻魔特区RELOADEDⅡ",
+	is_dist: true,
+	as1: {
+		desc: "<回復>雷属性の味方を回復(8%)、複属性が水属性だとさらに回復(8%)",
+		proc: [Heal(0.08, [0,0,1,0,0], 0), add_cond(Heal(0.16, [0,0,1,0,0], 0), when_subattr_match([0,0,1,0,0], [0,1,0,0,0]))],
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルを水・雷属性化",
+		turn: 3,
+		proc: [ss_panel_change([0,1,1,0,0])],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Fastskill(1),
+		Panel_boost([0,0,1,0,0,],1),
+		NEFTJOD(30),
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Fastskill(2),
+		Attr_statusup_sattr(0,100, [0,0,1,0,0,], 0,200, [0,1,0,0,0,]),
+		Attr_statusup_sattr(100,0, [0,0,1,0,0,], 200,0, [0,1,0,0,0,]),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<回復>雷属性の味方を回復(11%)、複属性が水属性だとさらに回復(8%)",
+		proc: [Heal(0.11, [0,0,1,0,0], 0), add_cond(Heal(0.19, [0,0,1,0,0], 0), when_subattr_match([0,0,1,0,0], [0,1,0,0,0]))],
+	},
+	ss2: {
+		desc: "<統一パネル変換>ジャンルパネルを水・雷属性化し、回復の効果を付与、〈主属性:雷、複属性:水〉の精霊が多いほどさらに効果値アップ(上限値:40%)",
+		turn: 6,
+		proc: [ss_panel_change([0,1,1,0,0]), panel_healally(ss_matchattr_cond(0.4, [0,0,1,0,0], [0,1,0,0,0]))],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Statusup(500,0),
+	],
+}

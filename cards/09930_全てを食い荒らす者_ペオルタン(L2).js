@@ -1,0 +1,46 @@
+{
+	name: "全てを食い荒らす者 ペオルタン(L2)",
+	cardno: 9930,
+	imageno: 10592,
+	hp: 1855,
+	atk: 4301,
+	cost: 52,
+	attr: [0,4],
+	species: [2],
+	islegend: true,
+	ape: "アイドルキャッツ！",
+	is_dist: true,
+	as1: {
+		desc: "<攻撃>味方のMAXHP15%を使い、敵単体へのダメージアップ(600%)",
+		proc: add_cond(ChainAttack(6.0, 0), as_consume_all(0.15)),
+	},
+	ss1: {
+		desc: "<特効大魔術>MAXHPの50%を使い敵単体へ火属性のダメージ(400%)、さらに雷・光属性の敵には特効ダメージ(800%)",
+		turn: 6,
+		proc: [ss_damage_s(special_attr([0, 0, 1, 1, 0], 12, 4.0), [0], 1)],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_sattr(100,0, [1,0,0,0,0,], 200,0, [0,0,0,0,1,]),
+		Attr_statusup_sattr(0,100, [1,0,0,0,0,], 0,200, [0,0,0,0,1,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(1),
+		Abstate_invalid("poison"),
+		Fastskill(2),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Attr_statusup(200,0, [1,0,0,0,0,]),
+		Attr_relief([0,0,0,1,0,],20),
+	],
+	as2: {
+		desc: "<攻撃>敵単体へのダメージアップ(600%)",
+		proc: ChainAttack(6.0, 0),
+	},
+	ss2: {
+		desc: "<特効大魔術>MAXHPの50%を使い敵単体へ火属性のダメージ(400%)、さらに雷・光属性の敵には特効ダメージ(1500%)",
+		turn: 9,
+		proc: [ss_damage_s(special_attr([0, 0, 1, 1, 0], 19, 4.0), [0], 1)],
+	},
+	Lawake: [
+		Statusup(0,1000),
+	],
+}

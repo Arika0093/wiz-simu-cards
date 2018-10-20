@@ -1,0 +1,46 @@
+{
+	name: "終に導く焔 ヴィヴィ・ナイトメア",
+	cardno: 9923,
+	imageno: 5818,
+	hp: 4126,
+	atk: 3895,
+	cost: 40,
+	attr: [0,-1],
+	species: [9],
+	islegend: true,
+	as1: {
+		desc: "<種族攻撃強化・ガード>火属性の味方の攻撃力をアップ(20%)し、全属性のダメージを5%軽減。魔族・術士はさらにダメージアップ(60%)",
+		proc: [ChainEnhance(0.2, [1,0,0,0,0], 0), ChainSpecEnhance(0.8, [1,0,0,0,0], [2,9], 0), as_guard(0.05, [1,1,1,1,1], 0)],
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルを火属性化",
+		turn: 2,
+		proc: [ss_panel_change([1,0,0,0,0])],
+	},
+	awakes: [
+		Attr_statusup(200,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],4),
+		Fastskill(2),
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		Spec_statusup(200,0, [9,]),
+		Spec_statusup(0,200, [9,]),
+		Awake_noeffect("目覚めの輝き",1000),
+		Awake_noeffect("目覚めの力",1000),
+	],
+	as2: {
+		desc: "<種族攻撃強化・ガード>火属性の味方の攻撃力をアップ(30%)し、全属性のダメージを5%軽減。魔族・術士はさらにダメージアップ(60%)",
+		proc: [ChainEnhance(0.3, [1,0,0,0,0], 0), ChainSpecEnhance(0.9, [1,0,0,0,0], [2,9], 0), as_guard(0.05, [1,1,1,1,1], 0)],
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルを火属性化し、チェインがプラス1の効果を付与",
+		turn: 4,
+		proc: [ss_panel_change([1,0,0,0,0]), panel_chainplus(1)],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		NEFTJOD(30),
+		Attr_statusup(100,0, [1,0,0,0,0,]),
+	],
+}

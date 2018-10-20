@@ -1,0 +1,47 @@
+{
+	name: "奇想天外☆大満開 ナナ・クラリィ",
+	cardno: 9904,
+	imageno: 5903,
+	hp: 4077,
+	atk: 2864,
+	cost: 53,
+	attr: [2,1],
+	species: [9],
+	islegend: true,
+	is_dist: true,
+	ape: "大魔道杯 ギルドマスターズ",
+	as1: {
+		desc: "<攻撃強化>7チェインで水・雷属性の味方の攻撃力をアップ(80%)、15チェインで更にアップ(170%)",
+		proc: [ChainEnhance(0.80, [0,1,1,0,0], 7), ChainEnhance(2.5, [0,1,1,0,0], 15)],
+	},
+	as2: {
+		desc: "<攻撃強化>7チェインで水・雷属性の味方の攻撃力をアップ(100%)、15チェインで更にアップ(170%)",
+		proc: [ChainEnhance(1.00, [0,1,1,0,0], 7), ChainEnhance(2.7, [0,1,1,0,0], 15)],
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルを水・雷属性化",
+		turn: 3,
+		proc: [ss_panel_change([0,1,1,0,0])],
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルを水・雷属性化し、ダメージ軽減・スキルチャージ・チェイン・攻撃力アップの効果をランダムで付与(25%、1、 2、 50%)、極稀に当たり(65%、5、10、300%)",
+		turn: 5,
+		proc: [ss_panel_change([0,1,1,0,0]), panel_skillboost(1), panel_chainplus(2), panel_attackup(0.5), panel_attr_guard([1,1,1,1,1], 0.25),panel_skillboost(5), panel_chainplus(10), panel_attackup(3.0), panel_attr_guard([1,1,1,1,1], 0.65)],
+	},
+	awakes: [
+		Attr_statusup(200,0,[0,1,1,0,0,]),
+		Attr_statusup(0,200,[0,1,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],4),
+		Attr_statusup_sattr(0,100,[0,0,1,0,0,],0,200,[0,1,0,0,0,]),
+		Abstate_invalid("ss_sealed"),
+		NEFTJOD(30),
+		Attr_statusup_sattr(100,0,[0,0,1,0,0,],200,0,[0,1,0,0,0,]),
+		Spec_statusup(200,0,[9,]),
+		Fastskill(4),
+		Spec_statusup(0,200,[9,]),
+	],
+	Lawake: [
+		Attr_statusup(0,200,[0,1,1,0,0,]),
+		Statusup(1000,0),
+	],
+}

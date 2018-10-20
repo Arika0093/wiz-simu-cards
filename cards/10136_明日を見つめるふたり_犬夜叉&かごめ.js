@@ -1,0 +1,46 @@
+{
+	name: "明日を見つめるふたり 犬夜叉&かごめ",
+	cardno: 10136,
+	imageno: 5862,
+	hp: 3022,
+	atk: 6021,
+	cost: 46,
+	attr: [0,-1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(高橋留美子)",
+	as1: {
+		desc: "<全体攻撃>3チェインで敵全体にダメージ(200%)、10チェインで更にダメージアップ(150%)",
+		proc: [ChainAllAttack(2.0, 3), ChainAllAttack(3.5, 10)],
+	},
+	ss1: {
+		desc: "<遅延>敵単体の攻撃ターンを1遅らせる",
+		turn: 4,
+		proc: [ss_delay_s(1)],
+	},
+	awakes: [
+		Fastskill(1),
+		Attr_statusup_oattr(0,300, [1,0,0,0,0,]),
+		Attr_statusup_oattr(300,0, [1,0,0,0,0,]),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],3),
+		Fastskill(2),
+		Spec_statusup(0,200, [8,]),
+		Spec_statusup(200,0, [8,]),
+		Awake_noeffect("経験値取得量アップ",2),
+	],
+	as2: {
+		desc: "<全体攻撃>3チェインで敵全体にダメージ(250%)、10チェインで更にダメージアップ(150%)",
+		proc: [ChainAllAttack(2.5, 3), ChainAllAttack(4.0, 10)],
+	},
+	ss2: {
+		desc: "<遅延大魔術>敵単体の攻撃ターンを1遅らせ、火属性のダメージ(400%)",
+		turn: 5,
+		proc: [ss_damage_s(4.0, [0]), ss_delay_s(1)],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

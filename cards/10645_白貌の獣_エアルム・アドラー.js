@@ -1,0 +1,45 @@
+{
+	name: "白貌の獣 エアルム・アドラー",
+	cardno: 10645,
+	imageno: 13088,
+	hp: 2755,
+	atk: 4101,
+	cost: 56,
+	attr: [0,2],
+	species: [8],
+	islegend: true,
+	ape: "プラチナセレクション",
+	as1: {
+		desc: "<分散攻撃>敵全体へ分散攻撃(350%)、4チェインでさらにダメージアップ(100%)",
+		proc: [ChainVarianceAttack(3.5, 0), ChainVarianceAttack(4.5, 4)],
+	},
+	ss1: {
+		desc: "<詠唱大魔術>スキル反射を無視し、敵単体へ火・雷属性のダメージ(1000%)、クイズに5問解答し、解答時間が早いほどさらにダメージ(500%)(上限:4段階)",
+		turn: 7,
+		proc: [ss_damage_s(ss_answertime(10.0, 5.0), [0,2], 1), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],4),
+		Attr_statusup(0,200, [1,0,1,0,0,]),
+		Attr_statusup(200,0, [1,0,1,0,0,]),
+		Fastskill(2),
+		Abstate_invalid("ss_sealed"),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		NEFTJOD(30),
+		Fastskill(2),
+		Awake_damage_multiple(1.1, 500),
+	],
+	as2: {
+		desc: "<分散攻撃>敵全体へ分散攻撃(450%)、4チェインでさらにダメージアップ(100%)",
+		proc: [ChainVarianceAttack(4.5, 0), ChainVarianceAttack(5.5, 4)],
+	},
+	ss2: {
+		desc: "<詠唱大魔術>スキル反射を無視し、敵単体へ火・雷属性のダメージ(1500%)、クイズに5問解答し、解答時間が早いほどさらにダメージ(500%)(上限:4段階)",
+		turn: 10,
+		proc: [ss_damage_s(ss_answertime(15.0, 5.0), [0,2], 1), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,2000),
+	],
+}

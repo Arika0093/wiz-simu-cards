@@ -1,0 +1,45 @@
+{
+	name: "花様風流之時 アヤナ・ミナミカタ",
+	cardno: 9973,
+	imageno: 12322,
+	hp: 6887,
+	atk: 2055,
+	cost: 45,
+	attr: [0,-1],
+	species: [9],
+	islegend: true,
+	is_dist: true,
+	as1: {
+		desc: "<全体攻撃>敵全体へダメージ(150%)、5チェインで更にダメージアップ(50%)",
+		proc: [ChainAllAttack(1.5, 0), ChainAllAttack(2.0, 5)],
+	},
+	ss1: {
+		desc: "<大魔術>スキル反射を無視し、敵単体へ無属性のダメージ(1300%)",
+		turn: 8,
+		proc: [ss_damage_s(13, [-1], 1), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		Awake_secondfast(3),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Abstate_invalid("ss_sealed"),
+		Awake_secondfast(3),
+		Awake_damage_multiple(1.1, 500),
+	],
+	as2: {
+		desc: "<全体攻撃>敵全体へダメージ(180%)、5チェインで更にダメージアップ(50%)",
+		proc: [ChainAllAttack(1.8, 0), ChainAllAttack(2.3, 5)],
+	},
+	ss2: {
+		desc: "<大魔術>スキル反射を無視し、敵単体へ無属性のダメージ(1300%)",
+		turn: 8,
+		proc: [ss_damage_s(13, [-1], 1), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1500),
+	],
+}

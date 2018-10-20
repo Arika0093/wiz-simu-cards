@@ -1,0 +1,47 @@
+{
+	name: "聖界の夏休み サフィナ・ファウト",
+	cardno: 10390,
+	imageno: 12818,
+	hp: 5275,
+	atk: 1711,
+	cost: 49,
+	attr: [1,0],
+	species: [1],
+	islegend: true,
+	ape: "聖なる空のエステレラ3",
+	is_dist: true,
+	as1: {
+		desc: "<回復>水属性の味方を回復(8%)、複属性が火属性だとさらに回復(8%)",
+		proc: [Heal(0.08, [0,1,0,0,0], 0), add_cond(Heal(0.16, [0,0,1,0,0], 0), when_subattr_match([0,1,0,0,0], [1,0,0,0,0]))],
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルを火・水属性化",
+		turn: 3,
+		proc: [ss_panel_change([1,1,0,0,0])],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Fastskill(1),
+		Panel_boost([0,1,0,0,0,],1),
+		NEFTJOD(30),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Fastskill(2),
+		Attr_statusup_sattr(0,100, [0,1,0,0,0,], 0,200, [1,0,0,0,0,]),
+		Attr_statusup_sattr(100,0, [0,1,0,0,0,], 200,0, [1,0,0,0,0,]),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<回復>水属性の味方を回復(11%)、複属性が火属性だとさらに回復(8%)",
+		proc: [Heal(0.11, [0,1,0,0,0], 0), add_cond(Heal(0.19, [0,0,1,0,0], 0), when_subattr_match([0,1,0,0,0], [1,0,0,0,0]))],
+	},
+	ss2: {
+		desc: "<統一パネル変換>ジャンルパネルを火・水属性化し、回復の効果を付与、〈主属性:水、複属性:火〉の精霊が多いほどさらに効果値アップ(40%)",
+		turn: 6,
+		proc: [ss_panel_change([1,1,0,0,0]), panel_healally(ss_matchattr_cond(0.4, [0,1,0,0,0], [1,0,0,0,0]))],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Statusup(500,0),
+	],
+}

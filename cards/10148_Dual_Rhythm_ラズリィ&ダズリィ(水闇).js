@@ -1,0 +1,47 @@
+{
+	name: "Dual Rhythm ラズリィ&ダズリィ(水闇)",
+	cardno: 10148,
+	imageno: 12511,
+	hp: 2435,
+	atk: 3618,
+	cost: 50,
+	attr: [1,4],
+	species: [8],
+	islegend: true,
+	ape: "黒ウィズダンジョン",
+	is_dist: true,
+	as1: {
+		desc: "<属性特効連撃・複属性攻撃強化>火・光属性の敵単体へ特効3連撃(300%)、さらに水属性の攻撃力をアップ(10%)、複属性が闇属性だとさらにアップ(30%)",
+		proc: [ChainDualAttrAttack(3.0, 0, 3, [1,0,0,1,0]), ChainEnhance_SubAttr(0.1, 0.4, [0,1,0,0,0], [0,0,0,0,1], 0)],
+	},
+	ss1: {
+		desc: "<スキルチャージ&遅延>スペシャルスキルの発動ターンを1早め、敵単体の攻撃ターンを1遅らせる",
+		turn: 6,
+		proc: [ss_skillboost(1), ss_delay_s(1)],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],1),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Fastskill(1),
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(2),
+		Attr_statusup_sattr(0,100, [0,1,0,0,0,], 0,200, [0,0,0,0,1,]),
+		Attr_statusup_sattr(100,0, [0,1,0,0,0,], 200,0, [0,0,0,0,1,]),
+		NEFTJOD(30),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<属性特効連撃・複属性攻撃強化>火・光属性の敵単体へ特効3連撃(400%)、さらに水属性の攻撃力をアップ(10%)、複属性が闇属性だとさらにアップ(30%)",
+		proc: [ChainDualAttrAttack(4.0, 0, 3, [1,0,0,1,0]), ChainEnhance_SubAttr(0.1, 0.4, [0,1,0,0,0], [0,0,0,0,1], 0)],
+	},
+	ss2: {
+		desc: "<スキルチャージ&遅延>スペシャルスキルの発動ターンを2早め、敵単体の攻撃ターンを2遅らせる",
+		turn: 9,
+		proc: [ss_skillboost(2), ss_delay_s(2)],
+	},
+	Lawake: [
+		Attr_statusup_sattr(0,100, [0,1,0,0,0,], 0,100, [0,0,0,0,1,]),
+		Statusup(500,0),
+	],
+}

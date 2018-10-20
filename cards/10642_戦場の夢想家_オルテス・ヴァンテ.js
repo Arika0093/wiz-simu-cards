@@ -1,0 +1,46 @@
+{
+	name: "戦場の夢想家 オルテス・ヴァンテ",
+	cardno: 10642,
+	imageno: 13085,
+	hp: 4075,
+	atk: 3992,
+	cost: 63,
+	attr: [2,0],
+	species: [8],
+	islegend: true,
+	ape: "プラチナセレクション",
+	as1: {
+		desc: "<複属性攻撃強化>雷属性の攻撃力をアップ(10%)、複属性が火属性だとさらにアップ(90%)",
+		proc: ChainEnhance_SubAttr(0.1, 1.0, [0,0,1,0,0], [1,0,0,0,0], 0),
+	},
+	ss1: {
+		desc: "<複属性ダメージ強化>4ターンの間、雷属性の攻撃力をアップ(50%)、複属性が火属性だとさらにアップ(50%)",
+		turn: 6,
+		proc: [ss_enhance_all_subattr(0.5, 1.0, 4, [0,0,1,0,0], [1,0,0,0,0])],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],4),
+		Attr_statusup_sattr(0,200, [0,0,1,0,0,], 0,100, [1,0,0,0,0,]),
+		Attr_statusup_sattr(200,0, [0,0,1,0,0,], 100,0, [1,0,0,0,0,]),
+		Fastskill(3),
+		NEFTJOD(30),
+		Attr_relief([1,0,0,0,0,],10),
+		Fastskill(3),
+		Attr_statusup_sattr(0,100, [0,0,1,0,0,], 0,300, [1,0,0,0,0,]),
+		Attr_statusup_sattr(100,0, [0,0,1,0,0,], 300,0, [1,0,0,0,0,]),
+		Abstate_invalid(["as_sealed", "ss_sealed"]),
+	],
+	as2: {
+		desc: "<複属性攻撃強化>雷属性の攻撃力をアップ(40%)、複属性が火属性だとさらにアップ(90%)",
+		proc: ChainEnhance_SubAttr(0.4, 1.3, [0,0,1,0,0], [1,0,0,0,0], 0),
+	},
+	ss2: {
+		desc: "<ブースト>8ターンの間、味方のMAXHPを毎ターン10%消費し、味方の攻撃力をアップ(200%)。さらに極稀にクリティカル",
+		turn: 11,
+		proc: [ss_boost_enhance_all(2.0, 8, 0.1)],
+	},
+	Lawake: [
+		Attr_statusup_sattr(0,200, [0,0,1,0,0,], 0,100, [1,0,0,0,0,]),
+		Statusup(0,500),
+	],
+}

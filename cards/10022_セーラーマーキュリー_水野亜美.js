@@ -1,0 +1,47 @@
+{
+	name: "セーラーマーキュリー 水野亜美",
+	cardno: 10022,
+	imageno: 12375,
+	imageno_prefix: "iruohw_",
+	hp: 2538,
+	atk: 6147,
+	cost: 44,
+	attr: [1,-1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(セーラームーン)",
+	as1: {
+		desc: "<チェイン攻撃・回復>3チェインでダメージアップ(300%)、さらに水属性の味方のHPを回復(5%)",
+		proc: [ChainAttack(3.0, 3), Heal(0.05, [0,1,0,0,0], 3)],
+	},
+	ss1: {
+		desc: "<AS発動時間延長>3ターンの間、アンサースキル発動時間を10秒延長する(上限値:20秒)",
+		turn: 5,
+		proc: [ss_astime_ext(10, 3)],
+	},
+	awakes: [
+		Fastskill(1),
+		Panel_boost([0,1,0,0,0,],1),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Fastskill(1),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		Attr_statusup_oattr(0,400, [0,1,0,0,0,]),
+		Fastskill(1),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup_oattr(400,0, [0,1,0,0,0,]),
+	],
+	as2: {
+		desc: "<チェイン攻撃・回復>3チェインでダメージアップ(400%)、さらに水属性の味方のHPを回復(5%)",
+		proc: [ChainAttack(4.0, 3), Heal(0.05, [0,1,0,0,0], 3)],
+	},
+	ss2: {
+		desc: "<解答削り>解答を見破る",
+		turn: 6,
+		proc: [ss_answer_foresight()],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

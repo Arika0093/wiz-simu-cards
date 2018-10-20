@@ -1,0 +1,47 @@
+{
+	name: "氷の仮面に抱かれて ヒョウ",
+	cardno: 10531,
+	imageno: 12956,
+	hp: 3185,
+	atk: 6625,
+	cost: 51,
+	attr: [1,-1],
+	species: [5],
+	islegend: true,
+	ape: "大魔道杯 in 桃娘伝",
+	is_dist: true,
+	as1: {
+		desc: "<攻撃>パネルが2色以上でダメージアップ(1300%)",
+		proc: add_cond(ChainAttack(13, 0), as_panel_over2()),
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルを水属性化",
+		turn: 2,
+		proc: [ss_panel_change([0,1,0,0,0])],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup_oattr(0,400, [0,1,0,0,0,]),
+		Attr_statusup_oattr(400,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(3),
+		Attr_relief([0,0,0,0,1,],20),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit"]),
+		Abstate_invalid("discharge"),
+	],
+	as2: {
+		desc: "<攻撃>パネルが2色以上でダメージアップ(1400%)",
+		proc: add_cond(ChainAttack(14, 0), as_panel_over2()),
+	},
+	ss2: {
+		desc: "<パネル変換>ジャンルパネルを水・光属性化",
+		turn: 3,
+		proc: [ss_panel_change([0,1,0,1,0])],
+	},
+	Lawake: [
+		Abstate_invalid("ss_sealed"),
+		Attr_statusup_oattr(0,300, [0,1,0,0,0,]),
+	],
+}

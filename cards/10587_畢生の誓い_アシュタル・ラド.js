@@ -1,0 +1,46 @@
+{
+	name: "畢生の誓い アシュタル・ラド",
+	cardno: 10587,
+	imageno: 10289,
+	hp: 3825,
+	atk: 4415,
+	cost: 66,
+	attr: [0,4],
+	species: [8],
+	islegend: true,
+	ape: "新人王",
+	as1: {
+		desc: "<攻撃>味方のMAXHP10%を使い、敵単体へのダメージアップ(600%)、10チェインでさらにダメージアップ(600%)",
+		proc: [add_cond(ChainAttack(6.0, 0), as_consume_all(0.1)), add_cond(ChainAttack(12.0, 10), as_consume_all(0.1))],
+	},
+	ss1: {
+		desc: "<ステータスアップ>自身のHPを2000ダウンし、攻撃力を9000アップ(上限値:9000)",
+		turn: 1,
+		proc: [ss_statusup_own([-2000, 9000], [9000, 9000], -1)],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Attr_statusup(200,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(1),
+		NEFTJOD(30),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit", "all_sealed"]),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Awake_damage_multiple(1.1, 500),
+	],
+	as2: {
+		desc: "<攻撃>味方のMAXHP10%を使い、敵単体へのダメージアップ(700%)、10チェインでさらにダメージアップ(600%)",
+		proc: [add_cond(ChainAttack(7.0, 0), as_consume_all(0.1)), add_cond(ChainAttack(13.0, 10), as_consume_all(0.1))],
+	},
+	ss2: {
+		desc: "<ブースト>5ターンの間、MAXHPを毎ターン15%消費し、攻撃力をアップ(600%)。さらに極稀にクリティカル",
+		turn: 5,
+		proc: [ss_boost_enhance_s(6, 5, 0.15)],
+	},
+	Lawake: [
+		Statusup(0,1500),
+		Attr_statusup(0,100, [1,0,0,0,0,]),
+	],
+}

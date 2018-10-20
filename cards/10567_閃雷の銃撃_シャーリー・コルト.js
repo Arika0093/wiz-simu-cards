@@ -1,0 +1,46 @@
+{
+	name: "閃雷の銃撃 シャーリー・コルト",
+	cardno: 10567,
+	imageno: 8982,
+	hp: 2096,
+	atk: 5208,
+	cost: 63,
+	attr: [2,0],
+	species: [9],
+	islegend: true,
+	ape: "クロム・マグナⅠ",
+	as1: {
+		desc: "<連撃>敵単体を5回連続攻撃(250%)、3チェインでさらにダメージアップ(100%)、8チェインでさらにダメージアップ(150%)",
+		proc: [ChainDualAttack(2.5, 0, 5), ChainDualAttack(3.5, 3, 5), ChainDualAttack(5.0, 8, 5)],
+	},
+	ss1: {
+		desc: "<多弾魔術>スキル反射を無視し、敵単体へ火・雷属性の5回連続ダメージ(350%)",
+		turn: 5,
+		proc: [ss_damage_s(3.5, [2,0], 5), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Attr_statusup(200,0, [1,0,1,0,0,]),
+		Attr_statusup(0,200, [1,0,1,0,0,]),
+		Abstate_invalid("as_sealed"),
+		Attr_statusup_subattr(0, 500),
+		Costdown(20),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_subattr(500, 0),
+		Fastskill(4),
+		Spec_statusup(0,200, [9,]),
+		Spec_statusup(200,0, [9,]),
+	],
+	as2: {
+		desc: "<連撃>敵単体を7回連続攻撃(350%)、3チェインでさらにダメージアップ(100%)、8チェインでさらにダメージアップ(150%)",
+		proc: [ChainDualAttack(3.5, 0, 5), ChainDualAttack(4.5, 3, 5), ChainDualAttack(6.0, 8, 5)],
+	},
+	ss2: {
+		desc: "<融合大魔術>スキル反射を無視し、敵全体へ雷属性のダメージ、デッキ内の精霊が持つ属性数が多いほどダメージアップ(3600%)",
+		turn: 10,
+		proc: [ss_damage_all(ss_multiattr_cond(36), [2]), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Attr_statusup(0,100, [1,0,1,0,0,]),
+		Statusup(0,1500),
+	],
+}

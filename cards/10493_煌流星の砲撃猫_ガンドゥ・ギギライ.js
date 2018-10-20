@@ -1,0 +1,47 @@
+{
+	name: "煌流星の砲撃猫 ガンドゥ・ギギライ",
+	cardno: 10493,
+	imageno: 7867,
+	hp: 4688,
+	atk: 3115,
+	cost: 59,
+	attr: [1,0],
+	species: [5],
+	islegend: true,
+	ape: "覇眼戦線Ⅰ",
+	as1: {
+		desc: "<チェイン攻撃>3チェインでダメージアップ(350%)、パネルの色が増す度ダメージアップ(100%、350%)",
+		proc:  ChainPanelsAttack(3.5, 4.5, 7.0, 3),
+	},
+	ss1: {
+		desc: "<解答削り>解答選択肢を2つ削り、2チェインを消費し解答を見破る",
+		turn: 2,
+		proc: [ss_chain_cost_skill(2, ss_answer_foresight(), ss_answer_narrow(2))],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup_sattr(0,200, [0,1,0,0,0,], 0,100, [1,0,0,0,0,]),
+		Attr_statusup_sattr(200,0, [0,1,0,0,0,], 100,0, [1,0,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		NEFTJOD(60),
+		Spec_statusup(0,300, [5,]),
+		Spec_statusup(300,0, [5,]),
+		Attr_statusup_sattr(0,100, [0,1,0,0,0,], 0,300, [1,0,0,0,0,]),
+		Attr_statusup_sattr(100,0, [0,1,0,0,0,], 300,0, [1,0,0,0,0,]),
+		Fastskill(3),
+	],
+	as2: {
+		desc: "<チェイン攻撃>3チェインでダメージアップ(450%)、パネルの色が増す度ダメージアップ(100%、350%)",
+		proc:  ChainPanelsAttack(4.5, 5.5, 8.0, 3),
+	},
+	ss2: {
+		desc: "<解答削り>解答を見破る",
+		turn: 5,
+		proc: [ss_answer_foresight()],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(500,0),
+		Attr_relief([1,1,1,1,1,],10),
+	],
+}

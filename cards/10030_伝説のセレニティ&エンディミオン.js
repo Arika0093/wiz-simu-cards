@@ -1,0 +1,47 @@
+{
+	name: "伝説のセレニティ&エンディミオン",
+	cardno: 10030,
+	imageno: 12383,
+	imageno_prefix: "iruohw_",
+	hp: 3923,
+	atk: 3299,
+	cost: 56,
+	attr: [2,3],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(セーラームーン)",
+	as1: {
+		desc: "<種族攻撃強化・ガード>雷属性の味方の攻撃力をアップ(30%)し、全属性のダメージを5%軽減。戦士はさらにダメージアップ(60%)",
+		proc: [ChainEnhance(0.3 [0,0,1,0,0], 0), as_guard(0.05, [1,1,1,1,1], 0), ChainSpecEnhance(0.9, [0,0,1,0,0], [8], 0)],
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルをALL属性化",
+		turn: 4,
+		proc: [ss_panel_change([1,1,1,0,0])],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],2),
+		Fastskill(2),
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Fastskill(2),
+		NEFTJOD(60),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Awake_noeffect("経験値取得量アップ",2),
+	],
+	as2: {
+		desc: "<種族攻撃強化・ガード>雷属性の味方の攻撃力をアップ(60%)し、全属性のダメージを5%軽減。戦士はさらにダメージアップ(60%)",
+		proc: [ChainEnhance(0.6 [0,0,1,0,0], 0), as_guard(0.05, [1,1,1,1,1], 0), ChainSpecEnhance(1.2, [0,0,1,0,0], [8], 0)],
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルをALL属性化し、チェインがプラス2の効果と攻撃力アップの効果を付与(50%)",
+		turn: 7,
+		proc: [ss_panel_change([1,1,1,0,0]), panel_multieffect([panel_attackup(0.5), panel_chainplus(2)])],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Statusup(1000,0),
+	],
+}

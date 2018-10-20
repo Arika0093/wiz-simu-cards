@@ -1,0 +1,47 @@
+{
+	name: "咎を宿す魂の管理者 アヴェスタ",
+	cardno: 10476,
+	imageno: 12892,
+	hp: 2001,
+	atk: 4218,
+	cost: 53,
+	attr: [1,4],
+	species: [1],
+	islegend: true,
+	ape: "覇眼戦線Ⅳ",
+	is_dist: true,
+	as1: {
+		desc: "<連撃>味方のMAXHP10%を使い、敵単体を3回連続(500%)",
+		proc: add_cond(ChainDualAttack(5.0, 0, 3), as_consume_all(0.10)),
+	},
+	ss1: {
+		desc: "<蓄積解放大魔術・邪>スキル反射を無視し、敵全体へ闇属性のダメージ(100%)、さらにクエスト中の累積被ダメージ量に応じてダメージアップ(上限値:10万ダメージで3000%)",
+		turn: 10,
+		proc: [ss_accumulateDamageOfBurn_all(30.0, 100000, [4]), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup_sattr(0,100, [0,1,0,0,0,], 0,200, [0,0,0,0,1,]),
+		Attr_statusup_sattr(100,0, [0,1,0,0,0,], 200,0, [0,0,0,0,1,]),
+		NEFTJOD(30),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup_subattr(0, 300),
+		Attr_statusup_subattr(300, 0),
+		Abstate_invalid("ss_sealed"),
+		Fastskill(5),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<連撃>味方のMAXHP10%を使い、敵単体を3回連続(600%)",
+		proc: add_cond(ChainDualAttack(6.0, 0, 3), as_consume_all(0.10)),
+	},
+	ss2: {
+		desc: "<蓄積解放大魔術・邪>スキル反射を無視し、敵全体へ闇属性のダメージ(100%)、さらにクエスト中の累積被ダメージ量に応じてダメージアップ(上限値:10万ダメージで3000%)",
+		turn: 10,
+		proc: [ss_accumulateDamageOfBurn_all(30.0, 100000, [4]), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(500,0),
+		Statusup(0,1000),
+	],
+}

@@ -1,0 +1,48 @@
+{
+	name: "魔法の共闘 さくら&小狼",
+	cardno: 10337,
+	imageno: 12729,
+	imageno_prefix: "S5zpwx_",
+	hp: 5435,
+	atk: 2543,
+	cost: 40,
+	attr: [0,1],
+	species: [9],
+	islegend: true,
+	ape: "コラボ(カードキャプターさくら)",
+	as1: {
+		desc: "<回復・複属性攻撃強化>火属性の味方を回復(10%)し、攻撃力もアップ(30%)。複属性が水属性だとさらに攻撃力アップ(30%)",
+		proc: [Heal(0.1, [0,1,0,0,0], 0), ChainEnhance_SubAttr(0.3, 0.6, [1,0,0,0,0], [0,1,0,0,0], 0)],
+	},
+	ss1: {
+		desc: "<精霊強化>4ターンの間、味方全体を徐々に回復しダメージを軽減、さらに攻撃力をアップ(15%、15%、100%)(発動中行動不可)",
+		turn: 4,
+		proc: [ss_reinforcement_all(4, [ss_regenerate(0.15, 1, "RF"), ss_attr_guard([1, 1, 1, 1, 1], 0.15, 1, "RF"), ss_enhance_all(1.0, 1, [1, 1, 1, 1, 1], "RF")])],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_sattr(0,200, [1,0,0,0,0,], 0,100, [0,1,0,0,0,]),
+		Attr_statusup_sattr(200,0, [1,0,0,0,0,], 100,0, [0,1,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Abstate_invalid("ss_sealed"),
+		Awake_noeffect("経験値取得量アップ",2),
+		Fastskill(3),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<回復・複属性攻撃強化>火属性の味方を回復(13%)し、攻撃力もアップ(30%)。複属性が水属性だとさらに攻撃力アップ(30%)",
+		proc: [Heal(0.13, [0,1,0,0,0], 0), ChainEnhance_SubAttr(0.3, 0.6, [1,0,0,0,0], [0,1,0,0,0], 0)],
+	},
+	ss2: {
+		desc: "<精霊強化>4ターンの間、味方全体を徐々に回復しダメージを軽減、さらに攻撃力をアップ(25%、25%、100%)(発動中行動不可)",
+		turn: 6,
+		proc: [ss_reinforcement_all(4, [ss_regenerate(0.25, 1, "RF"), ss_attr_guard([1, 1, 1, 1, 1], 0.25, 1, "RF"), ss_enhance_all(1.0, 1, [1, 1, 1, 1, 1], "RF")])],
+	},
+	Lawake: [
+		Attr_statusup_sattr(0,200, [1,0,0,0,0,], 0,100, [0,1,0,0,0,]),
+		Abstate_invalid("all_sealed"),
+		NEFTJOD(30),
+	],
+}

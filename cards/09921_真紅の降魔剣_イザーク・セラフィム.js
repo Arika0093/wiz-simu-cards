@@ -1,0 +1,46 @@
+{
+	name: "真紅の降魔剣 イザーク・セラフィム",
+	cardno: 9921,
+	imageno: 5668,
+	hp: 2769,
+	atk: 6011,
+	cost: 44,
+	attr: [2,-1],
+	species: [3],
+	islegend: true,
+	as1: {
+		desc: "<チェイン攻撃・属性特効>3チェインでダメージアップ(350%)、光属性の敵だとさらにダメージアップ(200%)",
+		proc: [ChainAttack(3.5, 3), ChainAttrAttack(5.5, 3, [0,0,0,1,0])],
+	},
+	ss1: {
+		desc: "<割合削り>スキル反射を無視し、敵全体のHPを20%減少させる",
+		turn: 9,
+		proc: [ss_ratiodamage_all(0.2), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Costdown(20),
+		Attr_statusup_oattr(400,0, [0,0,1,0,0,]),
+		Fastskill(3),
+		Spec_statusup(0,200, [3,]),
+		Attr_statusup(0,300, [0,0,1,0,0,]),
+		Attr_statusup(300,0, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],4),
+		Attr_statusup_oattr(0,400, [0,0,1,0,0,]),
+		Awake_noeffect("目覚めの輝き",1000),
+		Awake_noeffect("目覚めの力",1000),
+	],
+	as2: {
+		desc: "<チェイン攻撃・属性特効>3チェインでダメージアップ(450%)、光属性の敵だとさらにダメージアップ(200%)",
+		proc: [ChainAttack(4.5, 3), ChainAttrAttack(6.5, 3, [0,0,0,1,0])],
+	},
+	ss2: {
+		desc: "<割合削り>スキル反射を無視し、敵全体のHPを25%減少させる",
+		turn: 12,
+		proc: [ss_ratiodamage_all(0.25), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Attr_statusup(0,100, [0,0,1,0,0,]),
+		Abstate_invalid("discharge"),
+	],
+}

@@ -1,0 +1,46 @@
+{
+	name: "星と氷に微笑んで ピピア・ショトワ",
+	cardno: 9890,
+	imageno: 7474,
+	hp: 3687,
+	atk: 3412,
+	cost: 55,
+	attr: [1,3],
+	species: [9],
+	islegend: true,
+	ape: "DL限定精霊",
+	as1: {
+		desc: "<回復・複属性攻撃強化>水属性の味方を回復し(5%)、攻撃力もアップ(30%)、複属性が光属性だとさらに攻撃力アップ(50%)",
+		proc: [Heal(0.05, [0,1,0,0,0], 0), ChainEnhance_SubAttr(0.3, 0.8, [0,1,0,0,0], [0,0,0,1,0], 0)],
+	},
+	ss1: {
+		desc: "<精霊強化>4ターンの間、味方の攻撃力をアップし、ダメージを軽減(150%、20%)(発動中行動不可)",
+		turn: 4,
+		proc: [ss_reinforcement_all(4, [ss_attr_guard([1, 1, 1, 1, 1], 0.2, 1, "RF"), ss_enhance_all(1.5, 1, [1, 1, 1, 1, 1], "RF")])],
+	},
+	awakes: [
+		Attr_statusup_sattr(0,100, [0,1,0,0,0,], 0,300, [0,0,0,1,0,]),
+		Panel_boost([0,1,0,0,0,],4),
+		Attr_statusup_sattr(100,0, [0,1,0,0,0,], 300,0, [0,0,0,1,0,]),
+		Abstate_invalid("discharge"),
+		Fastskill(3),
+		Attr_relief([0,0,0,1,1,],30),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		NEFTJOD(60),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Abstate_invalid("as_sealed"),
+	],
+	as2: {
+		desc: "<回復・複属性攻撃強化>水属性の味方を回復し(5%)、攻撃力もアップ(60%)、複属性が光属性だとさらに攻撃力アップ(50%)",
+		proc: [Heal(0.05, [0,1,0,0,0], 0), ChainEnhance_SubAttr(0.6, 1.1, [0,1,0,0,0], [0,0,0,1,0], 0)],
+	},
+	ss2: {
+		desc: "<斬撃大魔術>スキル反射を無視し、水・光属性の5連撃(380%)、さらに連撃数分チェインプラス",
+		turn: 7,
+		proc: [ss_damage_slash(3.8, [1,3], 5), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Statusup(1000,0),
+	],
+}

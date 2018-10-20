@@ -1,0 +1,46 @@
+{
+	name: "逆襲の爪牙 ミカサ・アッカーマン",
+	cardno: 9962,
+	imageno: 12311,
+	hp: 3654,
+	atk: 3452,
+	cost: 56,
+	attr: [2,0],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(進撃の巨人)",
+	as1: {
+		desc: "<連撃・複属性攻撃強化>3チェインで敵単体を3回連続攻撃(350%)、さらに雷属性の攻撃力をアップ(10%)、複属性が火属性だとさらにアップ(30%)",
+		proc: [ChainDualAttack(3.5, 3, 3), ChainEnhance_SubAttr(0.10, 0.40, [0,0,1,0,0], [1,0,0,0,0], 3)],
+	},
+	ss1: {
+		desc: "<ステータスアップ>自身のHPを2000ダウンし、攻撃力を6000アップ(上限値:6000)",
+		turn: 1,
+		proc: [ss_statusup_own([-2000, 6000], [6000, 6000], -1)],
+	},
+	awakes: [
+		Costdown(20),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup(0,200, [1,0,1,0,0,]),
+		Attr_statusup(200,0, [1,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(2),
+		Attr_statusup_sattr(0,100, [0,0,1,0,0,], 0,300, [1,0,0,0,0,]),
+		Attr_statusup_sattr(100,0, [0,0,1,0,0,], 300,0, [1,0,0,0,0,]),
+		Abstate_invalid("as_sealed"),
+	],
+	as2: {
+		desc: "<連撃・複属性攻撃強化>3チェインで敵単体を3回連続攻撃(450%)、さらに雷属性の攻撃力をアップ(10%)、複属性が火属性だとさらにアップ(30%)",
+		proc: [ChainDualAttack(4.5, 3, 3), ChainEnhance_SubAttr(0.10, 0.40, [0,0,1,0,0], [1,0,0,0,0], 3)],
+	},
+	ss2: {
+		desc: "<ダメージ強化>4ターン自分の攻撃力をアップ(400%)。HP20%以下の時、さらに自分の攻撃力をアップ(1100%)し、味方全体のHPを完全回復",
+		turn: 6,
+		proc: [ss_enhance_own(ss_hp_less(0.2, 15, 4), 4), ss_hp_less_skill(0.2, ss_heal(1))],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Attr_statusup(0,200, [1,0,1,0,0,]),
+	],
+}

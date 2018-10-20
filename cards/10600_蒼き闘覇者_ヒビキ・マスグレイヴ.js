@@ -1,0 +1,48 @@
+{
+	name: "蒼き闘覇者 ヒビキ・マスグレイヴ",
+	cardno: 10600,
+	imageno: 8881,
+	hp: 5053,
+	atk: 5033,
+	cost: 53,
+	attr: [1,-1],
+	species: [8],
+	islegend: true,
+	ape: "クロム・マグナ ゼロ",
+	as1: {
+		desc: "<属性特効>7チェインで火・闇属性の敵単体へ特効ダメージ(900%)",
+		proc: ChainAttrAttack(9.0, 7, [1,0,0,0,0]),
+	},
+	ss1: {
+		desc: "<ステータスアップ>8ターン溜めた後、味方全体の攻撃力とHPを5000アップ(上限値5000)",
+		turn: 3,
+		charged: 8,
+		proc: [ss_statusup_all([5000, 5000], [5000, 5000], -1)],
+	},
+	awakes: [
+		Fastskill(1),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(2),
+		Attr_statusup_oattr(0,500, [0,1,0,0,0,]),
+		Attr_statusup_oattr(500,0, [0,1,0,0,0,]),
+		Abstate_invalid("discharge"),
+	],
+	as2: {
+		desc: "<属性特効>7チェインで火・闇属性の敵単体へ特効ダメージ(1000%)",
+		proc: ChainAttrAttack(10.0, 7, [1,0,0,0,0]),
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルを水属性化し、チェインがプラス2とスキルチャージプラス1の効果を付与(スキルチャージの効果は、SPスキルを使うまで重複しません)",
+		turn: 6,
+		proc: [panel_multieffect([panel_chainplus(2), panel_skillboost(1)])],
+	},
+	Lawake: [
+		OnlyAttr_statusup(1000, 1000, 1),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Attr_statusup(100,0, [0,1,0,0,0,]),
+	],
+}

@@ -1,0 +1,46 @@
+{
+	name: "黄昏魔道 サンセット=リフィル",
+	cardno: 10327,
+	imageno: 7636,
+	hp: 4106,
+	atk: 4106,
+	cost: 65,
+	attr: [2,0],
+	species: [9],
+	islegend: true,
+	ape: "黄昏メアレスⅠ",
+	as1: {
+		desc: "<種族特効>4チェインでダメージアップ(400%)、魔族の敵へさらにダメージアップ(400%)",
+		proc: [ChainAttack(4.0, 4), ChainSpecAttack(8.0, 4, [2])],
+	},
+	ss1: {
+		desc: "<特殊パネル変換>ジャンルパネルにスキルチャージプラス2の効果を付与(効果は、SPスキルを使うまで重複しません)",
+		turn: 7,
+		proc: [panel_skillboost(2)],
+	},
+	as2: {
+		desc: "<種族特効>4チェインでダメージアップ(500%)、魔族の敵へさらにダメージアップ(400%)",
+		proc: [ChainAttack(5.0, 4), ChainSpecAttack(9.0, 4, [2])],
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルにスキルチャージプラス3の効果を付与(効果は、SPスキルを使うまで重複しません)",
+		turn: 10,
+		proc: [panel_skillboost(3)],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],4),
+		Attr_statusup(0,200,[1,0,1,0,0,]),
+		Attr_statusup(200,0,[1,0,1,0,0,]),
+		Awake_noeffect("心眼", 1),
+		Awake_noeffect("経験値取得量アップ",2),
+		NEFTJOD(30),
+		Fastskill(4),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Abstate_invalid(["as_sealed", "ss_sealed"]),
+	],
+	Lawake: [
+		Statusup(500,0),
+		Attr_statusup(0,300,[1,0,1,0,0,]),
+	],
+}

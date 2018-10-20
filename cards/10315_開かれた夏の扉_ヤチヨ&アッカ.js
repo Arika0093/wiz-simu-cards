@@ -1,0 +1,46 @@
+{
+	name: "開かれた夏の扉 ヤチヨ&アッカ",
+	cardno: 10315,
+	imageno: 5946,
+	hp: 5361,
+	atk: 3345,
+	cost: 65,
+	attr: [1,2],
+	species: [8],
+	islegend: true,
+	ape: "幻魔特区スザクⅡ",
+	as1: {
+		desc: "<攻撃強化・ガード>5チェインで水・雷属性の味方の攻撃力をアップ(60%)、さらに全属性のダメージを10%軽減",
+		proc: [ChainEnhance(0.6, [0,1,1,0,0], 5), as_guard(0.10, [1,1,1,1,1], 5)],
+	},
+	ss1: {
+		desc: "<特殊パネル変換>ジャンルパネルにチェインがプラス2とスキルチャージプラス1の効果を付与(効果は、SPスキルを使うまで重複しません)",
+		turn: 5,
+		proc: [panel_chainplus(2), panel_skillboost(1)],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],4),
+		Attr_statusup(0,200, [0,1,1,0,0,]),
+		Attr_statusup(200,0, [0,1,1,0,0,]),
+		Abstate_invalid("as_sealed"),
+		Awake_noeffect("経験値取得量アップ", 2),
+		Fastskill(4),
+		NEFTJOD(30),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit", "all_sealed"]),
+	],
+	as2: {
+		desc: "<攻撃強化・ガード>5チェインで水・雷属性の味方の攻撃力をアップ(90%)、さらに全属性のダメージを10%軽減、20チェインでさらに攻撃力をアップ(210%)",
+		proc: [ChainEnhance(0.9, [0,1,1,0,0], 5), ChainEnhance(3.0, [0,1,1,0,0], 20), as_guard(0.10, [1,1,1,1,1], 5)],
+	},
+	ss2: {
+		desc: "<遅延>攻撃を3ターン遅らせ、20チェインで更に1遅らせる",
+		turn: 10,
+		proc: [ss_delay_all(ss_chain_cond(20, 4, 3))],
+	},
+	Lawake: [
+		Statusup(0,500),
+		Attr_statusup(0,300, [0,1,1,0,0,]),
+	],
+}

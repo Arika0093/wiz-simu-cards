@@ -1,0 +1,46 @@
+{
+	name: "エレガントナース ガトリン・G・U",
+	cardno: 10034,
+	imageno: 12388,
+	hp: 2913,
+	atk: 7112,
+	cost: 52,
+	attr: [2,-1],
+	species: [8],
+	islegend: true,
+	ape: "アイドルキャッツ2",
+	as1: {
+		desc: "<連撃>敵単体を6回連続攻撃(150%)、デッキに単色の精霊が多いほど、ダメージがアップ(70%)(上限:5段階)",
+		proc: add_cond(ChainDualAttack(1.5, 0, 6), as_singleattr_num(0, 0.7)),
+	},
+	ss1: {
+		desc: "<純属性大魔術>スキル反射を無視し、敵単体へ雷属性のダメージ、雷単色の精霊が多いほどダメージアップ(上限値:3000%)",
+		turn: 7,
+		proc: [ss_damage_s(ss_pureattr_cond(30), [2], 1), ss_ignore_skillcounter()],
+	},
+	as2: {
+		desc: "<連撃>敵単体を6回連続攻撃(250%)、デッキに単色の精霊が多いほど、ダメージがアップ(70%)(上限:5段階)",
+		proc: add_cond(ChainDualAttack(2.5, 0, 6), as_singleattr_num(0, 0.7)),
+	},
+	ss2: {
+		desc: "<純属性大魔術>スキル反射を無視し、敵単体へ雷属性のダメージ、雷単色の精霊が多いほどダメージアップ(上限値:3600%)",
+		turn: 10,
+		proc: [ss_damage_s(ss_pureattr_cond(36), [2], 1), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Costdown(20),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_oattr(0,400,[0,0,1,0,0,]),
+		Attr_statusup_oattr(400,0,[0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Fastskill(3),
+		Attr_statusup(0,400,[0,0,1,0,0,]),
+		Attr_statusup(400,0,[0,0,1,0,0,]),
+		Abstate_invalid("as_sealed"),
+		Awake_damage_multiple(1.1, 500),
+	],
+	Lawake: [
+		Statusup(0,1500),
+		Abstate_invalid("ss_sealed"),
+	],
+}

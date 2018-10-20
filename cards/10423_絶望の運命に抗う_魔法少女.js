@@ -1,0 +1,47 @@
+{
+	name: "絶望の運命に抗う 魔法少女",
+	cardno: 10423,
+	imageno: 12762,
+	imageno_prefix: "E4pSBg_",
+	hp: 3955,
+	atk: 3416,
+	cost: 37,
+	attr: [0,3],
+	species: [9],
+	islegend: true,
+	ape: "コラボ(魔法少女まどか☆マギカ)",
+	as1: {
+		desc: "<攻撃強化・ガード>全属性のダメージを10%軽減し、デッキ内の精霊が持つ属性数が多いほど、火属性の味方の攻撃力をアップ(15%)",
+		proc: [add_cond(ChainEnhance(0, [0,1,0,0,0], 0), as_deckinattr_num(0, 0.15)), as_guard(0.1, [1,1,1,1,1], 0)],
+	},
+	ss1: {
+		desc: "<融合強化>4ターンの間、デッキ内の精霊が持つ属性数が多いほど、火属性の味方のダメージを強化し(上限値:100%)、さらに永続ターン、攻撃力、HPのステータスをアップ(上限値:1500,1500)",
+		turn: 4,
+		proc: [ss_statusup_all([ss_multiattr_cond(1500), ss_multiattr_cond(1500)], [1500,1500], -1, [1,0,0,0,0]), ss_enhance_all(ss_multiattr_cond(1.0), 4, [1,0,0,0,0])],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Attr_statusup(200,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(4),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Abstate_invalid("as_sealed"),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<攻撃強化・ガード>全属性のダメージを10%軽減し、デッキ内の精霊が持つ属性数が多いほど、火属性の味方の攻撃力をアップ(20%)",
+		proc: [add_cond(ChainEnhance(0, [0,1,0,0,0], 0), as_deckinattr_num(0, 0.20)), as_guard(0.1, [1,1,1,1,1], 0)],
+	},
+	ss2: {
+		desc: "<融合強化>4ターンの間、デッキ内の精霊が持つ属性数が多いほど、火属性の味方のダメージを強化し(上限値:200%)、さらに永続ターン、攻撃力、HPのステータスをアップ(上限値:2500,2500)",
+		turn: 8,
+		proc: [ss_statusup_all([ss_multiattr_cond(2500), ss_multiattr_cond(2500)], [2500,2500], -1, [1,0,0,0,0]), ss_enhance_all(ss_multiattr_cond(2.0), 4, [1,0,0,0,0])],
+	},
+	Lawake: [
+		Attr_statusup(0,300, [1,0,0,0,0,]),
+		Statusup(500,0),
+	],
+}

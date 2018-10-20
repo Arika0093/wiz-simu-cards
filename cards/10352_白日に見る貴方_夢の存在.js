@@ -1,0 +1,48 @@
+{
+	name: "白日に見る貴方 夢の存在",
+	cardno: 10352,
+	imageno: 12743,
+	imageno_prefix: "S5zpwx_",
+	hp: 5625,
+	atk: 3005,
+	cost: 43,
+	attr: [0,-1],
+	species: [9],
+	islegend: true,
+	ape: "コラボ(カードキャプターさくら)",
+	is_dist: true,
+	as1: {
+		desc: "<回復>火属性の味方のHPを回復(11%)、Lモードの精霊の数に応じてさらに回復(1%)",
+		proc: add_cond(Heal(0.11, [1,0,0,0,0], 0), as_legendnum(0.01)),
+	},
+	ss1: {
+		desc: "<撃破強化>30ターンの間、味方の攻撃力をアップ(15%)、味方が敵にトドメをさすたびに味方の攻撃力がさらにアップ(15%、上限値:600%)",
+		turn: 4,
+		proc: [ss_kill_enhance_all(0.15, 0.15, 6.0, 30)],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_oattr(0,300, [1,0,0,0,0,]),
+		Attr_statusup_oattr(300,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(2),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup(0,300, [1,0,0,0,0,]),
+		Attr_statusup(300,0, [1,0,0,0,0,]),
+		Fastskill(2),
+	],
+	as2: {
+		desc: "<回復>火属性の味方のHPを回復(14%)、Lモードの精霊の数に応じてさらに回復(1%)",
+		proc: add_cond(Heal(0.14, [1,0,0,0,0], 0), as_legendnum(0.01)),
+	},
+	ss2: {
+		desc: "<撃破強化>30ターンの間、味方の攻撃力をアップ(15%)、味方が敵にトドメをさすたびに味方の攻撃力がさらにアップ(15%、上限値:600%)",
+		turn: 4,
+		proc: [ss_kill_enhance_all(0.15, 0.15, 6.0, 30)],
+	},
+	Lawake: [
+		Attr_statusup_oattr(0,200, [1,0,0,0,0,]),
+		Statusup(500,0),
+	],
+}

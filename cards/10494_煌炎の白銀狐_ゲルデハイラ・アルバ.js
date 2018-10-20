@@ -1,0 +1,48 @@
+{
+	name: "煌炎の白銀狐 ゲルデハイラ・アルバ",
+	cardno: 10494,
+	imageno: 7868,
+	hp: 3799,
+	atk: 6251,
+	cost: 52,
+	attr: [0,-1],
+	species: [5],
+	islegend: true,
+	ape: "覇眼戦線Ⅰ",
+	as1: {
+		desc: "<属性特効連撃>雷属性の敵単体へ特効8連撃(400%)、デッキに単色の精霊が多いほど、さらにダメージアップ(40%)(上限:5段階)",
+		proc: add_cond(ChainDualAttrAttack(4.0, 0, 8, [0, 0, 1, 0, 0]), as_singleattr_num(0, 0.4)),
+	},
+	ss1: {
+		desc: "<継続回復>5ターン味方全体を徐々に回復する(15%)",
+		turn: 5,
+		proc: [ss_regenerate(0.15, 5)],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		NEFTJOD(30),
+		Spec_statusup(0,500, [5,]),
+		Spec_statusup(500,0, [5,]),
+		Fastskill(4),
+		Abstate_invalid("ss_sealed"),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<属性特効連撃>雷属性の敵単体へ特効8連撃(500%)、デッキに単色の精霊が多いほど、さらにダメージアップ(40%)(上限:5段階)",
+		proc: add_cond(ChainDualAttrAttack(5.0, 0, 8, [0, 0, 1, 0, 0]), as_singleattr_num(0, 0.4)),
+	},
+	ss2: {
+		desc: "<ダメージ強化>1ターン溜めた後、8ターン自分の攻撃力をアップ(1500%)",
+		turn: 8,
+		charged: 1,
+		proc: [ss_enhance_own(15.0, 8)],
+	},
+	Lawake: [
+		Statusup(0,500),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		NEFTJOD(30),
+	],
+}

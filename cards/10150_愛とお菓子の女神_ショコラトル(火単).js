@@ -1,0 +1,47 @@
+{
+	name: "愛とお菓子の女神 ショコラトル(火単)",
+	cardno: 10150,
+	imageno: 12513,
+	hp: 1645,
+	atk: 6783,
+	cost: 42,
+	attr: [0,-1],
+	species: [1],
+	islegend: true,
+	ape: "黒ウィズダンジョン",
+	is_dist: true,
+	as1: {
+		desc: "<属性特効連撃>雷属性の敵単体へ特効5連撃(400%)",
+		proc: ChainDualAttrAttack(4.0, 0, 5, [0,0,1,0,0]),
+	},
+	ss1: {
+		desc: "<純属性大魔術>スキル反射を無視し、敵単体へ火属性のダメージ、火単色の精霊が多いほどダメージアップ(2600%)",
+		turn: 8,
+		proc: [ss_damage_s(ss_pureattr_cond(26), [0], 1), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],1),
+		Attr_statusup_oattr(0,300, [1,0,0,0,0,]),
+		Attr_statusup_oattr(300,0, [1,0,0,0,0,]),
+		Awake_noeffect("経験値取得量アップ",2),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(1),
+		Attr_statusup(0,300, [1,0,0,0,0,]),
+		Attr_statusup(300,0, [1,0,0,0,0,]),
+		Fastskill(2),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<属性特効連撃>雷属性の敵単体へ特効5連撃(500%)",
+		proc: ChainDualAttrAttack(5.0, 0, 5, [0,0,1,0,0]),
+	},
+	ss2: {
+		desc: "<純属性大魔術>スキル反射を無視し、敵単体へ火属性のダメージ、火単色の精霊が多いほどダメージアップ(3200%)",
+		turn: 11,
+		proc: [ss_damage_s(ss_pureattr_cond(32), [0], 1), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Attr_statusup_oattr(0,200, [1,0,0,0,0,]),
+		Statusup(500,0),
+	],
+}

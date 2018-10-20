@@ -1,0 +1,46 @@
+{
+	name: "破天荒解 ハンジ・ゾエ",
+	cardno: 9965,
+	imageno: 12314,
+	hp: 2843,
+	atk: 4978,
+	cost: 38,
+	attr: [0,-1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(進撃の巨人)",
+	as1: {
+		desc: "<チェイン攻撃>3チェインでダメージアップ(350%)",
+		proc: ChainAttack(3.5, 3),
+	},
+	ss1: {
+		desc: "<解答削り>解答選択肢を2つ削る",
+		turn: 3,
+		proc: [ss_answer_narrow(2)],
+	},
+	as2: {
+		desc: "<チェイン攻撃>3チェインでダメージアップ(450%)",
+		proc: ChainAttack(4.5, 3),
+	},
+	ss2: {
+		desc: "<解答削り>解答を見破る",
+		turn: 6,
+		proc: [ss_answer_foresight()],
+	},
+	awakes: [
+		Fastskill(1),
+		Attr_statusup(0,400,[1,0,0,0,0,]),
+		Costdown(10),
+		Fastskill(2),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(400,0,[1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_oattr(0,400,[1,0,0,0,0,]),
+		Attr_statusup_oattr(400,0,[1,0,0,0,0,]),
+		Attr_relief([0,0,1,0,0,],10),
+	],
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

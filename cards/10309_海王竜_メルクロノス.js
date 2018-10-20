@@ -1,0 +1,47 @@
+{
+	name: "海王竜 メルクロノス",
+	cardno: 10309,
+	imageno: 12696,
+	hp: 2005,
+	atk: 4022,
+	cost: 51,
+	attr: [1,4],
+	species: [0],
+	islegend: true,
+	ape: "レイド ドラゴンプロジェクト",
+	is_dist: true,
+	as1: {
+		desc: "<属性特効連撃・複属性攻撃強化>4チェインで火・光属性の敵単体へ特効3連撃(450%)、さらに水属性の攻撃力をアップ(10%)、複属性が闇属性だとさらにアップ(30%)",
+		proc: [ChainDualAttrAttack(4.5, 4, 3, [1,0,0,1,0]), ChainEnhance_SubAttr(0.10, 0.40, [0,1,0,0,0], [0,0,0,0,1], 4)],
+	},
+	ss1: {
+		desc: "<大魔術>スキル反射を無視し、敵全体へ水・闇属性のダメージ(120%)",
+		turn: 5,
+		proc: [ss_damage_all(1.2, [1, 4]), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(1),
+		NEFTJOD(30),
+		Fastskill(2),
+		Attr_statusup_sattr(0,100, [0,1,0,0,0,], 0,200, [0,0,0,0,1,]),
+		Attr_statusup_sattr(100,0, [0,1,0,0,0,], 200,0, [0,0,0,0,1,]),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<属性特効連撃・複属性攻撃強化>4チェインで火・光属性の敵単体へ特効3連撃(550%)、さらに水属性の攻撃力をアップ(10%)、複属性が闇属性だとさらにアップ(30%)",
+		proc: [ChainDualAttrAttack(5.5, 4, 3, [1,0,0,1,0]), ChainEnhance_SubAttr(0.10, 0.40, [0,1,0,0,0], [0,0,0,0,1], 4)],
+	},
+	ss2: {
+		desc: "<大魔術>スキル反射を無視し、敵全体へ水・闇属性のダメージ(120%)。毒状態の時、さらにダメージアップ(1000%)",
+		turn: 7,
+		proc: [ss_damage_all(ss_is_poison_own(11.2, 1.2), [1, 4]), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Statusup(500,0),
+	],
+}

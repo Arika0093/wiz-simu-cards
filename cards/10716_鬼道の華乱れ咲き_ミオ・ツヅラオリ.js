@@ -1,0 +1,47 @@
+{
+	name: "鬼道の華乱れ咲き ミオ・ツヅラオリ",
+	cardno: 10716,
+	imageno: 13165,
+	imageno_prefix: "W4ripe_",
+	hp: 2415,
+	atk: 4822,
+	cost: 61,
+	attr: [0,1],
+	species: [9],
+	islegend: true,
+	ape: "八百八町",
+	as1: {
+		desc: "<連撃>敵単体を4回連続攻撃(200%)、デッキ内の＜主属性:火、複属性:水＞の精霊数が多いほどさらにアップ(60%)(上限:5段階)",
+		proc: add_cond(ChainDualAttack(2.0, 0, 4), as_deckinAttrMainSub_num(0, 0.6, [1,0,0,0,0], [0,1,0,0,0])),
+	},
+	ss1: {
+		desc: "	<効果解除>スキル反射を無視し、敵全体のガード&ダメージブロックを解除する",
+		turn: 4,
+		proc: [ss_break_attrguard("all"), ss_break_dblock("all"), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_sattr(0,200, [1,0,0,0,0,], 0,100, [0,1,0,0,0,]),
+		Attr_statusup_sattr(200,0, [1,0,0,0,0,], 100,0, [0,1,0,0,0,]),
+		Abstate_invalid("as_sealed"),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(2),
+		Attr_statusup_sattr(0,100, [1,0,0,0,0,], 0,300, [0,1,0,0,0,]),
+		Attr_statusup_sattr(100,0, [1,0,0,0,0,], 300,0, [0,1,0,0,0,]),
+		Fastskill(2),
+		Abstate_invalid("attr_reverse"),
+	],
+	as2: {
+		desc: "<連撃>敵単体を4回連続攻撃(300%)、デッキ内の＜主属性:火、複属性:水＞の精霊数が多いほどさらにアップ(60%)(上限:5段階)",
+		proc: add_cond(ChainDualAttack(3.0, 0, 4), as_deckinAttrMainSub_num(0, 0.6, [1,0,0,0,0], [0,1,0,0,0])),
+	},
+	ss2: {
+		desc: "<効果解除大魔術>スキル反射を無視し、敵全体のガード&ダメージブロックを解除し、火属性のダメージ(300%)",
+		turn: 7,
+		proc: [ss_break_attrguard("all"), ss_break_dblock("all"), ss_damage_all(3.0, [0]), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1500),
+		Statusup(500,0),
+	],
+}

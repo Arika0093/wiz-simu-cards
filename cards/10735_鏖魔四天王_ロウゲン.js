@@ -1,0 +1,48 @@
+{
+	name: "鏖魔四天王 ロウゲン",
+	cardno: 10735,
+	imageno: 13184,
+	imageno_prefix: "W4ripe_",
+	hp: 2715,
+	atk: 3614,
+	cost: 51,
+	attr: [2,4],
+	species: [2],
+	islegend: true,
+	ape: "八百八町",
+	is_dist: true,
+	as1: {
+		desc: "<属性特効>4チェインで水・光属性の敵単体へ特効ダメージ(600%)",
+		proc: ChainAttrAttack(6.0, 4, [0, 0, 1, 1, 0]),
+	},
+	ss1: {
+		desc: "<多弾魔術>スキル反射を無視し、味方全体のMAXHPの60%を使い敵単体へ雷・闇属性の5回連続ダメージ(450%)",
+		turn: 4,
+		proc: [ss_damage_s(4.5, [2,4], 5), ss_ignore_skillcounter(), ss_consume_all(0.6)],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],1),
+		Attr_relief([0,0,0,1,0,],10),
+		Fastskill(3),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		NEFTJOD(30),
+		Attr_statusup_sattr(0,100, [0,0,1,0,0,], 0,100, [0,0,0,0,1,]),
+		Attr_statusup_sattr(100,0, [0,0,1,0,0,], 100,0, [0,0,0,0,1,]),
+		Abstate_invalid("as_sealed"),
+	],
+	as2: {
+		desc: "<属性特効>4チェインで水・光属性の敵単体へ特効ダメージ(700%)",
+		proc: ChainAttrAttack(7.0, 4, [0, 0, 1, 1, 0]),
+	},
+	ss2: {
+		desc: "<多弾魔術>スキル反射を無視し、味方全体のMAXHPの60%を使い敵単体へ雷・闇属性の5回連続ダメージ(650%)",
+		turn: 6,
+		proc: [ss_damage_s(6.5, [2,4], 5), ss_ignore_skillcounter(), ss_consume_all(0.6)],
+	},
+	Lawake: [
+		Statusup(500,0),
+		Statusup(0,1000),
+	],
+}

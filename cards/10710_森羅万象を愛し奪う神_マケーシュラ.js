@@ -1,0 +1,48 @@
+{
+	name: "森羅万象を愛し奪う神 マケーシュラ",
+	cardno: 10710,
+	imageno: 13158,
+	imageno_prefix: "Hx5Tim_",
+	hp: 4734,
+	atk: 4734,
+	cost: 49,
+	attr: [2,-1],
+	species: [1],
+	islegend: true,
+	ape: "Duel Rush",
+	is_dist: true,
+	as1: {
+		desc: "<回復>雷属性の味方のHPを回復(13%)",
+		proc: Heal(0.13, [0,0,1,0,0], 0),
+	},
+	ss1: {
+		desc: "<特殊パネル変換>ジャンルパネルを雷属性化し、ダメージ軽減・スキルチャージ・チェイン・攻撃力アップの効果をランダムで付与(25%、1、2、50%)、極稀に当たり(50%、3、5、150%)",
+		turn: 8,
+		proc: [panel_attr_guard([1,1,1,1,1], 0.25), panel_attr_guard([1,1,1,1,1], 0.5), panel_skillboost(1), panel_skillboost(3), panel_chainplus(2), panel_chainplus(5), panel_attackup(0.5), panel_attackup(1.5)],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup(0,400, [0,0,1,0,0,]),
+		Attr_statusup(400,0, [0,0,1,0,0,]),
+		Abstate_invalid("death_limit"),
+		Awake_secondfast(3),
+		Attr_statusup_oattr(0,400, [0,0,1,0,0,]),
+		Attr_statusup_oattr(400,0, [0,0,1,0,0,]),
+		Awake_secondfast(3),
+		Abstate_invalid("ss_sealed"),
+		Awake_damage_multiple(1.1, 500),
+	],
+	as2: {
+		desc: "<ギャンブル攻撃>10チェインでイチかバチかダメージアップ(400〜1600%)、20チェインでさらにイチかバチかダメージアップ(600%〜1100%)",
+		proc: [ChainStakesAttack(4.0, 16.0, 10), ChainStakesAttack(10, 27.0, 20)],
+	},
+	ss2: {
+		desc: "<スキルチャージ>味方一人のスペシャルスキルの発動を2早める",
+		turn: 9,
+		proc: [ss_toselect_one(ss_skillboost(2))],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

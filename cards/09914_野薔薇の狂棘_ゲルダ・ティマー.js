@@ -1,0 +1,48 @@
+{
+	name: "野薔薇の狂棘 ゲルダ・ティマー",
+	cardno: 9914,
+	imageno: 8089,
+	hp: 4026,
+	atk: 2876,
+	cost: 52,
+	attr: [0,4],
+	species: [2],
+	islegend: true,
+	is_dist: true,
+	ape: "大魔道杯 in 聖サタニック女学院",
+	as1: {
+		desc: "<複属性攻撃強化>10チェインで火属性の攻撃力をアップ(120%)、複属性が闇属性だとさらにアップ(80%)",
+		proc: ChainEnhance_SubAttr(1.2, 2.0, [1,0,0,0,0], [0,0,0,0,1], 10),
+	},
+	as2: {
+		desc: "<複属性攻撃強化>10チェインで火属性の攻撃力をアップ(150%)、複属性が闇属性だとさらにアップ(80%)",
+		proc: ChainEnhance_SubAttr(1.5, 2.3, [1,0,0,0,0], [0,0,0,0,1], 10),
+	},
+	ss1: {
+		desc: "<ガード>4ターン溜めた後、10ターン全属性のダメージを40%軽減する",
+		turn: 8,
+		charged: 4,
+		proc: [ss_attr_guard([1,1,1,1,1], 0.4, 10)],
+	},
+	ss2: {
+		desc: "<継続回復>チェインプラス2の効果、さらに8ターン味方全体を徐々に回復する(25)",
+		turn: 10,
+		proc: [ss_addchain(2), ss_regenerate(0.25, 8)],
+	},
+	awakes: [
+		Attr_statusup_sattr(0,100,[1,0,0,0,0,],0,300,[0,0,0,0,1,]),
+		Attr_statusup_sattr(100,0,[1,0,0,0,0,],300,0,[0,0,0,0,1,]),
+		Panel_boost([1,0,0,0,0,],4),
+		Fastskill(4),
+		Awake_Chainboost(1),
+		NEFTJOD(30),
+		Attr_statusup(200,0,[1,0,0,0,0,]),
+		Fastskill(4),
+		Attr_statusup(0,200,[1,0,0,0,0,]),
+		Abstate_invalid("ss_sealed"),
+	],
+	Lawake: [
+		Attr_statusup(0,200,[1,0,0,0,0,]),
+		Attr_statusup(200,0,[1,0,0,0,0,]),
+	],
+}

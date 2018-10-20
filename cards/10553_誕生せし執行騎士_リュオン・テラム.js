@@ -1,0 +1,47 @@
+{
+	name: "誕生せし執行騎士 リュオン・テラム",
+	cardno: 10553,
+	imageno: 12978,
+	imageno_prefix: "Ac7W69_",
+	hp: 2105,
+	atk: 5523,
+	cost: 66,
+	attr: [0,3],
+	species: [8],
+	islegend: true,
+	ape: "ゴールデンアワード2018",
+	as1: {
+		desc: "<連撃>敵単体を3回連続攻撃(200%)、解答が2秒未満でさらにアップ(250%)(上限:2段階)",
+		proc: add_cond(ChainDualAttack(2.0, 0, 3), as_timedep(2.5, 1)),
+	},
+	ss1: {
+		desc: "<解答時間停止>3ターンの間、解答時間を停止する(一部特殊パネルを除く)(※協力バトル及び一部クエストは無効)",
+		turn: 6,
+		proc: [ss_astime_ext(20, 3)],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Attr_statusup(200,0, [1,0,0,0,0,]),
+		Abstate_invalid("ss_sealed"),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Fastskill(4),
+		Panel_boost([1,0,0,0,0,],2),
+		Abstate_invalid("as_sealed"),
+		Awake_noeffect("選ばれし者の栄誉",1),
+	],
+	as2: {
+		desc: "<連撃>敵単体を3回連続攻撃(300%)、解答が2秒未満でさらにアップ(250%)(上限:2段階)",
+		proc: add_cond(ChainDualAttack(3.0, 0, 3), as_timedep(2.5, 1)),
+	},
+	ss2: {
+		desc: "<解答時間停止>5ターンの間、解答時間を停止する(一部特殊パネルを除く)(※協力バトル及び一部クエストは無効)",
+		turn: 9,
+		proc: [ss_astime_ext(20, 5)],
+	},
+	Lawake: [
+		Attr_statusup_subattr(0, 200),
+		Statusup(0,1000),
+	],
+}

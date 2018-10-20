@@ -1,0 +1,47 @@
+{
+	name: "遺志を継ぐ魔匠師 エリン・イエイツ",
+	cardno: 10115,
+	imageno: 12474,
+	hp: 6215,
+	atk: 1963,
+	cost: 57,
+	attr: [1,3],
+	species: [8],
+	islegend: true,
+	ape: "MARELESS 夢現の蝶",
+	as1: {
+		desc: "<回復>水属性の味方のHPを回復(14%)",
+		proc: Heal(0.14, [0,1,0,0,0], 0),
+	},
+	ss1: {
+		desc: "<精霊強化>3ターン溜めた後、8ターンの間、味方全体を徐々に回復しダメージを軽減、さらに攻撃力をアップ(40%、25%、150%)(発動中行動不可)",
+		turn: 1,
+		charged: 3,
+		proc: [ss_reinforcement_all(8, [ss_attr_guard([1, 1, 1, 1, 1], 0.25, 1, "RF"), ss_enhance_all(1.5, 1, [1, 1, 1, 1, 1], "RF"), ss_regenerate(0.4, 1, "RF")])],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(1),
+		Abstate_invalid("ss_sealed"),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Heal_afterbattle(10),
+		Awake_noeffect("アンサーリセット",1),
+	],
+	as2: {
+		desc: "<回復>水属性の味方のHPを回復(17%)",
+		proc: Heal(0.17, [0,1,0,0,0], 0),
+	},
+	ss2: {
+		desc: "<精霊強化>8ターンの間、味方全体を徐々に回復しダメージを軽減、さらに攻撃力をアップ(40%、25%、150%)(発動中行動不可)",
+		turn: 10,
+		proc: [ss_reinforcement_all(8, [ss_attr_guard([1, 1, 1, 1, 1], 0.25, 1, "RF"), ss_enhance_all(1.5, 1, [1, 1, 1, 1, 1], "RF"), ss_regenerate(0.4, 1, "RF")])],
+	},
+	Lawake: [
+		Statusup(1500,0),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit"]),
+	],
+}

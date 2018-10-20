@@ -1,0 +1,46 @@
+{
+	name: "同胞への想い ゼスト・プロド",
+	cardno: 10291,
+	imageno: 12669,
+	hp: 2025,
+	atk: 4028,
+	cost: 51,
+	attr: [1,2],
+	species: [8],
+	islegend: true,
+	ape: "幻魔特区RELOADEDⅡ",
+	is_dist: true,
+	as1: {
+		desc: "<連撃>20チェインで敵単体を2回連続攻撃(1400%)",
+		proc: ChainDualAttack(14.0, 20, 2),
+	},
+	ss1: {
+		desc: "<多弾魔術>スキル反射を無視し、敵単体へ水・雷属性の5回連続ダメージ(300%)。20チェインでさらに5回連続ダメージ(700%)",
+		turn: 10,
+		proc: [ss_damage_s(ss_chain_cond(20, 10, 3), [1,4], ss_chain_cond(20, 10, 5)), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,200, [0,1,1,0,0,]),
+		Attr_statusup(200,0, [0,1,1,0,0,]),
+		Awake_secondfast(3),
+		NEFTJOD(30),
+		Attr_statusup_subattr(0, 300),
+		Attr_statusup_subattr(300, 0),
+		Awake_secondfast(5),
+		Abstate_invalid("as_sealed"),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<連撃>20チェインで敵単体を2回連続攻撃(1500%)",
+		proc: ChainDualAttack(15.0, 20, 2),
+	},
+	ss2: {
+		desc: "<多弾魔術>スキル反射を無視し、敵単体へ水・雷属性の5回連続ダメージ(300%)。20チェインでさらに5回連続ダメージ(700%)",
+		turn: 10,
+		proc: [ss_damage_s(ss_chain_cond(20, 10, 3), [1,4], ss_chain_cond(20, 10, 5)), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Attr_statusup_subattr(0, 300),
+	],
+}

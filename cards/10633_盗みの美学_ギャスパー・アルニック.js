@@ -1,0 +1,48 @@
+{
+	name: "盗みの美学 ギャスパー・アルニック",
+	cardno: 10633,
+	imageno: 13062,
+	hp: 5025,
+	atk: 4828,
+	cost: 51,
+	attr: [1,-1],
+	species: [8],
+	islegend: true,
+	ape: "プラチナセレクション",
+	as1: {
+		desc: "<攻撃強化・ガード>全属性のダメージを10%軽減し、デッキの単色の精霊が多いほど、水属性の味方の攻撃力をアップ(15%)(上限:5段階)",
+		proc: [as_guard(0.10, [1,1,1,1,1], 0), add_cond(ChainEnhance(0, [0,1,0,0,0], 0), as_singleattr_num(0, 0.15))],
+	},
+	ss1: {
+		desc: "<ダブルスキル付与>2ターン溜めた後、1ターンの間、デッキ内の味方にSPスキル使用回数+1の効果を付与する(SPスキル使用回数アップの効果は重複しません)",
+		turn: 11,
+		charged: 2,
+		proc: [ss_doubleskill_all(1)],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Fastskill(2),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_relief([0,0,1,0,0,],10),
+		Attr_statusup_oattr(0,400, [0,1,0,0,0,]),
+		Attr_statusup_oattr(400,0, [0,1,0,0,0,]),
+		Fastskill(2),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<攻撃強化・ガード>全属性のダメージを10%軽減し、デッキの単色の精霊が多いほど、水属性の味方の攻撃力をアップ(20%)(上限:5段階)",
+		proc: [as_guard(0.10, [1,1,1,1,1], 0), add_cond(ChainEnhance(0, [0,1,0,0,0], 0), as_singleattr_num(0, 0.20))],
+	},
+	ss2: {
+		desc: "<ダブルスキル付与>2ターン溜めた後、2ターンの間、デッキ内の味方にSPスキル使用回数+1の効果を付与する(SPスキル使用回数アップの効果は重複しません)",
+		turn: 13,
+		charged: 2,
+		proc: [ss_doubleskill_all(2)],
+	},
+	Lawake: [
+		Attr_statusup_oattr(0,300, [0,1,0,0,0,]),
+		NEFTJOD(30),
+	],
+}

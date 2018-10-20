@@ -1,0 +1,46 @@
+{
+	name: "夏に酔う獣 ガレオーネ&シニョーラ",
+	cardno: 10447,
+	imageno: 12862,
+	hp: 2315,
+	atk: 3996,
+	cost: 52,
+	attr: [1,0],
+	species: [5],
+	islegend: true,
+	is_dist: true,
+	ape: "大魔道杯 in 夏の祝祭",
+	as1: {
+		desc: "<連撃>敵単体を3回連続攻撃(200%)、解答が早いほどさらにアップ(70%)(上限:4段階)",
+		proc: add_cond(ChainDualAttack(2.0, 0, 3), as_timedep(0.7)),
+	},
+	ss1: {
+		desc: "<炸裂大魔術>スキル反射を無視し、敵単体へ火・水属性のダメージ(350%)、さらに隣接する敵に火・水属性のダメージ(350%)",
+		turn: 4,
+		proc: [ss_damage_explosion(3.5, [0,1]), ss_ignore_skillcounter()],
+	},
+	as2: {
+		desc: "<連撃>敵単体を3回連続攻撃(300%)、解答が早いほどさらにアップ(70%)(上限:4段階)",
+		proc: add_cond(ChainDualAttack(3.0, 0, 3), as_timedep(0.7)),
+	},
+	ss2: {
+		desc: "<炸裂大魔術>スキル反射を無視し、敵単体へ火・水属性のダメージ(550%)、さらに隣接する敵に火・水属性のダメージ(550%)",
+		turn: 6,
+		proc: [ss_damage_explosion(5.5, [0,1]), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Costdown(10),
+		Attr_statusup(0,200,[0,1,0,0,0,]),
+		Attr_statusup(200,0,[0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(1),
+		Panel_boost([0,1,0,0,0,],1),
+		Fastskill(2),
+		Attr_statusup_subattr(0,300),
+		Attr_statusup_subattr(300,0),
+		Attr_relief([1,0,0,0,0,],10),
+	],
+	Lawake: [
+		Statusup(0,1500),
+	],
+}

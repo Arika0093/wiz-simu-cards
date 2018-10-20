@@ -1,0 +1,47 @@
+{
+	name: "イタズラ女神 リタ・バニスター",
+	cardno: 10410,
+	imageno: 9624,
+	hp: 5834,
+	atk: 3022,
+	cost: 45,
+	attr: [1,-1],
+	species: [1],
+	islegend: true,
+	ape: "イタズラ女神とうさぎのおはなし",
+	is_dist: true,
+	as1: {
+		desc: "<回復・攻撃強化>味方全体のHPを回復(10%)、さらに攻撃力をアップ(30%)",
+		proc: [Heal(0.10, [1,1,1,1,1], 0), ChainEnhance(0.3, [1,1,1,1,1], 0)],
+	},
+	ss1: {
+		desc: "<状態異常回復>味方全体の状態異常を回復する",
+		turn: 4,
+		proc: [ss_abstate_cure()],
+	},
+	awakes: [
+		Costdown(10),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		NEFTJOD(30),
+		Fastskill(3),
+		Panel_boost([0,1,0,0,0,],2),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<回復・攻撃強化>味方全体のHPを回復(12%)、さらに攻撃力をアップ(30%)",
+		proc: [Heal(0.12, [1,1,1,1,1], 0), ChainEnhance(0.3, [1,1,1,1,1], 0)],
+	},
+	ss2: {
+		desc: "<蘇生>味方全体のHPを回復(50%)し、さらに水属性の味方を蘇生(50%)",
+		turn: 9,
+		proc: [ss_heal(0.5), ss_resurrection([0,1,0,0,0], 0.5)],
+	},
+	Lawake: [
+		Statusup(500,0),
+		Abstate_invalid("ss_sealed"),
+	],
+}

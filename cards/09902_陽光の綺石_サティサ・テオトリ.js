@@ -1,0 +1,47 @@
+{
+	name: "陽光の綺石 サティサ・テオトリ",
+	cardno: 9902,
+	imageno: 5373,
+	hp: 2402,
+	atk: 6219,
+	cost: 43,
+	attr: [0,-1],
+	species: [4],
+	islegend: true,
+	is_dist: true,
+	ape: "魔道杯(その他)",
+	as1: {
+		desc: "<チェイン攻撃>10チェインでダメージアップ(800%)",
+		proc: ChainAttack(8.0, 10),
+	},
+	as2: {
+		desc: "<チェイン攻撃>10チェインでダメージアップ(900%)",
+		proc: ChainAttack(9.0, 10),
+	},
+	ss1: {
+		desc: "<特殊パネル変換>ジャンルパネルを火属性化し、チェインがプラス1の効果を付与",
+		turn: 4,
+		proc: [ss_panel_change([1,0,0,0,0]), panel_chainplus(1)],
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルを火属性化し、攻撃力アップの効果を付与(100%)",
+		turn: 6,
+		proc: [ss_panel_change([1,0,0,0,0]), panel_attackup(1.0)],
+	},
+	awakes: [
+		Fastskill(1),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(300,0,[1,0,0,0,0,]),
+		Spec_statusup(200,0,[1,4,]),
+		Fastskill(2),
+		Attr_statusup_oattr(300,0,[1,0,0,0,0,]),
+		Attr_statusup_oattr(0,300,[1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(0,300,[1,0,0,0,0,]),
+		Spec_statusup(0,200,[1,4,]),
+	],
+	Lawake: [
+		Statusup(0,1000),
+		Attr_statusup(0,200,[1,0,0,0,0,]),
+	],
+}

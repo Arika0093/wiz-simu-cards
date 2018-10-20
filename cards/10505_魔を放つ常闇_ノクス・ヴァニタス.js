@@ -1,0 +1,45 @@
+{
+	name: "魔を放つ常闇 ノクス・ヴァニタス",
+	cardno: 10505,
+	imageno: 12926,
+	hp: 2585,
+	atk: 4959,
+	cost: 63,
+	attr: [0,4],
+	species: [2],
+	islegend: true,
+	ape: "MARELESS2 夢現の狭間",
+	as1: {
+		desc: "<分散攻撃>味方のMAXHP15%を使い、敵全体へ分散攻撃(700%)",
+		proc: add_cond(ChainVarianceAttack(7.0, 0), as_consume_all(0.15)),
+	},
+	ss1: {
+		desc: "<蓄積解放大魔術・邪>スキル反射を無視し、敵単体へ闇属性のダメージ(100%)、さらにクエスト中の累計被ダメージ量に応じてダメージアップ(上限値:18万ダメージで14000%)",
+		turn: 10,
+		proc: [ss_accumulateDamageOfBurn_s(140.0, 180000, [4], 1), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Attr_statusup(200,0, [1,0,0,0,0,]),
+		Abstate_invalid("ss_sealed"),
+		Fastskill(10),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Awake_damage_multiple(1.1, 500),
+		Heal_afterbattle(10),
+		Awake_KillBurnSkill(5, 0.03),
+	],
+	as2: {
+		desc: "<分散攻撃>味方のMAXHP15%を使い、敵全体へ分散攻撃(800%)",
+		proc: add_cond(ChainVarianceAttack(8.0, 0), as_consume_all(0.15)),
+	},
+	ss2: {
+		desc: "<蓄積解放大魔術・邪>スキル反射を無視し、敵単体へ闇属性のダメージ(100%)、さらにクエスト中の累計被ダメージ量に応じてダメージアップ(上限値:18万ダメージで14000%)",
+		turn: 10,
+		proc: [ss_accumulateDamageOfBurn_s(140.0, 180000, [4], 1), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,2000),
+	],
+}

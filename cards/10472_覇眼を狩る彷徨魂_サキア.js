@@ -1,0 +1,47 @@
+{
+	name: "覇眼を狩る彷徨魂 サキア",
+	cardno: 10472,
+	imageno: 12888,
+	hp: 4345,
+	atk: 1121,
+	cost: 24,
+	attr: [2,-1],
+	species: [2],
+	islegend: true,
+	ape: "覇眼戦線Ⅳ",
+	is_dist: true,
+	as1: {
+		desc: "<攻撃>敵単体へのダメージアップ(900%)",
+		proc: ChainAttack(9.0, 0),
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルを雷属性化",
+		turn: 2,
+		proc: [ss_panel_change([0,0,1,0,0])],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_oattr(0,300, [0,0,1,0,0,]),
+		Attr_statusup_oattr(300,0, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(2),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup(0,300, [0,0,1,0,0,]),
+		Attr_statusup(300,0, [0,0,1,0,0,]),
+		Fastskill(3),
+	],
+	as2: {
+		desc: "<攻撃>敵単体へのダメージアップ(900%)、ジャンルパネルが3色だとさらにアップ(1000%)",
+		proc: ChainPanelsAttack(9.0, 9.0, 19.0, 0),
+	},
+	ss2: {
+		desc: "<パネル変換>ジャンルパネルをALL属性化",
+		turn: 4,
+		proc: [ss_panel_change([1,1,1,0,0])],
+	},
+	Lawake: [
+		Attr_statusup_oattr(0,200, [0,0,1,0,0,]),
+		Statusup(500,0),
+	],
+}

@@ -1,0 +1,46 @@
+{
+	name: "疾走する女子高生探偵 世良真純",
+	cardno: 10205,
+	imageno: 6965,
+	hp: 3993,
+	atk: 4018,
+	cost: 40,
+	attr: [0,-1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(コナン)",
+	as1: {
+		desc: "<属性特効>雷属性の敵単体へ特効ダメージ(350%)",
+		proc: ChainAttrAttack(3.5, 0, [0,0,1,0,0]),
+	},
+	ss1: {
+		desc: "<純属性強化>火単色精霊が多いほど、火単色精霊の攻撃力、HPのステータスをアップ(上限値:2000,2000)",
+		turn: 6,
+		proc: [ss_statusup_all([ss_pureattr_cond(2000), ss_pureattr_cond(2000)], [2000,2000], -1, [1,0,0,0,0])],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(1),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Fastskill(1),
+		NEFTJOD(30),
+		Fastskill(2),
+	],
+	as2: {
+		desc: "<属性特効>雷属性の敵単体へ特効ダメージ(450%)",
+		proc: ChainAttrAttack(4.5, 0, [0,0,1,0,0]),
+	},
+	ss2: {
+		desc: "<純属性強化>火単色精霊が多いほど、火単色精霊の攻撃力、HPのステータスをアップ(上限値:3000,3000)",
+		turn: 10,
+		proc: [ss_statusup_all([ss_pureattr_cond(3000), ss_pureattr_cond(3000)], [3000,3000], -1, [1,0,0,0,0])],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

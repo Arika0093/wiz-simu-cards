@@ -1,0 +1,46 @@
+{
+	name: "似たもの同士の名探偵 平次&新一",
+	cardno: 10200,
+	imageno: 6950,
+	hp: 2542,
+	atk: 4353,
+	cost: 57,
+	attr: [2,0],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(コナン)",
+	as1: {
+		desc: "<チェイン攻撃>3チェインでダメージアップ(300%)、6チェインで更にダメージアップ(250%)",
+		proc: [ChainAttack(3.0, 3), ChainAttack(5.5, 6)],
+	},
+	ss1: {
+		desc: "<遅延>敵単体の攻撃ターンを1遅らせる",
+		turn: 3,
+		proc: [ss_delay_s(1)],
+	},
+	awakes: [
+		Fastskill(1),
+		Attr_statusup(200,0, [1,0,1,0,0,]),
+		Attr_statusup(0,200, [1,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_subattr(0, 500),
+		Panel_boost([0,0,1,0,0,],2),
+		Awake_noeffect("心眼",1),
+		NEFTJOD(30),
+		Attr_statusup_subattr(500, 0),
+		Fastskill(2),
+	],
+	as2: {
+		desc: "<チェイン攻撃>3チェインでダメージアップ(400%)、6チェインで更にダメージアップ(250%)",
+		proc: [ChainAttack(4.0, 3), ChainAttack(6.5, 6)],
+	},
+	ss2: {
+		desc: "<遅延>敵単体の攻撃ターンを2遅らせる",
+		turn: 7,
+		proc: [ss_delay_s(2)],
+	},
+	Lawake: [
+		Statusup(1000,0),
+		Attr_statusup(0,200, [1,0,1,0,0,]),
+	],
+}

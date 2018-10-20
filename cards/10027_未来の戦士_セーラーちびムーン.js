@@ -1,0 +1,47 @@
+{
+	name: "未来の戦士 セーラーちびムーン",
+	cardno: 10027,
+	imageno: 12380,
+	imageno_prefix: "iruohw_",
+	hp: 4088,
+	atk: 4425,
+	cost: 43,
+	attr: [1,-1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(セーラームーン)",
+	as1: {
+		desc: "<種族攻撃強化>3チェインで水属性の味方の攻撃力をアップ(50%)、戦士はさらにアップ(50%)",
+		proc: [ChainEnhance(0.5, [0, 1, 0, 0, 0], 3), ChainSpecEnhance(1.0, [0, 1, 0, 0, 0], [8], 3)],
+	},
+	ss1: {
+		desc: "<回復>チェインプラス1の効果、味方全体のHPを回復する(50%)",
+		turn: 4,
+		proc: [ss_addchain(1), ss_heal(0.5)],
+	},
+	awakes: [
+		Fastskill(1),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		Fastskill(1),
+		Panel_boost([0,1,0,0,0,],1),
+		Attr_statusup_oattr(0,400, [0,1,0,0,0,]),
+		Fastskill(1),
+		NEFTJOD(30),
+		Attr_statusup_oattr(400,0, [0,1,0,0,0,]),
+	],
+	as2: {
+		desc: "<種族攻撃強化>3チェインで水属性の味方の攻撃力をアップ(80%)、戦士はさらにアップ(50%)",
+		proc: [ChainEnhance(0.8, [0, 1, 0, 0, 0], 3), ChainSpecEnhance(1.3, [0, 1, 0, 0, 0], [8], 3)],
+	},
+	ss2: {
+		desc: "<回復>チェインプラス2の効果、さらに味方全体のHPを完全に回復する",
+		turn: 8,
+		proc: [ss_addchain(2), ss_heal(1)],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

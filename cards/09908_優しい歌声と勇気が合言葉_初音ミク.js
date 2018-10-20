@@ -1,0 +1,47 @@
+{
+	name: "優しい歌声と勇気が合言葉 初音ミク",
+	cardno: 9908,
+	imageno: 6741,
+	hp: 2015,
+	atk: 4213,
+	cost: 53,
+	attr: [1,2],
+	species: [8],
+	islegend: true,
+	is_dist: true,
+	ape: "大魔道杯 feat. 初音ミク",
+	as1: {
+		desc: "<チェイン攻撃>4チェインでダメージアップ(400%)、8チェインで更にダメージアップ(100%)",
+		proc: [ChainAttack(4.0, 4), ChainAttack(5.0, 8)],
+	},
+	as2: {
+		desc: "<チェイン攻撃>4チェインでダメージアップ(500%)、8チェインで更にダメージアップ(100%)",
+		proc: [ChainAttack(5.0, 4), ChainAttack(6.0, 8)],
+	},
+	ss1: {
+		desc: "	<ダメージ強化>味方全体のHPを回復し(50%)、3ターン自分の攻撃力をアップ(300%)",
+		turn: 6,
+		proc: [ss_heal(0.5), ss_enhance_own(3.0, 3)],
+	},
+	ss2: {
+		desc: "<ダメージ強化>味方全体のHPを完全回復し、10ターン自分の攻撃力をアップ(600%)。HP20%以下の時、さらに自分の攻撃力をアップ(1400%)",
+		turn: 9,
+		proc: [ss_enhance_own(ss_hp_less(0.20, 20, 6.0), 10), ss_heal(1.0)],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup_sattr(0,100,[0,1,0,0,0,],0,200,[0,0,1,0,0,]),
+		Attr_statusup(200,0,[0,1,1,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,200,[0,1,1,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_relief([0,1,1,0,0,],10),
+		Fastskill(3),
+		Attr_statusup_sattr(100,0,[0,1,0,0,0,],300,0,[0,0,1,0,0,]),
+		Spec_statusup(0,200,[8,]),
+	],
+	Lawake: [
+		Attr_statusup(0,200,[0,1,1,0,0,]),
+		Statusup(0,1000),
+	],
+}

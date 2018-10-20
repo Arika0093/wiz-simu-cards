@@ -1,0 +1,47 @@
+{
+	name: "カードキャプター さくら",
+	cardno: 10333,
+	imageno: 12725,
+	imageno_prefix: "S5zpwx_",
+	hp: 3845,
+	atk: 3580,
+	cost: 35,
+	attr: [1,3],
+	species: [9],
+	islegend: true,
+	ape: "コラボ(カードキャプターさくら)",
+	as1: {
+		desc: "<攻撃強化・ガード>全属性のダメージを10%軽減し、デッキ内の精霊が持つ属性数が多いほど、水属性の味方の攻撃力をアップ(15%)（上限:5段階)",
+		proc: [add_cond(ChainEnhance(0, [0,1,0,0,0], 0), as_deckinattr_num(0, 0.15)), as_guard(0.1, [1,1,1,1,1], 0)],
+	},
+	ss1: {
+		desc: "<融合強化>4ターンの間、デッキ内の精霊が持つ属性数が多いほど、水属性の味方のダメージを強化し(100%)、さらに永続ターン、攻撃力、HPのステータスをアップ(上限値:1500,1500)",
+		turn: 4,
+		proc: [ss_statusup_all([ss_multiattr_cond(1500), ss_multiattr_cond(1500)], [1500,1500], -1, [0,1,0,0,0]), ss_enhance_all(ss_multiattr_cond(1.0), 4, [0,1,0,0,0])],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(4),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Abstate_invalid("as_sealed"),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<攻撃強化・ガード>全属性のダメージを10%軽減し、デッキ内の精霊が持つ属性数が多いほど、水属性の味方の攻撃力をアップ(20%)（上限:5段階)",
+		proc: [add_cond(ChainEnhance(0, [0,1,0,0,0], 0), as_deckinattr_num(0, 0.2)), as_guard(0.1, [1,1,1,1,1], 0)],
+	},
+	ss2: {
+		desc: "<融合強化>4ターンの間、デッキ内の精霊が持つ属性数が多いほど、水属性の味方のダメージを強化し(200%)、さらに永続ターン、攻撃力、HPのステータスをアップ(上限値:1500,1500)",
+		turn: 8,
+		proc: [ss_statusup_all([ss_multiattr_cond(2500), ss_multiattr_cond(2500)], [2500,2500], -1, [0,1,0,0,0]), ss_enhance_all(ss_multiattr_cond(2.0), 4, [0,1,0,0,0])],
+	},
+	Lawake: [
+		Attr_statusup(0,300, [0,1,0,0,0,]),
+		Statusup(500,0),
+	],
+}

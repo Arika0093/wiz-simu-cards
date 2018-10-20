@@ -1,0 +1,48 @@
+{
+	name: "境界の幻視者 ルピラ・ヴィム",
+	cardno: 9907,
+	imageno: 6412,
+	hp: 4429,
+	atk: 2548,
+	cost: 52,
+	attr: [2,1],
+	species: [9],
+	islegend: true,
+	is_dist: true,
+	ape: "大魔道杯 with 境界騎士団",
+	as1: {
+		desc: "<攻撃強化・ガード>5チェインで水・雷属性の味方の攻撃力をアップ(60%)、さらに全属性のダメージを10%軽減",
+		proc: [ChainEnhance(0.60, [0,1,1,0,0], 5), as_guard(0.10, [1,1,1,1,1], 5)],
+	},
+	as2: {
+		desc: "<攻撃強化・ガード>5チェインで水・雷属性の味方の攻撃力をアップ(90%)、さらに全属性のダメージを10%軽減",
+		proc: [ChainEnhance(0.90, [0,1,1,0,0], 5), as_guard(0.10, [1,1,1,1,1], 5)],
+	},
+	ss1: {
+		desc: "<カウンター>3ターンの間、スキルカウンター待機(200%)",
+		turn: 7,
+		proc: [ss_skillcounter(2.0, 3)],
+	},
+	ss2: {
+		desc: "<カウンター>5ターンの間、スキルカウンター待機(200%)、回復反転状態でさらに多段式カウンター待機(200%)",
+		turn: 10,
+		proc: [ss_skillcounter(2.0, 5)],
+		//ss_is_healreverse_own_skill(ss_dualcounter(2.0, 5))],
+	},
+	awakes: [
+		Attr_statusup_sattr(0,100,[0,0,1,0,0,],0,100,[0,1,0,0,0,]),
+		Attr_statusup_sattr(100,0,[0,0,1,0,0,],100,0,[0,1,0,0,0,]),
+		Fastskill(3),
+		Attr_statusup(0,200,[0,1,1,0,0,]),
+		NEFTJOD(30),
+		Attr_statusup(200,0,[0,1,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],4),
+		Spec_statusup(0,200,[9,]),
+		Spec_statusup(200,0,[9,]),
+		Awake_noeffect("境界騎士団の覚悟",1),
+	],
+	Lawake: [
+		Attr_statusup(0,200,[0,1,1,0,0,]),
+		Statusup(1000,0),
+	],
+}

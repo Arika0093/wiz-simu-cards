@@ -1,0 +1,47 @@
+{
+	name: "空賊少佐の進軍 ローヴィ・フロイセ",
+	cardno: 10230,
+	imageno: 12598,
+	hp: 3195,
+	atk: 3727,
+	cost: 55,
+	attr: [2,1],
+	species: [8],
+	islegend: true,
+	ape: "空戦のシュヴァルツ",
+	as1: {
+		desc: "<連撃・複属性攻撃強化>敵単体を3回連続攻撃(250%)、さらに雷属性の攻撃力をアップ(10%)、複属性が水属性だとさらにアップ(30%)",
+		proc: [ChainDualAttack(2.5, 0, 3), ChainEnhance_SubAttr(0.1, 0.4, [0,0,1,0,0], [0,1,0,0,0], 0)],
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルを水・雷属性化",
+		turn: 3,
+		proc: [ss_panel_change([0,1,1,0,0])],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_sattr(0,200, [0,0,1,0,0,], 0,100, [0,1,0,0,0,]),
+		Attr_statusup_sattr(200,0, [0,0,1,0,0,], 100,0, [0,1,0,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Fastskill(1),
+		Attr_statusup_sattr(0,100, [0,0,1,0,0,], 0,300, [0,1,0,0,0,]),
+		Attr_statusup_sattr(100,0, [0,0,1,0,0,], 300,0, [0,1,0,0,0,]),
+		Fastskill(2),
+		NEFTJOD(30),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<連撃・複属性攻撃強化>敵単体を3回連続攻撃(350%)、さらに雷属性の攻撃力をアップ(10%)、複属性が水属性だとさらにアップ(30%)",
+		proc: [ChainDualAttack(3.5, 0, 3), ChainEnhance_SubAttr(0.1, 0.4, [0,0,1,0,0], [0,1,0,0,0], 0)],
+	},
+	ss2: {
+		desc: "<統一パネル変換>ジャンルパネルを水・雷属性化し、攻撃力アップの効果を付与、〈主属性:雷、複属性:水〉の精霊が多いほどさらに効果値アップ(400%)",
+		turn: 7,
+		proc: [ss_panel_change([0,1,1,0,0]), panel_attackup(ss_matchattr_cond(4.0, [0,0,1,0,0], [0,1,0,0,0]))],
+	},
+	Lawake: [
+		Abstate_invalid("discharge"),
+		Statusup(0,1000),
+		Statusup(500,0),
+	],
+}

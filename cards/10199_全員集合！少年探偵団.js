@@ -1,0 +1,46 @@
+{
+	name: "全員集合！少年探偵団",
+	cardno: 10199,
+	imageno: 6947,
+	hp: 3042,
+	atk: 4052,
+	cost: 57,
+	attr: [0,1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(コナン)",
+	as1: {
+		desc: "<連撃・複属性攻撃強化>4チェインで敵単体を3回連続攻撃(400%)、さらに火属性の攻撃力をアップ(10%)、複属性が水属性だとさらにアップ(30%)",
+		proc: [ChainDualAttack(4.0, 4, 3), ChainEnhance_SubAttr(0.10, 0.40, [1,0,0,0,0], [0,1,0,0,0], 4)],
+	},
+	ss1: {
+		desc: "<遅延>敵単体の攻撃ターンを2遅らせる",
+		turn: 7,
+		proc: [ss_delay_s(2)],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_sattr(200,0, [1,0,0,0,0,], 100,0, [0,1,0,0,0,]),
+		NEFTJOD(30),
+		Fastskill(2),
+		Attr_statusup_sattr(0,200, [1,0,0,0,0,], 0,100, [0,1,0,0,0,]),
+		Attr_statusup_sattr(100,0, [1,0,0,0,0,], 300,0, [0,1,0,0,0,]),
+		Attr_relief([1,1,1,1,1,],10),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(2),
+		Attr_statusup_sattr(0,100, [1,0,0,0,0,], 0,300, [0,1,0,0,0,]),
+	],
+	as2: {
+		desc: "<連撃・複属性攻撃強化>4チェインで敵単体を3回連続攻撃(500%)、さらに火属性の攻撃力をアップ(10%)、複属性が水属性だとさらにアップ(30%)",
+		proc: [ChainDualAttack(5.0, 4, 3), ChainEnhance_SubAttr(0.10, 0.40, [1,0,0,0,0], [0,1,0,0,0], 4)],
+	},
+	ss2: {
+		desc: "<遅延>敵単体の攻撃ターンを3遅らせる",
+		turn: 9,
+		proc: [ss_delay_s(3)],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Attr_statusup_sattr(0,100, [1,0,0,0,0,], 0,100, [0,1,0,0,0,]),
+	],
+}

@@ -1,0 +1,46 @@
+{
+	name: "再びを願う羊精 ペコナ・シャポナ",
+	cardno: 9886,
+	imageno: 8366,
+	hp: 6598,
+	atk: 3025,
+	cost: 50,
+	attr: [2,-1],
+	species: [4],
+	islegend: true,
+	ape: "DL限定精霊",
+	as1: {
+		desc: "<回復>味方全体のHPを回復(11%)、パネルの色が2色以上でさらに回復(11%)",
+		proc: ChainPanelsHeal(0.11, 0.22, 0.22, [1,1,1,1,1], 0),
+	},
+	ss1: {
+		desc: "<ガード>3ターン全属性のダメージを50%軽減する",
+		turn: 6,
+		proc: [ss_attr_guard([1,1,1,1,1], 0.5, 3)],
+	},
+	awakes: [
+		Attr_statusup_oattr(0,400, [0,0,1,0,0,]),
+		Attr_statusup_oattr(400,0, [0,0,1,0,0,]),
+		NEFTJOD(30),
+		Attr_statusup(400,0, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],4),
+		Attr_statusup(0,400, [0,0,1,0,0,]),
+		Fastskill(3),
+		NEFTJOD(30),
+		Abstate_invalid("ss_sealed"),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<回復>味方全体のHPを回復(13%)、パネルの色が2色以上でさらに回復(11%)",
+		proc: ChainPanelsHeal(0.13, 0.24, 0.24, [1,1,1,1,1], 0),
+	},
+	ss2: {
+		desc: "<ガード>3ターン全属性のダメージを50%軽減する、5チェインを消費しさらに2ターン軽減",
+		turn: 9,
+		proc: [ss_attr_guard([1,1,1,1,1], 0.5, ss_chain_cost(5, 5, 3))],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Statusup(1000,0),
+	],
+}

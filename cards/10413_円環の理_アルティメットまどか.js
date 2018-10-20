@@ -1,0 +1,47 @@
+{
+	name: "円環の理 アルティメットまどか",
+	cardno: 10413,
+	imageno: 12752,
+	imageno_prefix: "E4pSBg_",
+	hp: 3325,
+	atk: 4128,
+	cost: 40,
+	attr: [0,3],
+	species: [9],
+	islegend: true,
+	ape: "コラボ(魔法少女まどか☆マギカ)",
+	as1: {
+		desc: "<回復>味方全体のHPを回復(14%)",
+		proc: Heal(0.14, [1,1,1,1,1], 0),
+	},
+	ss1: {
+		desc: "<激化大魔術>敵単体へ火・光属性の2回連続ダメージ(225%)、発動する度に効果値が2倍アップ(上限:5段階)",
+		turn: 3,
+		proc: [ss_damage_s(ss_intenselyval(0, 2.25, 72), [0,3], 2)],
+	},
+	awakes: [
+		Awake_noeffect("アンサーリセット",1),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Attr_statusup(200,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],4),
+		NEFTJOD(30),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Abstate_invalid("ss_sealed"),
+		Awake_noeffect("スキル反射見破り",1),
+	],
+	as2: {
+		desc: "<回復>味方全体のHPを回復(17%)",
+		proc: Heal(0.17, [1,1,1,1,1], 0),
+	},
+	ss2: {
+		desc: "<激化大魔術>敵単体へ火・光属性の2回連続ダメージ(225%)、発動する度に効果値が2倍アップ(上限:5段階)",
+		turn: 3,
+		proc: [ss_damage_s(ss_intenselyval(0, 2.25, 72), [0,3], 2)],
+	},
+	Lawake: [
+		Statusup(0,1500),
+		Attr_statusup(0,100, [1,0,0,0,0,]),
+	],
+}

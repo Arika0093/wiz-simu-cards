@@ -1,0 +1,46 @@
+{
+	name: "烈士徇名 ベルトルト・フーバー",
+	cardno: 9966,
+	imageno: 12315,
+	hp: 2741,
+	atk: 5211,
+	cost: 39,
+	attr: [0,-1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(進撃の巨人)",
+	as1: {
+		desc: "<属性特効>雷属性の敵単体へ特効ダメージ(150%)、デッキに単色の精霊が多いほど、さらにダメージアップ(90%)(上限:5段階)",
+		proc: add_cond(ChainAttrAttack(1.5, 0, [0,0,1,0,0]), as_singleattr_num(0, 0.9)),
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルを火属性化",
+		turn: 2,
+		proc: [ss_panel_change([1,0,0,0,0])],
+	},
+	awakes: [
+		Fastskill(1),
+		Attr_statusup(0,400, [0,0,0,0,0,]),
+		Costdown(10),
+		Fastskill(2),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<属性特効>雷属性の敵単体へ特効ダメージ(250%)、デッキに単色の精霊が多いほど、さらにダメージアップ(90%)(上限:5段階)",
+		proc: add_cond(ChainAttrAttack(2.5, 0, [0,0,1,0,0]), as_singleattr_num(0, 0.9)),
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルを火属性化し、攻撃力アップの効果を付与(80%)",
+		turn: 6,
+		proc: [ss_panel_change([1,0,0,0,0]), panel_attackup(0.8)],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

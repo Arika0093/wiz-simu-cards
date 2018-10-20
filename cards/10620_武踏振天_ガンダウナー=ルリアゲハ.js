@@ -1,0 +1,46 @@
+{
+	name: "武踏振天 ガンダウナー=ルリアゲハ",
+	cardno: 10620,
+	imageno: 8258,
+	hp: 2711,
+	atk: 4802,
+	cost: 63,
+	attr: [2,1],
+	species: [8],
+	islegend: true,
+	ape: "GP2016",
+	as1: {
+		desc: "<チェイン攻撃>4チェインでダメージアップ(400%)、HP50%以上でさらにダメージアップ(200%)",
+		proc: [ChainAttack(4.0, 4), add_cond(ChainAttack(6.0, 4), when_hp_more(0.5))],
+	},
+	ss1: {
+		desc: "<遅延>敵全体の攻撃ターンを1遅らせる",
+		turn: 4,
+		proc: [ss_delay_all(1)],
+	},
+	awakes: [
+		NEFTJOD(30),
+		Attr_statusup(200,0, [0,1,1,0,0,]),
+		Attr_statusup(0,200, [0,1,1,0,0,]),
+		Fastskill(4),
+		Panel_boost([0,1,0,0,0,],4),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup_subattr(500, 0),
+		Attr_statusup_subattr(0, 500),
+		Awake_noeffect("スキル反射見破り",1),
+		Awake_noeffect("選ばれし者の証",1),
+	],
+	as2: {
+		desc: "<チェイン攻撃>4チェインでダメージアップ(500%)、HP50%以上でさらにダメージアップ(200%)",
+		proc: [ChainAttack(5.0, 4), add_cond(ChainAttack(7.0, 4), when_hp_more(0.5))],
+	},
+	ss2: {
+		desc: "<多弾魔術>スキル反射を無視し、敵単体へ水・雷属性の5回連続ダメージ(550%)、5チェインを消費しさらにダメージアップ(450%)",
+		turn: 7,
+		proc: [ss_chain_cost_skill(5, ss_damage_s(10.0, [1,2], 5), ss_damage_s(5.5, [1,2], 5))],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [0,1,1,0,0,]),
+		Statusup(0,1000),
+	],
+}

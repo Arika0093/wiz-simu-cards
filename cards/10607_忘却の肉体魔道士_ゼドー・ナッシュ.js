@@ -1,0 +1,46 @@
+{
+	name: "忘却の肉体魔道士 ゼドー・ナッシュ",
+	cardno: 10607,
+	imageno: 9255,
+	hp: 2014,
+	atk: 6000,
+	cost: 70,
+	attr: [1,2],
+	species: [9],
+	islegend: true,
+	ape: "追憶のレディアント",
+	as1: {
+		desc: "<チェイン攻撃>10チェインでダメージアップ(800%)、20チェインでさらにアップ(700%)、30チェインでさらにアップ(700%)",
+		proc: [ChainAttack(8.0, 10), ChainAttack(15.0, 20), ChainAttack(22.0, 30)],
+	},
+	ss1: {
+		desc: "<ブースト>6ターンの間、MAXHPを毎ターン15%消費し、攻撃力をアップ(1200%)。さらに極稀にクリティカル ",
+		turn: 10,
+		proc: [ss_boost_enhance_s(12, 6, 0.15)],
+	},
+	awakes: [
+		Attr_statusup_subattr(500, 0),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Abstate_invalid("as_sealed"),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup_subattr(0, 500),
+		NEFTJOD(30),
+		Fastskill(3),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<チェイン攻撃>10チェインでダメージアップ(900%)、20チェインでさらにアップ(700%)、30チェインでさらにアップ(700%)",
+		proc: [ChainAttack(9.0, 10), ChainAttack(16.0, 20), ChainAttack(23.0, 30)],
+	},
+	ss2: {
+		desc: "<ブースト>6ターンの間、MAXHPを毎ターン15%消費し、攻撃力をアップ(1500%)。さらに極稀にクリティカル ",
+		turn: 13,
+		proc: [ss_boost_enhance_s(15, 6, 0.15)],
+	},
+	Lawake: [
+		Statusup(0,1500),
+		NEFTJOD(30),
+	],
+}

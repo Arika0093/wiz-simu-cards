@@ -1,0 +1,45 @@
+{
+	name: "蒼きファンタジスタ エイジ・ミソラ",
+	cardno: 10585,
+	imageno: 13010,
+	hp: 2262,
+	atk: 8312,
+	cost: 56,
+	attr: [2,-1],
+	species: [8],
+	islegend: true,
+	ape: "蒼穹のストライカー",
+	as1: {
+		desc: "<快調攻撃>残りHPが80%以上でダメージアップ(400%)、7チェインでさらにアップ(300%)",
+		proc: [add_cond(ChainAttack(4.0, 0), when_hp_more(0.8)), add_cond(ChainAttack(7.0, 7), when_hp_more(0.8))],
+	},
+	ss1: {
+		desc: "<ダメージ強化>4ターン自分の攻撃力をアップ(200%)",
+		turn: 4,
+		proc: [ss_enhance_own(2.0, 4)],
+	},
+	awakes: [
+		Attr_statusup_oattr(0,400, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Fastskill(1),
+		Attr_statusup(400,0, [0,0,1,0,0,]),
+		Fastskill(2),
+		Abstate_invalid("as_sealed"),
+		Attr_statusup(0,400, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_oattr(400,0, [0,0,1,0,0,]),
+		Attr_relief([1,1,1,1,1,],10),
+	],
+	as2: {
+		desc: "<快調攻撃>残りHPが80%以上でダメージアップ(500%)、7チェインでさらにアップ(300%)",
+		proc: [add_cond(ChainAttack(5.0, 0), when_hp_more(0.8)), add_cond(ChainAttack(8.0, 7), when_hp_more(0.8))],
+	},
+	ss2: {
+		desc: "<ダメージ強化>4ターン自分の攻撃力をアップ(400%)。HP20%以下の時、さらに自分の攻撃力をアップ(1100%)し、味方全体のHPを完全回復 ",
+		turn: 6,
+		proc: [ss_enhance_own(ss_hp_less(0.2, 15, 4), 4), ss_hp_less_skill(0.2, ss_heal(1))],
+	},
+	Lawake: [
+		Statusup(0,2000),
+	],
+}

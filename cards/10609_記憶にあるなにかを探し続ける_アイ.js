@@ -1,0 +1,47 @@
+{
+	name: "記憶にあるなにかを探し続ける アイ",
+	cardno: 10609,
+	imageno: 9261,
+	hp: 3808,
+	atk: 3950,
+	cost: 61,
+	attr: [1,2],
+	species: [9],
+	islegend: true,
+	ape: "追憶のレディアント",
+	as1: {
+		desc: "<複属性攻撃強化>10チェインで水属性の攻撃力をアップ(30%)、複属性を持つ精霊はさらにアップ(170%)",
+		proc: ChainEnhance_SubAttr(0.3, 2.0, [0,1,0,0,0], [1,0,1,1,1], 10),
+	},
+	ss1: {
+		desc: "<斬撃大魔術>3ターン溜めた後、スキル反射を無視し、水・雷属性の3連撃(300%)、さらに連撃数分チェインプラス",
+		turn: 1,
+		charged: 3,
+		proc: [ss_damage_slash(3.0, [1,2], 3), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Fastskill(1),
+		Panel_boost([1,0,0,0,0,],4),
+		Costdown(20),
+		Attr_statusup(0,200, [1,1,1,1,1,]),
+		NEFTJOD(30),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup(200,0, [1,1,1,1,1,]),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<複属性攻撃強化>10チェインで水属性の攻撃力をアップ(60%)、複属性を持つ精霊はさらにアップ(170%)",
+		proc: ChainEnhance_SubAttr(0.6, 2.3, [0,1,0,0,0], [1,0,1,1,1], 10),
+	},
+	ss2: {
+		desc: "<多弾魔術>スキル反射を無視し、敵単体へ水・雷属性の5回連続ダメージ(650%)",
+		turn: 6,
+		proc: [ss_damage_s(6.5, [1,2], 5), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Attr_statusup(200,0, [0,1,1,0,0,]),
+		Attr_statusup(0,200, [0,1,1,0,0,]),
+	],
+}

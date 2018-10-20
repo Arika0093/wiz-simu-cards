@@ -1,0 +1,47 @@
+{
+	name: "〝城塞落とし〟のルディオ・ディル",
+	cardno: 10615,
+	imageno: 9832,
+	hp: 2524,
+	atk: 8076,
+	cost: 56,
+	attr: [1,-1],
+	species: [8],
+	islegend: true,
+	ape: "魔轟三鉄傑 対 地獄三十六歌仙",
+	as1: {
+		desc: "<属性特効連撃>味方のMAXHP10%を使い、火属性の敵単体へ特効5連撃(850%)",
+		proc: add_cond(ChainDualAttrAttack(8.5, 0, 5, [1,0,0,0,0]), as_consume_all(0.1)),
+	},
+	ss1: {
+		desc: "<自己犠牲魔術>スキル反射を無視し、MAXHPの50%を使い敵単体へダメージ(2000%)",
+		turn: 7,
+		proc: [ss_damage_s(20, [1], 1), ss_consume_own(0.5), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Attr_statusup_oattr(400,0, [0,1,0,0,0,]),
+		Attr_statusup_oattr(0,400, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		NEFTJOD(30),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		Fastskill(1),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],4),
+		Abstate_invalid("ss_sealed"),
+		Fastskill(2),
+	],
+	as2: {
+		desc: "<属性特効連撃>味方のMAXHP10%を使い、火属性の敵単体へ特効5連撃(950%)",
+		proc: add_cond(ChainDualAttrAttack(9.5, 0, 5, [1,0,0,0,0]), as_consume_all(0.1)),
+	},
+	ss2: {
+		desc: "<自己犠牲魔術>スキル反射を無視し、MAXHPの50%を使い敵単体へダメージ(2400%)",
+		turn: 9,
+		proc: [ss_damage_s(24, [1], 1), ss_consume_own(0.5), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(500,0),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit"]),
+	],
+}

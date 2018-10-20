@@ -1,0 +1,46 @@
+{
+	name: "権謀術策 アルミン・アルレルト",
+	cardno: 9967,
+	imageno: 12316,
+	hp: 6032,
+	atk: 2018,
+	cost: 40,
+	attr: [1,-1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(進撃の巨人)",
+	as1: {
+		desc: "<回復>水属性の味方のHPを回復(13%)",
+		proc: Heal(0.13, [0,1,0,0,0], 0),
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルを水属性化",
+		turn: 2,
+		proc: [ss_panel_change([0,1,0,0,0])],
+	},
+	as2: {
+		desc: "<回復>水属性の味方のHPを回復(16%)",
+		proc: Heal(0.16, [0,1,0,0,0], 0),
+	},
+	ss2: {
+		desc: "<パネル変換>ジャンルパネルを水属性化し、回復の効果を付与(10%)",
+		turn: 5,
+		proc: [ss_panel_change([0,1,0,0,0]), panel_healally(0.1)],
+	},
+	awakes: [
+		Fastskill(1),
+		Attr_statusup(0,400,[0,1,0,0,0,]),
+		NEFTJOD(30),
+		Fastskill(1),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(400,0,[0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup_oattr(0,400,[0,1,0,0,0,]),
+		Attr_statusup_oattr(400,0,[0,1,0,0,0,]),
+		Abstate_invalid("ss_sealed"),
+	],
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

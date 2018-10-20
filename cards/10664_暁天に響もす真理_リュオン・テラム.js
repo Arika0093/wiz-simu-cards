@@ -1,0 +1,47 @@
+{
+	name: "暁天に響もす真理 リュオン・テラム",
+	cardno: 10664,
+	imageno: 13108,
+	imageno_prefix: "u8DCdL_",
+	hp: 3015,
+	atk: 7389,
+	cost: 55,
+	attr: [1,-1],
+	species: [8],
+	islegend: true,
+	ape: "Birth of New Order 2",
+	as1: {
+		desc: "<チェイン攻撃>20チェインでダメージアップ(1600%)、40チェインでさらにダメージアップ(1500%)",
+		proc: [ChainAttack(16.0, 20), ChainAttack(31.0, 40)],
+	},
+	ss1: {
+		desc: "<斬撃大魔術>スキル反射を無視し、水属性の10連撃(400%)、さらに連撃数分チェインプラス",
+		turn: 6,
+		proc: [ss_damage_slash(4.0, [1], 10), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Awake_secondfast(2),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_relief([0,1,0,0,0,],10),
+		Awake_secondfast(2),
+		Attr_statusup_oattr(0,400, [0,1,0,0,0,]),
+		Attr_statusup_oattr(400,0, [0,1,0,0,0,]),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<チェイン攻撃>20チェインでダメージアップ(1700%)、40チェインでさらにダメージアップ(1500%)",
+		proc: [ChainAttack(17.0, 20), ChainAttack(32.0, 40)],
+	},
+	ss2: {
+		desc: "<斬撃大魔術>スキル反射を無視し、水属性の10連撃(400%)、さらに連撃数分チェインプラス",
+		turn: 6,
+		proc: [ss_damage_slash(4.0, [1], 10), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1500),
+		Statusup(500,0),
+	],
+}

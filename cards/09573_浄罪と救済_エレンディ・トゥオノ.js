@@ -1,0 +1,47 @@
+{
+	name: "浄罪と救済 エレンディ・トゥオノ",
+	cardno: 9573,
+	imageno: 11841,
+	hp: 2555,
+	atk: 6502,
+	cost: 46,
+	attr: [0,-1],
+	species: [9],
+	islegend: true,
+	ape: "大魔道杯 in エステレラ",
+	is_dist: true,
+	as1: {
+		desc: "<連撃>敵単体を6回連続攻撃(200%)、解答が早いほどさらにアップ(70%)、(上限:4段階)",
+		proc: add_cond(ChainDualAttack(2.0, 0, 6), as_timedep(0.7)),
+	},
+	ss1: {
+		desc: "<炸裂大魔術>スキル反射を無視し、敵単体へ火属性のダメージ(650%)、さらに隣接する敵に火属性のダメージ(650%)",
+		turn: 5,
+		proc: [ss_damage_explosion(6.5, [0]), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Costdown(10),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_oattr(0,300, [1,0,0,0,0,]),
+		Attr_statusup_oattr(300,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(2),
+		NEFTJOD(30),
+		Attr_statusup(0,300, [1,0,0,0,0,]),
+		Attr_statusup(300,0, [1,0,0,0,0,]),
+		Awake_noeffect("経験値取得量アップ",1),
+	],
+	as2: {
+		desc: "<連撃>敵単体を6回連続攻撃(300%)、解答が早いほどさらにアップ(70%)、(上限:4段階)",
+		proc: add_cond(ChainDualAttack(3.0, 0, 6), as_timedep(0.7)),
+	},
+	ss2: {
+		desc: "<炸裂大魔術>スキル反射を無視し、敵単体へ火属性のダメージ(850%)、さらに隣接する敵に火属性のダメージ(850%)",
+		turn: 7,
+		proc: [ss_damage_explosion(8.5, [0]), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(500,0),
+	],
+}

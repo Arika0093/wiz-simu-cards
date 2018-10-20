@@ -1,0 +1,48 @@
+{
+	name: "巡る幸い サンセット=リフィル",
+	cardno: 10559,
+	imageno: 12984,
+	imageno_prefix: "Sn7Mvk_",
+	hp: 3115,
+	atk: 3124,
+	cost: 49,
+	attr: [2,3],
+	species: [9],
+	islegend: true,
+	ape: "黒ウィズダンジョン2",
+	is_dist: true,
+	as1: {
+		desc: "<回復>雷属性の味方のHPを回復(12%)",
+		proc: Heal(0.12, [0,0,1,0,0], 0),
+	},
+	ss1: {
+		desc: "<蓄積解放大魔術・聖>スキル反射を無視し、敵全体へ光属性のダメージ(100%)、さらにクエスト中の累積回復量に応じてダメージアップ(上限値:15万回復で3000%)",
+		turn: 10,
+		proc: [ss_accumulateDamageOfHeal_all(30.0, 150000, [3]), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		NEFTJOD(30),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Abstate_invalid("ss_sealed"),
+		Fastskill(5),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<回復>雷属性の味方のHPを回復(15%)",
+		proc: Heal(0.15, [0,0,1,0,0], 0),
+	},
+	ss2: {
+		desc: "<蓄積解放大魔術・聖>スキル反射を無視し、敵全体へ光属性のダメージ(100%)、さらにクエスト中の累積回復量に応じてダメージアップ(上限値:15万回復で3000%)",
+		turn: 10,
+		proc: [ss_accumulateDamageOfHeal_all(30.0, 150000, [3]), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(1000,0),
+		Statusup(0,1000),
+	],
+}

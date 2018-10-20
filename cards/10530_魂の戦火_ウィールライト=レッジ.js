@@ -1,0 +1,47 @@
+{
+	name: "魂の戦火 ウィールライト=レッジ",
+	cardno: 10530,
+	imageno: 9364,
+	hp: 3563,
+	atk: 4100,
+	cost: 61,
+	attr: [2,0],
+	species: [8],
+	islegend: true,
+	ape: "黄昏メアレスⅡ",
+	as1: {
+		desc: "<連撃>10チェインで敵単体を4回連続攻撃(900%)、20チェインで更にダメージアップ(700%)",
+		proc: [ChainDualAttack(9.0, 10, 4), ChainDualAttack(16.0, 20, 4)],
+	},
+	ss1: {
+		desc: "<多弾魔術>スキル反射を無視し、敵単体へ火・雷属性の4回連続ダメージ(280%)、平均解答時間が早いほどさらに1回連続ダメージ(上限:4段階)",
+		turn: 5,
+		proc: [ss_damage_s(ss_answertime(2.8, 0.7), [2,0], ss_answertime(4, 1)), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],4),
+		Attr_statusup(0,200, [1,0,1,0,0,]),
+		Attr_statusup(200,0, [1,0,1,0,0,]),
+		Abstate_invalid("all_sealed"),
+		NEFTJOD(30),
+		Attr_relief([1,1,1,1,1,],10),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit"]),
+		Fastskill(4),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+	],
+	as2: {
+		desc: "<連撃>10チェインで敵単体を4回連続攻撃(1000%)、20チェインで更にダメージアップ(700%)",
+		proc: [ChainDualAttack(10.0, 10, 4), ChainDualAttack(17.0, 20, 4)],
+	},
+	ss2: {
+		desc: "<多弾魔術>スキル反射を無視し、敵単体へ火・雷属性の4回連続ダメージ(540%)、平均解答時間が早いほどさらに1回連続ダメージ(上限:4段階)",
+		turn: 8,
+		proc: [ss_damage_s(ss_answertime(5.4, 1.35), [2,0], ss_answertime(4, 1)), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Attr_statusup(0,100, [1,0,1,0,0,]),
+		Statusup(500,0),
+	],
+}

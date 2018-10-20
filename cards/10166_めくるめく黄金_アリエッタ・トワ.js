@@ -1,0 +1,46 @@
+{
+	name: "めくるめく黄金 アリエッタ・トワ",
+	cardno: 10166,
+	imageno: 10444,
+	hp: 2465,
+	atk: 7615,
+	cost: 53,
+	attr: [1,-1],
+	species: [9],
+	islegend: true,
+	ape: "GW2017",
+	as1: {
+		desc: "<属性特効>4チェインで火属性の敵単体へ特効ダメージ(450%)、デッキに単色の精霊が多いほど、さらにダメージアップ(120%)（上限:5段階)",
+		proc: add_cond(ChainAttrAttack(4.5, 4, [1,0,0,0,0]), as_singleattr_num(0, 1.2)),
+	},
+	ss1: {
+		desc: "<純属性大魔術>スキル反射を無視し、敵全体へ水属性のダメージ、水単色の精霊が多いほどダメージアップ(上限値:1500%)",
+		turn: 7,
+		proc: [ss_damage_all(ss_pureattr_cond(15), [1]), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],4),
+		NEFTJOD(30),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup_oattr(0, 400, [0,1,0,0,0]),
+		Abstate_invalid("heal_reverse"),
+		Fastskill(3),
+		Attr_statusup_oattr(400, 0, [0,1,0,0,0]),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit", "all_sealed"]),
+	],
+	as2: {
+		desc: "<属性特効>4チェインで火属性の敵単体へ特効ダメージ(550%)、デッキに単色の精霊が多いほど、さらにダメージアップ(120%)（上限:5段階)",
+		proc: add_cond(ChainAttrAttack(5.5, 4, [1,0,0,0,0]), as_singleattr_num(0, 1.2)),
+	},
+	ss2: {
+		desc: "<純属性大魔術>スキル反射を無視し、敵全体へ水属性のダメージ、水単色の精霊が多いほどダメージアップ(上限値:1800%)",
+		turn: 10,
+		proc: [ss_damage_all(ss_pureattr_cond(18), [1]), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+	],
+}

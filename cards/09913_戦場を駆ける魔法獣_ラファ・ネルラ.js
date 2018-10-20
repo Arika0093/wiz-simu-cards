@@ -1,0 +1,47 @@
+{
+	name: "戦場を駆ける魔法獣 ラファ・ネルラ",
+	cardno: 9913,
+	imageno: 7943,
+	hp: 3450,
+	atk: 3249,
+	cost: 52,
+	attr: [1,2],
+	species: [5],
+	islegend: true,
+	is_dist: true,
+	ape: "大魔道杯 in 覇眼戦線",
+	as1: {
+		desc: "<複属性攻撃強化>4チェインで水属性の攻撃力をアップ(10%)、複属性が雷属性だとさらにアップ(110%)",
+		proc: ChainEnhance_SubAttr(0.1, 1.2, [0, 1, 0, 0, 0], [0, 0, 1, 0, 0], 4),
+	},
+	as2: {
+		desc: "<複属性攻撃強化>4チェインで水属性の攻撃力をアップ(40%)、複属性が雷属性だとさらにアップ(110%)",
+		proc: ChainEnhance_SubAttr(0.4, 1.5, [0, 1, 0, 0, 0], [0, 0, 1, 0, 0], 4),
+	},
+	ss1: {
+		desc: "<ダメージ強化>3ターンの間、味方の攻撃力をアップ(100%)、10チェインを消費しさらにアップ(100%)",
+		turn: 7,
+		proc: [ss_chain_cost_skill(10, ss_enhance_all(2.0, 3, [1,1,1,1,1]), ss_enhance_all(1.0, 3, [1,1,1,1,1]))],
+	},
+	ss2: {
+		desc: "<ダメージ強化>4ターンの間、味方の攻撃力をアップ(150%)、10チェインを消費しさらにアップ(150%)",
+		turn: 10,
+		proc: [ss_chain_cost_skill(10, ss_enhance_all(3.0, 4, [1,1,1,1,1]), ss_enhance_all(1.4, 4, [1,1,1,1,1]))],
+	},
+	awakes: [
+		Attr_statusup_sattr(0,100,[0,1,0,0,0,],0,300,[0,0,1,0,0,]),
+		Attr_statusup_sattr(100,0,[0,1,0,0,0,],300,0,[0,0,1,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(1),
+		Panel_boost([0,1,0,0,0,],2),
+		NEFTJOD(30),
+		Attr_statusup(200,0,[0,1,1,0,0,]),
+		Fastskill(2),
+		Attr_statusup(0,200,[0,1,1,0,0,]),
+		Abstate_invalid("as_sealed"),
+	],
+	Lawake: [
+		Attr_statusup(0,200,[0,1,1,0,0,]),
+		Attr_statusup(200,0,[0,1,1,0,0,]),
+	],
+}

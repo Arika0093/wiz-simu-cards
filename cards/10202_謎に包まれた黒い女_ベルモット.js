@@ -1,0 +1,46 @@
+{
+	name: "謎に包まれた黒い女 ベルモット",
+	cardno: 10202,
+	imageno: 6956,
+	hp: 5608,
+	atk: 2392,
+	cost: 58,
+	attr: [2,4],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(コナン)",
+	as1: {
+		desc: "<回復>雷属性の味方を回復(12%)、HP50%以下なら更に回復(10%)",
+		proc: [Heal(0.12, [0,0,1,0,0], 0), add_cond(Heal(0.22, [0,0,1,0,0], 0), when_hp_less(0.5))],
+	},
+	ss1: {
+		desc: "<毒>4ターン敵全体に毒のダメージを与える(5000)",
+		turn: 5,
+		proc: [poison(5000, 4)],
+	},
+	awakes: [
+		Fastskill(2),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Abstate_invalid("as_sealed"),
+		Attr_statusup_subattr(0, 500),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Heal_afterbattle(10),
+		Attr_statusup_subattr(500, 0),
+		Fastskill(2),
+	],
+	as2: {
+		desc: "<回復>雷属性の味方を回復(14%)、HP50%以下なら更に回復(10%)",
+		proc: [Heal(0.14, [0,0,1,0,0], 0), add_cond(Heal(0.24, [0,0,1,0,0], 0), when_hp_less(0.5))],
+	},
+	ss2: {
+		desc: "<毒>スキル反射を無視し、8ターン敵全体に毒のダメージを与える(55000)",
+		turn: 9,
+		proc: [poison(55000, 8), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(500,0),
+		Attr_statusup(0,300, [0,0,1,0,0,]),
+	],
+}

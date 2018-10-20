@@ -1,0 +1,46 @@
+{
+	name: "闇を討つ銀の弾丸 赤井秀一",
+	cardno: 10204,
+	imageno: 6962,
+	hp: 2664,
+	atk: 7232,
+	cost: 51,
+	attr: [0,-1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(コナン)",
+	as1: {
+		desc: "<種族特効>3チェインでダメージアップ(300%)、術士・戦士の敵へさらにダメージアップ(400%)",
+		proc: [ChainAttack(3.0, 3), ChainSpecAttack(7.0, 3, [8,9])],
+	},
+	ss1: {
+		desc: "<炸裂大魔術>スキル反射を無視し、敵単体へ火属性のダメージ(700%)、さらに隣接する敵に火属性のダメージ(150%)",
+		turn: 4,
+		proc: [ss_undefined("炸裂大魔術(隣接威力変動)")],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(1),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Abstate_invalid("as_sealed"),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		NEFTJOD(30),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(2),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+	],
+	as2: {
+		desc: "<種族特効>3チェインでダメージアップ(400%)、術士・戦士の敵へさらにダメージアップ(400%)",
+		proc: [ChainAttack(4.0, 3), ChainSpecAttack(8.0, 3, [8,9])],
+	},
+	ss2: {
+		desc: "<炸裂大魔術>スキル反射を無視し、敵単体へ火属性のダメージ(1000%)、さらに隣接する敵に火属性のダメージ(150%)",
+		turn: 7,
+		proc: [ss_undefined("炸裂大魔術(隣接威力変動)")],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+	],
+}

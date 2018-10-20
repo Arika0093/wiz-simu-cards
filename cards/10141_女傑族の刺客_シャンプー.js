@@ -1,0 +1,47 @@
+{
+	name: "女傑族の刺客 シャンプー",
+	cardno: 10141,
+	imageno: 12500,
+	imageno_prefix: "q3Md5V_",
+	hp: 2281,
+	atk: 4101,
+	cost: 53,
+	attr: [0,1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(高橋留美子)",
+	as1: {
+		desc: "<チェイン攻撃>3チェインでダメージアップ(350%)、パネルの色が増す度ダメージアップ(100%、250%)",
+		proc: ChainPanelsAttack(3.5, 4.5, 6.0, 3),
+	},
+	ss1: {
+		desc: "<多弾魔術>スキル反射を無視し、敵単体へ火・水属性の5回連続ダメージ(350%)",
+		turn: 5,
+		proc: [ss_damage_s(3.5, [0, 1], 5), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Fastskill(1),
+		Panel_boost([1,0,0,0,0,],1),
+		Costdown(20),
+		Fastskill(2),
+		Panel_boost([1,0,0,0,0,],2),
+		Awake_noeffect("経験値取得量アップ",2),
+		Spec_statusup(300,0, [8,]),
+		Spec_statusup(0,300, [8,]),
+	],
+	as2: {
+		desc: "<チェイン攻撃>3チェインでダメージアップ(450%)、パネルの色が増す度ダメージアップ(100%、250%)",
+		proc: ChainPanelsAttack(4.5, 5.5, 7.0, 3),
+	},
+	ss2: {
+		desc: "<多弾魔術>スキル反射を無視し、敵単体へ火・水属性の5回連続ダメージ(650%)",
+		turn: 8,
+		proc: [ss_damage_s(6.5, [0, 1], 5), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

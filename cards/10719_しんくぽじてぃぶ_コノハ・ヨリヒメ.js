@@ -1,0 +1,47 @@
+{
+	name: "しんくぽじてぃぶ コノハ・ヨリヒメ",
+	cardno: 10719,
+	imageno: 13168,
+	imageno_prefix: "W4ripe_",
+	hp: 3005,
+	atk: 6799,
+	cost: 51,
+	attr: [0,-1],
+	species: [9],
+	islegend: true,
+	ape: "八百八町",
+	as1: {
+		desc: "<チェイン攻撃>20チェインでダメージアップ(1600%)、40チェインでさらにダメージアップ(1500%)",
+		proc: [ChainAttack(16.0, 20), ChainAttack(31.0, 40)],
+	},
+	ss1: {
+		desc: "<斬撃大魔術>スキル反射を無視し、火属性の10連撃(400%)、さらに連撃数分チェインプラス",
+		turn: 6,
+		proc: [ss_damage_slash(4.0, [0], 10), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Awake_secondfast(2),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_relief([1,0,0,0,0,],10),
+		Awake_secondfast(2),
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<チェイン攻撃>20チェインでダメージアップ(1700%)、40チェインでさらにダメージアップ(1500%)",
+		proc: [ChainAttack(17.0, 20), ChainAttack(32.0, 40)],
+	},
+	ss2: {
+		desc: "<斬撃大魔術>スキル反射を無視し、火属性の10連撃(400%)、さらに連撃数分チェインプラス",
+		turn: 6,
+		proc: [ss_damage_slash(4.0, [0], 10), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1500),
+		Statusup(500,0),
+	],
+}

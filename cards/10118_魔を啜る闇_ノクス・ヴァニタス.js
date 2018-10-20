@@ -1,0 +1,45 @@
+{
+	name: "魔を啜る闇 ノクス・ヴァニタス",
+	cardno: 10118,
+	imageno: 12477,
+	hp: 2755,
+	atk: 4256,
+	cost: 58,
+	attr: [2,4],
+	species: [2],
+	islegend: true,
+	ape: "MARELESS 夢現の蝶",
+	as1: {
+		desc: "<連撃>4チェインで敵単体を4回連続攻撃(250%)、デッキ内の精霊が持つ属性数が多いほどさらにアップ(60%)(上限:5段階)",
+		proc: add_cond(ChainDualAttack(2.5, 4, 4), as_deckinattr_num(0, 0.6)),
+	},
+	ss1: {
+		desc: "<融合大魔術>スキル反射を無視し、敵単体へ雷属性のダメージ、デッキ内の精霊が持つ属性数が多いほどダメージアップ(上限値:5属性で6000%)",
+		turn: 7,
+		proc: [ss_damage_s(ss_multiattr_cond(60), [2], 1), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],2),
+		NEFTJOD(30),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_relief([1,1,1,1,1,],20),
+		Fastskill(3),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Awake_noeffect("アンサーリセット",1),
+	],
+	as2: {
+		desc: "<連撃>4チェインで敵単体を4回連続攻撃(350%)、デッキ内の精霊が持つ属性数が多いほどさらにアップ(60%)(上限:5段階)",
+		proc: add_cond(ChainDualAttack(3.5, 4, 4), as_deckinattr_num(0, 0.6)),
+	},
+	ss2: {
+		desc: "<融合大魔術>スキル反射を無視し、敵単体へ雷属性のダメージ、デッキ内の精霊が持つ属性数が多いほどダメージアップ(上限値:5属性で7200%)",
+		turn: 10,
+		proc: [ss_damage_s(ss_multiattr_cond(72), [2], 1), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,2000),
+	],
+}

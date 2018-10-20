@@ -1,0 +1,47 @@
+{
+	name: "心身を踏みにじる レモネヱドウジ",
+	cardno: 10731,
+	imageno: 13180,
+	imageno_prefix: "W4ripe_",
+	hp: 2045,
+	atk: 6090,
+	cost: 40,
+	attr: [2,-1],
+	species: [5],
+	islegend: true,
+	ape: "八百八町",
+	is_dist: true,
+	as1: {
+		desc: "<属性特効>水属性の敵単体へ特効ダメージ(300%)、解答が早いほどさらにアップ(60%)(上限:4段階)",
+		proc: add_cond(ChainAttrAttack(3.0, 0, [0,1,0,0,0]), as_timedep(0.6)),
+	},
+	ss1: {
+		desc: "<ブースト>味方のMAXHP70%と毎ターン15%を使い、5ターンの間、味方の攻撃力をアップ(150%)。さらに極稀にクリティカル",
+		turn: 7,
+		proc: [ss_boost_enhance_all(1.5, 5, 0.15, [1,1,1,1,1]), ss_consume_all(0.7)],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],1),
+		Attr_statusup_oattr(0,200, [0,0,1,0,0,]),
+		Attr_statusup_oattr(0,200, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		NEFTJOD(30),
+		Awake_noeffect("経験値取得量アップ",1),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup(0,300, [0,0,1,0,0,]),
+		Attr_statusup(300,0, [0,0,1,0,0,]),
+		Fastskill(3),
+	],
+	as2: {
+		desc: "<属性特効>水属性の敵単体へ特効ダメージ(400%)、解答が早いほどさらにアップ(60%)(上限:4段階)",
+		proc: add_cond(ChainAttrAttack(4.0, 0, [0,1,0,0,0]), as_timedep(0.6)),
+	},
+	ss2: {
+		desc: "<ブースト>味方のMAXHP70%と毎ターン15%を使い、5ターンの間、味方の攻撃力をアップ(200%)。さらに極稀にクリティカル",
+		turn: 11,
+		proc: [ss_boost_enhance_all(2.0, 5, 0.15, [1,1,1,1,1]), ss_consume_all(0.7)],
+	},
+	Lawake: [
+		Attr_statusup_oattr(0,300, [0,0,1,0,0,]),
+	],
+}

@@ -1,0 +1,47 @@
+{
+	name: "反逆の老戦士 イーロス・ハガー",
+	cardno: 9996,
+	imageno: 12345,
+	hp: 4775,
+	atk: 1818,
+	cost: 47,
+	attr: [1,4],
+	species: [8],
+	islegend: true,
+	ape: "Birth of New Order",
+	is_dist: true,
+	as1: {
+		desc: "<回復>水属性の味方のHPを回復(13%)",
+		proc: Heal(0.13, [0,1,0,0,0], 0),
+	},
+	ss1: {
+		desc: "<割合削り>スキル反射を無視し、敵単体のHPを10%減少させる",
+		turn: 12,
+		proc: [ss_ratiodamage_s(0.1), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_relief([1,1,1,1,1,],10),
+		Awake_secondfast(4),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit"]),
+		Attr_statusup_sattr(0,100, [0,1,0,0,0,], 0,200, [0,0,0,0,1,]),
+		Attr_statusup_sattr(100,0, [0,1,0,0,0,], 200,0, [0,0,0,0,1,]),
+		Awake_secondfast(4),
+	],
+	as2: {
+		desc: "<回復>水属性の味方のHPを回復(16%)",
+		proc: Heal(0.16, [0,1,0,0,0], 0),
+	},
+	ss2: {
+		desc: "<割合削り>スキル反射を無視し、敵単体のHPを10%減少させる",
+		turn: 12,
+		proc: [ss_ratiodamage_s(0.1), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		NEFTJOD(30),
+	],
+}

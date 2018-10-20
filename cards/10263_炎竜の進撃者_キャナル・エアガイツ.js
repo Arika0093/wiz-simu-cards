@@ -1,0 +1,46 @@
+{
+	name: "炎竜の進撃者 キャナル・エアガイツ",
+	cardno: 10263,
+	imageno: 6478,
+	hp: 2763,
+	atk: 9002,
+	cost: 63,
+	attr: [0,-1],
+	species: [0],
+	islegend: true,
+	ape: "ドルキマスⅠ",
+	as1: {
+		desc: "<属性特効>10チェインで雷属性の敵単体へ特効ダメージ(750%)、デッキに単色の精霊が多いほど、さらにダメージアップ(180%)(上限:5段階)",
+		proc: add_cond(ChainAttrAttack(7.5, 10, [0,0,1,0,0]), as_singleattr_num(0, 1.8)),
+	},
+	ss1: {
+		desc: "<犠牲魔術>スキル反射を無視し、味方全体のMAXHPの50%を使い敵全体へ火属性のダメージ(精霊数×300%)",
+		turn: 8,
+		proc: [ss_damage_all(ss_consume_all_cond(3.0, 0.5), [0]), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Costdown(20),
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],4),
+		NEFTJOD(60),
+		Fastskill(4),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Awake_Chainboost(1),
+		Abstate_invalid("as_sealed"),
+	],
+	as2: {
+		desc: "<属性特効>10チェインで雷属性の敵単体へ特効ダメージ(850%)、デッキに単色の精霊が多いほど、さらにダメージアップ(180%)(上限:5段階)",
+		proc: add_cond(ChainAttrAttack(8.5, 10, [0,0,1,0,0]), as_singleattr_num(0, 1.8)),
+	},
+	ss2: {
+		desc: "<犠牲魔術>スキル反射を無視し、味方全体のMAXHPの50%を使い敵全体へ火属性のダメージ(精霊数×340%)",
+		turn: 10,
+		proc: [ss_damage_all(ss_consume_all_cond(3.4, 0.5), [0]), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1500),
+		Statusup(500,0),
+	],
+}

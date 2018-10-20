@@ -1,0 +1,46 @@
+{
+	name: "恋物語の行く末は… 高木&佐藤",
+	cardno: 10209,
+	imageno: 6977,
+	hp: 3312,
+	atk: 4824,
+	cost: 40,
+	attr: [0,-1],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(コナン)",
+	as1: {
+		desc: "<チェイン攻撃>5チェインでダメージアップ(450%)",
+		proc: ChainAttack(4.5, 5),
+	},
+	ss1: {
+		desc: "<カウンター>3ターンの間、スキルカウンター待機、HP20%以下でさらにカウンター時、ダメージアップ(400%)",
+		turn: 7,
+		proc: [ss_skillcounter(1.0, 3), ss_hp_less_skill(0.2, ss_skillcounter(4.0, 3))],
+	},
+	awakes: [
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Fastskill(1),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		NEFTJOD(30),
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(2),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		NEFTJOD(30),
+	],
+	as2: {
+		desc: "<チェイン攻撃>5チェインでダメージアップ(550%)",
+		proc: ChainAttack(5.5, 5),
+	},
+	ss2: {
+		desc: "<カウンター>5ターンの間、スキルカウンター待機、HP20%以下でさらにカウンター時、ダメージアップ(400%)",
+		turn: 10,
+		proc: [ss_skillcounter(1.0, 5), ss_hp_less_skill(0.2, ss_skillcounter(4.0, 5))],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

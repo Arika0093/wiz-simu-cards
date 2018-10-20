@@ -1,0 +1,47 @@
+{
+	name: "儚き夢の爪痕 ダイトメア＝ラギト",
+	cardno: 10329,
+	imageno: 7648,
+	hp: 3208,
+	atk: 4501,
+	cost: 63,
+	attr: [0,4],
+	species: [8],
+	islegend: true,
+	ape: "黄昏メアレスⅠ",
+	as1: {
+		desc: "<属性特効>4チェインで雷・光属性の敵単体へ特効ダメージ(600%)、HP20%以下でさらにダメージアップ(1500%)",
+		proc: [ChainAttrAttack(6.0, 4, [0, 0, 1, 1, 0]), add_cond(ChainAttrAttack(21, 4, [0, 0, 1, 1, 0]), when_hp_less(0.2))],
+	},
+	ss1: {
+		desc: "<スキルチャージ&遅延>スペシャルスキルの発動ターンを2早め、敵単体の攻撃ターンを2遅らせる",
+		turn: 9,
+		proc: [ss_skillboost(2), ss_delay_s(2)],
+	},
+	as2: {
+		desc: "<属性特効>4チェインで雷・光属性の敵単体へ特効ダメージ(700%)、HP20%以下でさらにダメージアップ(1500%)",
+		proc: [ChainAttrAttack(7.0, 4, [0, 0, 1, 1, 0]), add_cond(ChainAttrAttack(22, 4, [0, 0, 1, 1, 0]), when_hp_less(0.2))],
+	},
+	ss2: {
+		desc: "<スキルチャージ&遅延>スペシャルスキルの発動ターンを4早め、敵単体の攻撃ターンを3遅らせる",
+		turn: 12,
+		proc: [ss_skillboost(4), ss_delay_s(3)],
+	},
+	awakes: [
+		Costdown(20),
+		Attr_statusup(0,200,[1,0,0,0,0,]),
+		Attr_statusup(200,0,[1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],4),
+		NEFTJOD(60),
+		Fastskill(2),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Fastskill(2),
+		Abstate_invalid("discharge"),
+	],
+	Lawake: [
+		Statusup(500,0),
+		Statusup(0,1000),
+		Abstate_invalid("ss_sealed"),
+	],
+}

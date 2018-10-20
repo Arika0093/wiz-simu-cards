@@ -1,0 +1,47 @@
+{
+	name: "GZアイドル リルム・ロロット",
+	cardno: 10032,
+	imageno: 12386,
+	hp: 2715,
+	atk: 7321,
+	cost: 52,
+	attr: [0,-1],
+	species: [9],
+	alias: ["デバフ", "巨乳"],
+	islegend: true,
+	ape: "アイドルキャッツ2",
+	as1: {
+		desc: "<全体攻撃>敵全体へダメージ(120%)、デッキに単色の精霊が多いほど、さらにダメージアップ(20%)（上限:5段階)",
+		proc: [add_cond(ChainAllAttack(1.2, 0), as_singleattr_num(0, 0.2))],
+	},
+	ss1: {
+		desc: "<スキルチャージ>味方一人のスペシャルスキルの発動ターンを1早める",
+		turn: 5,
+		proc: [ss_toselect_one(ss_skillboost(1))],
+	},
+	as2: {
+		desc: "<全体攻撃>敵全体へダメージ(150%)、デッキに単色の精霊が多いほど、さらにダメージアップ(20%)（上限:5段階)",
+		proc: [add_cond(ChainAllAttack(1.5, 0), as_singleattr_num(0, 0.2))],
+	},
+	ss2: {
+		desc: "<スキルチャージ>味方一人のスペシャルスキルの発動ターンを4早める",
+		turn: 8,
+		proc: [ss_toselect_one(ss_skillboost(4))],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_oattr(0,400,[1,0,0,0,0,]),
+		Attr_statusup_oattr(400,0,[1,0,0,0,0,]),
+		NEFTJOD(30),
+		Attr_relief([0,0,1,0,0,],20),
+		Fastskill(5),
+		Attr_statusup(0,400,[1,0,0,0,0,]),
+		Attr_statusup(400,0,[1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Abstate_invalid("discharge"),
+	],
+	Lawake: [
+		Attr_statusup(0,200,[1,0,0,0,0,]),
+		Statusup(0,1000),
+	],
+}

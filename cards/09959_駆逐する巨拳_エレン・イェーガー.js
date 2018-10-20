@@ -1,0 +1,46 @@
+{
+	name: "駆逐する巨拳 エレン・イェーガー",
+	cardno: 9959,
+	imageno: 12308,
+	hp: 2813,
+	atk: 3864,
+	cost: 54,
+	attr: [2,0],
+	species: [5],
+	islegend: true,
+	ape: "コラボ(進撃の巨人)",
+	as1: {
+		desc: "<チェイン攻撃>3チェインでダメージアップ(300%)、HP80%以上でさらにダメージアップ(150%)",
+		proc: [ChainAttack(3.0, 3), add_cond(ChainAttack(4.5, 3), when_hp_more(0.8))],
+	},
+	ss1: {
+		desc: "<詠唱多弾大魔術>スキル反射を無視し、クイズに正解した数だけ敵単体へ雷・火属性で交互に連続ダメージ(140%)(上限:10段階)",
+		turn: 7,
+		proc: [ss_undefined("詠唱多弾大魔術")],
+	},
+	as2: {
+		desc: "<チェイン攻撃>3チェインでダメージアップ(400%)、HP80%以上でさらにダメージアップ(150%)",
+		proc: [ChainAttack(4.0, 3), add_cond(ChainAttack(5.5, 3), when_hp_more(0.8))],
+	},
+	ss2: {
+		desc: "<詠唱多弾大魔術>スキル反射を無視し、クイズに正解した数だけ敵単体へ雷・火属性で交互に連続ダメージ(200%)(上限:10段階)",
+		turn: 10,
+		proc: [ss_undefined("詠唱多弾大魔術")],
+	},
+	awakes: [
+		Attr_statusup(200,0,[1,0,1,0,0,]),
+		Attr_statusup(0,200,[1,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Attr_statusup_sattr(0,100,[0,0,1,0,0,],0,300,[1,0,0,0,0,]),
+		Costdown(20),
+		NEFTJOD(60),
+		Attr_statusup_sattr(100,0,[0,0,1,0,0,],300,0,[1,0,0,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		Fastskill(3),
+		Attr_relief([1,1,1,1,1,],10),
+	],
+	Lawake: [
+		Statusup(0,1500),
+		Statusup(500,0),
+	],
+}

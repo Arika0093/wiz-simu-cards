@@ -1,0 +1,48 @@
+{
+	name: "激輪双旋 ウィールライト＝レッジ",
+	cardno: 10077,
+	imageno: 12435,
+	imageno_prefix: "Ut5EsG_",
+	hp: 3005,
+	atk: 3895,
+	cost: 56,
+	attr: [0,1],
+	species: [8],
+	islegend: true,
+	ape: "黄昏メアレスⅣ",
+	as1: {
+		desc: "<連撃・複属性攻撃強化>敵単体を3回連続攻撃(250%)、さらに火属性の攻撃力をアップ(10%)、複属性が水属性だとさらにアップ(30%)",
+		proc: [ChainDualAttack(2.5, 0, 3), ChainEnhance_SubAttr(0.1, 0.4, [1,0,0,0,0], [0,1,0,0,0], 0)],
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルを火・水属性化",
+		turn: 3,
+		proc: [ss_panel_change([1,1,0,0,0])],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_sattr(0,200, [1,0,0,0,0,], 0,100, [0,1,0,0,0,]),
+		Attr_statusup_sattr(200,0, [1,0,0,0,0,], 100,0, [0,1,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Fastskill(1),
+		Attr_statusup_sattr(0,100, [1,0,0,0,0,], 0,300, [0,1,0,0,0,]),
+		Attr_statusup_sattr(100,0, [1,0,0,0,0,], 300,0, [0,1,0,0,0,]),
+		Fastskill(2),
+		NEFTJOD(30),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<連撃・複属性攻撃強化>敵単体を3回連続攻撃(350%)、さらに火属性の攻撃力をアップ(10%)、複属性が水属性だとさらにアップ(30%)",
+		proc: [ChainDualAttack(3.5, 0, 3), ChainEnhance_SubAttr(0.1, 0.4, [1,0,0,0,0], [0,1,0,0,0], 0)],
+	},
+	ss2: {
+		desc: "<統一パネル変換>ジャンルパネルを火・水属性化し、攻撃力アップの効果を付与、〈主属性:火、複属性:水〉の精霊が多いほどさらに効果値アップ(400%)",
+		turn: 7,
+		proc: [ss_panel_change([1,1,0,0,0]), panel_attackup(ss_matchattr_cond(4.0, [1,0,0,0,0], [0,1,0,0,0]))],
+	},
+	Lawake: [
+		Abstate_invalid("discharge"),
+		Statusup(0,1000),
+		Statusup(500,0),
+	],
+}

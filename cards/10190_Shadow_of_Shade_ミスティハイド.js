@@ -1,0 +1,46 @@
+{
+	name: "Shadow of Shade ミスティハイド",
+	cardno: 10190,
+	imageno: 10184,
+	hp: 5865,
+	atk: 3875,
+	cost: 50,
+	attr: [0,-1],
+	species: [8],
+	islegend: true,
+	ape: "クロスディライブ",
+	as1: {
+		desc: "<回復>味方全体のHPを回復、HP50%以下なら更に回復(12%/22%)",
+		proc: [Heal(0.12, [1,1,1,1,1], 0), add_cond(Heal(0.22, [1,1,1,1,1], 0), when_hp_less(0.50))],
+	},
+	ss1: {
+		desc: "<弱体化大魔術>スキル反射を無視し、敵単体へ火属性のダメージ(1200%)、さらに3ターンの間、敵の防御力を弱体化(50%) ",
+		turn: 10,
+		proc: [ss_damage_s(12.0, [0], 1), ss_attr_weaken_s([1,1,1,1,1], 0.5, 3), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],4),
+		NEFTJOD(30),
+		Heal_afterbattle(10),
+		Attr_statusup_oattr(0,400, [1,0,0,0,0,]),
+		Awake_secondfast(5),
+		Attr_statusup_oattr(400,0, [1,0,0,0,0,]),
+		Abstate_invalid("discharge"),
+		Attr_statusup(0,400, [1,0,0,0,0,]),
+		Attr_statusup(400,0, [1,0,0,0,0,]),
+		Attr_relief([0,0,1,0,0,],20),
+	],
+	as2: {
+		desc: "<回復>味方全体のHPを回復、HP50%以下なら更に回復(14%/24%)",
+		proc: [Heal(0.14, [1,1,1,1,1], 0), add_cond(Heal(0.24, [1,1,1,1,1], 0), when_hp_less(0.50))],
+	},
+	ss2: {
+		desc: "<弱体化大魔術>スキル反射を無視し、敵単体へ火属性のダメージ(1200%)、さらに3ターンの間、敵の防御力を弱体化(50%)",
+		turn: 10,
+		proc: [ss_damage_s(12.0, [0], 1), ss_attr_weaken_s([1,1,1,1,1], 0.5, 3), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Abstate_invalid("all_sealed"),
+	],
+}

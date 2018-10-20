@@ -1,0 +1,47 @@
+{
+	name: "忠勇の神装機 ヴィティ・ラブルスカ",
+	cardno: 9847,
+	imageno: 12190,
+	hp: 3225,
+	atk: 2520,
+	cost: 44,
+	attr: [2,3],
+	species: [6],
+	islegend: true,
+	ape: "眠れる遺跡のアウトランダー",
+	is_dist: true,
+	as1: {
+		desc: "<回復・複属性攻撃強化>5チェインで雷属性の味方を回復(10%)し、攻撃力もアップ(40%)、複属性が光属性だとさらに攻撃力アップ(50%)",
+		proc: [Heal(0.10, [0,0,1,0,0], 5), ChainEnhance_SubAttr(0.4, 0.9, [0,0,1,0,0], [0,0,0,1,0], 0)],
+	},
+	ss1: {
+		desc: "<スキルコピー>直前に発動したスペシャルスキルを発動する",
+		turn: 9,
+		proc: [ss_latest_copy()],
+	},
+	awakes: [
+		Costdown(10),
+		Panel_boost([0,0,1,0,0,],1),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		Attr_statusup(200,0, [0,0,1,0,0,]),
+		Panel_boost([0,0,1,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(2),
+		Attr_statusup_sattr(0,100, [0,0,1,0,0,], 0,200, [0,0,0,1,0,]),
+		Attr_statusup_sattr(100,0, [0,0,1,0,0,], 200,0, [0,0,0,1,0,]),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<回復・複属性攻撃強化>5チェインで雷属性の味方を回復(10%)し、攻撃力もアップ(70%)、複属性が光属性だとさらに攻撃力アップ(50%)",
+		proc: [Heal(0.10, [0,0,1,0,0], 5), ChainEnhance_SubAttr(0.7, 1.2, [0,0,1,0,0], [0,0,0,1,0], 0)],
+	},
+	ss2: {
+		desc: "<スキルコピー>直前に発動したスペシャルスキルを発動する",
+		turn: 9,
+		proc: [ss_latest_copy()],
+	},
+	Lawake: [
+		Statusup(0,500),
+		Statusup(500,0),
+	],
+}

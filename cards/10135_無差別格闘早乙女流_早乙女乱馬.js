@@ -1,0 +1,47 @@
+{
+	name: "無差別格闘早乙女流 早乙女乱馬",
+	cardno: 10135,
+	imageno: 5848,
+	hp: 2680,
+	atk: 4122,
+	cost: 56,
+	attr: [1,0],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(高橋留美子)",
+	as1: {
+		desc: "<チェイン攻撃>5チェインでダメージアップ(350%)、10チェインでさらにアップ(300%)",
+		proc: [ChainAttack(3.5, 5), ChainAttack(6.5, 10)],
+	},
+	ss1: {
+		desc: "<大魔術>敵全体へ火・水属性のダメージ(180%)",
+		turn: 5,
+		proc: [ss_damage_all(1.8, [0,1])],
+	},
+	awakes: [
+		Costdown(20),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_subattr(500, 0),
+		Awake_secondfast(2),
+		Attr_statusup(0,200, [1,1,0,0,0,]),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup(200,0, [1,1,0,0,0,]),
+		Awake_secondfast(2),
+		Spec_statusup(0,200, [8,]),
+		Spec_statusup(200,0, [8,]),
+	],
+	as2: {
+		desc: "<チェイン攻撃>5チェインでダメージアップ(450%)、10チェインでさらにアップ(300%)",
+		proc: [ChainAttack(4.5, 5), ChainAttack(7.5, 10)],
+	},
+	ss2: {
+		desc: "<大魔術>スキル反射を無視し、敵全体へ火・水属性のダメージ(260%)",
+		turn: 9,
+		proc: [ss_damage_all(2.6, [0, 1]), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Attr_statusup(0,100, [1,1,0,0,0,]),
+		Statusup(500,0),
+		Statusup(0,1000),
+	],
+}

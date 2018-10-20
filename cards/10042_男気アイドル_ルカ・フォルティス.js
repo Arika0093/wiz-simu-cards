@@ -1,0 +1,47 @@
+{
+	name: "男気アイドル ルカ・フォルティス",
+	cardno: 10042,
+	imageno: 12396,
+	hp: 2415,
+	atk: 4551,
+	cost: 58,
+	attr: [1,0],
+	species: [3],
+	alias: ["デバフ", "巨乳"],
+	islegend: true,
+	ape: "アイドルキャッツ2",
+	as1: {
+		desc: "<攻撃>味方のMAXHP10%を使い、敵単体へのダメージアップ(600%)",
+		proc: add_cond(ChainAttack(6.0, 0), as_consume_all(0.1)),
+	},
+	ss1: {
+		desc: "＜AS倍率強化＞3ターンの間、デッキ内の<主属性:水、複属性:火>の精霊のAS攻撃倍率をアップ。同属性の精霊が多いほどさらに倍率が上昇(上限値:3倍)",
+		turn: 4,
+		proc: [ss_asenhance_all(3, [0,1,0,0,0], [1,0,0,0,0], 3)],
+	},
+	as2: {
+		desc: "<攻撃>味方のMAXHP10%を使い、敵単体へのダメージアップ(700%)",
+		proc: add_cond(ChainAttack(7.0, 0), as_consume_all(0.1)),
+	},
+	ss2: {
+		desc: "＜AS倍率強化＞3ターンの間、デッキ内の<主属性:水、複属性:火>の精霊のAS攻撃倍率をアップ。同属性の精霊が多いほどさらに倍率が上昇(上限値:3倍)",
+		turn: 4,
+		proc: [ss_asenhance_all(3, [0,1,0,0,0], [1,0,0,0,0], 3)],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup_sattr(0,200,[0,1,0,0,0,],0,100,[1,0,0,0,0,]),
+		Attr_statusup_sattr(200,0,[0,1,0,0,0,],100,0,[1,0,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Abstate_invalid("as_sealed"),
+		Fastskill(3),
+		Attr_statusup_sattr(0,100,[0,1,0,0,0,],0,300,[1,0,0,0,0,]),
+		Attr_statusup_sattr(100,0,[0,1,0,0,0,],300,0,[1,0,0,0,0,]),
+		Abstate_invalid("ss_sealed"),
+		Awake_damage_multiple(1.1, 500),
+	],
+	Lawake: [
+		Attr_statusup_sattr(0,100,[0,1,0,0,0,],0,100,[1,0,0,0,0,]),
+		Statusup(0,1000),
+	],
+}

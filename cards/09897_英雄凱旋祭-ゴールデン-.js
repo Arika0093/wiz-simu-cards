@@ -1,0 +1,46 @@
+{
+	name: "英雄凱旋祭-ゴールデン-",
+	cardno: 9897,
+	imageno: 12238,
+	hp: 3865,
+	atk: 4968,
+	cost: 45,
+	attr: [0,-1],
+	species: [8],
+	islegend: true,
+	ape: "英雄凱旋大魔道杯",
+	is_dist: true,
+	as1: {
+		desc: "<属性特効>15チェインで雷属性の敵単体へ特効ダメージ(1950%)",
+		proc: ChainAttrAttack(19.5, 15, [0, 0, 1, 0, 0]),
+	},
+	ss1: {
+		desc: "<融合強化>デッキ内の精霊が持つ属性数が多いほど、自身の攻撃力、HPのステータスをアップ(上限値:4000,5000)",
+		turn: 5,
+		proc: [ss_statusup_own([ss_multiattr_cond(5000), ss_multiattr_cond(4000)], [5000, 5000], -1)],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Attr_statusup(200,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		Awake_chainguard(),
+		Fastskill(4),
+		Attr_statusup(0,300, [1,1,1,1,1,]),
+		Attr_statusup(300,0, [1,1,1,1,1,]),
+		Abstate_invalid("ss_sealed"),
+		Abstate_invalid("as_sealed"),
+	],
+	as2: {
+		desc: "<属性特効>15チェインで雷属性の敵単体へ特効ダメージ(2050%)",
+		proc: ChainAttrAttack(20.5, 15, [0, 0, 1, 0, 0]),
+	},
+	ss2: {
+		desc: "<融合強化>デッキ内の精霊が持つ属性数が多いほど、自身の攻撃力、HPのステータスをアップ(上限値:6000,7500)",
+		turn: 9,
+		proc: [ss_statusup_own([ss_multiattr_cond(7500), ss_multiattr_cond(6000)], [7500, 7500], -1)],
+	},
+	Lawake: [
+		Statusup(0,2000),
+	],
+}

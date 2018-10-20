@@ -1,0 +1,47 @@
+{
+	name: "なんだかんだ仲良し ロサ&ロレシャ",
+	cardno: 10016,
+	imageno: 12369,
+	hp: 5141,
+	atk: 1052,
+	cost: 42,
+	attr: [0,4],
+	species: [9],
+	islegend: true,
+	ape: "大魔道杯(5周年)",
+	is_dist: true,
+	as1: {
+		desc: "<回復・ガード>火属性の味方のHPを回復(10%)、5チェインで更に全属性のダメージを10%軽減",
+		proc: [Heal(0.10, [1,0,0,0,0], 0), as_guard(0.10, [1,1,1,1,1], 5)],
+	},
+	ss1: {
+		desc: "<特殊パネル変換>ジャンルパネルにスキルチャージプラス1の効果を付与（スキルチャージの効果は、SPスキルを使うまで重複しません）",
+		turn: 6,
+		proc: [panel_skillboost(1)],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup(0,200, [1,0,0,0,0,]),
+		Attr_statusup(200,0, [1,0,0,0,0,]),
+		Panel_boost([1,0,0,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(2),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit"]),
+		Attr_statusup(0,200, [1,1,1,1,1,]),
+		Attr_statusup(200,0, [1,1,1,1,1,]),
+		Fastskill(3),
+	],
+	as2: {
+		desc: "<回復・ガード>火属性の味方のHPを回復(13%)、5チェインで更に全属性のダメージを10%軽減",
+		proc: [Heal(0.13, [1,0,0,0,0], 0), as_guard(0.10, [1,1,1,1,1], 5)],
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルにスキルチャージプラス1の効果を付与（スキルチャージの効果は、SPスキルを使うまで重複しません）",
+		turn: 6,
+		proc: [panel_skillboost(1)],
+	},
+	Lawake: [
+		Statusup(1000,0),
+		NEFTJOD(30),
+	],
+}

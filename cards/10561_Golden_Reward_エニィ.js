@@ -1,0 +1,48 @@
+{
+	name: "Golden Reward エニィ",
+	cardno: 10561,
+	imageno: 12986,
+	imageno_prefix: "Sn7Mvk_",
+	hp: 5022,
+	atk: 3016,
+	cost: 40,
+	attr: [1,-1],
+	species: [8],
+	islegend: true,
+	ape: "黒ウィズダンジョン2",
+	is_dist: true,
+	as1: {
+		desc: "<回復>水属性の味方のHPを回復(12%)",
+		proc: Heal(0.12, [0,1,0,0,0], 0),
+	},
+	ss1: {
+		desc: "<弱体化大魔術>スキル反射を無視し、敵単体へ水属性のダメージ(100%)、さらに1ターンの間、敵の水属性に対する防御力を弱体化(50%)",
+		turn: 8,
+		proc: [ss_damage_s(1.0, [1], 1), ss_attr_weaken_s([0,1,0,0,0], 0.5, 1), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],1),
+		Fastskill(1),
+		Abstate_invalid("ss_sealed"),
+		Fastskill(2),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,400, [0,1,0,0,0,]),
+		Attr_statusup(400,0, [0,1,0,0,0,]),
+		Attr_statusup_oattr(0,400, [0,1,0,0,0,]),
+		Attr_statusup_oattr(400,0, [0,1,0,0,0,]),
+		NEFTJOD(30),
+	],
+	as2: {
+		desc: "<回復>水属性の味方のHPを回復(15%)",
+		proc: Heal(0.14, [0,1,0,0,0], 0),
+	},
+	ss2: {
+		desc: "<弱体化大魔術>スキル反射を無視し、敵単体へ水属性のダメージ(100%)、さらに2ターンの間、敵の水属性に対する防御力を弱体化(150%)",
+		turn: 15,
+		proc: [ss_damage_s(1.0, [1], 1), ss_attr_weaken_s([0,1,0,0,0], 1.5, 2), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(1000,0),
+		Statusup(0,1000),
+	],
+}

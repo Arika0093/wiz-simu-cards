@@ -1,0 +1,46 @@
+{
+	name: "コナンの相棒 灰原哀",
+	cardno: 10208,
+	imageno: 6974,
+	hp: 2910,
+	atk: 3431,
+	cost: 51,
+	attr: [1,0],
+	species: [8],
+	islegend: true,
+	ape: "コラボ(コナン)",
+	as1: {
+		desc: "<回復>火・水属性の味方を回復(14%)",
+		proc: Heal(0.14, [1,1,0,0,0], 0),
+	},
+	ss1: {
+		desc: "<犠牲魔術>スキル反射を無視し、味方全体のMAXHPの50%を使い敵全体へ水属性のダメージ(精霊数×300%)",
+		turn: 8,
+		proc: [ss_damage_all(ss_consume_all_cond(3.0, 0.5), [1]), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(1),
+		Attr_statusup(0,200, [1,1,0,0,0,]),
+		Attr_statusup_subattr(500, 0),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup(200,0, [1,1,0,0,0,]),
+		NEFTJOD(30),
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(2),
+		Abstate_invalid("ss_sealed"),
+	],
+	as2: {
+		desc: "<回復>火・水属性の味方を回復(17%)",
+		proc: Heal(0.17, [1,1,0,0,0], 0),
+	},
+	ss2: {
+		desc: "<犠牲魔術>スキル反射を無視し、味方全体のMAXHPの50%を使い敵全体へ水属性のダメージ(精霊数×340%)",
+		turn: 10,
+		proc: [ss_damage_all(ss_consume_all_cond(3.4, 0.5), [1]), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Statusup(0,1000),
+		Statusup(1000,0),
+	],
+}

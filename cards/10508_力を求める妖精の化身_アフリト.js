@@ -1,0 +1,46 @@
+{
+	name: "力を求める妖精の化身 アフリト",
+	cardno: 10508,
+	imageno: 12929,
+	hp: 2815,
+	atk: 4333,
+	cost: 59,
+	attr: [1,4],
+	species: [9],
+	islegend: true,
+	ape: "MARELESS2 夢現の狭間",
+	as1: {
+		desc: "<連撃>5チェインで敵単体を3回連続攻撃(450%)、10チェインで更にダメージアップ(350%)",
+		proc: [ChainDualAttack(4.5, 5, 3), ChainDualAttack(8.0, 10, 3)],
+	},
+	ss1: {
+		desc: "<特殊パネル変換>ジャンルパネルにスキルチャージプラス1の効果を付与（スキルチャージの効果は、SPスキルを使うまで重複しません）",
+		turn: 4,
+		proc: [panel_skillboost(1)],
+	},
+	as2: {
+		desc: "<連撃>5チェインで敵単体を3回連続攻撃(550%)、10チェインで更にダメージアップ(350%)",
+		proc: [ChainDualAttack(5.5, 5, 3), ChainDualAttack(9.0, 10, 3)],
+	},
+	ss2: {
+		desc: "<ダメージ強化>3ターン自分の攻撃力をアップ(1000%)、5チェインを消費しさらに3ターン攻撃力をアップ(1000%)",
+		turn: 11,
+		proc: [ss_chain_cost_skill(5, ss_enhance_own(20.0, 6), ss_enhance_own(10.0, 3))],
+	},
+	awakes: [
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(3),
+		Abstate_invalid("ss_sealed"),
+		Attr_statusup_subattr(500, 0),
+		Panel_boost([0,1,0,0,0,],2),
+		Abstate_invalid("as_sealed"),
+		Attr_relief([1,1,1,1,1,],10),
+		Attr_statusup_subattr(0, 500),
+	],
+	Lawake: [
+		Statusup(0,1000),
+		Attr_statusup_subattr(0, 200),
+	],
+}
