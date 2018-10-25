@@ -7,6 +7,7 @@
 	cost: 55,
 	attr: [1,0],
 	species: [1],
+	disable: true,
 	islegend: true,
 	ape: "八百万神秘譚Ⅱ",
 	as1: {

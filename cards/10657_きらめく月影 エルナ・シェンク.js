@@ -1,0 +1,47 @@
+{
+	name: "きらめく月影 エルナ・シェンク",
+	cardno: 10657,
+	imageno: 13100,
+	hp: 2005,
+	atk: 3922,
+	cost: 53,
+	attr: [1,2],
+	species: [8],
+	islegend: true,
+	ape: "大魔道杯 in 月夜の思い出",
+	is_dist: true,
+	as1: {
+		desc: "<連撃>敵単体を2回連続攻撃(150%)、デッキ内の精霊が持つ属性数が多いほどさらにダメージアップ(40%)(上限:5段階)",
+		proc: add_cond(ChainDualAttack(1.5, 0, 2), as_deckinattr_num(0, 0.4)),
+	},
+	ss1: {
+		desc: "<融合大魔術>スキル反射を無視し、敵単体へ水属性のダメージ、デッキ内の精霊が持つ属性数が多いほどダメージアップ(上限値:5属性で4800%)",
+		turn: 8,
+		proc: [ss_damage_s(ss_multiattr_cond(48), [1], 1), ss_ignore_skillcounter()],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],1),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Fastskill(3),
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup_subattr(0, 300),
+		Attr_statusup_subattr(300, 0),
+		NEFTJOD(30),
+		Awake_noeffect("ゴールド取得量アップ",2),
+		Awake_damage_multiple(1.1, 500),
+	],
+	as2: {
+		desc: "<連撃>敵単体を2回連続攻撃(250%)、デッキ内の精霊が持つ属性数が多いほどさらにダメージアップ(40%)(上限:5段階)",
+		proc: add_cond(ChainDualAttack(2.5, 0, 2), as_deckinattr_num(0, 0.4)),
+	},
+	ss2: {
+		desc: "<融合大魔術>スキル反射を無視し、敵単体へ水属性のダメージ、デッキ内の精霊が持つ属性数が多いほどダメージアップ(上限値:5属性で6000%)",
+		turn: 11,
+		proc: [ss_damage_s(ss_multiattr_cond(60), [1], 1), ss_ignore_skillcounter()],
+	},
+	Lawake: [
+		Attr_statusup(0,100, [0,1,0,0,0,]),
+		Statusup(0,1000),
+	],
+}

@@ -7,6 +7,7 @@
 	cost: 40,
 	attr: [1, -1],
 	species: [1],
+	disable: true,
 	awakes: [
 		Statusup(200, 0),
 		Statusup(0, 200),

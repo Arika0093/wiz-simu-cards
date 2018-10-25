@@ -7,6 +7,7 @@
 	cost: 58,
 	attr: [1,4],
 	species: [2],
+	disable: true,
 	islegend: true,
 	ape: "ロストエデンⅡ WWMF",
 	as1: {

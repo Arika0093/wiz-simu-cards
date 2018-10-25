@@ -17,7 +17,7 @@
 	ss1: {
 		desc: "<特殊パネル変換>味方全体のMAXHPの50%を使い、ジャンルパネルにチェインがプラス3とスキルチャージプラス1の効果を付与(効果は、SPスキルを使うまで重複しません)",
 		turn: 5,
-		proc: [panel_multieffect([panel_skillboost(1), panel_chainplus(4)]), ss_consume_all(0.5)],
+		proc: [panel_multieffect([panel_skillboost(1), panel_chainplus(3)]), ss_consume_all(0.5)],
 	},
 	awakes: [
 		Costdown(20),

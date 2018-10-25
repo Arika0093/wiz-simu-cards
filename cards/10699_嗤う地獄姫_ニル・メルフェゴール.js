@@ -1,0 +1,45 @@
+﻿{
+	name: "嗤う地獄姫 ニル・メルフェゴール",
+	cardno: 10699,
+	imageno: 6117,
+	hp: 1236,
+	atk: 8096,
+	cost: 48,
+	attr: [1,-1],
+	species: [2],
+	islegend: true,
+	as1: {
+		desc: "<連撃>味方のMAXHP10%を使い、敵単体を2回連続攻撃(600%)、3チェインで更にダメージアップ(100%)",
+		proc: [add_cond(ChainDualAttack(6.0, 0, 2), as_consume_all(0.10)), add_cond(ChainDualAttack(7.0, 3, 2), as_consume_all(0.10))],
+	},
+	ss1: {
+		desc: "<大魔術>敵単体へ水属性のダメージ(300%)。HP50%以下の時、さらにダメージアップ(700%)",
+		turn: 7,
+		proc: [ss_damage_s(ss_hp_less(0.5, 10.0, 3.0), [1], 1)],
+	},
+	awakes: [
+		Attr_statusup(0,300, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(1),
+		Attr_statusup(300,0, [0,1,0,0,0,]),
+		Attr_statusup(0,300, [0,1,0,0,0,]),
+		Fastskill(1),
+		Panel_boost([0,1,0,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(2),
+		Attr_statusup(0,300, [0,1,0,0,0,]),
+	],
+	as2: {
+		desc: "<連撃>味方のMAXHP10%を使い、敵単体を2回連続攻撃(700%)、3チェインで更にダメージアップ(100%)",
+		proc: [add_cond(ChainDualAttack(7.0, 0, 2), as_consume_all(0.10)), add_cond(ChainDualAttack(8.0, 3, 2), as_consume_all(0.10))],
+	},
+	ss2: {
+		desc: "<大魔術>敵単体へ水属性のダメージ(600%)。HP50%以下の時、さらにダメージアップ(1400%)",
+		turn: 10,
+		proc: [ss_damage_s(ss_hp_less(0.5, 20.0, 6.0), [1], 1)],
+	},
+	Lawake: [
+		NEFTJOD(30),
+		Statusup(0,1500),
+	],
+}

@@ -7,6 +7,7 @@
 	cost: 54,
 	attr: [1,0],
 	species: [9],
+	disable: true,
 	islegend: true,
 	ape: "八百万神秘譚Ⅱ",
 	alias: ["/wiz_kamui", "/wiztools"],

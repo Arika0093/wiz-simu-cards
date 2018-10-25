@@ -1,18 +1,17 @@
-{
+﻿{
 	name: "聖王たる神髄 ミカエラ・セラフィム",
-	cardno: 9439,
+	cardno: 10692,
 	imageno: 9120,
-	hp: 3495,
-	atk: 3590,
-	cost: 56,
+	hp: 3595,
+	atk: 4290,
+	cost: 63,
 	attr: [2,3],
 	species: [3],
-	disable: true,
 	islegend: true,
 	ape: "ロストエデンⅡ WWMF",
 	as1: {
-		desc: "<種族特効>10チェインでダメージアップ(900%)、天使・魔族へさらにダメージアップ(350%)",
-		proc: [ChainAttack(9.0, 10), ChainSpecAttack(12.5, 10, [2,3])],
+		desc: "<種族特効>10チェインでダメージアップ(900%)、天使・魔族へさらにダメージアップ(1000%)",
+		proc: [ChainAttack(9.0, 10), ChainSpecAttack(19, 10, [2,3])],
 	},
 	ss1: {
 		desc: "<斬撃大魔術>3ターン溜めた後、スキル反射を無視し、雷・光属性の3連撃(300%)、さらに連撃数分チェインプラス",
@@ -28,13 +27,13 @@
 		NEFTJOD(30),
 		Attr_relief([1,0,0,0,0,],20),
 		Fastskill(1),
-		Attr_statusup_sattr(0,100, [0,0,1,0,0,], 0,300, [0,0,0,1,0,]),
-		Attr_statusup_sattr(100,0, [0,0,1,0,0,], 300,0, [0,0,0,1,0,]),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
 		Abstate_invalid("ss_sealed"),
 	],
 	as2: {
-		desc: "<種族特効>10チェインでダメージアップ(1000%)、天使・魔族へさらにダメージアップ(350%)",
-		proc: [ChainAttack(10.0, 10), ChainSpecAttack(13.5, 10, [2,3])],
+		desc: "<種族特効>10チェインでダメージアップ(1000%)、天使・魔族へさらにダメージアップ(1000%)",
+		proc: [ChainAttack(10.0, 10), ChainSpecAttack(20, 10, [2,3])],
 	},
 	ss2: {
 		desc: "<多弾魔術>スキル反射を無視し、敵単体へ雷・光属性の5回連続ダメージ(650%)",

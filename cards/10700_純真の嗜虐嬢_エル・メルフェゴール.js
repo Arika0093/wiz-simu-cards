@@ -1,0 +1,45 @@
+﻿{
+	name: "純真の嗜虐嬢 エル・メルフェゴール",
+	cardno: 10700,
+	imageno: 7833,
+	hp: 5205,
+	atk: 2621,
+	cost: 57,
+	attr: [0,2],
+	species: [2],
+	islegend: true,
+	as1: {
+		desc: "<回復・攻撃強化>味方全体のHPを回復(13%)し、さらに攻撃力をアップ(30%)",
+		proc: [Heal(0.13, [1,1,1,1,1], 0), ChainEnhance(0.3, [1,1,1,1,1], 0)],
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルを火・雷属性化",
+		turn: 3,
+		proc: [ss_panel_change([1,0,1,0,0])],
+	},
+	awakes: [
+		Panel_boost([1,0,0,0,0,],2),
+		NEFTJOD(30),
+		Fastskill(1),
+		Attr_statusup(200,0, [1,0,1,0,0,]),
+		Fastskill(2),
+		Panel_boost([1,0,0,0,0,],2),
+		Attr_statusup_subattr(500, 0),
+		Attr_statusup(0,200, [1,0,1,0,0,]),
+		Attr_statusup_subattr(0, 500),
+		Heal_afterbattle(10),
+	],
+	as2: {
+		desc: "<回復・攻撃強化>味方全体のHPを回復(16%)し、さらに攻撃力をアップ(30%)",
+		proc: [Heal(0.16, [1,1,1,1,1], 0), ChainEnhance(0.3, [1,1,1,1,1], 0)],
+	},
+	ss2: {
+		desc: "<統一パネル変換>ジャンルパネルを火・雷属性化し、ダメージ軽減の効果を付与、〈主属性:火、複属性:雷〉の精霊が多いほどさらに効果値アップ(上限値:50%)",
+		turn: 7,
+		proc: [ss_panel_change([1,0,1,0,0]), panel_attr_guard([1,1,1,1,1], ss_matchattr_cond(0.5, [1,0,0,0,0], [0,0,1,0,0]))],
+	},
+	Lawake: [
+		Attr_statusup(0,200, [1,0,1,0,0,]),
+		Statusup(1000,0),
+	],
+}

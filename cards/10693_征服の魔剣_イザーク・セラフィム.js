@@ -1,13 +1,12 @@
-{
+﻿{
 	name: "征服の魔剣 イザーク・セラフィム",
-	cardno: 9440,
+	cardno: 10693,
 	imageno: 9123,
-	hp: 2890,
-	atk: 3980,
-	cost: 56,
+	hp: 3090,
+	atk: 4450,
+	cost: 62,
 	attr: [2,4],
 	species: [3],
-	disable: true,
 	islegend: true,
 	ape: "ロストエデンⅡ WWMF",
 	as1: {
@@ -20,15 +19,15 @@
 		proc: [ss_consume_all(0.5), ss_skillboost(5)],
 	},
 	awakes: [
-		Panel_boost([0,0,1,0,0,],2),
+		Panel_boost([0,0,1,0,0,],4),
 		Attr_statusup(0,200, [0,0,1,0,0,]),
 		Attr_statusup(200,0, [0,0,1,0,0,]),
-		Panel_boost([0,0,1,0,0,],2),
-		Fastskill(4),
+		Abstate_invalid("ss_sealed"),
+		Fastskill(5),
 		NEFTJOD(60),
 		Attr_relief([1,1,1,1,1,],10),
-		Attr_statusup_sattr(0,100, [0,0,1,0,0,], 0,300, [0,0,0,0,1,]),
-		Attr_statusup_sattr(100,0, [0,0,1,0,0,], 300,0, [0,0,0,0,1,]),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
 		Abstate_invalid("discharge"),
 	],
 	as2: {
@@ -41,8 +40,7 @@
 		proc: [ss_consume_all(0.5), ss_skillboost(5)],
 	},
 	Lawake: [
-		Abstate_invalid("ss_sealed"),
 		Statusup(500,0),
-		Statusup(0,1000),
+		Statusup(0,1500),
 	],
 }

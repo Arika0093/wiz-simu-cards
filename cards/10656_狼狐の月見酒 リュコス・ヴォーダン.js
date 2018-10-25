@@ -1,0 +1,48 @@
+{
+	name: "狼狐の月見酒 リュコス・ヴォーダン",
+	cardno: 10656,
+	imageno: 13104,
+	hp: 7895,
+	atk: 2091,
+	cost: 52,
+	attr: [2,-1],
+	species: [1],
+	islegend: true,
+	ape: "大魔道杯 in 月夜の思い出",
+	is_dist: true,
+	as1: {
+		desc: "<攻撃強化・ガード>10チェインで雷属性の味方の攻撃力をアップ(110%)、さらに全属性のダメージを15%軽減",
+		proc: [ChainEnhance(1.1, [0,0,1,0,0], 10), as_guard(0.15, [1,1,1,1,1], 10)],
+	},
+	ss1: {
+		desc: "<特殊パネル変換>ジャンルパネルをALL属性化し、ダメージ25%軽減と回復の効果を付与(40%)",
+		turn: 10,
+		proc: [ss_panel_change([1,1,1,0,0]), panel_multieffect([panel_healally(0.40), panel_attr_guard([1,1,1,1,1], 0.25)])],
+	},
+	awakes: [
+		Panel_boost([0,0,1,0,0,],4),
+		Attr_statusup_oattr(0,400, [0,0,1,0,0,]),
+		Abstate_invalid("discharge"),
+		Awake_secondfast(4),
+		Attr_statusup_oattr(400,0, [0,0,1,0,0,]),
+		Heal_afterbattle(10),
+		Abstate_invalid("heal_reverse"),
+		Attr_statusup(0,400, [0,0,1,0,0,]),
+		Attr_statusup(400,0, [0,0,1,0,0,]),
+		Awake_secondfast(4),
+	],
+	as2: {
+		desc: "<攻撃強化・ガード>10チェインで雷属性の味方の攻撃力をアップ(140%)、さらに全属性のダメージを15%軽減",
+		proc: [ChainEnhance(1.4, [0,0,1,0,0], 10), as_guard(0.15, [1,1,1,1,1], 10)],
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルをALL属性化し、ダメージ25%軽減と回復の効果を付与(40%)",
+		turn: 10,
+		proc: [ss_panel_change([1,1,1,0,0]), panel_multieffect([panel_healally(0.40), panel_attr_guard([1,1,1,1,1], 0.25)])],
+	},
+	Lawake: [
+		Statusup(500,0),
+		Attr_statusup(0,200, [0,0,1,0,0,]),
+		NEFTJOD(30),
+	],
+}

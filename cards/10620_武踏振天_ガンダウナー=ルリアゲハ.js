@@ -5,7 +5,7 @@
 	hp: 2711,
 	atk: 4802,
 	cost: 63,
-	attr: [2,1],
+	attr: [1,2],
 	species: [8],
 	islegend: true,
 	ape: "GP2016",

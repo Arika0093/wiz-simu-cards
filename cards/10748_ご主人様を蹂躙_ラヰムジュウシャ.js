@@ -1,0 +1,48 @@
+﻿{
+	name: "ご主人様を蹂躙 ラヰムジュウシャ",
+	cardno: 10748,
+	imageno: 13185,
+	imageno_prefix: "W4ripe_",
+	hp: 3525,
+	atk: 3001,
+	cost: 50,
+	attr: [1,4],
+	species: [5],
+	islegend: true,
+	ape: "八百八町",
+	is_dist: true,
+	as1: {
+		desc: "<複属性攻撃強化>水属性の攻撃力をアップ(30%)、複属性を持つ精霊はさらにアップ(20%)",
+		proc: ChainEnhance_SubAttr(0.3, 0.5, [0,1,0,0,0], [1,0,1,1,1], 0),
+	},
+	ss1: {
+		desc: "<スキルチャージ>味方全体のMAXHPの60%を使い、味方全体のスペシャルスキルの発動ターンを1早める",
+		turn: 4,
+		proc: [ss_consume_all(0.6), ss_skillboost(1)],
+	},
+	awakes: [
+		Costdown(10),
+		Panel_boost([0,1,0,0,0,],1),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(1),
+		Attr_statusup_subattr(0, 300),
+		Attr_statusup_subattr(300, 0),
+		Fastskill(2),
+		Abstate_invalid("discharge"),
+	],
+	as2: {
+		desc: "<複属性攻撃強化>水属性の攻撃力をアップ(60%)、複属性を持つ精霊はさらにアップ(20%)",
+		proc: ChainEnhance_SubAttr(0.6, 0.8, [0,1,0,0,0], [1,0,1,1,1], 0),
+	},
+	ss2: {
+		desc: "<スキルチャージ>味方全体のMAXHPの60%を使い、味方全体のスペシャルスキルの発動ターンを2早める",
+		turn: 6,
+		proc: [ss_consume_all(0.6), ss_skillboost(2)],
+	},
+	Lawake: [
+		Statusup(0,500),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+	],
+}

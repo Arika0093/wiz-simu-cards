@@ -1,0 +1,45 @@
+﻿{
+	name: "天郷の輝光 ペガサスロード",
+	cardno: 10701,
+	imageno: 5813,
+	hp: 4568,
+	atk: 2832,
+	cost: 55,
+	attr: [1,3],
+	species: [1],
+	islegend: true,
+	as1: {
+		desc: "<回復>味方全員のHPを回復(9%)、神族はさらに回復(7%)",
+		proc: [Heal(0.09, [1,1,1,1,1], 0), SpecHeal(0.16, [1,1,1,1,1], [1], 0)],
+	},
+	ss1: {
+		desc: "<パネル変換>ジャンルパネルをALL属性化",
+		turn: 4,
+		proc: [ss_panel_change([0,1,1,0,0])],
+	},
+	awakes: [
+		Attr_statusup_subattr(500, 0),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Fastskill(2),
+		Costdown(10),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Costdown(10),
+		Panel_boost([0,1,0,0,0,],2),
+		Abstate_invalid("ss_sealed"),
+		Fastskill(2),
+	],
+	as2: {
+		desc: "<回復>味方全員のHPを回復(12%)、神族はさらに回復(7%)",
+		proc: [Heal(0.12, [1,1,1,1,1], 0), SpecHeal(0.19, [1,1,1,1,1], [1], 0)],
+	},
+	ss2: {
+		desc: "<融合パネル変換>ジャンルパネルをALL属性化し、攻撃力アップの効果を付与、デッキ内の精霊がもつ属性数が多いほどさらに効果値アップ(上限値:250%)",
+		turn: 7,
+		proc: [ss_panel_change([1,1,1,0,0]), panel_attackup(2.5)],
+	},
+	Lawake: [
+		Statusup(1000,0),
+		Statusup(0,1000),
+	],
+}

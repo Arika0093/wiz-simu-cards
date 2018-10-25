@@ -7,6 +7,7 @@
 	cost: 45,
 	attr: [0, 2],
 	species: [2],
+	disable: true,
 	islegend: true,
 	as1: {
 		desc: "<回復>火・雷属性の味方を回復(13%)",

@@ -1,0 +1,46 @@
+﻿{
+	name: "慈愛と自由の華 ルシエラ・フオル",
+	cardno: 10691,
+	imageno: 9117,
+	hp: 6750,
+	atk: 2097,
+	cost: 62,
+	attr: [1,3],
+	species: [3],
+	islegend: true,
+	ape: "ロストエデンⅡ WWMF",
+	as1: {
+		desc: "<回復・攻撃強化>水属性の味方のHPを回復(13%)、さらに水属性の味方の攻撃力をアップ(30%)、複属性を持つ精霊はさらにアップ(10%)",
+		proc: [Heal(0.13, [0,1,0,0,0], 0), ChainEnhance_SubAttr(0.30, 0.40, [0,1,0,0,0], [1,0,1,1,1], 4)],
+	},
+	ss1: {
+		desc: "<特殊パネル変換>ジャンルパネルに攻撃力アップの効果を付与(60%)、パネルの色が2色以上でさらにアップ(140%)",
+		turn: 2,
+		proc: [panel_attackup(0.6), panel_attackup(2.0)],
+	},
+	awakes: [
+		Panel_boost([0,1,0,0,0,],2),
+		Attr_statusup(0,200, [0,1,0,0,0,]),
+		Attr_statusup(200,0, [0,1,0,0,0,]),
+		Panel_boost([0,1,0,0,0,],2),
+		Fastskill(3),
+		Abstate_invalid(["poison", "attr_weaken", "death_limit", "all_sealed"]),
+		Attr_statusup_subattr(0, 500),
+		Attr_statusup_subattr(500, 0),
+		Heal_afterbattle(10),
+		Awake_Chainboost(1),
+	],
+	as2: {
+		desc: "<回復・攻撃強化>水属性の味方のHPを回復(16%)、さらに水属性の味方の攻撃力をアップ(30%)、複属性を持つ精霊はさらにアップ(10%)",
+		proc: [Heal(0.16, [0,1,0,0,0], 0), ChainEnhance_SubAttr(0.30, 0.40, [0,1,0,0,0], [1,0,1,1,1], 4)],
+	},
+	ss2: {
+		desc: "<特殊パネル変換>ジャンルパネルに攻撃力アップの効果を付与(100%)、パネルの色が2色以上でさらにアップ(140%)",
+		turn: 4,
+		proc: [panel_attackup(1.0), panel_attackup(2.4)],
+	},
+	Lawake: [
+		Attr_statusup(0,300, [0,1,0,0,0,]),
+		NEFTJOD(30),
+	],
+}

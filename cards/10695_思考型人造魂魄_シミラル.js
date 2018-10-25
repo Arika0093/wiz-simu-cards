@@ -1,13 +1,12 @@
-{
+﻿{
 	name: "思考型人造魂魄 シミラル",
-	cardno: 9442,
+	cardno: 10695,
 	imageno: 9129,
-	hp: 6709,
-	atk: 3499,
-	cost: 53,
+	hp: 6719,
+	atk: 3709,
+	cost: 55,
 	attr: [0,-1],
 	species: [2],
-	disable: true,
 	islegend: true,
 	ape: "ロストエデンⅡ WWMF",
 	as1: {
@@ -15,9 +14,9 @@
 		proc: as_copy(),
 	},
 	ss1: {
-		desc: "<鉄壁・極>3ターンの間、攻撃や状態異常攻撃など様々な効果を無効化する(スキル発動中は行動不可)",
-		turn: 5,
-		proc: [ss_impregnable_all(3)],
+		desc: "<鉄壁・極>2ターンの間、攻撃や状態異常攻撃など様々な効果を無効化する(スキル発動中は行動不可)",
+		turn: 4,
+		proc: [ss_impregnable_all(2)],
 	},
 	awakes: [
 		Panel_boost([1,0,0,0,0,],4),
