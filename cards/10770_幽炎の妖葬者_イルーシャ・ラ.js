@@ -1,4 +1,4 @@
-{
+﻿{
 	name: "幽炎の妖葬者 イルーシャ・ラ",
 	cardno: 10770,
 	imageno: 13225,
@@ -43,4 +43,4 @@
 		Attr_statusup_subattr(0, 300),
 		Statusup(0,1000),
 	],
-},
+}
